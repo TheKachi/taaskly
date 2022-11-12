@@ -1,6 +1,6 @@
 
 <template>
-	<div class="p-5">
+	<div id="svg-container" class="h-screen">
 		<slot />
 		<ModalBase />
 		<PageLoading />
@@ -11,4 +11,9 @@
 <script setup lang="ts">
 </script>
 
-<style scoped></style>
+<style scoped>
+#svg-container{
+	background: url('../assets/images/landing/home.svg');
+	background-size: cover;
+}
+</style>

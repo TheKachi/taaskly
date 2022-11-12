@@ -31,14 +31,16 @@ export default {
 	alias: {
 		'@': './src'
 	},
-	modules: ['@vueuse/nuxt'],
+	modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss'],
 
 	css: ['/src/assets/css/main.css'],
 	components: [
 		'@/components',
 		{ path: '@/components/core', extensions: ['vue'] }
 	],
-
+ tailwindcss: {
+    cssPath: '@/assets/css/main.css'
+  },
 	build: {
 		postcss: {
 			postcssOptions: require('./postcss.config.js')

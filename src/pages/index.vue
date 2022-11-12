@@ -2,16 +2,17 @@
 	<main class="w-full h-screen">
 		<transition name="slideUp" appear>
 			<div
-				class="container mx-auto flex flex-col justify-center items-center h-full text-center"
+				class="container mx-auto flex flex-col md:justify-center items-center h-full text-center gap-4 py-20"
 			>
-				<header class="mb-8 flex flex-col justify-center items-center">
-					<h1 class="home-title title">
-						Welcome to Vue KanBan
-					</h1>
-					<p class="home-desc">
-						An OpenSource KanBan board built by Kromate in Vue
-					</p>
-				</header>
+				<h1 class="font-bold md:text-8xl text-5xl">
+					Earn on the Go
+				</h1>
+				<p class="md:text-4xl text-xl">
+					Earn extra cash while doing the things you love to do
+				</p>
+				<button class="md:text-3xl text-lg rounded border-2 border-black py-3 px-6 mt-6">
+					Try out MVP
+				</button>
 			</div>
 		</transition>
 	</main>
