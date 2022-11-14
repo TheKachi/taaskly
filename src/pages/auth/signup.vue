@@ -18,13 +18,13 @@
 				</div> -->
 
 				<button class="btn">
-					Sign in with Google
+					Sign up with Google
 				</button>
 			</form>
 
 			<p class="text-sm mt-4 text-center">
-				Don't have an Account? <nuxt-link to="/auth/signup" class="font-bold italic">
-					Sign up
+				Already have an Account? <nuxt-link to="/auth/login" class="font-bold italic">
+					Sign in
 				</nuxt-link>
 			</p>
 		</div>

@@ -2,20 +2,20 @@
 	<main class="main-layout">
 		<div class="auth-box">
 			<h1 class="auth-title">
-				Welcome back
+				Create a profile
 			</h1>
 			<p class="text-sm text-center mb-2">
 				We encourage passwordless login being more secure and safe
 			</p>
 			<form class="auth-form">
-				<!-- <div class="field">
+				<div class="field">
 					<label for="email">Email</label>
 					<input id="email" type="text" class="input-field" disabled>
 				</div>
 				<div class="field">
 					<label for="password">Password</label>
 					<input id="password" type="password" class="input-field" disabled>
-				</div> -->
+				</div>
 
 				<button class="btn">
 					Sign in with Google

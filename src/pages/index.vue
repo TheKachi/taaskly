@@ -2,7 +2,7 @@
 	<main class="w-full h-screen">
 		<transition name="slideUp" appear>
 			<div
-				class="container mx-auto flex flex-col md:justify-center items-center h-full text-center gap-4 py-20"
+				class="container mx-auto flex flex-col md:justify-center items-center h-full text-center gap-4 py-20 text-clear"
 			>
 				<h1 class="font-bold md:text-8xl text-5xl">
 					Earn on the Go
@@ -10,9 +10,9 @@
 				<p class="md:text-4xl text-xl">
 					Earn extra cash while doing the things you love to do
 				</p>
-				<button class="md:text-3xl text-lg rounded border-2 border-black py-3 px-6 mt-6">
+				<nuxt-link to="/auth/login" class="md:text-3xl text-lg rounded border-2 border-clear py-3 px-6 mt-6">
 					Try out MVP
-				</button>
+				</nuxt-link>
 			</div>
 		</transition>
 	</main>
