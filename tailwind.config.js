@@ -6,9 +6,13 @@ module.exports = {
     './src/pages/**/*.vue'
   ],
   theme: {
+     container: {
+      center: true
+    },
     extend: {
 			colors: {
 				primary: 'var(--primary)',
+				secondary: 'var(--secondary)',
 				clear: 'var(--clear)',
 				grey: 'var(--grey)',
 				red: 'var(--red)',

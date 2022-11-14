@@ -1,6 +1,6 @@
 
 <template>
-	<div class="p-5">
+	<div class="layout-body">
 		<slot />
 		<ModalBase />
 		<PageLoading />
