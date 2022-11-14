@@ -1,12 +1,12 @@
 import { ref } from 'vue'
 import { useModal } from './modal'
-import CreateTicket from '@/components/modals/CreateTicket.vue'
+import logout from '@/components/modals/logout.vue'
 
-type TicketTypes = 'CreateTicket'
+type AuthTypes = 'logout'
 
-const TicketModals = { CreateTicket } as Record<TicketTypes, any>
+const AuthModals = { logout } as Record<AuthTypes, any>
 
 export const modal = useModal(ref([] as any))
-// const ticketModal = modal.register('Ticket', TicketModals)
+const authModal = modal.register('Ticket', AuthModals)
 
-// export const useTicketModal = () => ticketModal
+export const useAuthModal = () => authModal

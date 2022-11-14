@@ -9,11 +9,10 @@
 					alt="logo"
 					class="w-28 h-10 ml-4"
 				>
-				<AuthCoreEnvBadge />
 			</div>
 
 			<div class="relative border-gray300 mt-12">
-				<div v-for="n in routes" :key="n.name" class="w-full ml-4 flex flex-col gap-4">
+				<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
 					<span v-if="!n.children">
 						<nuxt-link
 							:to="n.route"
@@ -47,7 +46,7 @@
 					</details>
 				</div>
 				<a
-					class="flex items-center black ml-4 !text-[#ff615c] cursor-pointer"
+					class="flex items-center black !text-[#ff615c] cursor-pointer"
 				>
 					<icon name="exit" class="mr-4 w-5" />
 					<p class="text-base">
@@ -92,7 +91,7 @@ const routes = [
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a {
-	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded
+	@apply text-primary w-[180px] h-11 px-6 text-sm duration-[10ms] rounded
 
 }
 /* exact link will show the primary color for only the exact matching link */

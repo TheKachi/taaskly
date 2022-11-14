@@ -1,9 +1,9 @@
 
 <template>
-	<div class="flex w-full h-screen bg-grey relative py-[14px] pr-6 md:overflow-y-hidden ">
+	<div class="flex w-full h-screen bg-grey relative py-[14px] sm:px-4 px-0 md:overflow-y-hidden ">
 		<SidebarsDefaultSidebar />
 		<TopbarDefaultTopbar />
-		<div class="relative bg-clear w-full rounded-xl ml shadow-sm border mt mt-auto">
+		<div class="relative bg-clear w-full sm:rounded-xl ml shadow-sm border mt mt-auto">
 			<Alert />
 			<PageLoading />
 			<div class="w-full px-6 relative ">
@@ -19,9 +19,12 @@
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .ml{
 	margin-left: min(20%, 14rem);
+	@media (max-width:1024px){
+		margin-left: 0;
+	}
 }
 .mt{
 	margin-top: min(20%, 3rem);
