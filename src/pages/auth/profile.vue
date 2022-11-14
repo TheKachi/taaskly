@@ -34,18 +34,10 @@
 <script setup lang="ts">
 
 definePageMeta({
-	layout: 'auth'
-	// middleware: 'is-not-authenticated'
+	layout: 'auth',
+	middleware: 'is-not-authenticated'
 })
 
-// const { credential, login: userLogin, loading, disabled } = useLogin()
-const showPassword = ref(false)
-const toggleShow = () => {
-	showPassword.value = !showPassword.value
-}
-const login = async () => {
-	await userLogin()
-}
 </script>
 
 <style scoped></style>
