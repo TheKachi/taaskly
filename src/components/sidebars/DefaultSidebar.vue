@@ -1,6 +1,6 @@
 <template>
 	<aside
-		class="min-h-full h-screen flex flex-col justify-between w-[20%] max-w-[14rem] bg-transparent py-4 fixed z-50 pc"
+		class="pc min-h-full h-screen  flex-col justify-between w-[20%] max-w-[14rem] bg-transparent py-4 fixed z-50 "
 	>
 		<div>
 			<div class="flex   items-center pr-4 gap-2">
