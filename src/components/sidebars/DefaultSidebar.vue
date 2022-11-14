@@ -1,6 +1,6 @@
 <template>
 	<aside
-		class="min-h-full h-screen flex flex-col justify-between w-[20%] max-w-[14rem] bg-transparent py-4 fixed z-50"
+		class="min-h-full h-screen flex flex-col justify-between w-[20%] max-w-[14rem] bg-transparent py-4 fixed z-50 pc"
 	>
 		<div>
 			<div class="flex   items-center pr-4 gap-2">
@@ -92,7 +92,7 @@ const routes = [
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a {
-	@apply text-primary w-[190px] h-[50px] px-6 text-sm duration-[10ms] rounded
+	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded
 
 }
 /* exact link will show the primary color for only the exact matching link */

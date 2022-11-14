@@ -1,6 +1,6 @@
 
 <template>
-	<div class="flex w-full h-screen bg-grey relative py-[14px] pr-[14px] md:overflow-y-hidden">
+	<div class="flex w-full h-screen bg-grey relative py-[14px] pr-6 md:overflow-y-hidden ">
 		<SidebarsDefaultSidebar />
 		<TopbarDefaultTopbar />
 		<div class="relative bg-clear w-full rounded-xl ml shadow-sm border mt mt-auto">
