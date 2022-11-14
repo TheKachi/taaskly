@@ -1,6 +1,6 @@
 <template>
-	<div
-		class="min-h-full h-screen flex flex-col justify-between w-[20%] max-w-[14.5rem] bg-transparent py-4 fixed z-50"
+	<aside
+		class="min-h-full h-screen flex flex-col justify-between w-[20%] max-w-[14rem] bg-transparent py-4 fixed z-50"
 	>
 		<div>
 			<div class="flex   items-center pr-4 gap-2">
@@ -13,11 +13,11 @@
 			</div>
 
 			<div class="relative border-gray300 mt-12">
-				<div v-for="n in routes" :key="n.name" class="w-full">
+				<div v-for="n in routes" :key="n.name" class="w-full ml-4 flex flex-col gap-4">
 					<span v-if="!n.children">
 						<nuxt-link
 							:to="n.route"
-							class="flex py-1.5 items-center px-6 mt-3 duration-75 black"
+							class="flex items-center black"
 						>
 							<icon :name="n.icon" class="mr-4 w-5" />
 							<p class="text-base">
@@ -46,9 +46,17 @@
 						</div>
 					</details>
 				</div>
+				<a
+					class="flex items-center black ml-4 !text-[#ff615c] cursor-pointer"
+				>
+					<icon name="exit" class="mr-4 w-5" />
+					<p class="text-base">
+						Sign Out
+					</p>
+				</a>
 			</div>
 		</div>
-	</div>
+	</aside>
 </template>
 
 <script lang="ts" setup>
@@ -69,6 +77,11 @@ const routes = [
 		icon: 'wallet',
 		name: 'Wallet',
 		route: '/wallet'
+	},
+	{
+		icon: 'help',
+		name: 'Help',
+		route: '/help'
 	}
 
 ]
@@ -79,18 +92,16 @@ const routes = [
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a {
-	color: var(--primary);
-	background: transparent;
+	@apply text-primary w-[190px] h-[50px] px-6 text-sm duration-[10ms] rounded
+
 }
 /* exact link will show the primary color for only the exact matching link */
 a.router-link-exact-active.black {
-	color: var(--primary);
-	border-color: var(--primary);
-	border-style: solid;
-	font-weight: 600;
-	border-left-width: 4px;
+	color: var(--clear);
+	background-color: var(--primary);
+	font-weight: 500;
 	& > svg {
-		color: var(--primary);
+		color: var(--clear);
 	}
 }
 

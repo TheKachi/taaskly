@@ -5,7 +5,7 @@
 				class="container mx-auto flex flex-col md:justify-center items-center h-full text-center gap-4 py-20 text-primary"
 			>
 				<h1 class="font-bold md:text-8xl text-5xl">
-					DashBoard
+					Task
 				</h1>
 			</div>
 		</transition>
