@@ -7,9 +7,10 @@
 			<p class="text-sm text-center mb-2">
 				We encourage passwordless login being more secure and safe
 			</p>
-			<form class="auth-form">
-				<button class="btn">
-					Sign in with Google
+			<form class="auth-form" @submit.prevent="googleSignin">
+				<button class="btn" :disabled="loading">
+					<span v-if="!loading"> 	Sign in with Google</span>
+					<Spinner v-else />
 				</button>
 			</form>
 
@@ -24,7 +25,7 @@
 
 <script setup lang="ts">
 import { useSignin } from '@/composables/auth/auth'
-
+const { googleSignin, loading } = useSignin()
 definePageMeta({
 	layout: 'auth',
 	middleware: 'is-not-authenticated'

@@ -3,11 +3,11 @@
 		<div
 			v-if="active"
 			id="alert"
-			class="overflow-hidden max-w-[70%] rounded-md shadow-xl fixed top-8 left-4 p-4  z-[150] text w-[22rem] bg-primary text-clear"
+			class="overflow-hidden max-w-[90%] rounded-md shadow-xl fixed top-8 left-4 p-4 py-7  z-[150] text w-[25rem] bg-primary text-clear"
 		>
 			<div class="h-full w-1.5 bg-inverse absolute left-0 top-0" />
 			<svg
-				class="w-4 h-4 text-clear absolute right-1 top-0 cursor-pointer text-xl"
+				class="w-4 h-4 text-clear absolute right-2 top-2 cursor-pointer text-xl"
 				fill="none"
 				stroke="currentColor"
 				viewBox="0 0 24 24"

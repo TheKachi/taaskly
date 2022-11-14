@@ -32,6 +32,6 @@
         @apply flex flex-col gap-6;
     }
     .btn {
-        @apply rounded px-4 py-3 bg-primary text-clear w-full mt-1 flex justify-center;
+        @apply rounded px-4 py-3 bg-primary text-clear w-full mt-1 flex justify-center disabled:bg-gray-500;
     }
 }
