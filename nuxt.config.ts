@@ -4,12 +4,22 @@ import eslintPlugin from 'vite-plugin-eslint'
 export default {
 	ssr: false,
 	target: 'static',
-	head: {
-		title: 'Traq',
+	app: {
+		head: {
+		title: 'Taaskly',
 		htmlAttrs: { lang: 'en' },
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+			{
+				'http-equiv': 'Content-Security-Policy',
+				content: 'upgrade-insecure-requests'
+			},
+			{
+				hid: 'description',
+				name: 'description',
+				content: 'The best place to get tasks done and make extra cash by the side'
+			},
 			{ name: 'format-detection', content: 'telephone=no' }
 		],
 		link: [
@@ -27,7 +37,9 @@ export default {
 				rel: 'stylesheet'
 			}
 		]
+	}
 	},
+
 	alias: {
 		'@': './src'
 	},
