@@ -38,7 +38,6 @@ export const signOutUser = async () => {
 	try {
 		await signOut(auth)
 		useUser().clearUser()
-		location.reload()
 	} catch (error:any) {
 		closeLoading()
 		openAlert(`Oops seems something went wrong 😕 : ${error.message}`)

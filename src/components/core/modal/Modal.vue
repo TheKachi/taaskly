@@ -8,7 +8,7 @@
 			<div class="modal">
 				<header class="modal-title flex justify-between w-full items-center">
 					{{ title }}
-					<icon name="close" class="text-white w-7 cursor-pointer" @click="closeModal()" />
+					<icon name="close" class="text-primary w-7 cursor-pointer" @click="closeModal()" />
 				</header>
 				<div class="w-full">
 					<slot />

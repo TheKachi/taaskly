@@ -4,28 +4,36 @@ import { googleAuth, signOutUser } from '@/firebase/auth'
 import { useAlert, useLoading } from '~~/src/composables/core/useNotification'
 
 export const useSignin = () => {
-    const loading = ref(false)
-    const googleSignin = async () => {
-        loading.value = true
-        // useLoading().openLoading('Logging you in... 🤩')
-        try {
-              const user = await googleAuth()
-            useUser().setUser(user as User)
-            loading.value = false
-            useRouter().push('/dashboard')
-        } catch {
-            loading.value = false
-        }
+	const loading = ref(false)
+	const googleSignin = async () => {
+		loading.value = true
+		// useLoading().openLoading('Logging you in... 🤩')
+		try {
+			const user = await googleAuth()
+			useUser().setUser(user as User)
+			loading.value = false
+			useRouter().push('/dashboard')
+		} catch {
+			loading.value = false
+		}
 
-        // useLoading().closeLoading()
-        // useAlert().openAlert('You have successfully signed in 🥳')
-    }
+		// useLoading().closeLoading()
+		// useAlert().openAlert('You have successfully signed in 🥳')
+	}
 
     const signOut = async () => {
-        useLoading().openLoading('Signing You out...😗')
-        await signOutUser()
-		useLoading().closeLoading()
-    }
+        loading.value = true
+		useLoading().openLoading('Signing You out...😗')
+		try {
+            await signOutUser()
+            useRouter().push('/auth/login')
+			location.reload()
+		} catch {
+			useLoading().closeLoading()
+		}
 
-    return { googleSignin, signOut, loading }
+		useLoading().closeLoading()
+	}
+
+	return { googleSignin, signOut, loading }
 }
