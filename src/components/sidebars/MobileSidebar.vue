@@ -16,7 +16,7 @@
 					> -->
 				</div>
 
-				<p class="text-base font-bold ml-4">
+				<p class="text-xl font-medium ml-4">
 					<span class="text-gray-500">Hello</span>	{{ user.displayName.split(' ')[0] }}
 				</p>
 
@@ -79,7 +79,7 @@ const { user } = useUser()
 
 <style scoped lang="scss">
 a, .menu-btn {
-	@apply text-primary w-[200px] h-11 px-4 text-sm duration-[10ms] rounded
+	@apply text-primary w-[240px] h-[51px] px-4 text-base duration-[10ms] rounded
 
 }
 /* exact link will show the primary color for only the exact matching link */

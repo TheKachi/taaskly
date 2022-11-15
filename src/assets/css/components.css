@@ -51,7 +51,7 @@
     }
     .sidebar {
         @apply fixed inset-y-0 left-0;
-        width: 230px;
+        width: 280px;
         height: 100vh;
         z-index: 1000;
         padding: 1.8rem 0.8rem;
