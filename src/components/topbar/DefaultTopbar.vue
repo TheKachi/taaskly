@@ -3,7 +3,7 @@
 		<icon
 			class="mobile w-5 cursor-pointer z-50"
 			name="menu"
-			@click="toggleMenu"
+			@click="useSidebarModal().openMobileSidebar()"
 		/>
 		<h1 class="font-medium text-xl capitalize ">
 			{{ $route.name }}
@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 import { useUser } from '@/composables/auth/user'
+import { useSidebarModal } from '@/composables/core/modals'
 const { user } = useUser()
 
 </script>

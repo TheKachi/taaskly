@@ -22,6 +22,7 @@
 import gsap from 'gsap'
 import { modal } from '@/composables/core/modals'
 
+type modalTypes = 'popup' | 'sidebar'
 const props = defineProps({
 	modal: {
 		type: String,
@@ -34,7 +35,7 @@ const props = defineProps({
 	},
 	type: {
 		default: 'popup',
-		type: 'popup' || 'sidebar',
+		type: String as PropType<modalTypes>,
 		required: false
 	}
 })
