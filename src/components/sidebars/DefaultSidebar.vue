@@ -45,22 +45,22 @@
 						</div>
 					</details>
 				</div>
-				<a
-					class="flex items-center black !text-[#ff615c] cursor-pointer"
+				<button
+					class="menu-btn flex items-center black !text-[#ff615c] cursor-pointer"
+					@click="useAuthModal().openLogout()"
 				>
 					<icon name="exit" class="mr-4 w-5" />
 					<p class="text-base">
 						Sign Out
 					</p>
-				</a>
+				</button>
 			</div>
 		</div>
 	</aside>
 </template>
 
 <script lang="ts" setup>
-// import Icon from '../core/Icon.vue'
-
+import { useAuthModal } from '@/composables/core/modals'
 const routes = [
 	{
 		icon: 'dashboard',
@@ -90,7 +90,7 @@ const routes = [
 .bg-shadow {
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
-a {
+a, .menu-btn {
 	@apply text-primary w-[180px] h-11 px-6 text-sm duration-[10ms] rounded
 
 }

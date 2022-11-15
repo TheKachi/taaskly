@@ -19,6 +19,7 @@ const { googleSignin, signOut } = useSignin()
 const { isLoggedIn, user } = useUser()
 
 definePageMeta({
-	layout: 'dashboard'
+	layout: 'dashboard',
+	middleware: 'is-authenticated'
 })
 </script>

@@ -12,6 +12,7 @@ export const useSignin = () => {
               const user = await googleAuth()
             useUser().setUser(user as User)
             loading.value = false
+            useRouter().push('/dashboard')
         } catch {
             loading.value = false
         }

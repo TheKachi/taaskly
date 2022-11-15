@@ -1,7 +1,7 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		:title="taskModalState.modal_title.value"
+		title="Sus"
 	>
 		<p class="text-clear text-lg tracking-[0.1rem] ">
 			Are you sure you want to delete this ticket?
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-
+import Modal from '@/components/core/modal/Modal.vue'
 </script>
 
 <style>
