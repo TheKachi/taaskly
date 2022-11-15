@@ -91,12 +91,12 @@ const routes = [
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a, .menu-btn {
-	@apply text-primary w-[180px] h-11 px-6 text-sm duration-[10ms] rounded
+	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded
 
 }
 /* exact link will show the primary color for only the exact matching link */
 a.router-link-exact-active.black {
-	@apply shadow border border-clear;
+	@apply shadow border-2 border-clear ;
 	color: var(--clear);
 	background-color: var(--primary);
 	font-weight: 500;

@@ -7,7 +7,7 @@
 			<p class="text-sm text-center mb-2">
 				We encourage passwordless login being more secure and safe
 			</p>
-			<form class="auth-form">
+			<form class="auth-form" @submit.prevent="googleSignin">
 				<button class="btn">
 					Sign up with Google
 				</button>
@@ -23,6 +23,8 @@
 </template>
 
 <script setup lang="ts">
+import { useSignin } from '@/composables/auth/auth'
+const { googleSignin, loading } = useSignin()
 
 definePageMeta({
 	layout: 'auth',

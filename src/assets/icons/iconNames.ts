@@ -12,6 +12,7 @@ export enum IconNames {
   'exit' = 'exit',
   'help' = 'help',
   'invoice' = 'invoice',
+  'menu' = 'menu',
   'note' = 'note',
   'task' = 'task',
   'wallet' = 'wallet'

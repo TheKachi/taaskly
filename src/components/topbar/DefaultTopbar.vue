@@ -1,5 +1,10 @@
 <template>
 	<nav class="absolute top-0 bg-transparent w-full right-0  h-16 pl pr-4 flex items-center justify-between">
+		<icon
+			class="mobile w-5 cursor-pointer z-50"
+			name="menu"
+			@click="toggleMenu"
+		/>
 		<h1 class="font-medium text-xl capitalize ">
 			{{ $route.name }}
 		</h1>

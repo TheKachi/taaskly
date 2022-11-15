@@ -31,6 +31,11 @@ const props = defineProps({
 		default: 'Default Title',
 		type: String,
 		required: false
+	},
+	type: {
+		default: 'popup',
+		type: 'popup' || 'sidebar',
+		required: false
 	}
 })
 
@@ -68,7 +73,6 @@ const closeModal = () => {
 }
 .slide-enter-from,
 .slide-leave-to {
-  transform: scale(0);
   opacity: 0
 }
 
