@@ -49,4 +49,14 @@
     .modal-btn {
         @apply rounded px-4 py-2 bg-primary text-clear w-full mt-6 flex justify-center;
     }
+    .sidebar {
+        @apply fixed inset-y-0 left-0;
+        width: 230px;
+        height: 100vh;
+        z-index: 1000;
+        padding: 1.8rem 1rem;
+        background: #fff;
+        position: relative;
+        box-shadow: 5px 0 20px 2px rgb(0 0 0 / 20%);
+    }
 }

@@ -11,7 +11,7 @@
 				>
 			</div>
 
-			<div class="relative border-gray300 mt-12">
+			<div class="relative mt-12">
 				<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
 					<span v-if="!n.children">
 						<nuxt-link
@@ -61,29 +61,8 @@
 
 <script lang="ts" setup>
 import { useAuthModal } from '@/composables/core/modals'
-const routes = [
-	{
-		icon: 'dashboard',
-		name: 'Home',
-		route: '/dashboard'
-	},
-	{
-		icon: 'task',
-		name: 'Task',
-		route: '/task'
-	},
-	{
-		icon: 'wallet',
-		name: 'Wallet',
-		route: '/wallet'
-	},
-	{
-		icon: 'help',
-		name: 'Help',
-		route: '/help'
-	}
+import { routes } from '@/composables/menu'
 
-]
 </script>
 
 <style scoped lang="scss">

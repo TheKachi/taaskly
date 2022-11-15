@@ -1,25 +1,89 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		title="Sign Out"
+		title="Menu"
+		type="sidebar"
 	>
-		<p class="text-primary text-lg tracking-[0.1rem] text-center">
-			Are you sure you want to sign out?
-		</p>
+		<aside
+			class=" "
+		>
+			<div>
+				<div class="flex   items-center pr-4 gap-2">
+					<img
+						src="@/assets/images/logoWhite.svg"
+						alt="logo"
+						class="w-28 h-10 ml-4"
+					>
+				</div>
 
-		<div class="grid grid-cols-2 gap-4">
-			<button class="modal-btn bg-red" @click="signOut">
-				Yes
-			</button>
-		</div>
+				<div class="relative mt-12">
+					<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
+						<span v-if="!n.children">
+							<nuxt-link
+								:to="n.route"
+								class="flex items-center black"
+							>
+								<icon :name="n.icon" class="mr-4 w-5" />
+								<p class="text-base">
+									{{ n.name }}
+								</p>
+							</nuxt-link>
+						</span>
+
+						<details v-else>
+							<summary class="flex py-1.5 items-center px-6 mt-3 duration-75 black">
+								<icon :name="n.icon" class="mr-4 w-5" />
+								<p class="text-base font-medium text-gray300">
+									{{ n.name }}
+								</p>
+								<button class="ml-auto rotate-90">
+									<svg class="fill-current opacity-75 w-4 h-4 -mr-1 turn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" /></svg>
+								</button>
+							</summary>
+
+							<div class="flex flex-col">
+								<nuxt-link v-for="child in n.children" :key="child.name" :to="child.route" class="flex items-center py-1.5 pl-14 mt-3 duration-75 black">
+									<p class="text-sm font-medium">
+										{{ child.name }}
+									</p>
+								</nuxt-link>
+							</div>
+						</details>
+					</div>
+					<button
+						class="menu-btn flex items-center black !text-[#ff615c] cursor-pointer"
+						@click="useAuthModal().openLogout()"
+					>
+						<icon name="exit" class="mr-4 w-5" />
+						<p class="text-base">
+							Sign Out
+						</p>
+					</button>
+				</div>
+			</div>
+		</aside>
 	</Modal>
 </template>
 
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
-
+import { useAuthModal } from '@/composables/core/modals'
+import { routes } from '@/composables/menu'
 </script>
 
-<style>
+<style scoped lang="scss">
+a, .menu-btn {
+	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded
 
+}
+/* exact link will show the primary color for only the exact matching link */
+a.router-link-exact-active.black {
+
+	color: var(--clear);
+	background-color: var(--primary);
+	font-weight: 500;
+	& > svg {
+		color: var(--clear);
+	}
+}
 </style>
