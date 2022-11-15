@@ -54,7 +54,7 @@
         width: 230px;
         height: 100vh;
         z-index: 1000;
-        padding: 1.8rem 1rem;
+        padding: 1.8rem 0.8rem;
         background: #fff;
         position: relative;
         box-shadow: 5px 0 20px 2px rgb(0 0 0 / 20%);

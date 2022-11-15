@@ -16,7 +16,11 @@
 					>
 				</div>
 
-				<div class="relative mt-12">
+				<p class="text-base font-bold ml-4">
+					<span class="text-gray-500">Hello</span>	{{ user.displayName.split(' ')[0] }}
+				</p>
+
+				<div class="relative mt-5 pt-4 border-t">
 					<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
 						<span v-if="!n.children">
 							<nuxt-link
@@ -68,12 +72,14 @@
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
 import { useAuthModal } from '@/composables/core/modals'
+import { useUser } from '@/composables/auth/user'
 import { routes } from '@/composables/menu'
+const { user } = useUser()
 </script>
 
 <style scoped lang="scss">
 a, .menu-btn {
-	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded
+	@apply text-primary w-[200px] h-11 px-4 text-sm duration-[10ms] rounded
 
 }
 /* exact link will show the primary color for only the exact matching link */

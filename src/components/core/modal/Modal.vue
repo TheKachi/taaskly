@@ -1,5 +1,5 @@
 <template>
-	<transition name="slide" appear :duration="500">
+	<transition name="fade" appear :duration="500">
 		<div
 			:close="closeModal"
 			:class="[
@@ -21,9 +21,11 @@
 					<slot />
 				</div>
 			</div>
-			<div v-else class="sidebar">
-				<slot />
-			</div>
+			<transition v-else name="slide" appear :duration="500">
+				<div class="sidebar">
+					<slot />
+				</div>
+			</transition>
 		</div>
 	</transition>
 </template>
@@ -35,7 +37,9 @@ import { modal } from '@/composables/core/modals'
 window.addEventListener('resize', () => {
 closeModal()
 })
-
+watch(useRoute(), (from, to) => {
+	closeModal()
+})
 type modalTypes = 'popup' | 'sidebar';
 const props = defineProps({
 	modal: {
@@ -94,12 +98,20 @@ const closeModal = () => {
 	backdrop-filter: blur(1.5px);
 }
 
+.fade-enter-active,
+.fade-leave-active {
+	transition: all 0.35s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
 .slide-enter-active,
 .slide-leave-active {
-	transition: all 0.35s ease;
+	transition: all 0.25s ease;
 }
 .slide-enter-from,
 .slide-leave-to {
-	opacity: 0;
+	transform: translateX(-500px);
 }
 </style>
