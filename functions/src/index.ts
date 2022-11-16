@@ -9,33 +9,51 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
       .collection("users")
       .doc(user.uid)
       .collection("Tasks")
-      .doc("start").set({onCreated: new Date()});
+      .doc("start")
+      .set({onCreated: new Date()});
   await admin
       .firestore()
       .collection("users")
       .doc(user.uid)
       .collection("Runs")
-      .doc("start").set({onCreated: new Date()});
-  return admin
-      .firestore()
-      .collection("users")
-      .doc(user.uid)
-      .set({
-        id: user.uid,
-        email: user.email,
-        phone: "",
-        student: false,
-        address: "",
-        DOB: "",
-        verified: false,
-        level: 0,
-        tasker_rating: 0,
-        runner_rating: 0,
-        desc: "",
-      });
+      .doc("start")
+      .set({onCreated: new Date()});
+  return admin.firestore().collection("users").doc(user.uid).set({
+    id: user.uid,
+    email: user.email,
+    username: "",
+    phone: "",
+    student: false,
+    address: "",
+    DOB: "",
+    verified: false,
+    level: 0,
+    tasker_rating: 0,
+    runner_rating: 0,
+    desc: "",
+  });
 });
 
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
+exports.userFirstTimeUpdate = functions.firestore.document("users/{userId}").onUpdate(async (snap, context) => {
+  const oldValues = snap.before.data();
+  admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
+});
+
+
+// exports.addAdmin = functions.https.onRequest((req, res) => {
+//   // get user and add custom claim
+//   // return addVerifyProfileClaim(data);
+//   console.log("it works sha");
+//   admin.auth().getUserByEmail(req.query.email as string).then((user) => {
+//     console.log(user);
+//     admin.auth().setCustomUserClaims(user.uid, {moderator: true});
+//     console.log(req.query.email);
+//     res.send("Hello from Firebase!");
+//   }).catch((err) => {
+//     res.send({"Error": err});
+//   });
 // });
+
+// const addVerifyProfileClaim = async (user:any): Promise<void> => {
+//   return admin.auth().setCustomUserClaims(user.uid, {moderator: true});
+// };

@@ -1,6 +1,6 @@
 <template>
 	<span
-		v-if="name"
+		v-if="name && !src"
 		:style="`width: ${size}px; height: ${size}px; object-fit: cover;`"
 		class="flex items-center justify-center uppercase  bg-primary text-white font-medium rounded-full"
 	>
@@ -10,7 +10,6 @@
 		v-else
 		:src="src"
 		:style="`width: ${size}px; height: ${size}px; object-fit: cover;`"
-		alt=""
 		class="!max-w-[1920px] rounded-full"
 	>
 </template>
@@ -44,4 +43,5 @@ export default defineComponent({
 	}
 
 })
+
 </script>

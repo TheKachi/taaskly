@@ -75,7 +75,7 @@ a, .menu-btn {
 }
 /* exact link will show the primary color for only the exact matching link */
 a.router-link-exact-active.black {
-	@apply shadow border-2 border-clear ;
+	@apply shadow-md ;
 	color: var(--clear);
 	background-color: var(--primary);
 	font-weight: 500;

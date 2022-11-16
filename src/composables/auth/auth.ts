@@ -1,13 +1,12 @@
 import { User } from 'firebase/auth'
 import { useUser } from '@/composables/auth/user'
 import { googleAuth, signOutUser } from '@/firebase/auth'
-import { useAlert, useLoading } from '~~/src/composables/core/useNotification'
+import { useLoading } from '~~/src/composables/core/useNotification'
 
 export const useSignin = () => {
 	const loading = ref(false)
 	const googleSignin = async () => {
 		loading.value = true
-		// useLoading().openLoading('Logging you in... 🤩')
 		try {
 			const user = await googleAuth()
 			useUser().setUser(user as User)
@@ -16,9 +15,6 @@ export const useSignin = () => {
 		} catch {
 			loading.value = false
 		}
-
-		// useLoading().closeLoading()
-		// useAlert().openAlert('You have successfully signed in 🥳')
 	}
 
     const signOut = async () => {

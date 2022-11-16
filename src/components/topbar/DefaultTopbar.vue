@@ -13,7 +13,7 @@
 			<p class="text-base hidden sm:block">
 				{{ user.displayName }}
 			</p>
-			<Avatar :name="user.displayName" />
+			<Avatar :name="user.displayName" :src="user.photoURL" />
 		</div>
 	</nav>
 </template>
