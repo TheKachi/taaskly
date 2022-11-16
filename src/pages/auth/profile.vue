@@ -3,13 +3,14 @@
 	<main class="main-layout">
 		<div class="auth-box">
 			<h1 class="auth-title">
-				Create a profile
+				<icon v-if="formStep!=1" class="w-5 absolute left-0" name="back" @click="formStep--" />
+				{{ formStep==1 ? 'Create a profile ':'Almost done' }}
 			</h1>
 			<p class="text-sm text-center mb-2">
-				Basic details to get you started on your Journey with taaskly {{ formStep.value }}
+				{{ formStep==1 ? 'Basic details to get you started on your Journey with taaskly':'Few steps left' }}
 			</p>
-			<form class="auth-form">
-				<div v-if="formStep.value == 1" id="step 1">
+			<form class="auth-form" @submit.prevent="createProfile">
+				<div v-if="formStep == 1" id="step 1" class="auth-form">
 					<div class="field">
 						<label for="first_name">First Name</label>
 						<input id="first_name" v-model="profileFormState.first_name.value" type="text" class="input-field" required>
@@ -53,7 +54,8 @@
 						</select>
 					</div>
 				</div>
-				<div v-else id="step 2">
+
+				<div v-else id="step 2" class="auth-form">
 					<div class="field">
 						<label for="address">Address</label>
 						<input id="address" v-model="profileFormState.address.value" type="address" class="input-field">
@@ -64,12 +66,12 @@
 					</div>
 					<div class="field">
 						<label for="desc">Profile Description</label>
-						<textarea id="desc" v-model="profileFormState.desc.value" type="text" class="input-field py-2" row="6">test</textarea>
+						<textarea id="desc" v-model="profileFormState.desc.value" type="text" class="input-field py-2 h-24" rows="6">test</textarea>
 					</div>
 				</div>
 
 				<button class="btn">
-					Create
+					{{ formStep==1 ? 'Next':'Create' }}
 				</button>
 			</form>
 		</div>
@@ -78,7 +80,7 @@
 
 <script setup lang="ts">
 import { useCreateProfile } from '@/composables/auth/profile'
-const { loading, profileFormState, formStep } = useCreateProfile()
+const { loading, profileFormState, formStep, createProfile } = useCreateProfile()
 
 definePageMeta({
 	layout: 'auth',

@@ -21,7 +21,7 @@
         border-radius: 3px;
     }
     .auth-title {
-        @apply font-bold text-xl text-center;
+        @apply font-bold text-xl text-center flex items-center justify-center relative;
         background: linear-gradient(90deg, #35355b 0%, #89216b 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
