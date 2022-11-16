@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid'
 import {
 	getFirestore,
 	doc,
-	setDoc,
+	setDoc, updateDoc,
 	deleteDoc,
 	getDoc, limit,
 	collection,
@@ -14,12 +14,19 @@ import { useUser } from '@/composables/auth/user'
 export const db = getFirestore(app)
 
 const { id } = useUser()
-export const saveToFirestore = async (
+export const saveFirestoreDocument = async (
   collection: string,
   id: string = uuidv4(),
 	data: any
 ) => {
 	await setDoc(doc(db, collection, id), data)
+}
+export const updateFirestoreDocument = async (
+  collection: string,
+  id: string = uuidv4(),
+	data: any
+) => {
+	await updateDoc(doc(db, collection, id), data)
 }
 
 export const getSingleFirestoreDocument = async (

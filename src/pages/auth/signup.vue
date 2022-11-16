@@ -8,8 +8,9 @@
 				We encourage passwordless login being more secure and safe
 			</p>
 			<form class="auth-form" @submit.prevent="googleSignin">
-				<button class="btn">
-					Sign up with Google
+				<button class="btn" :disabled="loading">
+					<span v-if="!loading"> 	Sign up with Google</span>
+					<Spinner v-else />
 				</button>
 			</form>
 

@@ -40,6 +40,7 @@ exports.userFirstTimeUpdate = functions.firestore
     .document("users/{userId}")
     .onUpdate(async (snap) => {
       const oldValues = snap.before.data();
+      console.log(oldValues);
       admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
     });
 

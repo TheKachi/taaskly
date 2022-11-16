@@ -20,6 +20,6 @@ const { isLoggedIn, user } = useUser()
 
 definePageMeta({
 	layout: 'dashboard',
-	middleware: ['is-authenticated', 'has-updated-profile']
+	middleware: ['is-authenticated', 'has-profile']
 })
 </script>

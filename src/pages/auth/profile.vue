@@ -3,7 +3,7 @@
 	<main class="main-layout">
 		<div class="auth-box">
 			<h1 class="auth-title">
-				<icon v-if="formStep!=1" class="w-5 absolute left-0" name="back" @click="formStep--" />
+				<icon v-if="formStep!=1" class="w-7 cursor-pointer absolute left-0" name="back" @click="formStep--" />
 				{{ formStep==1 ? 'Create a profile ':'Almost done' }}
 			</h1>
 			<p class="text-sm text-center mb-2">
@@ -70,8 +70,9 @@
 					</div>
 				</div>
 
-				<button class="btn">
-					{{ formStep==1 ? 'Next':'Create' }}
+				<button class="btn" :disabled="loading">
+					<span v-if="!loading"> 	{{ formStep==1 ? 'Next':'Create' }}</span>
+					<Spinner v-else />
 				</button>
 			</form>
 		</div>
@@ -80,7 +81,8 @@
 
 <script setup lang="ts">
 import { useCreateProfile } from '@/composables/auth/profile'
-const { loading, profileFormState, formStep, createProfile } = useCreateProfile()
+const { loading, profileFormState, formStep, createProfile, initForm } = useCreateProfile()
+initForm()
 
 definePageMeta({
 	layout: 'auth',

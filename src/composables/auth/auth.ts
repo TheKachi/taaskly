@@ -10,6 +10,9 @@ export const useSignin = () => {
 		try {
 			const user = await googleAuth()
 			useUser().setUser(user as User)
+			const token = await useUser()?.user?.auth.currentUser.getIdTokenResult()
+			const hasProfile = token?.claims?.hasUpdatedProfile
+			useUser().setProfileStatus(hasProfile)
 			loading.value = false
 			useRouter().push('/dashboard')
 		} catch {
@@ -17,12 +20,12 @@ export const useSignin = () => {
 		}
 	}
 
-    const signOut = async () => {
-        loading.value = true
+	const signOut = async () => {
+		loading.value = true
 		useLoading().openLoading('Signing You out...😗')
 		try {
-            await signOutUser()
-            useRouter().push('/auth/login')
+			await signOutUser()
+			useRouter().push('/auth/login')
 			location.reload()
 		} catch {
 			useLoading().closeLoading()
