@@ -1,3 +1,4 @@
+
 <template>
 	<main class="main-layout">
 		<div class="auth-box">
@@ -5,37 +6,83 @@
 				Create a profile
 			</h1>
 			<p class="text-sm text-center mb-2">
-				We encourage passwordless login being more secure and safe
+				Basic details to get you started on your Journey with taaskly {{ formStep.value }}
 			</p>
 			<form class="auth-form">
-				<div class="field">
-					<label for="email">Email</label>
-					<input id="email" type="text" class="input-field" disabled>
+				<div v-if="formStep.value == 1" id="step 1">
+					<div class="field">
+						<label for="first_name">First Name</label>
+						<input id="first_name" v-model="profileFormState.first_name.value" type="text" class="input-field" required>
+					</div>
+					<div class="field">
+						<label for="last_name">Last Name</label>
+						<input id="last_name" v-model="profileFormState.last_name.value" type="text" class="input-field" required>
+					</div>
+					<div class="field">
+						<label for="email">Email</label>
+						<input
+							id="email"
+							v-model="profileFormState.email.value"
+							type="text"
+							class="input-field"
+							disabled
+							required
+						>
+					</div>
+					<div class="field">
+						<label for="phone">Phone No.</label>
+						<input id="phone" v-model="profileFormState.phone.value" type="tel" class="input-field">
+					</div>
+					<div class="field">
+						<label for="student">Are you a student ?</label>
+						<select id="student" v-model="profileFormState.student.value" name="student" class="input-field">
+							<option value="true">
+								Yes
+							</option>
+							<option value="false">
+								No
+							</option>
+						</select>
+					</div>
+					<div v-if="profileFormState.student.value" class="field">
+						<label for="university">What university?</label>
+						<select id="university" v-model="profileFormState.university.value" name="university" class="input-field">
+							<option value="university of lagos">
+								University of Lagos
+							</option>
+						</select>
+					</div>
 				</div>
-				<div class="field">
-					<label for="password">Password</label>
-					<input id="password" type="password" class="input-field" disabled>
+				<div v-else id="step 2">
+					<div class="field">
+						<label for="address">Address</label>
+						<input id="address" v-model="profileFormState.address.value" type="address" class="input-field">
+					</div>
+					<div class="field">
+						<label for="date">Date of Birth</label>
+						<input id="date" v-model="profileFormState.dob.value" type="date" class="input-field">
+					</div>
+					<div class="field">
+						<label for="desc">Profile Description</label>
+						<textarea id="desc" v-model="profileFormState.desc.value" type="text" class="input-field py-2" row="6">test</textarea>
+					</div>
 				</div>
 
 				<button class="btn">
-					Sign in with Google
+					Create
 				</button>
 			</form>
-
-			<p class="text-sm mt-4 text-center">
-				Don't have an Account? <nuxt-link to="/auth/signup" class="font-bold italic">
-					Sign up
-				</nuxt-link>
-			</p>
 		</div>
 	</main>
 </template>
 
 <script setup lang="ts">
+import { useCreateProfile } from '@/composables/auth/profile'
+const { loading, profileFormState, formStep } = useCreateProfile()
 
 definePageMeta({
 	layout: 'auth',
-	middleware: 'is-not-authenticated'
+	middleware: 'is-authenticated'
 })
 
 </script>

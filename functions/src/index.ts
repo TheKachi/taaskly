@@ -21,11 +21,13 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
   return admin.firestore().collection("users").doc(user.uid).set({
     id: user.uid,
     email: user.email,
+    first_name: "",
+    last_name: "",
     username: "",
     phone: "",
     student: false,
     address: "",
-    DOB: "",
+    dob: "",
     verified: false,
     level: 0,
     tasker_rating: 0,
@@ -34,11 +36,12 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
   });
 });
 
-exports.userFirstTimeUpdate = functions.firestore.document("users/{userId}").onUpdate(async (snap, context) => {
-  const oldValues = snap.before.data();
-  admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
-});
-
+exports.userFirstTimeUpdate = functions.firestore
+    .document("users/{userId}")
+    .onUpdate(async (snap) => {
+      const oldValues = snap.before.data();
+      admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
+    });
 
 // exports.addAdmin = functions.https.onRequest((req, res) => {
 //   // get user and add custom claim
