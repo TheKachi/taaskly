@@ -55,20 +55,23 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
 });
 
 
-// exports.addAdmin = functions.https.onRequest((req, res) => {
-//   // get user and add custom claim
-//   // return addVerifyProfileClaim(data);
-//   console.log("it works sha");
-//   admin.auth().getUserByEmail(req.query.email as string).then((user) => {
-//     console.log(user);
-//     admin.auth().setCustomUserClaims(user.uid, {moderator: true});
-//     console.log(req.query.email);
-//     res.send("Hello from Firebase!");
-//   }).catch((err) => {
-//     res.send({"Error": err});
-//   });
-// });
+exports.addProfileClaim = functions.https.onRequest((req, res) => {
+  console.log("it works sha");
+  admin.auth().getUserByEmail(req.query.email as string).then((user) => {
+    console.log(user);
+    admin.auth().setCustomUserClaims(user.uid, {moderator: true});
+    console.log(req.query.email);
+    res.send("Hello from Firebase!");
+  }).catch((err) => {
+    res.send({"Error": err});
+  });
+});
 
-// const addVerifyProfileClaim = async (user:any): Promise<void> => {
-//   return admin.auth().setCustomUserClaims(user.uid, {moderator: true});
-// };
+
+exports.userFirstTimeUpdate = functions.firestore
+    .document("users/{userId}")
+    .onCreate(async (snap) => {
+      const oldValues = snap.data();
+      admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
+    });
+

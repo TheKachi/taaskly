@@ -4273,10 +4273,10 @@
     "@google-cloud/firestore" "^6.4.0"
     "@google-cloud/storage" "^6.5.2"
 
-"firebase-functions@^4.0.2":
-  "integrity" "sha512-y2JEMVRQfKQyib/wRMn6qSEg1kfJhl0nBOPHbcvrWN3cFakOssTVfq78GEQe3m9PPE8toF9ysabsetTUi4vkSg=="
-  "resolved" "https://registry.npmjs.org/firebase-functions/-/firebase-functions-4.0.2.tgz"
-  "version" "4.0.2"
+"firebase-functions@^4.1.0":
+  "integrity" "sha512-brbww5lGQVm8+d4KFmHF+O8wJBthws1NGXgphy7UDguMbUoW0fq6bL0NI442w+3nDE8IYUbnR4p3U8/cLAhnOA=="
+  "resolved" "https://registry.npmjs.org/firebase-functions/-/firebase-functions-4.1.0.tgz"
+  "version" "4.1.0"
   dependencies:
     "@types/cors" "^2.8.5"
     "@types/express" "4.17.3"
