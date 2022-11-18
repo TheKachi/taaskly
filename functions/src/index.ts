@@ -2,7 +2,9 @@ import functions = require("firebase-functions");
 import admin = require("firebase-admin");
 admin.initializeApp();
 import sgMail = require('@sendgrid/mail');
+
 const API_KEY = functions.config().sendgrid.key;
+const TEMPLATE_ID = functions.config().sendgrid.template;
 
 sgMail.setApiKey(API_KEY as string);
 
@@ -11,9 +13,11 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
   const msg = {
     to: user.email,
     from: 'anthony@taaskly.xyz',
-    subject: 'Welcome to Taaskly',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    templateId: TEMPLATE_ID,
+    dynamic_template_data: {
+      "subject": "Welcome to Taaskly !!!",
+      "name": user.displayName ? user.displayName.split(' ')[0] : user.email,
+    },
   };
 
   await admin

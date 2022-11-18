@@ -15,6 +15,11 @@ export const routes = [
 		route: '/wallet'
 	},
 	{
+		icon: 'profile',
+		name: 'Profile',
+		route: '/profile'
+	},
+	{
 		icon: 'help',
 		name: 'Help',
 		route: '/help'
