@@ -2,6 +2,7 @@ import { User } from 'firebase/auth'
 import { updateFirestoreDocument } from '../../firebase/firestore'
 import { useAlert, useLoading } from '../core/useNotification'
 import { useUser } from '@/composables/auth/user'
+import { callFirebaseFunction } from '@/firebase/functions'
 
 const profileFormState = {
 	first_name: ref(''),
@@ -35,6 +36,7 @@ export const useCreateProfile = () => {
 					dob: profileFormState.dob.value,
 					desc: profileFormState.desc.value
 				})
+				// await updateProfileClaim()
 				useUser().setProfileStatus(true)
 				useRouter().push('/dashboard')
 				loading.value = false
@@ -44,6 +46,13 @@ export const useCreateProfile = () => {
 			}
 		}
 	}
+
+	// const updateProfileClaim = async () => {
+	// 	await callFirebaseFunction('updateProfileClaim', {
+	// 		uid: useUser().id.value
+	// 	})
+	// }
+
 	const initForm = () => {
 		profileFormState.email.value = useUser().user?.email as string
 		profileFormState.first_name.value = useUser().user?.displayName?.split(

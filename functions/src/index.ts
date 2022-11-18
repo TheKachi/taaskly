@@ -1,9 +1,21 @@
 import functions = require("firebase-functions");
 import admin = require("firebase-admin");
 admin.initializeApp();
+import sgMail = require('@sendgrid/mail');
+const API_KEY = functions.config().sendgrid.key;
+
+sgMail.setApiKey(API_KEY as string);
+
 
 exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
-  // for background triggers you must return a value/promise
+  const msg = {
+    to: user.email,
+    from: 'anthony@taaskly.xyz',
+    subject: 'Welcome to Taaskly',
+    text: 'and easy to do anywhere, even with Node.js',
+    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+  };
+
   await admin
       .firestore()
       .collection("users")
@@ -18,7 +30,7 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
       .collection("Runs")
       .doc("start")
       .set({onCreated: new Date()});
-  return admin.firestore().collection("users").doc(user.uid).set({
+  await admin.firestore().collection("users").doc(user.uid).set({
     id: user.uid,
     email: user.email,
     first_name: "",
@@ -34,15 +46,10 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
     runner_rating: 0,
     desc: "",
   });
+
+  return sgMail.send(msg);
 });
 
-exports.userFirstTimeUpdate = functions.firestore
-    .document("users/{userId}")
-    .onUpdate(async (snap) => {
-      const oldValues = snap.before.data();
-      console.log(oldValues);
-      admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
-    });
 
 // exports.addAdmin = functions.https.onRequest((req, res) => {
 //   // get user and add custom claim
