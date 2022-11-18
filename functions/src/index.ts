@@ -12,7 +12,7 @@ sgMail.setApiKey(API_KEY as string);
 exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
   const msg = {
     to: user.email,
-    from: 'anthony@taaskly.xyz',
+    from: 'Taaskly <anthony@taaskly.xyz>',
     templateId: TEMPLATE_ID,
     dynamic_template_data: {
       "subject": "Welcome to Taaskly !!!",
