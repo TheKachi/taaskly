@@ -34,37 +34,24 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
       .collection("Runs")
       .doc("start")
       .set({onCreated: new Date()});
-  await admin.firestore().collection("users").doc(user.uid).set({
-    id: user.uid,
-    email: user.email,
-    first_name: "",
-    last_name: "",
-    username: "",
-    phone: "",
-    student: false,
-    address: "",
-    dob: "",
-    verified: false,
-    level: 0,
-    tasker_rating: 0,
-    runner_rating: 0,
-    desc: "",
-  });
+  // await admin.firestore().collection("users").doc(user.uid).set({
+  //   id: user.uid,
+  //   email: user.email,
+  //   first_name: "",
+  //   last_name: "",
+  //   username: "",
+  //   phone: "",
+  //   student: false,
+  //   address: "",
+  //   dob: "",
+  //   verified: false,
+  //   level: 0,
+  //   tasker_rating: 0,
+  //   runner_rating: 0,
+  //   desc: "",
+  // });
 
   return sgMail.send(msg);
-});
-
-
-exports.addProfileClaim = functions.https.onRequest((req, res) => {
-  console.log("it works sha");
-  admin.auth().getUserByEmail(req.query.email as string).then((user) => {
-    console.log(user);
-    admin.auth().setCustomUserClaims(user.uid, {moderator: true});
-    console.log(req.query.email);
-    res.send("Hello from Firebase!");
-  }).catch((err) => {
-    res.send({"Error": err});
-  });
 });
 
 

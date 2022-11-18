@@ -4,11 +4,11 @@
 	>
 		<div>
 			<div class="flex   items-center pr-4 gap-2">
-				<!-- <img
-					src="@/assets/images/logoWhite.svg"
+				<img
+					src="/logo.svg"
 					alt="logo"
 					class="w-28 h-10 ml-4"
-				> -->
+				>
 			</div>
 
 			<div class="relative mt-12">

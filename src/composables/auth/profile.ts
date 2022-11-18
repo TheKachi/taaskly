@@ -1,5 +1,5 @@
 import { User } from 'firebase/auth'
-import { updateFirestoreDocument } from '../../firebase/firestore'
+import { saveFirestoreDocument } from '../../firebase/firestore'
 import { useAlert, useLoading } from '../core/useNotification'
 import { useUser } from '@/composables/auth/user'
 import { callFirebaseFunction } from '@/firebase/functions'
@@ -15,7 +15,7 @@ const profileFormState = {
 	dob: ref(''),
 	desc: ref('')
 }
-
+const { id } = useUser()
 const formStep = ref(1)
 export const useCreateProfile = () => {
 	const loading = ref(false)
@@ -25,7 +25,8 @@ export const useCreateProfile = () => {
 		} else {
 			loading.value = true
 			try {
-				await updateFirestoreDocument('users', useUser().id.value as string, {
+				await saveFirestoreDocument('users', useUser().id.value as string, {
+					id: id.value,
 					first_name: profileFormState.first_name.value,
 					last_name: profileFormState.last_name.value,
 					email: profileFormState.email.value,
