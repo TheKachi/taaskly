@@ -3,11 +3,11 @@
 		class="pc min-h-screen   flex-col justify-between w-[20%] max-w-[14rem] bg-transparent  fixed z-50 "
 	>
 		<div>
-			<div class="w-full flex justify-start pl-3">
+			<div class="w-full flex justify-start pl-6">
 				<img
-					src="/logo.svg"
+					src="/logo-text.svg"
 					alt="logo"
-					class="w-12"
+					class="h-8"
 				>
 			</div>
 

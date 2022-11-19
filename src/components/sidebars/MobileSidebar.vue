@@ -8,12 +8,12 @@
 			class=" "
 		>
 			<div>
-				<div class="flex   items-center pr-4 gap-2">
-					<!-- <img
-						src="@/assets/images/logoWhite.svg"
+				<div class="flex items-center pl-4 mb-4 ">
+					<img
+						src="/favicon.svg"
 						alt="logo"
-						class="w-28 h-10 ml-4"
-					> -->
+						class="h-10 border rounded-full border-primary"
+					>
 				</div>
 
 				<p class="text-xl font-medium ml-4">
