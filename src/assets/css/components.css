@@ -32,7 +32,16 @@
         @apply flex flex-col gap-3;
     }
     .btn {
-        @apply rounded px-4 py-3 bg-primary text-clear w-full mt-1 flex justify-center disabled:bg-gray-500;
+        @apply rounded px-6 py-2.5 flex justify-center items-center disabled:bg-gray-500 box-border h-11;
+    }
+    .btn-primary {
+        @apply btn bg-primary text-clear mt-1;
+    }
+    .btn-primary-inverse {
+        @apply btn bg-clear text-primary mt-1;
+    }
+    .btn-secondary {
+        @apply btn bg-clear text-primary border border-primary mt-1;
     }
     .pc {
         @apply hidden lg:flex;

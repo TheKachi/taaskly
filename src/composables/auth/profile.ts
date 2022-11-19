@@ -2,7 +2,7 @@ import { User } from 'firebase/auth'
 import { saveFirestoreDocument } from '../../firebase/firestore'
 import { useAlert, useLoading } from '../core/useNotification'
 import { useUser } from '@/composables/auth/user'
-import { callFirebaseFunction } from '@/firebase/functions'
+import { callFirebaseFunction } from '~~/src/firebase/functions'
 
 const profileFormState = {
 	first_name: ref(''),
@@ -43,7 +43,7 @@ export const useCreateProfile = () => {
 				loading.value = false
 			} catch (e: any) {
 				loading.value = false
-				useAlert().openAlert(`Error: ${e.message}`)
+				useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
 			}
 		}
 	}

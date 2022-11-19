@@ -1,6 +1,6 @@
 import { User } from 'firebase/auth'
 import { useUser } from '@/composables/auth/user'
-import { googleAuth, signOutUser } from '@/firebase/auth'
+import { googleAuth, signOutUser } from '~~/src/firebase/auth'
 import { useLoading } from '~~/src/composables/core/useNotification'
 
 export const useSignin = () => {

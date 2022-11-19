@@ -33,3 +33,21 @@ select {
 .slideUp-leave-active {
     transition: all 0.75s ease;
 }
+
+@layer utilities {
+    .center {
+        @apply flex justify-center items-center;
+    }
+    .center-col {
+        @apply flex flex-col justify-center items-center;
+    }
+    .transite {
+        @apply transition-all duration-150 ease-in;
+    }
+    .pc {
+        @apply md:flex hidden;
+    }
+    .mobile {
+        @apply md:hidden flex;
+    }
+}
