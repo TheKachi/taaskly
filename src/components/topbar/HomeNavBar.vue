@@ -63,7 +63,7 @@
 			</div>
 			<div class="flex items-center justify-between gap-3 pc">
 				<nuxt-link to="/auth/login" class="btn-secondary">
-					Sign In
+					Log In
 				</nuxt-link>
 				<nuxt-link to="/auth/signup" class="btn-primary">
 					Sign up
@@ -81,12 +81,12 @@
 			v-if="show"
 			class="fixed inset-0 bg-blue bg md:hidden h-screen pt-20 px-5 bg-white"
 		>
-			<button class="btn-secondary w-full mb-4">
+			<nuxt-link to="/auth/login" class="btn-secondary mb-4">
 				Log In
-			</button>
-			<button class="btn-primary w-full">
-				Sign Up
-			</button>
+			</nuxt-link>
+			<nuxt-link to="/auth/signup" class="btn-primary">
+				Sign up
+			</nuxt-link>
 
 			<!-- <div class="grid grid-cols-2 mt-[45px] gap-4 gap-y-12">
 				<div class="flex flex-col gap-[30px]">

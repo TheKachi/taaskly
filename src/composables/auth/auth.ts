@@ -13,8 +13,8 @@ export const useSignin = () => {
 			const token = await useUser()?.user?.auth.currentUser.getIdTokenResult()
 			const hasProfile = token?.claims?.hasUpdatedProfile
 			useUser().setProfileStatus(hasProfile)
-			loading.value = false
 			useRouter().push('/dashboard')
+			loading.value = false
 		} catch {
 			loading.value = false
 		}
