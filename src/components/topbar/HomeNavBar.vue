@@ -61,7 +61,7 @@
 					</span>
 				</div> -->
 			</div>
-			<div class="flex items-center justify-between gap-3 pc">
+			<div class=" items-center justify-between gap-3 pc">
 				<nuxt-link to="/auth/login" class="btn-secondary">
 					Log In
 				</nuxt-link>
