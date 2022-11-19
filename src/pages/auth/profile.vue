@@ -70,7 +70,7 @@
 					</div>
 				</div>
 
-				<button class="btn" :disabled="loading">
+				<button class="btn-primary" :disabled="loading">
 					<span v-if="!loading"> 	{{ formStep==1 ? 'Next':'Create' }}</span>
 					<Spinner v-else />
 				</button>
