@@ -3,7 +3,7 @@
 		class="w-full md:py-4  center fixed top-0 z-20 inset-x-0 bg-clear shadow md:px-[22px] "
 	>
 		<header
-			class="w-full container mx-auto shadow-nav md:shadow-none flex items-center justify-between z-20 px-5 md:px-0 h-12 shadow"
+			class="w-full container mx-auto shadow-nav md:shadow-none flex items-center justify-between z-20 px-5 md:px-0 h-16 shadow"
 		>
 			<div class="flex items-center">
 				<a href="/">
