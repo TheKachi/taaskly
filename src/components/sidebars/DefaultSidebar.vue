@@ -1,13 +1,13 @@
 <template>
 	<aside
-		class="pc min-h-full h-screen  flex-col justify-between w-[20%] max-w-[14rem] bg-transparent py-4 fixed z-50 "
+		class="pc min-h-screen   flex-col justify-between w-[20%] max-w-[14rem] bg-transparent  fixed z-50 "
 	>
 		<div>
-			<div class="flex   items-center pr-4 gap-2">
+			<div class="w-full flex justify-start pl-3">
 				<img
 					src="/logo.svg"
 					alt="logo"
-					class="w-28 h-10 ml-4"
+					class="w-12"
 				>
 			</div>
 

@@ -44,10 +44,4 @@ select {
     .transite {
         @apply transition-all duration-150 ease-in;
     }
-    .pc {
-        @apply md:flex hidden;
-    }
-    .mobile {
-        @apply md:hidden flex;
-    }
 }
