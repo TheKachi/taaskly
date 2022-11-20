@@ -1,8 +1,7 @@
 import { User } from 'firebase/auth'
-import { saveFirestoreDocument } from '../../firebase/firestore'
+import { saveFirestoreDocument, getSingleFirestoreDocument } from '../../firebase/firestore'
 import { useAlert, useLoading } from '../core/useNotification'
 import { useUser } from '@/composables/auth/user'
-import { callFirebaseFunction } from '~~/src/firebase/functions'
 
 const profileFormState = {
 	first_name: ref(''),
@@ -12,9 +11,15 @@ const profileFormState = {
 	student: ref(false),
 	university: ref(''),
 	address: ref(''),
+	gender: ref(''),
 	dob: ref(''),
-	desc: ref('')
+	desc: ref(''),
+	verifiedLevel: ref(0),
+    profileLevel: ref(0),
+	tasker_rating: ref(false),
+    runner_rating: ref(false)
 }
+const profileData = ref()
 const { id } = useUser()
 const formStep = ref(1)
 export const useCreateProfile = () => {
@@ -34,8 +39,13 @@ export const useCreateProfile = () => {
 					student: profileFormState.student.value,
 					university: profileFormState.university.value,
 					address: profileFormState.address.value,
+					gender: profileFormState.gender.value,
 					dob: profileFormState.dob.value,
-					desc: profileFormState.desc.value
+					desc: profileFormState.desc.value,
+					verifiedLevel: profileFormState.verifiedLevel.value,
+					profileLevel: profileFormState.profileLevel.value,
+					tasker_rating: profileFormState.tasker_rating.value,
+					runner_rating: profileFormState.runner_rating.value
 				})
 				// await updateProfileClaim()
 				useUser().setProfileStatus(true)
@@ -48,12 +58,6 @@ export const useCreateProfile = () => {
 		}
 	}
 
-	// const updateProfileClaim = async () => {
-	// 	await callFirebaseFunction('updateProfileClaim', {
-	// 		uid: useUser().id.value
-	// 	})
-	// }
-
 	const initForm = () => {
 		profileFormState.email.value = useUser().user?.email as string
 		profileFormState.first_name.value = useUser().user?.displayName?.split(
@@ -64,4 +68,16 @@ export const useCreateProfile = () => {
 		)[1] as string
 	}
 	return { createProfile, formStep, profileFormState, loading, initForm }
+}
+
+export const useProfile = () => {
+	const loading = ref(false)
+	const getProfile = async () => {
+		loading.value = true
+		if (profileData.value?.email) return
+		profileData.value = await getSingleFirestoreDocument('users', id.value as string)
+		console.log(profileData.value)
+		loading.value = false
+	}
+	return { getProfile, profileData, loading }
 }

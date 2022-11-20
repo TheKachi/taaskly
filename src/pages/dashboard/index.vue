@@ -1,22 +1,28 @@
 <template>
 	<main class="w-full h-screen">
-		<transition name="slideUp" appear>
-			<div
-				class="container mx-auto flex flex-col md:justify-center items-center h-full text-center gap-4 py-20 text-primary"
-			>
-				<h1 class="font-bold md:text-8xl text-5xl">
-					DashBoard
-				</h1>
-			</div>
-		</transition>
+		<div class="flex ">
+			<LazyTabs :selected="selected" :tabs="tabViews" @changed="selected = $event" />
+		</div>
+		<keep-alive>
+			<component :is="tabs[selected]" />
+		</keep-alive>
 	</main>
 </template>
 
 <script lang="ts" setup>
 import { useSignin } from '@/composables/auth/auth'
 import { useUser } from '@/composables/auth/user'
-const { googleSignin, signOut } = useSignin()
+import Overview from '@/pages/dashboard/Overview.vue'
+import Personal from '@/pages/dashboard/Personal.vue'
+
 const { isLoggedIn, user } = useUser()
+
+const selected = ref('Overview')
+const tabViews = ['Overview', 'Personal']
+const tabs = markRaw({
+	Overview,
+	Personal
+})
 
 definePageMeta({
 	layout: 'dashboard',

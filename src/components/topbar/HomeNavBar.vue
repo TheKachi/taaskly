@@ -79,7 +79,7 @@
 
 		<div
 			v-if="show"
-			class="fixed inset-0 bg-blue bg md:hidden h-screen pt-20 px-5 bg-white"
+			class="fixed inset-0 bg-blue bg  h-screen pt-32 px-5 bg-white"
 		>
 			<nuxt-link to="/auth/login" class="btn-secondary mb-4">
 				Log In

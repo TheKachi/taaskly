@@ -10,7 +10,7 @@
         @apply border border-gray-400 w-full h-11 px-4 rounded  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
     }
     .main-layout {
-        @apply container flex justify-center items-center min-h-screen;
+        @apply container flex justify-center items-center min-h-screen py-12;
     }
     .auth-box {
         @apply w-[450px] mx-auto relative inset-x-0 top-5 max-w-[100%] bg-clear px-9 py-7 flex flex-col gap-2;

@@ -1,8 +1,6 @@
 <template>
 	<main class="w-full h-screen">
-		<div
-			class=""
-		>
+		<div>
 			<LazyTabs :selected="selected" :tabs="tabViews" @changed="selected = $event" />
 			<keep-alive>
 				<component :is="tabs[selected]" />
@@ -14,8 +12,8 @@
 <script lang="ts" setup>
 import { useSignin } from '@/composables/auth/auth'
 import { useUser } from '@/composables/auth/user'
-import Verification from '@/pages/profile/-Verification.vue'
-import Account from '@/pages/profile/-Account.vue'
+import Verification from '@/pages/profile/Verification.vue'
+import Account from '@/pages/profile/Account.vue'
 const { googleSignin, signOut } = useSignin()
 const { isLoggedIn, user } = useUser()
 
@@ -28,6 +26,7 @@ const tabs = markRaw({
 })
 
 definePageMeta({
-	layout: 'dashboard'
+	layout: 'dashboard',
+	middleware: ['is-authenticated', 'has-profile']
 })
 </script>

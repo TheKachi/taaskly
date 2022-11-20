@@ -26,6 +26,7 @@ module.exports = {
 				purple: 'var(--purple)',
 				pink: 'var(--pink)',
 				line: 'var(--line)',
+				light_primary: 'var(  --light_primary)',
 				night: 'var(--night)'
       },
       gridTemplateColumns: {

@@ -32,11 +32,22 @@
 					</div>
 					<div class="field">
 						<label for="phone">Phone No.</label>
-						<input id="phone" v-model="profileFormState.phone.value" type="tel" class="input-field">
+						<input id="phone" v-model="profileFormState.phone.value" type="tel" class="input-field" required>
+					</div>
+					<div class="field">
+						<label for="student">Select Gender</label>
+						<select id="student" v-model="profileFormState.gender.value" name="student" class="input-field" required>
+							<option value="male">
+								Male
+							</option>
+							<option value="female">
+								Female
+							</option>
+						</select>
 					</div>
 					<div class="field">
 						<label for="student">Are you a student ?</label>
-						<select id="student" v-model="profileFormState.student.value" name="student" class="input-field">
+						<select id="student" v-model="profileFormState.student.value" name="student" class="input-field" required>
 							<option value="true">
 								Yes
 							</option>
@@ -47,7 +58,7 @@
 					</div>
 					<div v-if="profileFormState.student.value" class="field">
 						<label for="university">What university?</label>
-						<select id="university" v-model="profileFormState.university.value" name="university" class="input-field">
+						<select id="university" v-model="profileFormState.university.value" name="university" class="input-field" required>
 							<option value="university of lagos">
 								University of Lagos
 							</option>
@@ -58,11 +69,11 @@
 				<div v-else id="step 2" class="auth-form">
 					<div class="field">
 						<label for="address">Address</label>
-						<input id="address" v-model="profileFormState.address.value" type="address" class="input-field">
+						<input id="address" v-model="profileFormState.address.value" type="address" class="input-field" required>
 					</div>
 					<div class="field">
 						<label for="date">Date of Birth</label>
-						<input id="date" v-model="profileFormState.dob.value" type="date" class="input-field">
+						<input id="date" v-model="profileFormState.dob.value" type="date" class="input-field" required>
 					</div>
 					<div class="field">
 						<label for="desc">Profile Description</label>

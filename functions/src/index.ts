@@ -55,10 +55,17 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
 });
 
 
-exports.userFirstTimeUpdate = functions.firestore
+exports.userFirstTimeProfileUpdate = functions.firestore
     .document("users/{userId}")
     .onCreate(async (snap) => {
       const oldValues = snap.data();
       admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
     });
+
+// exports.setVerificationLevel = functions.firestore
+//     .document("users/{userId}")
+//     .onCreate(async (snap) => {
+//       const oldValues = snap.data();
+//       admin.auth().setCustomUserClaims(oldValues.id, {verificationLevel: 0});
+//     });
 
