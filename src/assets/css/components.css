@@ -68,4 +68,7 @@
         position: relative;
         box-shadow: 5px 0 20px 2px rgb(0 0 0 / 20%);
     }
+    .page-title {
+        @apply text-primary font-bold text-2xl pb-2;
+    }
 }

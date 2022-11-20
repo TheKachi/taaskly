@@ -1,6 +1,6 @@
 import { default } from './tab/index.vue';
 <template>
-	<div class="tab-body border-">
+	<div class="tab-body border border-primary">
 		<span v-for="tab in tabs" :key="tab" :class="['tab-item transite', tab==selected ? 'active' :''] " @click="onClick(tab)">{{ tab }}</span>
 	</div>
 </template>
@@ -23,7 +23,6 @@ defineProps({
 const emit = defineEmits(['changed'])
 
 const onClick = (selected) => {
-    // console.log(selected)
     emit('changed', selected)
 }
 </script>
@@ -33,14 +32,14 @@ const onClick = (selected) => {
     display: inline-flex;
     align-items: center;
     background-color: #f5f6fa;
-    border-radius: 22px;
+    border-radius: 220px;
     outline: none;
     color: rgba(10,46,101,.9);
     overflow: auto;
     font-size: .75rem;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top: 1rem;
     z-index: 10;
     padding: 7px;
 }

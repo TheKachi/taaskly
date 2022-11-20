@@ -1,6 +1,6 @@
 <template>
-	<section class="mt-12">
-		<h1 class="text-gray-500 font-bold text-2xl border-b pb-2">
+	<section class="mt-12 py-4">
+		<h1 class="page-title">
 			Personalize
 		</h1>
 		<div class="flex items-center gap-5 mt-8">
@@ -10,7 +10,7 @@
 			</h1>
 		</div>
 
-		<div class="grid grid-cols-3 mt-8 gap-x-4 gap-y-8">
+		<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-4 gap-y-8">
 			<div class="field">
 				<label>
 					First Name

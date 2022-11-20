@@ -15,6 +15,7 @@ const profileFormState = {
 	dob: ref(''),
 	desc: ref(''),
 	verifiedLevel: ref(0),
+	walletBalance: ref(0),
     profileLevel: ref(0),
 	tasker_rating: ref(false),
     runner_rating: ref(false)
@@ -73,10 +74,11 @@ export const useCreateProfile = () => {
 export const useProfile = () => {
 	const loading = ref(false)
 	const getProfile = async () => {
-		loading.value = true
-		if (profileData.value?.email) return
+		if (profileData.value?.email) {
+			loading.value = false
+			return
+		}
 		profileData.value = await getSingleFirestoreDocument('users', id.value as string)
-		console.log(profileData.value)
 		loading.value = false
 	}
 	return { getProfile, profileData, loading }

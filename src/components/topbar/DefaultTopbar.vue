@@ -5,14 +5,14 @@
 			name="menu"
 			@click="useSidebarModal().openMobileSidebar()"
 		/>
-		<h1 class="font-medium text-xl capitalize ">
+		<div />
+		<!-- <h1 class="font-medium text-xl capitalize ">
 			{{ $route.name }}
-		</h1>
+		</h1> -->
 
 		<div class="flex items-center gap-4">
-			<p class="text-base hidden sm:block">
-				{{ user.displayName }}
-			</p>
+			<!-- <Badge :name="profileData?.profileLevel ? profileData?.profileLevel : 'loading...'" class="text-base hidden sm:block" /> -->
+			<Badge :name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'" />
 			<Avatar :name="user.displayName" :src="user.photoURL" />
 		</div>
 	</nav>
@@ -21,8 +21,11 @@
 <script setup lang="ts">
 import { useUser } from '@/composables/auth/user'
 import { useSidebarModal } from '@/composables/core/modals'
+import { useProfile } from '@/composables/auth/profile'
 const { user } = useUser()
 
+const { getProfile, loading, profileData } = useProfile()
+onMounted(getProfile)
 </script>
 
 <style scoped lang="scss">
