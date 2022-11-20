@@ -10,12 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useSignin } from '@/composables/auth/auth'
-import { useUser } from '@/composables/auth/user'
 import Overview from '@/pages/dashboard/Overview.vue'
 import Personal from '@/pages/dashboard/Personal.vue'
-
-const { isLoggedIn, user } = useUser()
 
 const selected = ref('Overview')
 const tabViews = ['Overview', 'Personal']

@@ -1,24 +1,27 @@
 <template>
 	<main class="w-full h-screen">
-		<transition name="slideUp" appear>
-			<div
-				class="container mx-auto flex flex-col md:justify-center items-center h-full text-center gap-4 py-20 text-primary"
-			>
-				<h1 class="font-bold md:text-8xl text-5xl">
-					Wallet
-				</h1>
-			</div>
-		</transition>
+		<div class="flex ">
+			<LazyTabs :selected="selected" :tabs="tabViews" @changed="selected = $event" />
+		</div>
+		<keep-alive>
+			<component :is="tabs[selected]" />
+		</keep-alive>
 	</main>
 </template>
 
 <script lang="ts" setup>
-import { useSignin } from '@/composables/auth/auth'
-import { useUser } from '@/composables/auth/user'
-const { googleSignin, signOut } = useSignin()
-const { isLoggedIn, user } = useUser()
+import Wallet from '@/pages/wallet/Wallet.vue'
+import History from '@/pages/wallet/History.vue'
+
+const selected = ref('Wallet')
+const tabViews = ['Wallet', 'History']
+const tabs = markRaw({
+	Wallet,
+	History
+})
 
 definePageMeta({
-	layout: 'dashboard'
+	layout: 'dashboard',
+	middleware: ['is-authenticated', 'has-profile']
 })
 </script>

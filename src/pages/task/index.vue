@@ -1,25 +1,27 @@
 <template>
 	<main class="w-full h-screen">
-		<transition name="slideUp" appear>
-			<div
-				class="container mx-auto flex flex-col md:justify-center items-center h-full text-center gap-4 py-20 text-primary"
-			>
-				<h1 class="font-bold md:text-8xl text-5xl">
-					Task
-				</h1>
-			</div>
-		</transition>
+		<div class="flex ">
+			<LazyTabs :selected="selected" :tabs="tabViews" @changed="selected = $event" />
+		</div>
+		<keep-alive>
+			<component :is="tabs[selected]" />
+		</keep-alive>
 	</main>
 </template>
 
 <script lang="ts" setup>
-import { useSignin } from '@/composables/auth/auth'
-import { useUser } from '@/composables/auth/user'
-const { googleSignin, signOut } = useSignin()
-const { isLoggedIn, user } = useUser()
+import Tasks from '@/pages/task/Tasks.vue'
+import Services from '@/pages/task/Services.vue'
+
+const selected = ref('Tasks')
+const tabViews = ['Tasks', 'Services']
+const tabs = markRaw({
+	Tasks,
+	Services
+})
 
 definePageMeta({
 	layout: 'dashboard',
-	middleware: 'is-authenticated'
+	middleware: ['is-authenticated', 'has-profile']
 })
 </script>
