@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
 import {
-	getFirestore,
 	doc,
 	setDoc, updateDoc,
 	deleteDoc,
@@ -9,9 +8,8 @@ import {
 	getDocs,
   query, where
 } from 'firebase/firestore'
-import { app } from './init'
+import { db } from './init'
 import { useUser } from '@/composables/auth/user'
-export const db = getFirestore(app)
 
 const { id } = useUser()
 export const saveFirestoreDocument = async (

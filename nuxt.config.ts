@@ -37,6 +37,9 @@ export default {
 					href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap',
 					rel: 'stylesheet'
 				}
+			],
+			script: [
+				{ src: 'https://checkout.seerbitapi.com/api/v2/seerbit.js' }
 			]
 		}
 	},
@@ -66,7 +69,7 @@ export default {
 		middleware: './src/middleware'
 	},
 	vite: {
-		plugins: [eslintPlugin({ useEslintrc: true })],
+		plugins: [eslintPlugin({ useEslintrc: true, exclude: ['src/helpers/**/*'] })],
 		server: {
 			watch: {
 				usePolling: true

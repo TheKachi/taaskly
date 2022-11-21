@@ -12,7 +12,8 @@
 		"test:run": "vitest run",
 		"coverage": "vitest run --coverage",
 		"test:ui": "vitest --ui",
-		"cy": "cypress open"
+		"cy": "cypress open",
+		"emu": "firebase emulators:start"
 	},
 	"lint-staged": {
 		"*.{js,vue,ts}": [

@@ -2,8 +2,8 @@
 	<section class="mt-12">
 		<h1 class="page-title">
 			Services around you
-			<!-- Level - {{ profileData?.student ? 'Student' : 'Individual' }} -->
 		</h1>
+		<p>There are currently no Services around you</p>
 	</section>
 </template>
 

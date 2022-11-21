@@ -1,3 +1,4 @@
+
 <template>
 	<section class="mt-12">
 		<h1 class="page-title">
@@ -11,7 +12,7 @@
 		</h2>
 
 		<div class="grid grid-cols-2 gap-4 max-w-full w-96 mt-9">
-			<button class="btn-primary">
+			<button class="btn-primary" @click="fundWallet">
 				Fund
 			</button>
 			<button class="btn-primary" disabled>
@@ -22,7 +23,8 @@
 </template>
 
 <script setup lang="ts">
-
+import { useWallet } from '../../composables/wallet/index'
+const { fundWallet, loading } = useWallet()
 </script>
 
 <style scoped>

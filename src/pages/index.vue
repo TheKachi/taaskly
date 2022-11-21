@@ -11,7 +11,7 @@
 				</h1> -->
 
 				<p class="text-base md:text-lg text-center md:text-start max-w-[480px] md:mt-7 mt-2.5">
-					Earn up to <b>N100,000+</b>  a month simple performing tasks on Taskly
+					Earn up to <b>N100,000+</b>  a month simple performing tasks on Taaskly
 				</p>
 
 				<div class="flex flex-col justify-center md:justify-start md:flex-row gap-6 items-center mt-12">

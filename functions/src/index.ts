@@ -34,23 +34,6 @@ exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
       .collection("Runs")
       .doc("start")
       .set({onCreated: new Date()});
-  // await admin.firestore().collection("users").doc(user.uid).set({
-  //   id: user.uid,
-  //   email: user.email,
-  //   first_name: "",
-  //   last_name: "",
-  //   username: "",
-  //   phone: "",
-  //   student: false,
-  //   address: "",
-  //   dob: "",
-  //   verified: false,
-  //   level: 0,
-  //   tasker_rating: 0,
-  //   runner_rating: 0,
-  //   desc: "",
-  // });
-
   return sgMail.send(msg);
 });
 
