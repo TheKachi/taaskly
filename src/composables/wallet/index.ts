@@ -20,10 +20,12 @@ export const useWallet = () => {
         // callbackurl: 'http://yourdomain.com'
         },
         function callback(response:any, closeModal:any) {
-         console.log(response) // response of transaction
+          // console.log(response)
+          // response of transaction
         },
         function close(close:any) {
-         console.log(close) // transaction close
+          // console.log(close)
+         // transaction close
         })
     }
     return { loading, fundWallet }
