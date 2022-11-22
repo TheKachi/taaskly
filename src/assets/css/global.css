@@ -39,6 +39,6 @@ select {
         @apply flex flex-col justify-center items-center;
     }
     .transite {
-        @apply transition-all duration-150 ease-in;
+        @apply transition-all duration-75 ease-linear;
     }
 }
