@@ -11,9 +11,23 @@ body {
     @apply overflow-x-hidden;
 }
 
-select {
+select,
+input[type='number'],
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+}
+
+select {
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+    background: url('../../assets/icons/source/down.svg') white;
+    background-repeat: no-repeat;
+    background-attachment: relative;
+    background-position: 97% 50%;
+    z-index: 100;
 }
 
 .title {

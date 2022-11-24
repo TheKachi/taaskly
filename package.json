@@ -13,7 +13,9 @@
 		"coverage": "vitest run --coverage",
 		"test:ui": "vitest --ui",
 		"cy": "cypress open",
-		"emu": "firebase emulators:start"
+		"emu": "firebase emulators:start",
+		"kill": "kill -9 <PID>",
+		"find_port": "sudo lsof -i :3000"
 	},
 	"lint-staged": {
 		"*.{js,vue,ts}": [

@@ -4,7 +4,7 @@ const verificationFormState = {
 	last_name: ref(''),
 	email: ref(''),
 	phone: ref(''),
-	student: ref(),
+	student: ref('false'),
 	university: ref('')
 }
 

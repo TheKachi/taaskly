@@ -13,7 +13,7 @@
 			</div>
 
 			<p>{{ loading ? 'Loading...' : textFunct(profileData?.verifiedLevel) }}</p>
-			<button v-if="profileData?.verifiedLevel == 0" class="btn-primary" :disabled="loading" @click="openDefaultVerification()">
+			<button v-if="profileData?.verifiedLevel == 0" class="btn-primary w-40" :disabled="loading" @click="openDefaultVerification()">
 				{{ loading ? 'Loading...' : 'Verify' }}
 			</button>
 		</div>
