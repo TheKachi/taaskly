@@ -1,14 +1,13 @@
 import { ref } from 'vue'
 import { useModal } from './modal'
 import Logout from '@/components/modals/logout.vue'
-import StudentVerification from '@/components/modals/verification/student.vue'
-import IndividualVerification from '@/components/modals/verification/individual.vue'
+import DefaultVerification from '@/components/modals/verification/default.vue'
 import MobileSidebar from '@/components/sidebars/MobileSidebar.vue'
 
-type AuthTypes = 'Logout' | 'StudentVerification' | 'IndividualVerification'
+type AuthTypes = 'Logout' | 'DefaultVerification'
 type SidebarTypes = 'MobileSidebar'
 
-const AuthModals = { Logout, StudentVerification, IndividualVerification } as Record<AuthTypes, any>
+const AuthModals = { Logout, DefaultVerification } as Record<AuthTypes, any>
 const SidebarModals = { MobileSidebar } as Record<SidebarTypes, any>
 
 export const modal = useModal(ref([] as any))

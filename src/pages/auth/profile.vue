@@ -34,7 +34,7 @@
 						>
 					</div>
 					<div class="field">
-						<label for="phone">Phone No.</label>
+						<label for="phone">Phone No (whatsapp preferred)</label>
 						<input id="phone" v-model="profileFormState.phone.value" type="tel" class="input-field" required>
 					</div>
 					<!-- <div class="field">
@@ -48,7 +48,7 @@
 							</option>
 						</select>
 					</div> -->
-					<div class="field">
+					<!-- <div class="field">
 						<label for="student">Are you a student ?</label>
 						<select id="student" v-model="profileFormState.student.value" name="student" class="input-field" required>
 							<option value="true">
@@ -58,7 +58,7 @@
 								No
 							</option>
 						</select>
-					</div>
+					</div> -->
 					<!-- <div v-if="profileFormState.student.value" class="field">
 						<label for="university">What university?</label>
 						<select id="university" v-model="profileFormState.university.value" name="university" class="input-field" required>

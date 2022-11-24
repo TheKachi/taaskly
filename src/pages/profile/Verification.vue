@@ -13,7 +13,7 @@
 			</div>
 
 			<p>{{ loading ? 'Loading...' : textFunct(profileData?.verifiedLevel) }}</p>
-			<button v-if="profileData?.verifiedLevel == 0" class="btn-primary" :disabled="loading" @click="profileData.student ? openStudentVerification() : openIndividualVerification()">
+			<button v-if="profileData?.verifiedLevel == 0" class="btn-primary" :disabled="loading" @click="openDefaultVerification()">
 				{{ loading ? 'Loading...' : 'Verify' }}
 			</button>
 		</div>
@@ -28,7 +28,7 @@ import Verification from '@/pages/profile/-Verification.vue'
 import { useProfile } from '@/composables/auth/profile'
 import verify_animation from '@/assets/animations/verify.json'
 const { user } = useUser()
-const { openIndividualVerification, openStudentVerification } = useAuthModal()
+const { openDefaultVerification } = useAuthModal()
 const { getProfile, loading, profileData } = useProfile()
 onMounted(getProfile)
 

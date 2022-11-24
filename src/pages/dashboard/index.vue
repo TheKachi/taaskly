@@ -10,14 +10,14 @@
 </template>
 
 <script lang="ts" setup>
-import Overview from '@/pages/dashboard/Overview.vue'
-import Personal from '@/pages/dashboard/Personal.vue'
+import tasks from '@/pages/dashboard/Tasks.vue'
+import services from '@/pages/dashboard/Services.vue'
 
-const selected = ref('Overview')
-const tabViews = ['Overview', 'Personal']
+const selected = ref('tasks')
+const tabViews = ['tasks', 'services']
 const tabs = markRaw({
-	Overview,
-	Personal
+	tasks,
+	services
 })
 
 definePageMeta({

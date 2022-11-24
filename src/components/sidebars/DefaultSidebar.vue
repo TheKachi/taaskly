@@ -1,8 +1,8 @@
 <template>
 	<aside
-		class="pc min-h-screen   flex-col justify-between w-[20%] max-w-[14rem] bg-transparent  fixed z-50 "
+		class="pc min-h-screen   flex-col justify-between w-[20%] max-w-[14rem] bg-transparent  fixed inset-y-0 z-50 "
 	>
-		<div>
+		<div class="h-full relative py-4">
 			<div class="w-full flex justify-start pl-6">
 				<img
 					src="/logo-text.svg"
@@ -55,6 +55,16 @@
 					</p>
 				</button>
 			</div>
+
+			<button
+				class="menu-btn flex items-center font-semibold !text-secondary  border-2 border-secondary hover:bg-secondary hover:!text-white fixed bottom-4"
+				@click="useAuthModal().openLogout()"
+			>
+				<icon name="task" class="mr-4 w-5" />
+				<p class="text-base">
+					Create Task
+				</p>
+			</button>
 		</div>
 	</aside>
 </template>

@@ -1,41 +1,41 @@
-import functions = require("firebase-functions");
-import admin = require("firebase-admin");
+import functions from "firebase-functions";
+import admin from "firebase-admin";
 admin.initializeApp();
-import sgMail = require('@sendgrid/mail');
+import sgMail from '@sendgrid/mail';
 
 const API_KEY = functions.config().sendgrid.key;
-const TEMPLATE_ID = functions.config().sendgrid.template;
+// const TEMPLATE_ID = functions.config().sendgrid.template;
 
 sgMail.setApiKey(API_KEY as string);
 
 
-exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
-  const msg = {
-    to: user.email,
-    from: 'Taaskly <anthony@taaskly.xyz>',
-    templateId: TEMPLATE_ID,
-    dynamic_template_data: {
-      "subject": "Welcome to Taaskly !!!",
-      "name": user.displayName ? user.displayName.split(' ')[0] : user.email,
-    },
-  };
+// exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
+//   const msg = {
+//     to: user.email,
+//     from: 'Taaskly <anthony@taaskly.xyz>',
+//     templateId: TEMPLATE_ID,
+//     dynamic_template_data: {
+//       "subject": "Welcome to Taaskly !!!",
+//       "name": user.displayName ? user.displayName.split(' ')[0] : user.email,
+//     },
+//   };
 
-  await admin
-      .firestore()
-      .collection("users")
-      .doc(user.uid)
-      .collection("Tasks")
-      .doc("start")
-      .set({onCreated: new Date()});
-  await admin
-      .firestore()
-      .collection("users")
-      .doc(user.uid)
-      .collection("Runs")
-      .doc("start")
-      .set({onCreated: new Date()});
-  return sgMail.send(msg);
-});
+//   await admin
+//       .firestore()
+//       .collection("users")
+//       .doc(user.uid)
+//       .collection("Tasks")
+//       .doc("start")
+//       .set({onCreated: new Date()});
+//   await admin
+//       .firestore()
+//       .collection("users")
+//       .doc(user.uid)
+//       .collection("Runs")
+//       .doc("start")
+//       .set({onCreated: new Date()});
+//   return sgMail.send(msg);
+// });
 
 
 exports.userFirstTimeProfileUpdate = functions.firestore

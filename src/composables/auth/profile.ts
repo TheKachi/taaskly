@@ -8,7 +8,7 @@ const profileFormState = {
 	last_name: ref(''),
 	email: ref(''),
 	phone: ref(''),
-	student: ref(),
+	student: ref(''),
 	university: ref(''),
 	address: ref(''),
 	gender: ref(''),
@@ -39,6 +39,7 @@ export const useCreateProfile = () => {
 					last_name: profileFormState.last_name.value,
 					email: profileFormState.email.value,
 					phone: profileFormState.phone.value,
+					// student: JSON.parse(profileFormState.student.value.toLowerCase()),
 					student: profileFormState.student.value,
 					university: profileFormState.university.value,
 					address: profileFormState.address.value,
@@ -54,7 +55,7 @@ export const useCreateProfile = () => {
 				})
 				// await updateProfileClaim()
 				useUser().setProfileStatus(true)
-				useRouter().push('/profile')
+				useRouter().push('/profile?q=verification')
 				loading.value = false
 			} catch (e: any) {
 				loading.value = false
