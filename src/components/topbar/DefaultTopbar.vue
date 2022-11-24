@@ -12,7 +12,10 @@
 
 		<div class="flex items-center gap-4">
 			<!-- <Badge :name="profileData?.profileLevel ? profileData?.profileLevel : 'loading...'" class="text-base hidden sm:block" /> -->
-			<Badge :name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'" />
+			<nuxt-link v-if="profileData && profileData.verifiedLevel === 0" to="/profile/?q='verification'">
+				<Badge name="Unverified" class="!bg-red" />
+			</nuxt-link>
+			<Badge v-else :name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'" />
 			<Avatar :name="user.displayName" :src="user.photoURL" />
 		</div>
 	</nav>

@@ -1,6 +1,5 @@
-import { getFunctions, httpsCallable } from 'firebase/functions'
-import { app } from './init'
-const functions = getFunctions(app, 'us-central1')
+import { httpsCallable } from 'firebase/functions'
+import { functions } from './init'
 
 export const callFirebaseFunction = async (
     functionName: string,

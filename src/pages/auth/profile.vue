@@ -11,14 +11,17 @@
 			</p>
 			<form class="auth-form" @submit.prevent="createProfile">
 				<div v-if="formStep == 1" id="step 1" class="auth-form">
-					<div class="field">
-						<label for="first_name">First Name</label>
-						<input id="first_name" v-model="profileFormState.first_name.value" type="text" class="input-field" required>
+					<div class="grid grid-cols-2 gap-4">
+						<div class="field">
+							<label for="first_name">First Name</label>
+							<input id="first_name" v-model="profileFormState.first_name.value" type="text" class="input-field" required>
+						</div>
+						<div class="field">
+							<label for="last_name">Last Name</label>
+							<input id="last_name" v-model="profileFormState.last_name.value" type="text" class="input-field" required>
+						</div>
 					</div>
-					<div class="field">
-						<label for="last_name">Last Name</label>
-						<input id="last_name" v-model="profileFormState.last_name.value" type="text" class="input-field" required>
-					</div>
+
 					<div class="field">
 						<label for="email">Email</label>
 						<input
@@ -34,7 +37,7 @@
 						<label for="phone">Phone No.</label>
 						<input id="phone" v-model="profileFormState.phone.value" type="tel" class="input-field" required>
 					</div>
-					<div class="field">
+					<!-- <div class="field">
 						<label for="student">Select Gender</label>
 						<select id="student" v-model="profileFormState.gender.value" name="student" class="input-field" required>
 							<option value="male">
@@ -44,7 +47,7 @@
 								Female
 							</option>
 						</select>
-					</div>
+					</div> -->
 					<div class="field">
 						<label for="student">Are you a student ?</label>
 						<select id="student" v-model="profileFormState.student.value" name="student" class="input-field" required>
@@ -56,21 +59,21 @@
 							</option>
 						</select>
 					</div>
-					<div v-if="profileFormState.student.value" class="field">
+					<!-- <div v-if="profileFormState.student.value" class="field">
 						<label for="university">What university?</label>
 						<select id="university" v-model="profileFormState.university.value" name="university" class="input-field" required>
 							<option value="university of lagos">
 								University of Lagos
 							</option>
 						</select>
-					</div>
+					</div> -->
 				</div>
 
 				<div v-else id="step 2" class="auth-form">
-					<div class="field">
+					<!-- <div class="field">
 						<label for="address">Address</label>
 						<input id="address" v-model="profileFormState.address.value" type="address" class="input-field" required>
-					</div>
+					</div> -->
 					<div class="field">
 						<label for="date">Date of Birth</label>
 						<input id="date" v-model="profileFormState.dob.value" type="date" class="input-field" required>

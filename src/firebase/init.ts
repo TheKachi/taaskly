@@ -1,6 +1,8 @@
-import { initializeApp } from 'firebase/app'
+import { initializeApp, getApp } from 'firebase/app'
+import { getAnalytics } from 'firebase/analytics'
 import { getAuth, connectAuthEmulator } from 'firebase/auth'
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore'
+import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY as string,
   authDomain: 'taaskly.firebaseapp.com',
@@ -12,12 +14,13 @@ const firebaseConfig = {
 }
 
 export const app = initializeApp(firebaseConfig)
-
+export const analytics = getAnalytics(app)
 export const auth = getAuth(app)
 export const db = getFirestore(app)
-
+export const functions = getFunctions(getApp(), 'us-central1')
 // If on localhost, use all firebase services locally
 if (location.hostname === 'localhost') {
   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
   connectFirestoreEmulator(db, 'localhost', 8080)
+  connectFunctionsEmulator(functions, 'localhost', 5001)
 }

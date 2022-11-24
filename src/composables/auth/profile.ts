@@ -8,7 +8,7 @@ const profileFormState = {
 	last_name: ref(''),
 	email: ref(''),
 	phone: ref(''),
-	student: ref(false),
+	student: ref(),
 	university: ref(''),
 	address: ref(''),
 	gender: ref(''),
@@ -18,7 +18,9 @@ const profileFormState = {
 	walletBalance: ref(0),
     profileLevel: ref(0),
 	tasker_rating: ref(false),
-    runner_rating: ref(false)
+	runner_rating: ref(false),
+	created_at: ref(new Date().toISOString()),
+	updated_at: ref(new Date().toISOString())
 }
 const profileData = ref()
 const { id } = useUser()
@@ -26,9 +28,9 @@ const formStep = ref(1)
 export const useCreateProfile = () => {
 	const loading = ref(false)
 	const createProfile = async () => {
-		if (formStep.value === 1) {
-			formStep.value = 2
-		} else {
+		// if (formStep.value === 1) {
+		// 	formStep.value = 2
+		// } else {
 			loading.value = true
 			try {
 				await saveFirestoreDocument('users', useUser().id.value as string, {
@@ -46,17 +48,19 @@ export const useCreateProfile = () => {
 					verifiedLevel: profileFormState.verifiedLevel.value,
 					profileLevel: profileFormState.profileLevel.value,
 					tasker_rating: profileFormState.tasker_rating.value,
-					runner_rating: profileFormState.runner_rating.value
+					runner_rating: profileFormState.runner_rating.value,
+					created_at: profileFormState.created_at.value,
+					updated_at: profileFormState.updated_at.value
 				})
 				// await updateProfileClaim()
 				useUser().setProfileStatus(true)
-				useRouter().push('/dashboard')
+				useRouter().push('/profile')
 				loading.value = false
 			} catch (e: any) {
 				loading.value = false
 				useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
 			}
-		}
+		// }
 	}
 
 	const initForm = () => {

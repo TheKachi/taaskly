@@ -1,4 +1,4 @@
-import { getAnalytics, logEvent } from 'firebase/analytics'
+import { logEvent } from 'firebase/analytics'
+import { analytics } from './init'
 
-const analytics = getAnalytics()
 logEvent(analytics, 'init')
