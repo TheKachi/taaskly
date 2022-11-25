@@ -3,7 +3,7 @@
 		modal="$atts.modal"
 		title="Verification Modal"
 	>
-		<form class="auth-form" @submit.prevent="createProfile">
+		<form class="auth-form" @submit.prevent="verify">
 			<div class="field">
 				<label for="student">Are you a student ?</label>
 				<select id="student" v-model="verificationFormState.student.value" name="student" class="input-field" required>
@@ -19,7 +19,7 @@
 			<div v-if="JSON.parse(verificationFormState.student.value)" id="student" class="auth-form">
 				<div class="field">
 					<label for="type">Student Verification Type</label>
-					<select id="type" name="student" class="input-field">
+					<select id="type" v-model="verificationFormState.id_type.value" name="student" class="input-field">
 						<option value="student_id">
 							Student ID
 						</option>
@@ -36,7 +36,7 @@
 			<div v-else id="individual" class="auth-form">
 				<div class="field">
 					<label for="type">Individual Verification Type</label>
-					<select id="type" name="student" class="input-field">
+					<select id="type" v-model="verificationFormState.id_type.value" name="student" class="input-field">
 						<option value="driver_license">
 							Driver license
 						</option>
@@ -51,12 +51,13 @@
 			</div>
 			<div class="field">
 				<span class="label">Upload a File</span>
-				<label for="document" class="input-field border-dashed center">Choose a File</label>
+				<label for="document" class="input-field border-dashed center">{{ name }}</label>
 				<input id="document" type="file" class="hidden" required @change="update($event)">
 			</div>
 
-			<button class="modal-btn">
-				Verify
+			<button class="modal-btn" :disabled="!verificationFormState.document.value || loading">
+				<span v-if="!loading"> 	Verify</span>
+				<Spinner v-else />
 			</button>
 		</form>
 	</Modal>
@@ -66,11 +67,14 @@
 import Modal from '@/components/core/modal/Modal.vue'
 import { useVerification } from '@/composables/auth/verification'
 import { toBase64 } from '@/composables/useUtils'
-const { verificationFormState } = useVerification()
+const { verify, verificationFormState, loading } = useVerification()
 
+const name = ref('Choose a File')
 		   const update = async (el) => {
 			   const b64 = await toBase64(el.srcElement.files[0])
-			   console.log(el)
+			   verificationFormState.document.value = b64
+			   const file_name = el.srcElement.files[0].name
+			   name.value = file_name
 		   }
 </script>
 

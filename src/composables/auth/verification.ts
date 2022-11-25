@@ -1,15 +1,16 @@
+import { uploadBlob } from '@/firebase/storage'
 
 const verificationFormState = {
-	first_name: ref(''),
-	last_name: ref(''),
-	email: ref(''),
-	phone: ref(''),
 	student: ref('false'),
-	university: ref('')
+	id_type: ref(''),
+	document: ref()
 }
 
 export const useVerification = () => {
     const loading = ref(false)
-
-    return { verificationFormState }
+	const verify = async () => {
+		loading.value = true
+		await uploadBlob('verification/me', verificationFormState.document.value)
+	}
+    return { verify, verificationFormState, loading }
 }

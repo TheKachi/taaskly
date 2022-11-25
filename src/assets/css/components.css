@@ -56,7 +56,7 @@
         @apply font-medium text-xl text-start w-full text-primary border-b border-line pb-2;
     }
     .modal-btn {
-        @apply rounded px-4 py-2 bg-primary text-clear w-full mt-6 flex justify-center;
+        @apply rounded px-4 py-2 bg-primary text-clear w-full mt-6 flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
     }
     .sidebar {
         @apply fixed inset-y-0 left-0;

@@ -1,0 +1,44 @@
+{
+	"kind": "identitytoolkit#DownloadAccountResponse",
+	"users": [
+		{
+			"localId": "powqZDkJjxoXp72PnNhFeoQwRTJW",
+			"createdAt": "1669334163147",
+			"lastLoginAt": "1669330984067",
+			"displayName": "Mountain Algae",
+			"providerUserInfo": [
+				{
+					"providerId": "google.com",
+					"rawId": "5619878168585132797152394950460340996327",
+					"federatedId": "5619878168585132797152394950460340996327",
+					"displayName": "Mountain Algae",
+					"email": "mountain.algae.622@example.com",
+					"screenName": "algae_mountain"
+				}
+			],
+			"validSince": "1669334163",
+			"email": "mountain.algae.622@example.com",
+			"emailVerified": true,
+			"disabled": false
+		},
+		{
+			"localId": "zRPKomqZQNcNADSy5lsPnThtzSO8",
+			"displayName": "Raccoon Grass",
+			"screenName": "grass_raccoon",
+			"email": "raccoon.grass.306@example.com",
+			"emailVerified": true,
+			"lastLoginAt": "1669334196489",
+			"providerUserInfo": [
+				{
+					"providerId": "google.com",
+					"rawId": "1168669375243381457047608892786686082352",
+					"federatedId": "1168669375243381457047608892786686082352",
+					"displayName": "Raccoon Grass",
+					"email": "raccoon.grass.306@example.com",
+					"screenName": "grass_raccoon"
+				}
+			],
+			"lastRefreshAt": "2022-11-24T23:56:36.489Z"
+		}
+	]
+}
