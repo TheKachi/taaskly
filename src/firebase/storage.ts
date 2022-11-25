@@ -7,7 +7,7 @@ export const uploadBlob = async (
 ) => {
     const storageRef = ref(storage, folderName)
     uploadBytes(storageRef, file).then((snapshot) => {
-     console.log(snapshot)
-  console.log('Uploaded a blob or file!')
+    //  console.log(snapshot)
+//   console.log('Uploaded a blob or file!')
 })
 }

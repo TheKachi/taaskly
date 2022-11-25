@@ -12,6 +12,7 @@ const verificationFormState = {
 
 export const useVerification = () => {
 	const loading = ref(false)
+	const percentage = ref()
 	const verify = async () => {
 		loading.value = true
 		try {
@@ -27,5 +28,5 @@ export const useVerification = () => {
 			loading.value = false
 		}
 	}
-	return { verify, verificationFormState, loading }
+	return { verify, verificationFormState, loading, percentage }
 }

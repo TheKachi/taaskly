@@ -51,7 +51,7 @@
 			</div>
 			<div class="field">
 				<span class="label">Upload a File</span>
-				<label for="document" class="input-field border-dashed center">{{ name }}</label>
+				<label for="document" class="input-field border-dashed center">{{ name }}{{ percentage }}</label>
 				<input id="document" type="file" class="hidden" required @change="update($event)">
 			</div>
 
@@ -67,7 +67,7 @@
 import Modal from '@/components/core/modal/Modal.vue'
 import { useVerification } from '@/composables/auth/verification'
 import { toBase64 } from '@/composables/useUtils'
-const { verify, verificationFormState, loading } = useVerification()
+const { verify, verificationFormState, loading, percentage } = useVerification()
 
 const name = ref('Choose a File')
 		   const update = async (el) => {
