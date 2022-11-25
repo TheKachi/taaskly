@@ -12,11 +12,11 @@ const verificationFormState = {
 
 export const useVerification = () => {
 	const loading = ref(false)
-	const percentage = ref()
+	const { percentage, create } = uploadBlob(`Verification/${id.value}`, verificationFormState.document.value as Blob)
+
 	const verify = async () => {
 		loading.value = true
 		try {
-			await uploadBlob('verification/me', verificationFormState.document.value)
 			await saveFirestoreDocument('Verification', id.value as string, {
 				student: verificationFormState.student.value,
 				id_type: verificationFormState.id_type.value,
@@ -28,5 +28,17 @@ export const useVerification = () => {
 			loading.value = false
 		}
 	}
-	return { verify, verificationFormState, loading, percentage }
+
+	const uploadFile = async () => {
+		loading.value = true
+		try {
+			create()
+			loading.value = false
+		} catch (e:any) {
+			useAlert().openAlert({ type: 'ERROR', msg: e.message })
+			loading.value = false
+		}
+	}
+
+	return { verify, uploadFile, verificationFormState, loading, percentage }
 }

@@ -67,14 +67,15 @@
 import Modal from '@/components/core/modal/Modal.vue'
 import { useVerification } from '@/composables/auth/verification'
 import { toBase64 } from '@/composables/useUtils'
-const { verify, verificationFormState, loading, percentage } = useVerification()
+const { verify, verificationFormState, loading, percentage, uploadFile } = useVerification()
 
 const name = ref('Choose a File')
 		   const update = async (el) => {
-			   const b64 = await toBase64(el.srcElement.files[0])
-			   verificationFormState.document.value = b64
+			   const file = el.target[0]?.files[0]
+			   verificationFormState.document.value = file
 			   const file_name = el.srcElement.files[0].name
 			   name.value = file_name
+			   uploadFile()
 		   }
 </script>
 
