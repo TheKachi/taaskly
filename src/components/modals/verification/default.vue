@@ -51,8 +51,15 @@
 			</div>
 			<div class="field">
 				<span class="label">Upload a File</span>
-				<label for="document" class="input-field border-dashed center">{{ name }}{{ percentage }}</label>
-				<input id="document" type="file" class="hidden" required @change="update($event)">
+				<label for="document" class="input-field border-dashed center input relative cursor-pointer" :style="`--w:${percentage}%`">{{ percentage==100 ? 'Document Uploaded' :name }}</label>
+				<input
+					id="document"
+					type="file"
+					class="hidden"
+					required
+					:disabled="!verificationFormState.id_type.value"
+					@change="update($event)"
+				>
 			</div>
 
 			<button class="modal-btn" :disabled="!verificationFormState.document.value || loading">
@@ -71,7 +78,7 @@ const { verify, verificationFormState, loading, percentage, uploadFile } = useVe
 
 const name = ref('Choose a File')
 		   const update = async (el) => {
-			   const file = el.target[0]?.files[0]
+			   const file = el.target.files[0]
 			   verificationFormState.document.value = file
 			   const file_name = el.srcElement.files[0].name
 			   name.value = file_name
@@ -80,5 +87,11 @@ const name = ref('Choose a File')
 </script>
 
 <style scoped>
-
+.input::before{
+	content: var(--tw-content);
+    height: 100%;
+	width: var(--w);
+    background: #35355b76;
+	position: absolute;
+}
 </style>
