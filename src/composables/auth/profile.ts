@@ -22,7 +22,7 @@ const profileFormState = {
 	created_at: ref(new Date().toISOString()),
 	updated_at: ref(new Date().toISOString())
 }
-const profileData = ref()
+export const profileData = ref()
 const { id } = useUser()
 const formStep = ref(1)
 export const useCreateProfile = () => {

@@ -1,3 +1,4 @@
+import { profileData } from './profile'
 import { useUser } from '@/composables/auth/user'
 import { saveFirestoreDocument } from '@/firebase/firestore'
 import { useAuthModal } from '@/composables/core/modals'
@@ -27,6 +28,7 @@ export const useVerification = () => {
 			})
 			await callFirebaseFunction('updateVerificationLevel', { level: 1 })
 			loading.value = false
+			profileData.value.verifiedLevel = 1
 			useAuthModal().closeDefaultVerification()
 			useAlert().openAlert({ type: 'SUCCESS', msg: 'Verification submitted' })
 		} catch (e:any) {

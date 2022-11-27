@@ -1,5 +1,5 @@
-import functions from "firebase-functions";
-import admin from "firebase-admin";
+import * as functions from "firebase-functions";
+import * as admin from "firebase-admin";
 admin.initializeApp();
 // import sgMail from '@sendgrid/mail';
 
@@ -8,6 +8,15 @@ admin.initializeApp();
 
 // sgMail.setApiKey(API_KEY as string);
 
+    // const msg = {
+    //   to: req.body.emailID,
+    //   from: { email: "YOUR_SENDGRID_SENDER_EMAIL", name: "Suraj" }, 
+    //   //put your sendgrid sender in email
+    //   //field and custom name in name field
+    //   subject: "Firebase Auth OTP",
+    //   text: "OTP for signin/signup",
+    //   html: `Your OTP for Firebase Auth with email ::: ${otp}`,
+    // };
 
 // exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
 //   const msg = {
@@ -40,15 +49,30 @@ admin.initializeApp();
 
 exports.userFirstTimeProfileUpdate = functions.firestore
     .document("users/{userId}")
-    .onCreate(async (snap) => {
+    .onCreate(async (snap: any) => {
       const oldValues = snap.data();
       admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
     });
 
-exports.updateVerificationLevel = functions.https.onCall(async (data, context) => {
+exports.updateVerificationLevel = functions.region("us-central1").https.onCall((data: any, context: any) => {
   const level = data.level;
   const uid = context?.auth?.uid;
-  await admin.firestore().collection("users").doc(uid as string).update({verifiedLevel: level});
+
+  if (!(typeof level === "number") || level > 2) {
+    throw new functions.https.HttpsError("invalid-argument", "The function must be called with " +
+      "one arguments \"level\" containing the level number");
+  }
+
+
+  if (!context.auth) {
+    throw new functions.https.HttpsError("failed-precondition", "The function must be called " +
+      "while authenticated.");
+  }
+
+
+  return admin.firestore().collection("users").doc(uid as string).update({verifiedLevel: level}).then(() => {
+    return {level: `Verification level updated to ${level} successfully`};
+  });
 });
 
 // exports.setVerificationLevel = functions.firestore
