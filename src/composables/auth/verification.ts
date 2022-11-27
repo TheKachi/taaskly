@@ -3,6 +3,7 @@ import { saveFirestoreDocument } from '@/firebase/firestore'
 import { useAuthModal } from '@/composables/core/modals'
 import { useAlert } from '@/composables/core/useNotification'
 import { uploadBlob } from '@/firebase/storage'
+import { callFirebaseFunction } from '@/firebase/functions'
 
 const { id } = useUser()
 const verificationFormState = {
@@ -24,6 +25,7 @@ export const useVerification = () => {
 				createdAt: new Date().toISOString(),
 				downloadURL: downloadURL.value
 			})
+			await callFirebaseFunction('updateVerificationLevel', { level: 1 })
 			loading.value = false
 			useAuthModal().closeDefaultVerification()
 			useAlert().openAlert({ type: 'SUCCESS', msg: 'Verification submitted' })

@@ -1,4 +1,4 @@
-module.exports =  {
+module.exports = {
   root: true,
   env: {
     es6: true,
@@ -18,15 +18,14 @@ module.exports =  {
     sourceType: "module",
   },
   ignorePatterns: [
-    "/lib/**/*" // Ignore built files.
+    "/lib/**/*", // Ignore built files.
   ],
   plugins: [
     "@typescript-eslint",
     "import",
   ],
   rules: {
-    "quotes": ["off", "double"],
+    "quotes": ["error", "double"],
     "import/no-unresolved": 0,
-    'max-len': 'off'
   },
 };

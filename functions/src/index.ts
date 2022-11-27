@@ -1,12 +1,12 @@
 import functions from "firebase-functions";
 import admin from "firebase-admin";
 admin.initializeApp();
-import sgMail from '@sendgrid/mail';
+// import sgMail from '@sendgrid/mail';
 
-const API_KEY = functions.config().sendgrid.key;
+// const API_KEY = functions.config().sendgrid.key;
 // const TEMPLATE_ID = functions.config().sendgrid.template;
 
-sgMail.setApiKey(API_KEY as string);
+// sgMail.setApiKey(API_KEY as string);
 
 
 // exports.userFirstTimeCreation = functions.auth.user().onCreate(async (user) => {
@@ -45,9 +45,10 @@ exports.userFirstTimeProfileUpdate = functions.firestore
       admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
     });
 
-exports.updateVerificationLevel = functions.https.onCall((data, context) => {
+exports.updateVerificationLevel = functions.https.onCall(async (data, context) => {
   const level = data.level;
-  const uid = context?.auth?.uid || null;
+  const uid = context?.auth?.uid;
+  await admin.firestore().collection("users").doc(uid as string).update({verifiedLevel: level});
 });
 
 // exports.setVerificationLevel = functions.firestore
