@@ -37,7 +37,7 @@ switch (data) {
 	case 0:
 		return 'You are yet to verify your profile, click the button below to do so.'
 	case 1:
-		return 'Your Profile verification is currently pending.'
+		return 'Your Profile verification is currently processing.'
 	case 2:
 		return 'You are verified, you can now accept / post tasks.'
 }

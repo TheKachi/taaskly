@@ -29,5 +29,6 @@ module.exports = {
 		'no-tabs': 'off',
 		'indent': 'off',
 		'quote-props': 'off',
+		'camelcase': 'off',
 	},
 };

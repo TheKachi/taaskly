@@ -20,6 +20,9 @@
 				<div class="field">
 					<label for="type">Student Verification Type</label>
 					<select id="type" v-model="verificationFormState.id_type.value" name="student" class="input-field">
+						<option value="" disabled>
+							Select verification type
+						</option>
 						<option value="student_id">
 							Student ID
 						</option>
@@ -37,6 +40,9 @@
 				<div class="field">
 					<label for="type">Individual Verification Type</label>
 					<select id="type" v-model="verificationFormState.id_type.value" name="student" class="input-field">
+						<option value="" disabled>
+							Select verification type
+						</option>
 						<option value="driver_license">
 							Driver license
 						</option>
