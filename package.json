@@ -20,7 +20,7 @@
 	"lint-staged": {
 		"*.{js,vue,ts}": [
 			"yarn lint"
-		] 
+		]
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.0.3",

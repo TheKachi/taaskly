@@ -45,6 +45,11 @@ exports.userFirstTimeProfileUpdate = functions.firestore
       admin.auth().setCustomUserClaims(oldValues.id, {hasUpdatedProfile: true});
     });
 
+exports.updateVerificationLevel = functions.https.onCall((data, context) => {
+  const level = data.level;
+  const uid = context?.auth?.uid || null;
+});
+
 // exports.setVerificationLevel = functions.firestore
 //     .document("users/{userId}")
 //     .onCreate(async (snap) => {

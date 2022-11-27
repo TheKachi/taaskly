@@ -4354,7 +4354,7 @@ firebase-admin@^11.2.1:
 
 firebase-functions@^4.1.0:
   version "4.1.0"
-  resolved "https://registry.npmjs.org/firebase-functions/-/firebase-functions-4.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/firebase-functions/-/firebase-functions-4.1.0.tgz#4d8780a2c0aee6f362b3a632af293911427ec597"
   integrity sha512-brbww5lGQVm8+d4KFmHF+O8wJBthws1NGXgphy7UDguMbUoW0fq6bL0NI442w+3nDE8IYUbnR4p3U8/cLAhnOA==
   dependencies:
     "@types/cors" "^2.8.5"
