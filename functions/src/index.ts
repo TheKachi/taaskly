@@ -33,7 +33,7 @@ exports.userFirstTimeProfileUpdate = functions
 			icon_emoji: ':male-police-officer:',
 			text: `Hi admins, ${user_name} with the ID of ${oldValues.id} just signed up`,
 		});
-		return sgMail.send(msg);
+			return sgMail.send(msg);
 	});
 
 exports.updateVerificationLevel = functions

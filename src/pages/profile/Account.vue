@@ -63,46 +63,8 @@
 					required
 				>
 			</div>
-			<div class="field">
-				<label>
-					Date of Birth
-				</label>
-				<input
-					id="dob"
-					:value="profileData ? profileData.dob : 'loading...'"
-					type="text"
-					class="input-field"
-					disabled
-					required
-				>
-			</div>
-			<div class="field">
-				<label>
-					Gender
-				</label>
-				<input
-					id="gender"
-					:value="profileData ? profileData.gender : 'loading...'"
-					type="text"
-					class="input-field"
-					disabled
-					required
-				>
-			</div>
-			<div class="field">
-				<label>
-					Are you a student
-				</label>
-				<input
-					id="student"
-					:value="profileData ? profileData.student : 'loading...'"
-					type="text"
-					class="input-field"
-					disabled
-					required
-				>
-			</div>
-			<div class="field">
+
+			<!-- <div class="field">
 				<label>
 					University
 				</label>
@@ -114,34 +76,7 @@
 					disabled
 					required
 				>
-			</div>
-			<div class="field">
-				<label>
-					Gender
-				</label>
-				<input
-					id="gender"
-					:value="profileData ? profileData.gender : 'loading...'"
-					type="text"
-					class="input-field"
-					disabled
-					required
-				>
-			</div>
-			<div class="field">
-				<label>
-					Description
-				</label>
-				<textarea
-					id="email"
-					:value="profileData ? profileData.desc : 'loading...'"
-					type="text"
-					class="input-field !h-12 py-2"
-					disabled
-					required
-					rows="6"
-				/>
-			</div>
+			</div> -->
 		</div>
 	</section>
 </template>

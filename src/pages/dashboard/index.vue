@@ -12,12 +12,14 @@
 <script lang="ts" setup>
 import tasks from '@/pages/dashboard/Tasks.vue'
 import services from '@/pages/dashboard/Services.vue'
+import shops from '@/pages/dashboard/Shops.vue'
 
 const selected = ref('tasks')
-const tabViews = ['tasks', 'services']
+const tabViews = ['tasks', 'shops', 'services']
 const tabs = markRaw({
 	tasks,
-	services
+	services,
+	shops
 })
 
 definePageMeta({
