@@ -3,7 +3,7 @@
 		<h1 class="page-title">
 			Shops around you
 		</h1>
-		<p>There are currently no shops in your around you 2</p>
+		<p>There are currently no shops in your around you </p>
 	</section>
 </template>
 
