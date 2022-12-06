@@ -1,9 +1,10 @@
 
 <template>
+	<main />
 	<main class="h-full overflow-y-hidden w-full relative">
-		<div ref="mapDiv" class="w-full hi  rounded-lg z-20 bg-slate-600 relative" />
-		<div class="absolute bg-primary p-3 bottom-[86px] md:bottom-4  right-4 left-4 md:left-auto rounded-xl z-50 border-2 border-black">
-			<button class="bg-white btn px-10 w-full">
+		<div ref="mapDiv" class="w-full hi  md:rounded-lg z-20 bg-slate-600 relative" />
+		<div class="fixed md:absolute bg-white border px-4 py-3 bottom-0 md:bottom-4  right-0 md:right-4 left-0 md:left-auto md:rounded-xl z-50 ">
+			<button class=" btn-primary px-10 w-full">
 				Create a Task
 			</button>
 		</div>
@@ -14,7 +15,9 @@
 import { initMap } from '@/composables/location/useMap'
 
 const mapDiv = ref(null)
-onMounted(initMap(mapDiv))
+onMounted(async () => {
+	initMap(mapDiv)
+	})
 definePageMeta({
 	layout: 'dashboard'
 	// middleware: ['is-authenticated', 'has-profile']

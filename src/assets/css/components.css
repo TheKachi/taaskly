@@ -35,13 +35,13 @@
         @apply rounded px-6 py-2.5 flex justify-center items-center disabled:bg-gray-500 box-border h-11;
     }
     .btn-primary {
-        @apply btn bg-primary text-clear mt-1;
+        @apply btn bg-primary text-clear;
     }
     .btn-primary-inverse {
-        @apply btn bg-clear text-primary mt-1;
+        @apply btn bg-clear text-primary;
     }
     .btn-secondary {
-        @apply btn bg-clear text-primary border border-primary mt-1;
+        @apply btn bg-clear text-primary border border-primary;
     }
     .pc {
         @apply hidden lg:flex;

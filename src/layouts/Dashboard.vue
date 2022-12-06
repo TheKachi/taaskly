@@ -3,10 +3,10 @@
 	<div class="flex w-full h-screen bg-grey relative py-[14px] sm:px-4 px-0 overflow-y-hidden ">
 		<SidebarsDefaultSidebar />
 		<TopbarDefaultTopbar />
-		<div class="relative bg-clear page w-full sm:rounded-xl ml  h-screen sm:h-auto  mt mt-auto">
+		<div class="relative bg-clear page w-full sm:rounded-xl ml  h-screen sm:h-auto  mt ">
 			<Alert />
 			<PageLoading />
-			<div class="w-full h-full px-4 md:px-0 relative ">
+			<div class="w-full h-full relative ">
 				<slot />
 			</div>
 
@@ -29,7 +29,7 @@
 	@media (max-width: 680px){
     border-radius: 0;
     width: 100%;
-    padding: 16px 0px;
+    padding: 0px;
     box-shadow: none;
 	}
 }
@@ -41,5 +41,8 @@
 }
 .mt{
 	margin-top: min(20%, 3rem);
+	// @media (max-width:640px){
+	// 	margin-top: 64px;
+	// }
 }
 </style>
