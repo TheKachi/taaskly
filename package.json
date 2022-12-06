@@ -51,6 +51,7 @@
 		"vite-plugin-eslint": "^1.7.0"
 	},
 	"dependencies": {
+		"@googlemaps/js-api-loader": "^1.15.1",
 		"@lottiefiles/lottie-player": "^1.6.0",
 		"@vueuse/core": "^9.3.1",
 		"@vueuse/nuxt": "^9.3.1",
