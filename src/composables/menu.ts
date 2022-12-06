@@ -10,12 +10,12 @@ export const routes = [
 		route: '/tasks'
 	},
 	{
-		icon: 'shops',
+		icon: 'shop',
 		name: 'Shops',
 		route: '/shops'
 	},
 	{
-		icon: 'services',
+		icon: 'service',
 		name: 'Services',
 		route: '/services'
 	},

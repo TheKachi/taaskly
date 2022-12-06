@@ -9,6 +9,7 @@ export enum IconNames {
   'close' = 'close',
   'dashboard' = 'dashboard',
   'delete' = 'delete',
+  'down' = 'down',
   'edit' = 'edit',
   'exit' = 'exit',
   'help' = 'help',
@@ -16,6 +17,7 @@ export enum IconNames {
   'menu' = 'menu',
   'note' = 'note',
   'profile' = 'profile',
+  'shop' = 'shop',
   'task' = 'task',
   'wallet' = 'wallet'
 }
