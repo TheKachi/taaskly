@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import Tasks from '@/pages/task/Tasks.vue'
-import Services from '@/pages/task/Services.vue'
+import Tasks from '@/pages/tasks/Tasks.vue'
+import Services from '@/pages/tasks/Services.vue'
 
 const selected = ref('Tasks')
 const tabViews = ['Tasks', 'Services']

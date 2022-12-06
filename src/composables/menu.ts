@@ -6,13 +6,18 @@ export const routes = [
 	},
 	{
 		icon: 'task',
-		name: 'Task',
-		route: '/task'
+		name: 'Tasks',
+		route: '/tasks'
 	},
 	{
 		icon: 'shops',
 		name: 'Shops',
 		route: '/shops'
+	},
+	{
+		icon: 'services',
+		name: 'Services',
+		route: '/services'
 	},
 	{
 		icon: 'wallet',
