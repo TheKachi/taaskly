@@ -10,6 +10,11 @@ export const routes = [
 		route: '/task'
 	},
 	{
+		icon: 'shops',
+		name: 'Shops',
+		route: '/shops'
+	},
+	{
 		icon: 'wallet',
 		name: 'Wallet',
 		route: '/wallet'
