@@ -21,6 +21,6 @@ const tabs = markRaw({
 })
 
 definePageMeta({
-	layout: 'dashboard',
+	layout: 'dashboard'
 })
 </script>
