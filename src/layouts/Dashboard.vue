@@ -1,6 +1,6 @@
 
 <template>
-	<div class="flex w-full h-screen bg-grey relative py-[14px] sm:px-4 px-0 md:overflow-y-hidden ">
+	<div class="flex w-full h-screen bg-grey relative py-[14px] sm:px-4 px-0 overflow-y-hidden ">
 		<SidebarsDefaultSidebar />
 		<TopbarDefaultTopbar />
 		<div class="relative bg-clear page w-full sm:rounded-xl ml  h-screen sm:h-auto  mt mt-auto">
@@ -29,7 +29,7 @@
 	@media (max-width: 680px){
     border-radius: 0;
     width: 100%;
-    padding: 10px 0px;
+    padding: 16px 0px;
     box-shadow: none;
 	}
 }
