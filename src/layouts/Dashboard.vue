@@ -6,7 +6,7 @@
 		<div class="relative bg-clear page w-full sm:rounded-xl ml  h-screen sm:h-auto  mt mt-auto">
 			<Alert />
 			<PageLoading />
-			<div class="w-full px-4 relative ">
+			<div class="w-full h-full px-4 md:px-0 relative ">
 				<slot />
 			</div>
 
@@ -24,7 +24,7 @@
     background-color: #fff;
     border-top-left-radius: 12px;
     box-shadow: -3px 3px 12px rgb(10 46 101 / 3%);
-    padding: 20px 25px 0;
+    padding: 20px;
 
 	@media (max-width: 680px){
     border-radius: 0;

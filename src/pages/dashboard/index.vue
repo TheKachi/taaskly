@@ -1,27 +1,19 @@
+
 <template>
-	<main class="w-full h-screen">
-		<div class="flex ">
-			<LazyTabs :selected="selected" :tabs="tabViews" @changed="selected = $event" />
+	<main ref="mapDiv" class="w-full h-full rounded-lg z-20 bg-slate-600 relative">
+		<div class="absolute bg-primary p-4 bottom-4 right-4 rounded-xl">
+			<button class="bg-white btn">
+				Create a Task
+			</button>
 		</div>
-		<keep-alive>
-			<component :is="tabs[selected]" />
-		</keep-alive>
 	</main>
 </template>
 
 <script lang="ts" setup>
-import tasks from '@/pages/dashboard/Tasks.vue'
-import services from '@/pages/dashboard/Services.vue'
-import shops from '@/pages/dashboard/Shops.vue'
+import { initMap } from '@/composables/location/useMap'
 
-const selected = ref('tasks')
-const tabViews = ['tasks', 'shops', 'services']
-const tabs = markRaw({
-	tasks,
-	services,
-	shops
-})
-
+const mapDiv = ref(null)
+onMounted(initMap(mapDiv))
 definePageMeta({
 	layout: 'dashboard',
 	middleware: ['is-authenticated', 'has-profile']
