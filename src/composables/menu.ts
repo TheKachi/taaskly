@@ -4,11 +4,11 @@ export const routes = [
 		name: 'Home',
 		route: '/dashboard'
 	},
-	{
-		icon: 'task',
-		name: 'Tasks',
-		route: '/tasks'
-	},
+	// {
+	// 	icon: 'task',
+	// 	name: 'Tasks',
+	// 	route: '/tasks'
+	// },
 	{
 		icon: 'shop',
 		name: 'Shops',
