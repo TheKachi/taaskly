@@ -1,21 +1,27 @@
 
 <template>
-	<div class="flex p-4 bg-gray-200 border border-gray-300 rounded-lg shadow-md">
-		<div class="flex-shrink-0">
-			<Avatar />
+	<main class="flex-col flex items-start">
+		<div class="flex p-4  md:border border-t border-secondary md:rounded-lg shadow">
+			<div class="flex-shrink-0">
+				<Avatar />
+			</div>
+			<div class="ml-4 flex flex-col">
+				<div class="text-lg font-bold">
+					<a href="#" class="text-primary hover:text-teal-600">@username</a>
+				</div>
+				<div class="text-xs text-gray-500">
+					5m
+				</div>
+				<div class="text-[15px] text-gray-700">
+					I need someone to help me get a package from new hall Jumia pickup center and deliver it to me
+				</div>
+				<div class="text-[15px] text-gray-700 mt-3 flex gap-4">
+					<span class="btn-primary">Accept</span>
+					<span class="btn-secondary">share</span>
+				</div>
+			</div>
 		</div>
-		<div class="ml-4">
-			<div class="text-xs text-gray-500">
-				5m
-			</div>
-			<div class="text-lg font-bold">
-				<a href="#" class="text-primary hover:text-teal-600">@username</a>
-			</div>
-			<div class="text-sm text-gray-700">
-				This is a tweet!
-			</div>
-		</div>
-	</div>
+	</main>
 </template>
 
 <script lang="ts" setup>
