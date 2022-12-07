@@ -1,69 +1,15 @@
 <template>
 	<aside
-		class="pc min-h-screen   flex-col justify-between w-[20%] max-w-[14rem] bg-transparent  fixed right-0 inset-y-0 z-50 "
+		class="pc min-h-screen   flex-col justify-between w-[20%] max-w-[20rem] bg-transparent  fixed right-0 inset-y-0 z-50 "
 	>
-		<div class="h-full relative py-4">
-			<div class="w-full flex justify-start pl-6">
-				<img
-					src="/logo-text.svg"
-					alt="logo"
-					class="h-8"
-				>
+		<div class="h-full w-full relative p-4 mt-12">
+			<div class="field w-full">
+				<select id="last_name" type="text" class="input-field w-full" placeholder="Filter by" required>
+					<option value="all">
+						All
+					</option>
+				</select>
 			</div>
-
-			<div class="relative mt-12">
-				<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
-					<span v-if="!n.children">
-						<nuxt-link
-							:to="n.route"
-							class="flex items-center black"
-						>
-							<icon :name="n.icon" class="mr-4 w-5" />
-							<p class="text-base">
-								{{ n.name }}
-							</p>
-						</nuxt-link>
-					</span>
-
-					<details v-else>
-						<summary class="flex py-1.5 items-center px-6 mt-3 duration-75 black">
-							<icon :name="n.icon" class="mr-4 w-5" />
-							<p class="text-base font-medium text-gray300">
-								{{ n.name }}
-							</p>
-							<button class="ml-auto rotate-90">
-								<svg class="fill-current opacity-75 w-4 h-4 -mr-1 turn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" /></svg>
-							</button>
-						</summary>
-
-						<div class="flex flex-col">
-							<nuxt-link v-for="child in n.children" :key="child.name" :to="child.route" class="flex items-center py-1.5 pl-14 mt-3 duration-75 black">
-								<p class="text-sm font-medium">
-									{{ child.name }}
-								</p>
-							</nuxt-link>
-						</div>
-					</details>
-				</div>
-				<button
-					class="menu-btn flex items-center black !text-[#ff615c] cursor-pointer"
-					@click="useAuthModal().openLogout()"
-				>
-					<icon name="exit" class="mr-4 w-5" />
-					<p class="text-base">
-						Sign Out
-					</p>
-				</button>
-			</div>
-
-			<!-- <button
-				class="menu-btn flex items-center font-semibold !text-secondary  border-2 border-secondary hover:bg-secondary hover:!text-white fixed bottom-4"
-			>
-				<icon name="task" class="mr-4 w-5" />
-				<p class="text-base">
-					Create Task
-				</p>
-			</button> -->
 		</div>
 	</aside>
 </template>

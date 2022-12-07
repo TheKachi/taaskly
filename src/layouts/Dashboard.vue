@@ -39,6 +39,7 @@
 	margin-right: min(20%, 20rem);
 	@media (max-width:1024px){
 		margin-left: 0;
+		margin-right: 0;
 	}
 }
 .mt{
