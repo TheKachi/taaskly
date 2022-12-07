@@ -20,7 +20,7 @@ exports.userFirstTimeProfileUpdate = functions
 
 		const msg = {
 			to: oldValues.email,
-			from: 'Taaskly <anthony@taaskly.xyz>',
+			from: 'Taaskly <support@taaskly.xyz>',
 			subject: 'Welcome to Taaskly !!!',
 			text: `Hello ${user_name}, Welcome to Taaskly !!! <br> <br> At Taaskly we are trying to create new ways for you get your tasks done and also earn money with ease. <br> <br> We are currently in beta and we would love to hear your feedback. <br> <br> Please feel free to reach out to us at <a href="mailto:anthony@taaskly.xyz"> anthony@taaskly.xyz </a> or <a href="https://wa.me/+2348115222468?" target="_blank" rel="noopener noreferrer">+2348115222468</a> <br> <br> Thanks, <br> <br>  Taaskly Team`,
 			html: `Hello ${user_name}, Welcome to Taaskly !!! <br> <br> At Taaskly we are trying to create new ways for you get your tasks done and also earn money with ease. <br> <br> We are currently in beta and we would love to hear your feedback. <br> <br> Please feel free to reach out to us at <a href="mailto:anthony@taaskly.xyz"> anthony@taaskly.xyz </a> or <a href="https://wa.me/+2348115222468?" target="_blank" rel="noopener noreferrer">+2348115222468</a> <br> <br> Thanks, <br> <br>  Taaskly Team`,
