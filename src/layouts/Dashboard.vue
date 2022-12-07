@@ -3,15 +3,16 @@
 	<div class="flex w-full h-screen bg-grey relative py-[14px] sm:px-4 px-0 overflow-y-hidden ">
 		<SidebarsDefaultSidebar />
 		<TopbarDefaultTopbar />
-		<div class="relative bg-clear page w-full sm:rounded-xl ml  h-screen sm:h-auto  mt ">
+		<div class="relative bg-clear page w-full border-l border-secondary ml  h-screen sm:h-auto  mt ">
 			<Alert />
 			<PageLoading />
-			<div class="w-full h-full relative ">
+			<div class="w-full h-full relative overflow-y-auto">
 				<slot />
 			</div>
 
 			<LazyModalBase />
 		</div>
+		<LazySidebarsSearchBar />
 	</div>
 </template>
 
@@ -22,9 +23,9 @@
 <style scoped lang="scss">
 .page{
     background-color: #fff;
-    border-top-left-radius: 12px;
+    // border-top-left-radius: 12px;
     box-shadow: -3px 3px 12px rgb(10 46 101 / 3%);
-    padding: 20px;
+    // padding: 20px;
 
 	@media (max-width: 680px){
     border-radius: 0;
