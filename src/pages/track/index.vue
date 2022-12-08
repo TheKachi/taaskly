@@ -1,6 +1,6 @@
 <template>
 	<div>
-		tasks
+		Track
 	</div>
 </template>
 
