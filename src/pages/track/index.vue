@@ -8,6 +8,7 @@
 definePageMeta({
 	layout: 'dashboard'
 })
+
 </script>
 
 <style scoped>

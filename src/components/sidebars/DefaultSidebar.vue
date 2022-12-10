@@ -56,14 +56,14 @@
 				</button>
 			</div>
 
-			<!-- <button
+			<button
 				class="menu-btn flex items-center font-semibold !text-secondary  border-2 border-secondary hover:bg-secondary hover:!text-white fixed bottom-4"
 			>
 				<icon name="task" class="mr-4 w-5" />
 				<p class="text-base">
 					Create Task
 				</p>
-			</button> -->
+			</button>
 		</div>
 	</aside>
 </template>
