@@ -58,6 +58,7 @@
 
 			<button
 				class="menu-btn flex items-center font-semibold !text-secondary  border-2 border-secondary hover:bg-secondary hover:!text-white fixed bottom-4"
+				@click="useTaskModal().openCreateTask()"
 			>
 				<icon name="task" class="mr-4 w-5" />
 				<p class="text-base">
@@ -69,7 +70,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useAuthModal } from '@/composables/core/modals'
+import { useAuthModal, useTaskModal } from '@/composables/core/modals'
 import { routes } from '@/composables/menu'
 
 </script>
