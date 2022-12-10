@@ -4,6 +4,7 @@ import Logout from '@/components/modals/logout.vue'
 import DefaultVerification from '@/components/modals/verification/default.vue'
 import MobileSidebar from '@/components/sidebars/MobileSidebar.vue'
 import CreateTask from '@/components/modals/tasks/Create.vue'
+import SocialShare from '@/components/modals/core/SocialShare.vue'
 
 type AuthTypes = 'Logout' | 'DefaultVerification'
 type SidebarTypes = 'MobileSidebar'
