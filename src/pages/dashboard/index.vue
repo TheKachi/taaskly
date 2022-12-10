@@ -1,7 +1,7 @@
 
 <template>
 	<main class="flex-col flex items-stretch overflow-y-auto">
-		<div v-for="n in 10" :key="n" class="flex p-4  border-t border-secondary shadow">
+		<div v-for="n in 10" :key="n" class="flex p-4  border-t border-secondary shadow cursor-pointer">
 			<div class="flex-shrink-0">
 				<Avatar />
 			</div>
