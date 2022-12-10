@@ -1,7 +1,7 @@
 
 <template>
 	<main class="flex-col flex items-stretch overflow-y-auto">
-		<nuxt-link v-for="n in 10" :key="n" :to="`/tasks/${n}`" class="flex p-4  border-t border-secondary shadow cursor-pointer">
+		<article v-for="n in 10" :key="n" class="flex p-4  border-t border-secondary shadow cursor-pointer" @click="$router.push(`/tasks/${n}`)">
 			<div class="flex-shrink-0">
 				<Avatar />
 			</div>
@@ -17,14 +17,15 @@
 				</div>
 				<div class="text-[15px] text-gray-700 mt-3 flex gap-4">
 					<span class="btn-primary">Accept</span>
-					<span class="btn-secondary">share</span>
+					<span class="btn-secondary" @click.stop="useCoreModal().openSocialShare()">share</span>
 				</div>
 			</div>
-		</nuxt-link>
+		</article>
 	</main>
 </template>
 
 <script lang="ts" setup>
+import { useCoreModal } from '@/composables/core/modals'
 
 definePageMeta({
 	layout: 'dashboard'
