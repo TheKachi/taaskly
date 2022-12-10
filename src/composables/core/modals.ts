@@ -9,16 +9,20 @@ import SocialShare from '@/components/modals/core/SocialShare.vue'
 type AuthTypes = 'Logout' | 'DefaultVerification'
 type SidebarTypes = 'MobileSidebar'
 type TaskTypes = 'CreateTask'
+type CoreTypes = 'SocialShare'
 
 const AuthModals = { Logout, DefaultVerification } as Record<AuthTypes, any>
 const SidebarModals = { MobileSidebar } as Record<SidebarTypes, any>
 const TaskModals = { CreateTask } as Record<TaskTypes, any>
+const CoreModals = { SocialShare } as Record<CoreTypes, any>
 
 export const modal = useModal(ref([] as any))
 const authModal = modal.register('Auth', AuthModals)
 const sidebarModal = modal.register('Sidebar', SidebarModals)
 const taskModal = modal.register('Task', TaskModals)
+const coreModal = modal.register('Core', CoreModals)
 
 export const useAuthModal = () => authModal
 export const useSidebarModal = () => sidebarModal
 export const useTaskModal = () => taskModal
+export const useCoreModal = () => coreModal
