@@ -1,6 +1,7 @@
 
 <template>
 	<main class="flex-col flex items-stretch overflow-y-auto pt-16">
+		<TopbarDefaultTopbar />
 		<LazyTasksCard />
 	</main>
 </template>
