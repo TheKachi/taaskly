@@ -7,8 +7,10 @@ const { share, isSupported } = useShare()
 
 const copyLink = () => {
 	copy()
-	useAlert().openAlert(
-		'Seems something went wrong while trying to share, don\'t worry we copied it to your clipboard '
+	useAlert().openAlert({
+		type: 'Alert',
+		msg: 'Seems something went wrong while trying to share, don\'t worry we copied it to your clipboard'
+	}
 	)
 }
 

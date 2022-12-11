@@ -1,6 +1,6 @@
 <template>
 	<nav
-		class="fixed top-0 bg-transparent  h-16 mx  flex items-center justify-between box-border shadow-md"
+		class="fixed top-0 bg-transparent  h-16 mx  flex items-center justify-between box-border "
 	>
 		<icon
 			class="mobile w-8 cursor-pointer z-50"
@@ -41,8 +41,8 @@ onMounted(getProfile)
 
 <style scoped lang="scss">
 nav {
-	background-color: rgba(255, 255, 255, 0.15);
-	backdrop-filter: blur(3px);
+	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(15px);
 }
 
 .mx{

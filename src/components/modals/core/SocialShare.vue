@@ -18,7 +18,7 @@
 			</button>
 			<button class="btn font-semibold bg-[#1DA1F2] text-white w-full">
 				<span class="w-64 flex items-center">
-					<icon class="w-6 mr-2" name="whatsapp_outline" />
+					<icon class="w-6 mr-2" name="twitter" />
 					Twitter
 				</span>
 			</button>

@@ -21,6 +21,7 @@ export enum IconNames {
   'service' = 'service',
   'shop' = 'shop',
   'task' = 'task',
+  'twitter' = 'twitter',
   'wallet' = 'wallet',
   'whatsapp_outline' = 'whatsapp_outline'
 }
