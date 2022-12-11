@@ -2,7 +2,7 @@
 	<aside
 		class="pc min-h-screen   flex-col justify-between w-[20%] max-w-[20rem] bg-transparent  fixed right-0 inset-y-0 z-50 "
 	>
-		<div class="h-full w-full relative p-4 mt-12">
+		<div class="h-full w-full relative p-4">
 			<div class="field w-full">
 				<select id="last_name" type="text" class="input-field w-full" placeholder="Filter by" required>
 					<option value="" disabled selected>

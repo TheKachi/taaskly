@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useCoreModal } from '@/composables/core/modals'
 
 definePageMeta({
 	layout: 'home'

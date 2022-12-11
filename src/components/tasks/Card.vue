@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-
+import { useCoreModal } from '@/composables/core/modals'
 </script>
 
 <style scoped>

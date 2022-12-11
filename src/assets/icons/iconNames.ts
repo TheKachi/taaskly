@@ -6,6 +6,7 @@ export enum IconNames {
   'add' = 'add',
   'arrowForward' = 'arrowForward',
   'back' = 'back',
+  'clipboard' = 'clipboard',
   'close' = 'close',
   'dashboard' = 'dashboard',
   'delete' = 'delete',
@@ -20,5 +21,6 @@ export enum IconNames {
   'service' = 'service',
   'shop' = 'shop',
   'task' = 'task',
-  'wallet' = 'wallet'
+  'wallet' = 'wallet',
+  'whatsapp_outline' = 'whatsapp_outline'
 }
