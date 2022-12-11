@@ -36,7 +36,7 @@ if (useRoute().query.q && (selected.value = useRoute().query.q)) {
 })
 
 definePageMeta({
-	layout: 'dashboard',
+	layout: 'home',
 	middleware: ['is-authenticated', 'has-profile']
 })
 </script>

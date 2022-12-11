@@ -21,7 +21,7 @@ const tabs = markRaw({
 })
 
 definePageMeta({
-	layout: 'dashboard',
+	layout: 'home',
 	middleware: ['is-authenticated', 'has-profile']
 })
 </script>

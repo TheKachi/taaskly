@@ -2,7 +2,7 @@ export const routes = [
 	{
 		icon: 'dashboard',
 		name: 'Home',
-		route: '/dashboard'
+		route: '/home'
 	},
 	{
 		icon: 'task',

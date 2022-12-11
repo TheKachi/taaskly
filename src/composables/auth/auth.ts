@@ -13,7 +13,7 @@ export const useSignin = () => {
 			const token = await useUser()?.user?.auth.currentUser.getIdTokenResult()
 			const hasProfile = token?.claims?.hasUpdatedProfile
 			useUser().setProfileStatus(hasProfile)
-			useRouter().push('/dashboard')
+			useRouter().push('/home')
 			loading.value = false
 		} catch {
 			loading.value = false

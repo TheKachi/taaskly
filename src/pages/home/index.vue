@@ -10,7 +10,7 @@
 import { useCoreModal } from '@/composables/core/modals'
 
 definePageMeta({
-	layout: 'dashboard'
+	layout: 'home'
 	// middleware: ['is-authenticated', 'has-profile']
 })
 </script>
