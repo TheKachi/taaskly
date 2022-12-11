@@ -1,21 +1,29 @@
 <template>
-	<nav class="absolute top-0 bg-transparent w-full right-0  h-16 pl px-4 flex items-center justify-between">
+	<nav
+		class="fixed top-0 bg-transparent  h-16 mx  flex items-center justify-between box-border"
+	>
 		<icon
 			class="mobile w-8 cursor-pointer z-50"
 			name="menu"
 			@click="useSidebarModal().openMobileSidebar()"
 		/>
 
-		<h1 class="font-semibold text-xl capitalize">
+		<h1 class="font-semibold text-xl capitalize pc">
 			{{ $route.name }}
 		</h1>
 
 		<div class="flex items-center gap-4">
 			<!-- <Badge :name="profileData?.profileLevel ? profileData?.profileLevel : 'loading...'" class="text-base hidden sm:block" /> -->
-			<nuxt-link v-if="profileData && profileData.verifiedLevel === 0" to="/profile/?q=verification">
+			<nuxt-link
+				v-if="profileData && profileData.verifiedLevel === 0"
+				to="/profile/?q=verification"
+			>
 				<Badge name="Unverified" class="!bg-red" />
 			</nuxt-link>
-			<Badge v-else :name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'" />
+			<Badge
+				v-else
+				:name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'"
+			/>
 			<Avatar :name="user.displayName" :src="user.photoURL" />
 		</div>
 	</nav>
@@ -32,10 +40,9 @@ onMounted(getProfile)
 </script>
 
 <style scoped lang="scss">
-.pl{
-	// padding-left: min(21%, 15.5rem);
-	// @media (max-width: 1024px){
-	// 	padding-left: 16px;
-	// }
+nav {
+	background-color: rgba(255, 255, 255, 0.65);
+	backdrop-filter: blur(12px);
 }
+
 </style>

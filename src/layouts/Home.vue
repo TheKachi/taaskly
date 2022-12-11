@@ -3,7 +3,7 @@
 	<div class="flex w-full h-screen bg-grey relative  md:py-0 sm:px-4 px-0 overflow-y-hidden ">
 		<SidebarsDefaultSidebar />
 
-		<div class="relative bg-clear page w-full border-x border-secondary ml  h-screen sm:h-auto  mt ">
+		<div class="relative bg-clear page w-full border-x border-secondary mx  h-screen sm:h-auto  mt ">
 			<Alert />
 			<PageLoading />
 			<div class="w-full h-full relative overflow-y-auto">
@@ -33,7 +33,7 @@
     box-shadow: none;
 	}
 }
-.ml{
+.mx{
 	margin-left: min(20%, 14rem);
 	margin-right: min(20%, 20rem);
 	@media (max-width:1024px){
