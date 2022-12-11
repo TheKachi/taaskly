@@ -1,6 +1,6 @@
 
 <template>
-	<div class="flex w-full h-screen bg-grey relative py-[14px] sm:px-4 px-0 overflow-y-hidden ">
+	<div class="flex w-full h-screen bg-grey relative  md:py-0 sm:px-4 px-0 overflow-y-hidden ">
 		<SidebarsDefaultSidebar />
 		<TopbarDefaultTopbar />
 		<div class="relative bg-clear page w-full border-x border-secondary ml  h-screen sm:h-auto  mt ">
@@ -9,7 +9,6 @@
 			<div class="w-full h-full relative overflow-y-auto">
 				<slot />
 			</div>
-
 			<LazyModalBase />
 		</div>
 		<LazySidebarsSearchBar />
@@ -43,7 +42,7 @@
 	}
 }
 .mt{
-	margin-top: min(20%, 3rem);
+	// margin-top: min(20%, 3rem);
 	// @media (max-width:640px){
 	// 	margin-top: 64px;
 	// }

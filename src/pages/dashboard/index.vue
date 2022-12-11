@@ -1,6 +1,6 @@
 
 <template>
-	<main class="flex-col flex items-stretch overflow-y-auto">
+	<main class="flex-col flex items-stretch overflow-y-auto pt-16">
 		<article v-for="n in 10" :key="n" class="flex p-4  border-t border-secondary shadow cursor-pointer" @click="$router.push(`/tasks/${n}`)">
 			<div class="flex-shrink-0">
 				<Avatar />
