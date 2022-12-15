@@ -1,5 +1,5 @@
 <template>
-	<article v-for="n in 10" :key="n" class="flex p-4  border-t border-secondaryLight shadow cursor-pointer" @click="$router.push(`/tasks/${n}`)">
+	<article v-for="n in 10" :key="n" class="flex p-4  border-t border-secondaryLight  cursor-pointer" @click="$router.push(`/tasks/${n}`)">
 		<div class="flex-shrink-0">
 			<Avatar name="kromate" />
 		</div>
@@ -30,13 +30,5 @@ import { useCoreModal } from '@/composables/core/modals'
 </script>
 
 <style scoped>
-.accept-btn{
-@apply text-sm text-primary font-bold flex items-center pl-0 gap-2 hover:bg-primary hover:text-white hover:px-3 py-1 rounded transite;
-}
-.share-btn{
-	@apply text-base text-secondary font-bold flex items-center gap-2 hover:bg-secondary hover:text-white px-3 py-1 rounded transite
-}
-.flag-btn{
-	@apply text-base text-red font-bold flex items-center gap-2 hover:bg-red hover:text-white px-3 py-1 rounded transite
-}
+
 </style>
