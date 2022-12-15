@@ -13,6 +13,7 @@ export enum IconNames {
   'down' = 'down',
   'edit' = 'edit',
   'exit' = 'exit',
+  'flag' = 'flag',
   'hand_shake' = 'hand_shake',
   'help' = 'help',
   'invoice' = 'invoice',
