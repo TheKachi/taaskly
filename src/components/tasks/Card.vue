@@ -12,7 +12,7 @@
 				I need someone to help me get a package from new hall Jumia pickup center and deliver it to me
 			</div>
 			<div class="text-[15px] text-gray-700 mt-3 flex gap-4">
-				<span class="text-base text-primary font-bold">Accept</span>
+				<span class="text-sm text-primary font-bold flex items-center gap-2 hover:bg-primary hover:text-white px-3 py-1 rounded transite"> <icon name="hand_shake" class="w-5" /> Accept</span>
 				<span class="text-base text-secondary font-bold" @click.stop="useCoreModal().openSocialShare()">share</span>
 			</div>
 		</div>
