@@ -1,5 +1,5 @@
 <template>
-	<article v-for="n in 10" :key="n" class="flex p-4  border-t border-secondary shadow cursor-pointer" @click="$router.push(`/tasks/${n}`)">
+	<article v-for="n in 10" :key="n" class="flex p-4  border-t border-secondaryLight shadow cursor-pointer" @click="$router.push(`/tasks/${n}`)">
 		<div class="flex-shrink-0">
 			<Avatar name="kromate" />
 		</div>

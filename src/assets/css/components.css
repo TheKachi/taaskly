@@ -9,6 +9,9 @@
     .input-field {
         @apply border border-gray-400 w-full h-11 px-4 rounded  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
     }
+    .input-textarea {
+        @apply border border-gray-400 w-full  p-4 rounded  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
+    }
     .main-layout {
         @apply container flex justify-center items-center min-h-screen py-12;
     }
