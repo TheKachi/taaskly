@@ -27,10 +27,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useSignin } from '@/composables/auth/auth'
-import { useUser } from '@/composables/auth/user'
-const { googleSignin, signOut } = useSignin()
-const { isLoggedIn, user } = useUser()
+// import { useSignin } from '@/composables/auth/auth'
+// import { useUser } from '@/composables/auth/user'
+// const { googleSignin, signOut } = useSignin()
+// const { isLoggedIn, user } = useUser()
 
 definePageMeta({
 	layout: 'landing'

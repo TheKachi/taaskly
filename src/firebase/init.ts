@@ -1,5 +1,5 @@
 import { initializeApp, getApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
+import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getAuth, connectAuthEmulator } from 'firebase/auth'
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore'
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
@@ -15,11 +15,20 @@ const firebaseConfig = {
 }
 
 export const app = initializeApp(firebaseConfig)
-export const analytics = getAnalytics(app)
+  export let analytics:any
+isSupported().then((supported) => {
+  if (supported) {
+     analytics = getAnalytics(app)
+  } else {
+    console.log('Analytics not supported')
+  }
+})
+
 export const auth = getAuth(app)
 export const db = getFirestore(app)
 export const storage = getStorage(app)
 export const functions = getFunctions(getApp(), 'us-central1')
+
 // If on localhost, use all firebase services locally
 if (location.hostname === 'localhost') {
   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
