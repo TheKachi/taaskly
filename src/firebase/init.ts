@@ -20,7 +20,7 @@ isSupported().then((supported) => {
   if (supported) {
      analytics = getAnalytics(app)
   } else {
-    console.log('Analytics not supported')
+    // console.log('Analytics not supported')
   }
 })
 
