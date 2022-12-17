@@ -26,7 +26,7 @@ export const useSignin = () => {
 		try {
 			await signOutUser()
 			useRouter().push('/auth/login')
-			location.reload()
+			if (location) location.reload()
 		} catch {
 			useLoading().closeLoading()
 		}

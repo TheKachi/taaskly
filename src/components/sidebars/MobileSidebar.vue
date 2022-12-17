@@ -16,7 +16,7 @@
 					>
 				</div>
 
-				<p class="text-xl font-medium ml-4">
+				<p v-if="user" class="text-xl font-medium ml-4">
 					<span class="text-gray-500">Hello</span>	{{ user.displayName.split(' ')[0] }}
 				</p>
 

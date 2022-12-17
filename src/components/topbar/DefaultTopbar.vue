@@ -24,7 +24,7 @@
 				v-else
 				:name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'"
 			/>
-			<Avatar :name="user.displayName" :src="user.photoURL" />
+			<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
 		</div>
 	</nav>
 </template>

@@ -1,5 +1,5 @@
 <template>
-	<section class="mt-12 py-4">
+	<section v-if="user" class="mt-12 py-4">
 		<h1 class="page-title">
 			Personalize
 		</h1>

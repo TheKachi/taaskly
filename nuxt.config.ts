@@ -2,8 +2,12 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
-	ssr: true,
-  preset: 'node-server',
+	nitro: {
+		prerender: {
+			crawlLinks: true,
+			routes: ['/', '/home', '/login', '/register', '/tasks/**']
+		}
+	},
 	app: {
 		head: {
 			title: 'Taaskly',
@@ -16,10 +20,16 @@ export default {
 					content: 'upgrade-insecure-requests'
 				},
 				{ name: 'title', content: 'Taaskly' },
-				{ name: 'description', content: 'Don\'t stress about the things you need to do, use Taaskly' },
+				{
+					name: 'description',
+					content: 'Don\'t stress about the things you need to do, use Taaskly'
+				},
 				{ name: 'twitter:title', content: 'Taaskly' },
 				{ name: 'twitter:image', content: '/favicon.svg' },
-				{ name: 'twitter:description', content: 'Don\'t stress about the things you need to do, use Taaskly' },
+				{
+					name: 'twitter:description',
+					content: 'Don\'t stress about the things you need to do, use Taaskly'
+				},
 				{ name: 'twitter:card', content: 'summary_large_image' },
 				{ name: 'twitter:site', content: '@taaskly' },
 				{ name: 'twitter:creator', content: '@taaskly' },
@@ -28,7 +38,10 @@ export default {
 				{ property: 'og:url', content: 'https://taaskly.xyz/' },
 				{ property: 'og:image', content: '/favicon.svg' },
 				{ property: 'og:site_name', content: 'Taaskly' },
-				{ property: 'og:description', content: 'Don\'t stress about the things you need to do, use Taaskly' },
+				{
+					property: 'og:description',
+					content: 'Don\'t stress about the things you need to do, use Taaskly'
+				},
 
 				{ name: 'format-detection', content: 'telephone=no' }
 			],
@@ -47,7 +60,6 @@ export default {
 					rel: 'stylesheet'
 				}
 			]
-
 		}
 	},
 
@@ -76,7 +88,9 @@ export default {
 		middleware: './src/middleware'
 	},
 	vite: {
-		plugins: [eslintPlugin({ useEslintrc: true, exclude: ['src/helpers/**/*'] })],
+		plugins: [
+			eslintPlugin({ useEslintrc: true, exclude: ['src/helpers/**/*'] })
+		],
 		server: {
 			watch: {
 				usePolling: true

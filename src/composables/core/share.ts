@@ -15,8 +15,11 @@ const copyLink = () => {
 }
 
 export const useShareUtil = () => {
-	const shareData = (data:any) => {
-		source.value = `${location.href}/${data.id}`
+	const shareData = (data: any) => {
+		if (location) {
+			source.value = `${location.href}/${data.id}`
+		}
+
 		if (!isSupported) {
 			copyLink()
 		}
