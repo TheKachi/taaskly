@@ -15,12 +15,16 @@ export default {
 					'http-equiv': 'Content-Security-Policy',
 					content: 'upgrade-insecure-requests'
 				},
-				{
-					hid: 'description',
-					name: 'description',
-					content:
-						'The best place to get tasks done and make extra cash by the side'
-				},
+				{ name: 'title', content: 'Taaskly' },
+				{ name: 'description', content: 'Don\'t stress about the things you need to do, use Taaskly' },
+				{ name: 'twitter:title', content: 'Taaskly' },
+				{ name: 'twitter:image', content: '/favicon.svg' },
+				{ name: 'twitter:description', content: 'Don\'t stress about the things you need to do, use Taaskly' },
+				{ name: 'twitter:card', content: 'summary_large_image' },
+				{ name: 'twitter:site', content: '@taaskly' },
+				{ name: 'twitter:creator', content: '@taaskly' },
+				{ property: 'og:title', content: 'Taaskly' },
+
 				{ name: 'format-detection', content: 'telephone=no' }
 			],
 			link: [
