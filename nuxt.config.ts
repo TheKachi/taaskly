@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
+	ssr: process.env.NODE_ENV === 'production',
 	nitro: {
 		prerender: {
 			crawlLinks: true,
