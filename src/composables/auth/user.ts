@@ -7,7 +7,7 @@ interface globalStateType {
     user: User | null,
     isLoggedIn: Ref<boolean>,
     hasAProfile: Ref<boolean>,
-    id: RemovableRef<string | null>, 
+    id: RemovableRef<string | null>,
 }
 
 const globalState:globalStateType = {
