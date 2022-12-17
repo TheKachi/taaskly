@@ -24,7 +24,7 @@ export default {
 				{ name: 'twitter:site', content: '@taaskly' },
 				{ name: 'twitter:creator', content: '@taaskly' },
 				{ property: 'og:title', content: 'Taaskly' },
-				{ property: 'og:type', content: 'site' },
+				{ property: 'og:type', content: 'Taaskly' },
 				{ property: 'og:url', content: 'https://taaskly.xyz/' },
 				{ property: 'og:image', content: '/favicon.svg' },
 				{ property: 'og:site_name', content: 'Taaskly' },
