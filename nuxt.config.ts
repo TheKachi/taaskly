@@ -2,7 +2,8 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
-	// target: 'static',
+	ssr: true,
+  preset: 'node-server',
 	app: {
 		head: {
 			title: 'Taaskly',
