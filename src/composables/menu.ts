@@ -9,16 +9,17 @@ export const routes = [
 		name: 'Track',
 		route: '/track'
 	},
+		{
+		icon: 'service',
+		name: 'Services',
+		route: '/services'
+	},
 	{
 		icon: 'shop',
 		name: 'Shops',
 		route: '/shops'
 	},
-	{
-		icon: 'service',
-		name: 'Services',
-		route: '/services'
-	},
+
 	{
 		icon: 'wallet',
 		name: 'Wallet',

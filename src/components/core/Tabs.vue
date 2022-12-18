@@ -1,4 +1,4 @@
-import { default } from './tab/index.vue';
+
 <template>
 	<div class="tab-body border border-primary">
 		<span v-for="tab in tabs" :key="tab" :class="['tab-item transite', tab==selected ? 'active' :''] " @click="onClick(tab)">{{ tab }}</span>
