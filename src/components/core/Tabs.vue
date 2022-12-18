@@ -29,36 +29,12 @@ const onClick = (selected) => {
 
 <style scoped lang="scss">
 .tab-body{
-    display: inline-flex;
-    align-items: center;
-    background-color: #f5f6fa;
-    border-radius: 220px;
-    outline: none;
-    color: rgba(10,46,101,.9);
-    overflow: auto;
-    font-size: .75rem;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 1rem;
-    z-index: 10;
-    padding: 7px;
+    @apply inline-flex items-center sticky z-10 p-[7px] top-4 outline-none rounded-full overflow-auto bg-gray-100 text-xs text-primary;
 }
 .tab-item{
-    cursor: pointer;
-    font-weight: 600;
-    color: rgba(10, 46, 101, 0.81);
-    background: transparent;
-    transition: opacity .5s ease;
-    text-transform: uppercase;
-    opacity: .6;
-    padding: 7px 20px;
-    border-radius: 22px;
-    white-space: nowrap;
+    @apply cursor-pointer font-semibold text-primary bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded-full whitespace-nowrap;
 }
 .active{
-        opacity: 1;
-    background: #fff;
-    color: var(--primary);
-    border: 1px solid var(--primary)
+    @apply opacity-100 bg-white text-primary border border-primary;
 }
 </style>
