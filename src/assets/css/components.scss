@@ -87,6 +87,11 @@
         @apply m-0 px-5 py-2 min-w-[9rem] text-center;
     }
     label:has(input:checked) {
-        @apply bg-primary text-white rounded;
+        @apply bg-primary text-white rounded relative;
+        &::after {
+            @apply absolute top-0 right-0 bottom-0 left-0 rounded;
+            content: '';
+            background: url('../../assets/icons/source/check.svg') transparent no-repeat 90% center;
+        }
     }
 }

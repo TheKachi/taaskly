@@ -6,6 +6,7 @@ export enum IconNames {
   'add' = 'add',
   'arrowForward' = 'arrowForward',
   'back' = 'back',
+  'check' = 'check',
   'clipboard' = 'clipboard',
   'close' = 'close',
   'dashboard' = 'dashboard',

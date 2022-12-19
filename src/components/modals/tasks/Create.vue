@@ -11,7 +11,7 @@
 			</div>
 			<div class="field relative">
 				<label>What type of task is this?</label>
-				<div class="flex self-start bg-gray-200 rounded">
+				<div class="flex self-start bg-gray-200 rounded border border-primary">
 					<label for="physical" class="label-radio">
 						<input id="physical" type="radio" name="task_type" value="physical" class="hidden">
 						<span>Physical</span>
@@ -21,6 +21,15 @@
 						<span>Online</span>
 					</label>
 				</div>
+			</div>
+
+			<div class="field">
+				<label for="type">Task Location</label>
+				<input class="input-field" placeholder="Enter the Location for this Task">
+			</div>
+			<div class="field">
+				<label for="type">Tags</label>
+				<input class="input-field" placeholder="Enter Tasks Tags to help with filtering">
 			</div>
 
 			<button class="modal-btn">
