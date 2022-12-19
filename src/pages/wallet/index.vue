@@ -1,5 +1,5 @@
 <template>
-	<main class="w-full h-screen">
+	<main class="w-full h-screen p-5">
 		<div class="flex ">
 			<LazyTabs :selected="selected" :tabs="tabViews" @changed="selected = $event" />
 		</div>

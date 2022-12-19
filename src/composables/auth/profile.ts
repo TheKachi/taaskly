@@ -55,7 +55,7 @@ export const useCreateProfile = () => {
 				})
 				// await updateProfileClaim()
 				useUser().setProfileStatus(true)
-				useRouter().push('/profile?q=verification')
+				useRouter().push('/home')
 				loading.value = false
 			} catch (e: any) {
 				loading.value = false

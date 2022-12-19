@@ -18,8 +18,8 @@
 <script lang="ts" setup>
 import { useTaskModal } from '@/composables/core/modals'
 definePageMeta({
-	layout: 'home'
-	// middleware: ['is-authenticated', 'has-profile']
+	layout: 'home',
+	middleware: ['is-authenticated', 'has-profile']
 })
 </script>
 
