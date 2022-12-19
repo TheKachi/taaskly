@@ -34,12 +34,12 @@
 import gsap from 'gsap'
 import { modal } from '@/composables/core/modals'
 
-window.addEventListener('resize', () => {
-closeModal()
-})
-// watch(useRoute(), (from, to) => {
-// 	closeModal()
+// window.addEventListener('resize', () => {
+// closeModal()
 // })
+watch(useRoute(), (from, to) => {
+	closeModal()
+})
 type modalTypes = 'popup' | 'sidebar';
 const props = defineProps({
 	autoClose: {
