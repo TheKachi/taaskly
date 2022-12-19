@@ -6,7 +6,7 @@
 				type == 'popup' ? 'bg-modal' : 'bg-sidebar',
 				'transition-all modal-background',
 			]"
-			@click="close"
+			@click="autoClose ? close($el) : null"
 		>
 			<div v-if="type == 'popup'" class="modal">
 				<header class="modal-title flex justify-between w-full items-center">
@@ -42,6 +42,11 @@ watch(useRoute(), (from, to) => {
 })
 type modalTypes = 'popup' | 'sidebar';
 const props = defineProps({
+	autoClose: {
+		default: true,
+		type: Boolean,
+		required: false
+	},
 	modal: {
 		type: String,
 		required: true
@@ -60,8 +65,8 @@ const props = defineProps({
 
 const close = (e) => {
 	if (
-		typeof e.target.className === 'string' &&
-		e.target.className.includes('modal-background')
+		typeof e.className === 'string' &&
+		e.className.includes('modal-background')
 	)
 		return closeModal()
 }
