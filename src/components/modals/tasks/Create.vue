@@ -2,7 +2,7 @@
 	<Modal
 		modal="$atts.modal"
 		title="Create Task"
-		:autoClose="false"
+		:auto-close="false"
 	>
 		<form class="auth-form" @submit.prevent="verify">
 			<div class="field relative">
@@ -12,7 +12,7 @@
 			</div>
 			<div class="field relative">
 				<label>What type of task is this?</label>
-				<div class="flex self-start bg-gray-200 rounded border border-primary">
+				<div class="flex self-start bg-gray-200 rounded border border-primary w-full">
 					<label for="physical" class="label-radio">
 						<input id="physical" type="radio" name="task_type" value="physical" class="hidden">
 						<span>Physical</span>

@@ -22,9 +22,16 @@
 			</div>
 
 			<button class="modal-btn">
-				<span v-if="true"> Post</span>
+				<span v-if="true"> next</span>
 				<Spinner v-else />
 			</button>
+
+			<!-- <div class="flex gap-5">
+				<button class="modal-btn">
+					<span v-if="true"> next</span>
+					<Spinner v-else />
+				</button>
+			</div> -->
 		</form>
 	</div>
 </template>

@@ -84,7 +84,7 @@
         @apply opacity-100 bg-white text-primary border border-primary;
     }
     .label-radio {
-        @apply m-0 px-5 py-2 min-w-[9rem] text-center;
+        @apply m-0 px-5 py-2 w-full text-center flex-1;
     }
     label:has(input:checked) {
         @apply bg-primary text-white rounded relative;
