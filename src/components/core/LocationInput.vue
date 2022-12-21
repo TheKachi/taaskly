@@ -12,6 +12,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { Loader } from '@googlemaps/js-api-loader'
+
+const props = defineProps({
+  modelValue: { type: Array, default: () => [] },
+  placeholder: { type: String, default: 'Enter tags' },
+	tagsCount: {
+		type: Number,
+		default: 3,
+		required: false
+	}
+})
+const emit = defineEmits(['update:modelValue'])
+
 const options = {
      componentRestrictions: { country: ['NG'] },
     fields: ['address_components', 'geometry', 'name']
@@ -26,13 +38,15 @@ onMounted(() => {
 		libraries: ['places']
 	})
     const fillInAddress = () => {
-        console.log(autocomplete.value)
 	const place = autocomplete.value.getPlace()
+    console.log(place)
 	const latlng = {
 		lat: place.geometry.location.lat(),
 		lng: place.geometry.location.lat()
 	}
-    console.log(latlng)
+    const emitter = { name: document.getElementById('autocomplete').value, ...latlng }
+
+    emit('update:modelValue', emitter)
 }
 	loader.load().then(() => {
 		autocomplete.value = new google.maps.places.Autocomplete(
