@@ -4,10 +4,8 @@
 		title="Create Task"
 		:auto-close="true"
 	>
-		<BadgeSmall class="absolute">
-			1/2
-		</BadgeSmall>
-		<form class="auth-form" @submit.prevent="verify">
+		<BadgeSmall class="absolute right-0" name="1/2" />
+		<form class="auth-form mt-1.5" @submit.prevent="verify">
 			<div class="field relative">
 				<label for="student">Description of the task</label>
 				<textarea placeholder="What is this task about?" rows="4" class="input-textarea" />
