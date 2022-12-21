@@ -12,8 +12,8 @@
 <script lang="ts" setup>
 import { useSignin } from '@/composables/auth/auth'
 import { useUser } from '@/composables/auth/user'
-import verification from '@/pages/profile/Verification.vue'
-import account from '@/pages/profile/Account.vue'
+import verification from '@/pages/account/Verification.vue'
+import account from '@/pages/account/Account.vue'
 const { googleSignin, signOut } = useSignin()
 const { isLoggedIn, user } = useUser()
 

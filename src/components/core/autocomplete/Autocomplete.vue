@@ -3,6 +3,7 @@
 		<input
 			v-model="tagInput"
 			type="text"
+			required
 			:placeholder="placeholder"
 			class="input-field"
 			:disabled="tags.length >= tagsCount"

@@ -4,47 +4,18 @@
 		title="Create Task"
 		:auto-close="true"
 	>
-		<BadgeSmall class="absolute right-0" name="1/2" />
-		<form class="auth-form mt-1.5" @submit.prevent="verify">
-			<div class="field relative">
-				<label for="student">Description of the task</label>
-				<textarea placeholder="What is this task about?" rows="4" class="input-textarea" />
-				<span id="counter" class="text-sm font-medium ml-auto mt-1">140</span>
-			</div>
-			<div class="field relative">
-				<label>What type of task is this?</label>
-				<div class="flex self-start bg-gray-200 rounded border border-primary w-full">
-					<label for="physical" class="label-radio">
-						<input id="physical" type="radio" name="task_type" value="physical" class="hidden">
-						<span>Physical</span>
-					</label>
-					<label for="online" class="label-radio">
-						<input id="online" type="radio" name="task_type" value="online" class="hidden">
-						<span>Online</span>
-					</label>
-				</div>
-			</div>
-
-			<div class="field">
-				<label for="location">Task Location</label>
-				<LazyLocationInput />
-			</div>
-			<div class="field relative">
-				<label for="tags">Tags</label>
-				<LazyAutocomplete placeholder="Enter Tasks Tags to help with filtering" />
-			</div>
-
-			<button class="modal-btn">
-				<span v-if="true"> Next</span>
-				<Spinner v-else />
-			</button>
-		</form>
+		<BadgeSmall class="absolute right-0" :name="`${formStep}/ 2`" />
+		<firstForm v-if="formStep === 1" />
+		<secondForm v-if="formStep === 2" />
 	</Modal>
 </template>
 
 <script setup lang="ts">
+import firstForm from './firstForm.vue'
+import secondForm from './secondForm.vue'
 import Modal from '@/components/core/modal/Modal.vue'
-
+import { createTask } from '@/composables/tasks/create'
+const { formStep } = createTask()
 </script>
 
 <style scoped>
