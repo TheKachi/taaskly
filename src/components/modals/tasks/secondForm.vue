@@ -19,12 +19,12 @@
 			</div>
 		</div>
 
-		<div class="flex items-center gap-4">
-			<button class="btn-secondary">
+		<div class="flex items-center gap-10 mt-8">
+			<button class="btn-secondary w-full">
 				<span v-if="true"> Back</span>
 			</button>
 
-			<button class="btn-primary">
+			<button class="btn-primary w-full">
 				<span v-if="true"> Post</span>
 				<Spinner v-else />
 			</button>
