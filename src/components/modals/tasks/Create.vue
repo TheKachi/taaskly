@@ -2,7 +2,7 @@
 	<Modal
 		modal="$atts.modal"
 		title="Create Task"
-		:auto-close="false"
+		:auto-close="true"
 	>
 		<form class="auth-form" @submit.prevent="verify">
 			<div class="field relative">
