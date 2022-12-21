@@ -10,7 +10,7 @@
 			</div>
 			<div class="field relative">
 				<label for="student">Tags</label>
-				<LazyAutocomplete v-model="tags" />
+				<LazyLocationInput />
 			</div>
 
 			<button class="modal-btn">

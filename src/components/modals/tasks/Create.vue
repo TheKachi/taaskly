@@ -30,7 +30,7 @@
 			</div>
 			<div class="field relative">
 				<label for="tags">Tags</label>
-				<LazyAutocomplete v-model="tags" placeholder="Enter Tasks Tags to help with filtering" />
+				<LazyAutocomplete placeholder="Enter Tasks Tags to help with filtering" />
 			</div>
 
 			<button class="modal-btn">
