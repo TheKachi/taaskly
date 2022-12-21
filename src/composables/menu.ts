@@ -27,8 +27,8 @@ export const routes = [
 	},
 	{
 		icon: 'profile',
-		name: 'Profile',
-		route: '/profile'
+		name: 'Account',
+		route: '/account'
 	},
 	{
 		icon: 'help',

@@ -16,7 +16,7 @@
 			<!-- <Badge :name="profileData?.profileLevel ? profileData?.profileLevel : 'loading...'" class="text-base hidden sm:block" /> -->
 			<nuxt-link
 				v-if="profileData && profileData.verifiedLevel === 0"
-				to="/profile/?q=verification"
+				to="/account/?q=verification"
 			>
 				<Badge name="Unverified" class="!bg-red" />
 			</nuxt-link>
