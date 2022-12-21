@@ -1,3 +1,4 @@
+
 <template>
 	<div class="p-5">
 		<!-- Track, omoo -->
@@ -8,17 +9,8 @@
 				<span id="counter" class="text-sm font-medium ml-auto mt-1">140</span>
 			</div>
 			<div class="field relative">
-				<label>What type of task is this?</label>
-				<div class="flex self-start bg-gray-200 rounded">
-					<label for="physical" class="label-radio">
-						<input id="physical" type="radio" name="task_type" value="physical" class="hidden">
-						<span>Physical</span>
-					</label>
-					<label for="online" class="label-radio">
-						<input id="online" type="radio" name="task_type" value="online" class="hidden">
-						<span>Online</span>
-					</label>
-				</div>
+				<label for="student">Tags</label>
+				<LazyAutocomplete v-model="tags" />
 			</div>
 
 			<button class="modal-btn">
@@ -37,6 +29,8 @@
 </template>
 
 <script setup lang="ts">
+const tags = ref(new Set())
+
 definePageMeta({
 	layout: 'home'
 })

@@ -1,186 +1,48 @@
-<template lang="html">
-	<div class="v-autocomplete">
-		<div class="v-autocomplete-input-group" :class="{'v-autocomplete-selected': value}">
-			<input
-				v-model="searchText"
-				type="search"
-				v-bind="inputAttrs"
-				:class="inputAttrs.class || inputClass"
-				:placeholder="inputAttrs.placeholder || placeholder"
-				:disabled="inputAttrs.disabled || disabled"
-				@blur="blur"
-				@focus="focus"
-				@input="inputChange"
-				@keyup.enter="keyEnter"
-				@keydown.tab="keyEnter"
-				@keydown.up="keyUp"
-				@keydown.down="keyDown"
-			>
-		</div>
-		<div v-if="show" class="v-autocomplete-list">
-			<div
-				v-for="item, i in internalItems"
-				:key="i"
-				class="v-autocomplete-list-item"
-				:class="{'v-autocomplete-item-active': i === cursor}"
-				@click="onClickItem(item)"
-				@mouseover="cursor = i"
-			>
-				<div :is="componentItem" :item="item" :search-text="searchText" />
+
+<template>
+	<div>
+		<input
+			v-model="tagInput"
+			type="text"
+			class="input-field"
+			:disabled="tags.size >= tagsCount"
+			@keyup.enter="addTag()"
+			@keyup.space="addTag()"
+			@keydown.prevent.tab="addTag()"
+		>
+		<span v-if="tags.size >= tagsCount" class="text-sm text-rose-600">You can only enter {{ tagsCount }} tags</span>
+		<div class="tags">
+			<div class="flex gap-3 mt-3">
+				<span v-for="tag in tags" :key="tag" class="flex gap-2 bg-primary px-3 py-1 rounded text-sm text-white">
+					{{ tag }}
+					<Icon class="w-5 cursor-pointer" name="close" @click="removeTag(tag)" />
+				</span>
 			</div>
 		</div>
 	</div>
 </template>
 
-<script>
-import Item from './Item.vue'
-import utils from './utils'
-
-export default {
-  name: 'VAutocomplete',
-  props: {
-    componentItem: { type: Element, default: () => <div>{{ item }}</div> },
-    minLen: { type: Number, default: utils.minLen },
-    wait: { type: Number, default: utils.wait },
-    value: { type: String, default: '' },
-    getLabel: {
-      type: Function,
-      default: (item) => item
-    },
-    items: { type: Array, default: () => [] },
-    autoSelectOneItem: { type: Boolean, default: true },
-    placeholder: { type: String, default: '' },
-    inputClass: { type: String, default: 'v-autocomplete-input' },
-    disabled: { type: Boolean, default: false },
-    inputAttrs: { type: Object, default: () => { return {} } },
-    keepOpen: { type: Boolean, default: false }
-  },
-  data () {
-    return {
-      searchText: '',
-      showList: false,
-      cursor: -1,
-      internalItems: this.items || []
-    }
-  },
-  computed: {
-    hasItems () {
-      return !!this.internalItems.length
-    },
-    show () {
-      return (this.showList && this.hasItems) || this.keepOpen
-    }
-  },
-  watch: {
-    items (newValue) {
-      this.setItems(newValue)
-      const item = utils.findItem(this.items, this.searchText, this.autoSelectOneItem)
-      if (item) {
-        this.onSelectItem(item)
-        this.showList = false
-      }
-    },
-    value (newValue) {
-      if (!this.isSelectedValue(newValue)) {
-        this.onSelectItem(newValue)
-        this.searchText = this.getLabel(newValue)
-      }
-    }
-  },
-  created () {
-    utils.minLen = this.minLen
-    utils.wait = this.wait
-    this.onSelectItem(this.value)
-  },
-  methods: {
-    inputChange () {
-      this.showList = true
-      this.cursor = -1
-      this.onSelectItem(null, 'inputChange')
-      utils.callUpdateItems(this.searchText, this.updateItems)
-      this.$emit('change', this.searchText)
-    },
-
-    updateItems () {
-      this.$emit('update-items', this.searchText)
-    },
-
-    focus () {
-      this.$emit('focus', this.searchText)
-      this.showList = true
-    },
-
-    blur () {
-      this.$emit('blur', this.searchText)
-      setTimeout(() => this.showList = false, 200)
-    },
-
-    onClickItem(item) {
-      this.onSelectItem(item)
-      this.$emit('item-clicked', item)
-    },
-
-    onSelectItem (item) {
-      if (item) {
-        this.internalItems = [item]
-        this.searchText = this.getLabel(item)
-        this.$emit('item-selected', item)
-      } else {
-        this.setItems(this.items)
-      }
-      this.$emit('input', item)
-    },
-
-    setItems (items) {
-      this.internalItems = items || []
-    },
-
-    isSelectedValue (value) {
-      return this.internalItems.length === 1 && value === this.internalItems[0]
-    },
-
-    keyUp (e) {
-      if (this.cursor > -1) {
-        this.cursor--
-        this.itemView(this.$el.getElementsByClassName('v-autocomplete-list-item')[this.cursor])
-      }
-    },
-
-    keyDown (e) {
-      if (this.cursor < this.internalItems.length) {
-        this.cursor++
-        this.itemView(this.$el.getElementsByClassName('v-autocomplete-list-item')[this.cursor])
-      }
-    },
-
-    itemView (item) {
-      if (item && item.scrollIntoView) {
-        item.scrollIntoView(false)
-      }
-    },
-
-    keyEnter (e) {
-      if (this.showList && this.internalItems[this.cursor]) {
-        this.onSelectItem(this.internalItems[this.cursor])
-        this.showList = false
-      }
-    }
-
+<script setup lang="ts">
+const props = defineProps({
+   modelValue: { type: Set, default: () => new Set() },
+  tagsCount: {
+    type: Number,
+    default: 3,
+    required: false
   }
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+const tags = ref(props.modelValue)
+const tagInput = ref('')
+const addTag = () => {
+  tags.value.add(tagInput.value)
+  emit('update:modelValue', tags.value)
+  tagInput.value = ''
+}
+const removeTag = (tag: string) => {
+  tags.value.delete(tag)
+  emit('update:modelValue', tags.value)
 }
 </script>
-
-<style>
-  .v-autocomplete {
-    position: relative;
-  }
-  .v-autocomplete .v-autocomplete-list {
-    position: absolute;
-  }
-  .v-autocomplete .v-autocomplete-list .v-autocomplete-list-item {
-    cursor: pointer;
-  }
-  .v-autocomplete .v-autocomplete-list .v-autocomplete-list-item.v-autocomplete-item-active {
-    background-color: #f3f6fa;
-  }
-</style>
