@@ -39,17 +39,17 @@ import utils from './utils'
 export default {
   name: 'VAutocomplete',
   props: {
-    componentItem: { default: () => <div>{{ item }}</div> },
+    componentItem: { type: Element, default: () => <div>{{ item }}</div> },
     minLen: { type: Number, default: utils.minLen },
     wait: { type: Number, default: utils.wait },
-    value: null,
+    value: { type: String, default: '' },
     getLabel: {
       type: Function,
       default: (item) => item
     },
-    items: Array,
+    items: { type: Array, default: () => [] },
     autoSelectOneItem: { type: Boolean, default: true },
-    placeholder: String,
+    placeholder: { type: String, default: '' },
     inputClass: { type: String, default: 'v-autocomplete-input' },
     disabled: { type: Boolean, default: false },
     inputAttrs: { type: Object, default: () => { return {} } },
