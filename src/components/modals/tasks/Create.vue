@@ -25,16 +25,16 @@
 			</div>
 
 			<div class="field">
-				<label for="type">Task Location</label>
-				<input class="input-field" placeholder="Enter the Location for this Task">
+				<label for="location">Task Location</label>
+				<LazyLocationInput />
 			</div>
-			<div class="field">
-				<label for="type">Tags</label>
-				<input class="input-field" placeholder="Enter Tasks Tags to help with filtering">
+			<div class="field relative">
+				<label for="tags">Tags</label>
+				<LazyAutocomplete v-model="tags" placeholder="Enter Tasks Tags to help with filtering" />
 			</div>
 
 			<button class="modal-btn">
-				<span v-if="true"> Post</span>
+				<span v-if="true"> Next</span>
 				<Spinner v-else />
 			</button>
 		</form>

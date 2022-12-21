@@ -3,6 +3,7 @@
 		<input
 			v-model="tagInput"
 			type="text"
+			:placeholder="placeholder"
 			class="input-field"
 			:disabled="tags.length >= tagsCount"
 			@keyup.enter="addTag()"
@@ -35,6 +36,7 @@
 <script setup lang="ts">
 const props = defineProps({
 	modelValue: { type: Array, default: () => [] },
+  placeholder: { type: String, default: 'Enter tags' },
 	tagsCount: {
 		type: Number,
 		default: 3,
