@@ -3,7 +3,7 @@
 	<main class="main-layout">
 		<div class="auth-box">
 			<h1 class="auth-title">
-				<icon v-if="formStep!=1" class="w-7 cursor-pointer absolute left-0" name="back" @click="formStep--" />
+				<icon class="w-7 cursor-pointer absolute left-0" name="back" @click="useAuthModal().openLogout()" />
 				{{ formStep==1 ? 'Create a profile ':'Almost done' }}
 			</h1>
 			<p class="text-sm text-center mb-2">
@@ -61,6 +61,7 @@
 
 <script setup lang="ts">
 import { useCreateProfile } from '@/composables/auth/profile'
+import { useAuthModal } from '@/composables/core/modals'
 const { loading, profileFormState, formStep, createProfile, initForm } = useCreateProfile()
 initForm()
 

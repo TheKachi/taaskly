@@ -17,7 +17,7 @@
 						@click="closeModal()"
 					/>
 				</header>
-				<div class="w-full">
+				<div class="w-full relative">
 					<slot />
 				</div>
 			</div>
