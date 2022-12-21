@@ -87,7 +87,7 @@ const closeModal = () => {
 	width: 100vw;
 	max-width: 100vw;
 	min-height: 100%;
-	z-index: 1000000;
+	z-index: 101;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -101,7 +101,7 @@ const closeModal = () => {
 	width: 100vw;
 	max-width: 100vw;
 	min-height: 100vh;
-	z-index: 1000000;
+	z-index: 101;
 	backdrop-filter: blur(1.5px);
 }
 
