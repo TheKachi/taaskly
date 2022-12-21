@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="ts">
-const tags = ref(new Set())
-
+import { watch } from 'vue'
+const tags = ref()
 definePageMeta({
 	layout: 'home'
 })
