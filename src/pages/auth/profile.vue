@@ -11,6 +11,10 @@
 			</p>
 			<form class="auth-form" @submit.prevent="createProfile">
 				<div v-if="formStep == 1" id="step 1" class="auth-form">
+					<div class="field">
+						<label for="last_name">Username</label>
+						<input id="last_name" v-model="profileFormState.last_name.value" type="text" class="input-field" required>
+					</div>
 					<div class="grid grid-cols-2 gap-4">
 						<div class="field">
 							<label for="first_name">First Name</label>
