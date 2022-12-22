@@ -47,7 +47,6 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const tags = ref(props.modelValue)
-console.log(tags.value)
 const tagInput = ref('')
 const addTag = () => {
 	if (tagInput.value.trim() === '') return

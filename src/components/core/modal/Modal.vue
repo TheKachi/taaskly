@@ -64,7 +64,6 @@ const props = defineProps({
 })
 
 const close = (e) => {
-	console.log(e.className)
 	if (
 		typeof e.className === 'string' &&
 		e.className.includes('modal-background')

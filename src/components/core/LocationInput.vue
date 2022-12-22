@@ -39,7 +39,6 @@ onMounted(() => {
 	})
     const fillInAddress = () => {
 	const place = autocomplete.value.getPlace()
-    console.log(place)
 	const latlng = {
 		lat: place.geometry.location.lat(),
 		lng: place.geometry.location.lat()
