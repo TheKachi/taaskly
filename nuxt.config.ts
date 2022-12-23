@@ -20,12 +20,12 @@ export default {
 					'http-equiv': 'Content-Security-Policy',
 					content: 'upgrade-insecure-requests'
 				},
-				{ name: 'title', content: 'Taaskly' },
+				{ name: 'title', content: 'Taaskly - Everything you need in one place' },
 				{
 					name: 'description',
 					content: 'Don\'t stress about the things you need to do, use Taaskly'
 				},
-				{ name: 'twitter:title', content: 'Taaskly' },
+				{ name: 'twitter:title', content: 'Taaskly - Everything you need in one place' },
 				{ name: 'twitter:image', content: '/favicon.svg' },
 				{
 					name: 'twitter:description',
@@ -34,7 +34,7 @@ export default {
 				{ name: 'twitter:card', content: 'summary_large_image' },
 				{ name: 'twitter:site', content: '@taaskly' },
 				{ name: 'twitter:creator', content: '@taaskly' },
-				{ property: 'og:title', content: 'Taaskly' },
+				{ property: 'og:title', content: 'Taaskly - Everything you need in one place' },
 				{ property: 'og:type', content: 'site' },
 				{ property: 'og:url', content: 'https://taaskly.xyz/' },
 				{ property: 'og:image', content: '/favicon.svg' },

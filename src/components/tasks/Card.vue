@@ -1,5 +1,5 @@
 <template>
-	<article v-for="n in 10" :key="n" class="flex p-4  border-t border-secondaryLight  cursor-pointer" @click="$router.push(`/tasks/${n}`)">
+	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer" @click="$router.push(`/tasks/${id}`)">
 		<div class="flex-shrink-0">
 			<Avatar name="kromate" />
 		</div>
@@ -8,6 +8,7 @@
 				<a href="#" class="text-primary">Kromate</a>
 			</div>
 			<div class="flex items-center gap-2">
+				<BadgeSmall name="#1000" class="bg-black text-white" />
 				<BadgeSmall name="Physical" />
 				<BadgeSmall name="Errand" />
 				<BadgeSmall name="Pickup" />
@@ -27,6 +28,12 @@
 
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
+defineProps({
+	id: {
+		type: String,
+		requireed: true
+	}
+})
 </script>
 
 <style scoped>

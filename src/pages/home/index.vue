@@ -2,7 +2,7 @@
 <template>
 	<main class="flex-col flex items-stretch overflow-y-auto pt-16 pb-6 relative">
 		<TopbarDefaultTopbar />
-		<LazyTasksCard />
+		<LazyTasksCard v-for="n in 10" :id="n" :key="n" />
 		<button
 			class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-secondary !text-white fixed bottom-4 right-6 mobile"
 			@click="useTaskModal().openCreateTask()"
