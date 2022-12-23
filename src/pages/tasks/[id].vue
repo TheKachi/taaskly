@@ -5,6 +5,8 @@
 			<Meta name="description" content="My app description" />
 		</Head>
 		This is the id ---- {{ $route.params.id }}
+
+		
 	</div>
 </template>
 

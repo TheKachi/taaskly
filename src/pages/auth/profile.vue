@@ -13,7 +13,15 @@
 				<div v-if="formStep == 1" id="step 1" class="auth-form">
 					<div class="field">
 						<label for="username">Username</label>
-						<input id="username" v-model="profileFormState.username.value" type="text" class="input-field" required>
+						<input
+							id="username"
+							v-model="profileFormState.username.value"
+							type="text"
+							class="input-field"
+							:class="[isUsernameAvailable? '':'!border-rose-500']"
+							required
+						>
+						<span v-if="!isUsernameAvailable" class="text-rose-500 font-bold">This username is taken</span>
 					</div>
 					<div class="grid grid-cols-2 gap-4">
 						<div class="field">
@@ -54,7 +62,7 @@
 					</div>
 				</div>
 
-				<button class="btn-primary" :disabled="loading">
+				<button class="btn-primary" :disabled="loading || !isUsernameAvailable">
 					<span v-if="!loading"> 	{{ formStep==1 ? 'Next':'Create' }}</span>
 					<Spinner v-else />
 				</button>
@@ -67,7 +75,7 @@
 import { useCreateProfile, useUsername } from '@/composables/auth/profile'
 import { useAuthModal } from '@/composables/core/modals'
 const { loading, profileFormState, formStep, createProfile, initForm } = useCreateProfile()
-const { isNotAvailable } = useUsername()
+const { isUsernameAvailable } = useUsername()
 
 initForm()
 
