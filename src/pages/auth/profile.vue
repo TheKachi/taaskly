@@ -62,7 +62,7 @@
 					</div>
 				</div>
 
-				<button class="btn-primary" :disabled="loading || !isUsernameAvailable">
+				<button class="btn-primary" :disabled="loading || !isUsernameAvailable || usernameLoading">
 					<span v-if="!loading"> 	{{ formStep==1 ? 'Next':'Create' }}</span>
 					<Spinner v-else />
 				</button>
@@ -75,7 +75,7 @@
 import { useCreateProfile, useUsername } from '@/composables/auth/profile'
 import { useAuthModal } from '@/composables/core/modals'
 const { loading, profileFormState, formStep, createProfile, initForm } = useCreateProfile()
-const { isUsernameAvailable } = useUsername()
+const { isUsernameAvailable, loading: usernameLoading } = useUsername()
 
 initForm()
 
