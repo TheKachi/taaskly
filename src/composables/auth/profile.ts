@@ -4,6 +4,7 @@ import { useAlert, useLoading } from '../core/useNotification'
 import { useUser } from '@/composables/auth/user'
 
 const profileFormState = {
+	username: ref(''),
 	first_name: ref(''),
 	last_name: ref(''),
 	email: ref(''),
@@ -87,4 +88,9 @@ export const useProfile = () => {
 		loading.value = false
 	}
 	return { getProfile, profileData, loading }
+}
+
+export const useUsername = () => {
+    const username = ref('')
+    return { username }
 }
