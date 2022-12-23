@@ -1,5 +1,9 @@
 import { User } from 'firebase/auth'
-import { saveFirestoreDocument, getSingleFirestoreDocument } from '../../firebase/firestore'
+import { watchDebounced } from '@vueuse/core'
+import {
+	saveFirestoreDocument,
+	getSingleFirestoreDocument
+} from '../../firebase/firestore'
 import { useAlert, useLoading } from '../core/useNotification'
 import { useUser } from '@/composables/auth/user'
 
@@ -17,7 +21,7 @@ const profileFormState = {
 	desc: ref(''),
 	verifiedLevel: ref(0),
 	walletBalance: ref(0),
-    profileLevel: ref(0),
+	profileLevel: ref(0),
 	tasker_rating: ref(false),
 	runner_rating: ref(false),
 	created_at: ref(new Date().toISOString()),
@@ -29,39 +33,42 @@ const formStep = ref(1)
 export const useCreateProfile = () => {
 	const loading = ref(false)
 	const createProfile = async () => {
-		// if (formStep.value === 1) {
-		// 	formStep.value = 2
-		// } else {
-			loading.value = true
-			try {
-				await saveFirestoreDocument('users', useUser().id.value as string, {
-					id: id.value,
-					first_name: profileFormState.first_name.value,
-					last_name: profileFormState.last_name.value,
-					email: profileFormState.email.value,
-					phone: profileFormState.phone.value,
-					// student: JSON.parse(profileFormState.student.value.toLowerCase()),
-					student: profileFormState.student.value,
-					university: profileFormState.university.value,
-					address: profileFormState.address.value,
-					gender: profileFormState.gender.value,
-					dob: profileFormState.dob.value,
-					desc: profileFormState.desc.value,
-					verifiedLevel: profileFormState.verifiedLevel.value,
-					profileLevel: profileFormState.profileLevel.value,
-					tasker_rating: profileFormState.tasker_rating.value,
-					runner_rating: profileFormState.runner_rating.value,
-					created_at: profileFormState.created_at.value,
-					updated_at: profileFormState.updated_at.value
-				})
-				// await updateProfileClaim()
-				useUser().setProfileStatus(true)
-				useRouter().push('/home')
-				loading.value = false
-			} catch (e: any) {
-				loading.value = false
-				useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
-			}
+		loading.value = true
+		try {
+			await saveFirestoreDocument('users', useUser().id.value as string, {
+				id: id.value,
+				username: profileFormState.username.value,
+				first_name: profileFormState.first_name.value,
+				last_name: profileFormState.last_name.value,
+				email: profileFormState.email.value,
+				phone: profileFormState.phone.value,
+				// student: JSON.parse(profileFormState.student.value.toLowerCase()),
+				student: profileFormState.student.value,
+				university: profileFormState.university.value,
+				address: profileFormState.address.value,
+				gender: profileFormState.gender.value,
+				dob: profileFormState.dob.value,
+				desc: profileFormState.desc.value,
+				verifiedLevel: profileFormState.verifiedLevel.value,
+				profileLevel: profileFormState.profileLevel.value,
+				tasker_rating: profileFormState.tasker_rating.value,
+				runner_rating: profileFormState.runner_rating.value,
+				created_at: profileFormState.created_at.value,
+				updated_at: profileFormState.updated_at.value
+			})
+			await saveFirestoreDocument(
+				'usernames',
+				profileFormState.username.value,
+				{ id: id.value }
+			)
+			// await updateProfileClaim()
+			useUser().setProfileStatus(true)
+			useRouter().push('/home')
+			loading.value = false
+		} catch (e: any) {
+			loading.value = false
+			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+		}
 		// }
 	}
 
@@ -84,13 +91,32 @@ export const useProfile = () => {
 			loading.value = false
 			return
 		}
-		profileData.value = await getSingleFirestoreDocument('users', id.value as string)
+		profileData.value = await getSingleFirestoreDocument(
+			'users',
+			id.value as string
+		)
 		loading.value = false
 	}
 	return { getProfile, profileData, loading }
 }
 
 export const useUsername = () => {
-    const username = ref('')
-    return { username }
+	const isNotAvailable = ref(false)
+
+	const checkUsername = async () => {
+		const isUsernameAvailable = await getSingleFirestoreDocument(
+			'usernames',
+			profileFormState.username.value
+		)
+		console.log(isUsernameAvailable)
+		if (isUsernameAvailable) {
+			isNotAvailable.value = true
+		} else {
+			isNotAvailable.value = true
+		}
+	}
+
+	watchDebounced(profileFormState.username, checkUsername, { debounce: 1000 })
+
+	return { isNotAvailable, checkUsername }
 }
