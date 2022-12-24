@@ -67,7 +67,7 @@ export default {
 	alias: {
 		'@': './src'
 	},
-	modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss'],
+	modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss', 'floating-vue/nuxt'],
 
 	css: ['/src/assets/css/main.css'],
 	components: [

@@ -60,6 +60,7 @@
 		"firebase": "^9.12.1",
 		"firebase-admin": "^11.2.1",
 		"firebase-functions": "^4.1.0",
+		"floating-vue": "^2.0.0-beta.20",
 		"gsap": "^3.11.3",
 		"uuid": "^9.0.0",
 		"vuedraggable": "^4.1.0"
