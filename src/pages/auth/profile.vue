@@ -12,7 +12,7 @@
 			<form class="auth-form" @submit.prevent="createProfile">
 				<div v-if="formStep == 1" id="step 1" class="auth-form">
 					<div class="field">
-						<label for="username">Username</label>
+						<label for="username">Username <icon v-tooltip="'You can only set this once'" name="info" class="w-4 text-black cursor-pointer" /> </label>
 						<input
 							id="username"
 							v-model="profileFormState.username.value"

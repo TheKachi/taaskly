@@ -4,7 +4,7 @@
     }
     label,
     .label {
-        @apply font-medium text-base text-primary mb-1;
+        @apply font-medium text-base text-primary mb-1 flex gap-2;
     }
     .input-field {
         @apply border border-gray-400 w-full h-11 px-4 rounded  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
@@ -93,5 +93,9 @@
             content: '';
             background: url('../../assets/icons/source/check.svg') transparent no-repeat 90% center;
         }
+    }
+    .v-popper__arrow-outer,
+    .v-popper__arrow-inner {
+        display: none !important;
     }
 }

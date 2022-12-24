@@ -24,14 +24,34 @@
 				v-else
 				:name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'"
 			/>
-			<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
+
+			<VDropdown
+				:distance="14"
+
+				class="cursor-pointer"
+			>
+				<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
+				<template #popper>
+					<div class="w-full p-4">
+						<button
+							class="menu-btn flex items-center black !text-[#ff615c] cursor-pointer"
+							@click="useAuthModal().openLogout()"
+						>
+							<icon name="exit" class="mr-4 w-5" />
+							<p class="text-base">
+								Sign Out
+							</p>
+						</button>
+					</div>
+				</template>
+			</VDropdown>
 		</div>
 	</nav>
 </template>
 
 <script setup lang="ts">
+import { useAuthModal, useSidebarModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
-import { useSidebarModal } from '@/composables/core/modals'
 import { useProfile } from '@/composables/auth/profile'
 const { user } = useUser()
 

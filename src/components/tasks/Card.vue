@@ -30,8 +30,9 @@
 import { useCoreModal } from '@/composables/core/modals'
 defineProps({
 	id: {
-		type: String,
-		requireed: true
+		type: Number || String,
+		requireed: true,
+		default: ''
 	}
 })
 </script>
