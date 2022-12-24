@@ -2,7 +2,7 @@
 	<form class="auth-form mt-1.5" @submit.prevent="create">
 		<div class="field relative">
 			<label for="student">Description of the task *</label>
-			<textarea placeholder="What is this task about?" rows="4" class="input-textarea" required />
+			<textarea v-model="createTaskForm.desc.value" placeholder="What is this task about?" rows="4" class="input-textarea" required />
 			<span id="counter" class="text-sm font-medium ml-auto mt-1">140</span>
 		</div>
 		<div class="field relative">
@@ -11,9 +11,10 @@
 				<label for="physical" class="label-radio">
 					<input
 						id="physical"
+						v-model="createTaskForm.remote.value"
 						type="radio"
 						name="task_type"
-						value="physical"
+						:value="false"
 						class="hidden"
 						required
 					>
@@ -22,9 +23,10 @@
 				<label for="online" class="label-radio">
 					<input
 						id="online"
+						v-model="createTaskForm.remote.value"
 						type="radio"
 						name="task_type"
-						value="online"
+						:value="true"
 						class="hidden"
 						required
 					>
@@ -33,7 +35,7 @@
 			</div>
 		</div>
 
-		<div class="field">
+		<div v-if="!createTaskForm.remote.value" class="field">
 			<label for="location">Task Location</label>
 			<LazyLocationInput />
 		</div>
@@ -51,7 +53,7 @@
 
 <script setup lang="ts">
 import { createTask } from '@/composables/tasks/create'
-const { create } = createTask()
+const { create, createTaskForm } = createTask()
 </script>
 
 <style scoped>

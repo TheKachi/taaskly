@@ -1,5 +1,16 @@
 const formStep = ref(1)
 
+const createTaskForm = {
+    desc: ref(''),
+    dueDate: ref(''),
+    amount: ref(''),
+    status: ref(''),
+    title: ref(''),
+    remote: ref(false),
+    location: ref(''),
+    tags: ref([])
+}
+
 export const createTask = () => {
     const create = () => {
         if (formStep.value === 1) {
@@ -8,5 +19,5 @@ export const createTask = () => {
         }
         formStep.value = 1
     }
-    return { formStep, create }
+    return { formStep, create, createTaskForm }
 }
