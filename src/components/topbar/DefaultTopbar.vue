@@ -66,8 +66,8 @@ nav {
 }
 
 .mx{
-	left: min(20.5%, 15.1rem);
-	right: min(21%, 28rem);
+	left: 0;
+	right: 0;
 	padding: 0 1rem;
 	@media (max-width:1024px){
 		left: 0;

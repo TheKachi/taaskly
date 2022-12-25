@@ -8,26 +8,24 @@
 			]"
 			@click.self="autoClose ? close($el) : null"
 		>
-			<div class="w-full max-h-screen center py-4">
-				<div v-if="type == 'popup'" class="modal">
-					<header class="modal-title flex justify-between w-full items-center">
-						{{ title }}
-						<icon
-							name="close"
-							class="text-primary w-7 cursor-pointer"
-							@click="closeModal()"
-						/>
-					</header>
-					<div class="w-full relative">
-						<slot />
-					</div>
+			<div v-if="type == 'popup'" class="modal">
+				<header class="modal-title flex justify-between w-full items-center">
+					{{ title }}
+					<icon
+						name="close"
+						class="text-primary w-7 cursor-pointer"
+						@click="closeModal()"
+					/>
+				</header>
+				<div class="w-full relative">
+					<slot />
 				</div>
-				<transition v-else name="slide" appear :duration="500">
-					<div class="sidebar">
-						<slot />
-					</div>
-				</transition>
 			</div>
+			<transition v-else name="slide" appear :duration="500">
+				<div class="sidebar">
+					<slot />
+				</div>
+			</transition>
 		</div>
 	</transition>
 </template>
@@ -82,7 +80,6 @@ const closeModal = () => {
 <style scoped>
 .bg-modal {
 	position: fixed;
-	display: flex;
 	top: 0;
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.4);

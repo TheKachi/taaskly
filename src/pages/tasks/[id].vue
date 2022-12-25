@@ -23,10 +23,10 @@
 				<div class="text-[15px] text-gray-700 mt-2">
 					I need someone to help me get a package from new hall Jumia pickup center and deliver it to me
 				</div>
-				<div class="text-[15px] text-gray-700 mt-1 flex gap-2">
-					<span class="accept-btn"> <icon name="hand_shake" class="w-5" /> Make an Offer</span>
-					<span class="share-btn" @click.stop="useCoreModal().openSocialShare()"> <icon name="share" class="w-5" /> share</span>
-					<span class="flag-btn"> <icon name="flag" class="w-5" /> flag</span>
+				<div class=" text-gray-700 mt-1 flex gap-2">
+					<span class="accept-btn text-xs px-0 hover:px-2"> <icon name="hand_shake" class="w-5" /> Make an Offer</span>
+					<span class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()"> <icon name="share" class="w-5" /> share</span>
+					<span class="flag-btn text-xs px-0 hover:px-2"> <icon name="flag" class="w-5" /> flag</span>
 				</div>
 			</div>
 		</article>
@@ -81,7 +81,8 @@
 <script setup lang="ts">
 
 definePageMeta({
-	layout: 'home'
+	layout: 'home-with-header'
+
 	// middleware: ['is-authenticated', 'has-profile']
 })
 </script>

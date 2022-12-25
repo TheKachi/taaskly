@@ -4,9 +4,11 @@
 		title="Create Task"
 		:auto-close="true"
 	>
-		<BadgeSmall class="absolute right-0" :name="`${formStep}/ 2`" />
-		<firstForm v-if="formStep === 1" />
-		<secondForm v-if="formStep === 2" />
+		<div class="max-h-screen overflow-y-auto">
+			<BadgeSmall class="absolute right-0" :name="`${formStep}/ 2`" />
+			<firstForm v-if="formStep === 1" />
+			<secondForm v-if="formStep === 2" />
+		</div>
 	</Modal>
 </template>
 

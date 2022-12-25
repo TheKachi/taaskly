@@ -1,24 +1,21 @@
 
 <template>
-	<main class="flex-col flex items-stretch overflow-y-auto pt-16 pb-6 relative">
-		<TopbarDefaultTopbar />
-		<LazyTasksCard v-for="n in 10" :id="n" :key="n" />
-		<button
-			class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-secondary !text-white fixed bottom-4 right-6 mobile"
-			@click="useTaskModal().openCreateTask()"
-		>
-			<icon name="task" class="mr-4 w-5 text-white" />
-			<p class="text-base">
-				Create Task
-			</p>
-		</button>
-	</main>
+	<LazyTasksCard v-for="n in 10" :id="n" :key="n" />
+	<button
+		class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-secondary !text-white fixed bottom-4 right-6 mobile"
+		@click="useTaskModal().openCreateTask()"
+	>
+		<icon name="task" class="mr-4 w-5 text-white" />
+		<p class="text-base">
+			Create Task
+		</p>
+	</button>
 </template>
 
 <script lang="ts" setup>
 import { useTaskModal } from '@/composables/core/modals'
 definePageMeta({
-	layout: 'home',
+	layout: 'home-with-header',
 	middleware: ['is-authenticated', 'has-profile']
 })
 </script>

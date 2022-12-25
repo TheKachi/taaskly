@@ -53,7 +53,7 @@
         @apply flex lg:hidden;
     }
     .modal {
-        @apply bg-white flex flex-col items-start gap-4  py-8 md:px-12 px-8 rounded-md w-[470px] max-w-[90%];
+        @apply bg-white flex flex-col items-start gap-4  py-8 md:px-12 px-8 rounded-md w-[470px] max-w-[90%] max-h-[90vh] overflow-y-auto;
     }
     .modal-title {
         @apply font-medium text-xl text-start w-full text-primary border-b border-line pb-2;
@@ -93,9 +93,5 @@
             content: '';
             background: url('../../assets/icons/source/check.svg') transparent no-repeat 90% center;
         }
-    }
-    .v-popper__arrow-outer,
-    .v-popper__arrow-inner {
-        display: none !important;
     }
 }

@@ -16,8 +16,9 @@
 					>
 				</div>
 
-				<p v-if="user" class="text-xl font-medium ml-4">
-					<span class="text-gray-500">Hello</span>	{{ user.displayName.split(' ')[0] }}
+				<p v-if="user" class="text-xl font-medium ml-4 flex flex-col">
+					<span class="text-gray-500">Hello</span>
+					<span class="text-sm tx flex-wrap">{{ user.displayName.split(' ')[0] }}</span>
 				</p>
 
 				<div class="relative mt-5 pt-4 border-t">
@@ -91,5 +92,8 @@ a.router-link-exact-active.black {
 	& > svg {
 		color: var(--clear);
 	}
+}
+.tx{
+	overflow-wrap: anywhere;
 }
 </style>
