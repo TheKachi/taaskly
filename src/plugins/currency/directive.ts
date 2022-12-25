@@ -8,7 +8,7 @@ export default function (el: HTMLInputElement | any, binding: { value: any }) {
 
   // v-money used on a component that's not a input
   if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
-    console.log('Not an input')
+    // console.log('Not an input')
     const els = el.getElementsByTagName('input')
     if (els.length !== 1) {
       // throw new Error("v-money requires 1 input, found " + els.length)

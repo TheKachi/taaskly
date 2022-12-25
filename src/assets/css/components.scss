@@ -32,7 +32,7 @@
         text-fill-color: transparent;
     }
     .auth-form {
-        @apply flex flex-col gap-3;
+        @apply flex flex-col gap-3 overflow-y-auto;
     }
     .btn {
         @apply rounded px-6 py-2.5 flex justify-center items-center disabled:bg-gray-500 box-border h-11;

@@ -16,7 +16,7 @@
 			class="text-sm text-rose-600"
 		>You can only enter {{ tagsCount }} tags</span>
 		<div class="tags">
-			<div class="flex gap-3 mt-3">
+			<div class="flex gap-3 mt-3 flex-wrap">
 				<span
 					v-for="(tag, i) in tags"
 					:key="tag"

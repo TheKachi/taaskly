@@ -110,7 +110,6 @@ export const useUsername = () => {
 			'usernames',
 			profileFormState.username.value.toLowerCase()
 		)
-		console.log(isUsernameAvailableFuncValue)
 		if (isUsernameAvailableFuncValue) {
 			isUsernameAvailable.value = false
 		} else {
