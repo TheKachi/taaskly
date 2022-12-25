@@ -1,14 +1,22 @@
 <template>
 	<form class="auth-form mt-1.5" @submit.prevent="create">
 		<div class="field relative">
-			<label for="student">Due Date</label>
-			<input v-model="createTaskForm.dueDate.value" placeholder="When do you need this task done" type="date" class="input-field">
+			<label for="student">Start Date</label>
+			<input v-model="createTaskForm.startDate.value" placeholder="When do you need this task done" type="date" class="input-field" required>
+			<!-- <span class="flex center"><input id="" type="checkbox" name=""> Immediately </span> -->
 		</div>
 		<div class="field relative">
 			<label for="student">Task Price  <icon v-tooltip="'how much are you willing to pay for this task'" name="info" class="w-4 text-black cursor-pointer" />  </label>
-			<div id="amount" class="relative">
+			<div id="amount" class="relative w-full">
 				<span class="absolute left-2 text-base font-bold top-1.5 bg-primary rounded px-2 py-1 text-white">#</span>
-				<input v-money placeholder="The price of the task" type="tel" class="input-field pl-11">
+				<input
+					v-model="createTaskForm.amount.value"
+					v-money
+					placeholder="The price of the task"
+					type="tel"
+					class="input-field pl-11"
+					required
+				>
 			</div>
 		</div>
 

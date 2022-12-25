@@ -6,7 +6,7 @@ const formStep = ref(1)
 
 const createTaskForm = {
     desc: ref(''),
-    dueDate: ref(''),
+    startDate: ref(''),
     amount: ref(''),
     status: ref('available'),
     offers: ref(0),
@@ -22,13 +22,14 @@ export const createTask = () => {
             formStep.value = 2
             return
         }
-        try {
-            await saveFirestoreDocument('tasks', uuidv4(), {
-            })
-        } catch (e:any) {
-            loading.value = false
-            useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
-        }
+        console.log(createTaskForm)
+        // try {
+        //     await saveFirestoreDocument('tasks', uuidv4(), {
+        //     })
+        // } catch (e:any) {
+        //     loading.value = false
+        //     useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+        // }
     }
 
     return { formStep, create, createTaskForm, loading }
