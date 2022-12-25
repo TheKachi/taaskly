@@ -4,11 +4,11 @@
 		<SidebarsDefaultSidebar />
 
 		<div class="relative bg-clear page w-full border-x border-secondary mx  h-screen sm:h-auto  mt ">
+			<TopbarDefaultTopbar />
 			<Alert />
 			<PageLoading />
-			<div class="w-full h-full relative overflow-y-auto">
+			<div class="w-full h-full relative overflow-y-auto overflow-hidden">
 				<section class="flex-col flex items-stretch overflow-y-auto pt-16 pb-6 relative">
-					<TopbarDefaultTopbar />
 					<slot />
 				</section>
 			</div>

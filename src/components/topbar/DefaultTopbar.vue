@@ -1,6 +1,6 @@
 <template>
 	<nav
-		class="fixed top-0 bg-transparent  h-16 mx  flex items-center justify-between box-border "
+		class="absolute  w-full top-0  h-16 px-4  flex items-center justify-between box-border z-20 bg-white shadow"
 	>
 		<icon
 			class="mobile w-8 cursor-pointer z-50"
@@ -60,20 +60,5 @@ onMounted(getProfile)
 </script>
 
 <style scoped lang="scss">
-nav {
-	background-color: rgba(255, 255, 255, 0.5);
-	backdrop-filter: blur(15px);
-}
 
-.mx{
-	left: 0;
-	right: 0;
-	padding: 0 1rem;
-	@media (max-width:1024px){
-		left: 0;
-		right: 0;
-		width: 100%;
-		padding: 0 1rem;
-	}
-}
 </style>
