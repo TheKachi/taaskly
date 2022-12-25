@@ -1,10 +1,10 @@
-import { User } from 'firebase/auth'
+
 import { watchDebounced } from '@vueuse/core'
 import {
 	saveFirestoreDocument,
 	getSingleFirestoreDocument
 } from '../../firebase/firestore'
-import { useAlert, useLoading } from '../core/useNotification'
+import { useAlert } from '../core/useNotification'
 import { useUser } from '@/composables/auth/user'
 
 const profileFormState = {

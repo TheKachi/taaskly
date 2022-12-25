@@ -6,7 +6,10 @@
 		</div>
 		<div class="field relative">
 			<label for="student">Task Price  <icon v-tooltip="'how much are you willing to pay for this task'" name="info" class="w-4 text-black cursor-pointer" />  </label>
-			<input v-model="createTaskForm.amount.value" placeholder="how much are you willing to pay for this task" type="number" class="input-field">
+			<div id="amount" class="relative">
+				<span class="absolute left-2 text-base font-bold top-1.5 bg-primary rounded px-2 py-1 text-white">#</span>
+				<input v-model="createTaskForm.amount.value" v-money placeholder="The price of the task" type="number" class="input-field pl-11">
+			</div>
 		</div>
 
 		<div class="flex items-center gap-10 mt-8">
