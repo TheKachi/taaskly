@@ -4,10 +4,10 @@ const createTaskForm = {
     desc: ref(''),
     dueDate: ref(''),
     amount: ref(''),
-    status: ref(''),
-    title: ref(''),
+    status: ref('available'),
+    offers: ref(0),
     remote: ref(false),
-    location: ref(''),
+    location: ref({}),
     tags: ref([])
 }
 
@@ -17,7 +17,7 @@ export const createTask = () => {
             formStep.value = 2
             return
         }
-        formStep.value = 1
+       console.log(createTaskForm)
     }
     return { formStep, create, createTaskForm }
 }

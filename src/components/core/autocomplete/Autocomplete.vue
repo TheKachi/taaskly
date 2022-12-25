@@ -8,6 +8,7 @@
 			:disabled="tags.length >= tagsCount"
 			@keyup.enter="addTag()"
 			@keyup.space="addTag()"
+			@keypress.space="addTag()"
 			@keydown.prevent.tab="addTag()"
 		>
 		<span
@@ -44,7 +45,7 @@ const props = defineProps({
 	}
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update'])
 
 const tags = ref(props.modelValue)
 const tagInput = ref('')
@@ -53,11 +54,11 @@ const addTag = () => {
 	tags.value.push(tagInput.value)
   const setArray = new Set(tags.value)
   tags.value = Array.from(setArray)
-	emit('update:modelValue', tags.value)
+	emit('update', tags.value)
 	tagInput.value = ''
 }
 const removeTag = (tag: string, index: number) => {
 	tags.value.splice(index, 1)
-	emit('update:modelValue', tags.value)
+	emit('update', tags.value)
 }
 </script>

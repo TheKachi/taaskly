@@ -14,13 +14,8 @@ import { ref, onMounted } from 'vue'
 import { Loader } from '@googlemaps/js-api-loader'
 
 const props = defineProps({
-  modelValue: { type: Array, default: () => [] },
-  placeholder: { type: String, default: 'Enter tags' },
-	tagsCount: {
-		type: Number,
-		default: 3,
-		required: false
-	}
+  modelValue: { type: Object, default: () => {} },
+  placeholder: { type: String, default: 'Enter tags' }
 })
 const emit = defineEmits(['update:modelValue'])
 
