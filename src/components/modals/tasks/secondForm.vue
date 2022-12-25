@@ -25,7 +25,7 @@
 				Back
 			</button>
 
-			<button class="btn-primary w-full">
+			<button class="btn-primary w-full" :disabled="loading">
 				<span v-if="!loading"> Post</span>
 				<Spinner v-else />
 			</button>

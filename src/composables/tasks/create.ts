@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { saveFirestoreDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
+import { useTaskModal } from '@/composables/core/modals'
 
 const formStep = ref(1)
 
@@ -18,6 +19,7 @@ const createTaskForm = {
 export const createTask = () => {
     const loading = ref(false)
     const create = async () => {
+        loading.value = true
         if (formStep.value === 1) {
             formStep.value = 2
             return
@@ -34,6 +36,8 @@ export const createTask = () => {
                 location: createTaskForm.location.value,
                 tags: createTaskForm.tags.value
             })
+            loading.value = false
+            useTaskModal().closeCreateTask()
         } catch (e:any) {
             loading.value = false
             useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
