@@ -22,14 +22,22 @@ export const createTask = () => {
             formStep.value = 2
             return
         }
-        console.log(createTaskForm)
-        // try {
-        //     await saveFirestoreDocument('tasks', uuidv4(), {
-        //     })
-        // } catch (e:any) {
-        //     loading.value = false
-        //     useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
-        // }
+
+        try {
+            await saveFirestoreDocument('tasks', uuidv4(), {
+                desc: createTaskForm.desc.value,
+                startDate: createTaskForm.startDate.value,
+                amount: createTaskForm.amount.value,
+                status: createTaskForm.status.value,
+                offers: createTaskForm.offers.value,
+                remote: createTaskForm.remote.value,
+                location: createTaskForm.location.value,
+                tags: createTaskForm.tags.value
+            })
+        } catch (e:any) {
+            loading.value = false
+            useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+        }
     }
 
     return { formStep, create, createTaskForm, loading }
