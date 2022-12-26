@@ -2,7 +2,8 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
-	ssr: process.env.NODE_ENV === 'production',
+	// ssr: process.env.NODE_ENV === 'production',
+	ssr: true,
 	nitro: {
 		prerender: {
 			crawlLinks: true,
@@ -10,6 +11,7 @@ export default {
 		}
 	},
 	app: {
+		 pageTransition: { name: 'page', mode: 'out-in' },
 		head: {
 			title: 'Taaskly',
 			htmlAttrs: { lang: 'en' },
