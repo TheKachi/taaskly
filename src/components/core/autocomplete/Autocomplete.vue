@@ -6,9 +6,8 @@
 			:placeholder="placeholder"
 			class="input-field"
 			:disabled="tags.length >= tagsCount"
-			@keyup.enter="addTag()"
+			@keyup.prevent.enter="addTag()"
 			@keyup.space="addTag()"
-			@keypress.space="addTag()"
 			@keydown.prevent.tab="addTag()"
 		>
 		<span
@@ -49,6 +48,13 @@ const emit = defineEmits(['update'])
 
 const tags = ref(props.modelValue)
 const tagInput = ref('')
+watch(tagInput, () => {
+	  if (tagInput.value.includes(',') || tagInput.value.includes(' ')) {
+		tagInput.value = tagInput.value.replace(',', '')
+	addTag()
+  }
+})
+
 const addTag = () => {
 	if (tagInput.value.trim() === '') return
 	tags.value.push(tagInput.value)
