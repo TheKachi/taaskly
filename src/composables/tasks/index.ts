@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { saveFirestoreDocument } from '@/firebase/firestore'
+import { saveFirestoreDocument, getFirestoreUserCollection } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
 import { useTaskModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
@@ -20,7 +20,7 @@ const createTaskForm = {
     tags: ref([])
 }
 
-export const createTask = () => {
+export const useCreateTask = () => {
     const loading = ref(false)
     const create = async () => {
         loading.value = true
@@ -52,4 +52,22 @@ export const createTask = () => {
     }
 
     return { formStep, create, createTaskForm, loading }
+}
+
+export const useFetchHomeTasks = () => {
+    const loading = ref(false)
+    const tasks = ref([])
+
+    const fetchHomeTasks = async () => {
+        loading.value = true
+        try {
+            tasks.value = await getFirestoreUserCollection('tasks')
+            loading.value = false
+        } catch (e:any) {
+            loading.value = false
+            useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+        }
+    }
+
+    return { tasks, fetchHomeTasks, loading }
 }

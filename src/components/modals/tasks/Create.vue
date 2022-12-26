@@ -16,8 +16,8 @@
 import firstForm from './firstForm.vue'
 import secondForm from './secondForm.vue'
 import Modal from '@/components/core/modal/Modal.vue'
-import { createTask } from '@/composables/tasks/create'
-const { formStep } = createTask()
+import { useCreateTask } from '~~/src/composables/tasks'
+const { formStep } = useCreateTask()
 </script>
 
 <style scoped>

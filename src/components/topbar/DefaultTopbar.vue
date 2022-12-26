@@ -25,7 +25,7 @@
 				:name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'"
 			/>
 
-			<VDropdown
+			<!-- <VDropdown
 				:distance="14"
 
 				class="cursor-pointer"
@@ -44,7 +44,7 @@
 						</button>
 					</div>
 				</template>
-			</VDropdown>
+			</VDropdown> -->
 		</div>
 	</nav>
 </template>

@@ -52,8 +52,8 @@
 </template>
 
 <script setup lang="ts">
-import { createTask } from '@/composables/tasks/create'
-const { create, createTaskForm } = createTask()
+import { useCreateTask } from '~~/src/composables/tasks'
+const { create, createTaskForm } = useCreateTask()
 </script>
 
 <style scoped>
