@@ -1,5 +1,5 @@
 
-import { watchDebounced } from '@vueuse/core'
+import { watchDebounced, useStorage } from '@vueuse/core'
 import {
 	saveFirestoreDocument,
 	getSingleFirestoreDocument
@@ -27,15 +27,15 @@ const profileFormState = {
 	created_at: ref(new Date().toISOString()),
 	updated_at: ref(new Date().toISOString())
 }
-export const profileData = ref()
+export const profileData = useStorage('profileData', {} as any)
+
 const { id } = useUser()
 const formStep = ref(1)
 export const useCreateProfile = () => {
 	const loading = ref(false)
 	const createProfile = async () => {
 		loading.value = true
-		try {
-			await saveFirestoreDocument('users', useUser().id.value as string, {
+		const profileUploadData = {
 				id: id.value,
 				username: profileFormState.username.value,
 				first_name: profileFormState.first_name.value,
@@ -55,7 +55,9 @@ export const useCreateProfile = () => {
 				runner_rating: profileFormState.runner_rating.value,
 				created_at: profileFormState.created_at.value,
 				updated_at: profileFormState.updated_at.value
-			})
+			}
+		try {
+			await saveFirestoreDocument('users', useUser().id.value as string, profileUploadData)
 			await saveFirestoreDocument(
 				'usernames',
 				profileFormState.username.value,
@@ -63,6 +65,7 @@ export const useCreateProfile = () => {
 			)
 			// await updateProfileClaim()
 			useUser().setProfileStatus(true)
+			profileData.value = profileUploadData
 			useRouter().push('/home')
 			loading.value = false
 		} catch (e: any) {

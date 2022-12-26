@@ -14,6 +14,10 @@
 
 <script lang="ts" setup>
 import { useTaskModal } from '@/composables/core/modals'
+import { useFetchHomeTasks } from '@/composables/tasks'
+const { fetchHomeTasks, loading, tasks } = useFetchHomeTasks()
+fetchHomeTasks()
+
 definePageMeta({
 	layout: 'home-with-header',
 	middleware: ['is-authenticated', 'has-profile']
