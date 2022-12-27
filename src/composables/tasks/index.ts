@@ -1,12 +1,11 @@
 import { v4 as uuidv4 } from 'uuid'
-import { profileData } from '../auth/profile'
 import { saveFirestoreDocument, getFirestoreUserCollection } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
 import { useTaskModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
 
 const formStep = ref(1)
-const { id: userId } = useUser()
+const { id: userId, username } = useUser()
 const createTaskForm = {
     desc: ref(''),
     created_at: ref(new Date().toISOString()),
@@ -21,7 +20,7 @@ const createTaskForm = {
     tags: ref([]),
     user: {
         id: userId.value,
-        username: profileData.value.username
+        username: username.value
     }
 }
 
@@ -67,7 +66,6 @@ export const useFetchHomeTasks = () => {
         loading.value = true
         try {
             tasks.value = await getFirestoreUserCollection('tasks')
-            console.log(tasks.value)
             loading.value = false
         } catch (e:any) {
             loading.value = false

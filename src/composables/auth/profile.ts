@@ -61,7 +61,6 @@ export const useCreateProfile = () => {
 
 		try {
 			await saveFirestoreDocument('users', useUser().id.value as string, profileUploadData)
-			await callFirebaseFunction('addUsername', { username: profileFormState.username.value })
 			// await updateProfileClaim()
 			useUser().setProfileStatus(true)
 			useUser().setProfileUsername(profileFormState.username.value)

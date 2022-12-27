@@ -13,7 +13,6 @@
 // 	return val.toLowerCase()
 // }
 // const toCapitalized = (data:string) => {
-// 	console.log(data)
 // const capitalized = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase()
 //     return capitalized
 // }

@@ -19,8 +19,6 @@ export const app = initializeApp(firebaseConfig)
 isSupported().then((supported) => {
   if (supported) {
      analytics = getAnalytics(app)
-  } else {
-    // console.log('Analytics not supported')
   }
 })
 
