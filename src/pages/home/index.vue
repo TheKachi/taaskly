@@ -1,5 +1,6 @@
 
 <template>
+	<LazyTasksReferralCard />
 	<LazyTasksCard v-for="n in 10" :id="n" :key="n" />
 	<button
 		class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-secondary !text-white fixed bottom-4 right-6 mobile"
