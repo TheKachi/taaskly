@@ -1,16 +1,20 @@
-export type Profile = {
-	id: string;
+export type ProfileType = {
+	id: string | null;
+	username: string;
 	first_name: string;
 	last_name: string;
 	email: string;
-	username: string;
 	phone: string;
-	student: false;
+	student: string;
+	university: string;
 	address: string;
+	gender: string;
 	dob: string;
-	verified: boolean;
-	level: number;
-	tasker_rating: number;
-	runner_rating: number;
 	desc: string;
+	verifiedLevel: number;
+	profileLevel: number;
+	tasker_rating: number | boolean;
+	runner_rating: number | boolean;
+	created_at: string;
+	updated_at: string;
 };

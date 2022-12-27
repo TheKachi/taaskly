@@ -24,6 +24,7 @@
 				v-else
 				:name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'"
 			/>
+			<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
 
 			<!-- <VDropdown
 				:distance="14"

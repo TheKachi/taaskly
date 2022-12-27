@@ -1,11 +1,14 @@
 
-import { watchDebounced, useStorage } from '@vueuse/core'
+import { watchDebounced } from '@vueuse/core'
+import { Ref } from 'vue'
 import {
 	saveFirestoreDocument,
 	getSingleFirestoreDocument
 } from '../../firebase/firestore'
 import { useAlert } from '../core/useNotification'
+import { ProfileType } from './types/profile'
 import { useUser } from '@/composables/auth/user'
+import { callFirebaseFunction } from '@/firebase/functions'
 
 const profileFormState = {
 	username: ref(''),
@@ -27,7 +30,7 @@ const profileFormState = {
 	created_at: ref(new Date().toISOString()),
 	updated_at: ref(new Date().toISOString())
 }
-export const profileData = useStorage('profileData', {} as any)
+export const profileData = ref({}) as Ref<ProfileType>
 
 const { id } = useUser()
 const formStep = ref(1)
@@ -42,7 +45,6 @@ export const useCreateProfile = () => {
 				last_name: profileFormState.last_name.value,
 				email: profileFormState.email.value,
 				phone: profileFormState.phone.value,
-				// student: JSON.parse(profileFormState.student.value.toLowerCase()),
 				student: profileFormState.student.value,
 				university: profileFormState.university.value,
 				address: profileFormState.address.value,
@@ -55,16 +57,14 @@ export const useCreateProfile = () => {
 				runner_rating: profileFormState.runner_rating.value,
 				created_at: profileFormState.created_at.value,
 				updated_at: profileFormState.updated_at.value
-			}
+		}
+
 		try {
 			await saveFirestoreDocument('users', useUser().id.value as string, profileUploadData)
-			await saveFirestoreDocument(
-				'usernames',
-				profileFormState.username.value,
-				{ id: id.value }
-			)
+			await callFirebaseFunction('addUsername', { username: profileFormState.username.value })
 			// await updateProfileClaim()
 			useUser().setProfileStatus(true)
+			useUser().setProfileUsername(profileFormState.username.value)
 			profileData.value = profileUploadData
 			useRouter().push('/home')
 			loading.value = false

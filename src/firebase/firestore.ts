@@ -34,7 +34,7 @@ export const getSingleFirestoreDocument = async (
 	const singleDocumentRef = doc(db, collection, id)
 	const docSnap = await getDoc(singleDocumentRef)
 	if (docSnap.exists()) {
-		return docSnap.data()
+		return docSnap.data() as any
 	} else {
 		return null
 	}

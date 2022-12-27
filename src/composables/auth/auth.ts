@@ -1,4 +1,5 @@
 import { User } from 'firebase/auth'
+import { useProfile } from './profile'
 import { useUser } from '@/composables/auth/user'
 import { googleAuth, signOutUser } from '~~/src/firebase/auth'
 import { useLoading } from '~~/src/composables/core/useNotification'
@@ -10,9 +11,12 @@ export const useSignin = () => {
 		try {
 			const user = await googleAuth()
 			useUser().setUser(user as User)
-			const token = await useUser()?.user?.auth.currentUser.getIdTokenResult()
+			const token = await (useUser() as any)?.user?.auth.currentUser.getIdTokenResult()
 			const hasProfile = token?.claims?.hasUpdatedProfile
+			const username = token?.claims?.username
 			useUser().setProfileStatus(hasProfile)
+			useUser().setProfileUsername(username)
+			await useProfile().getProfile()
 			useRouter().push('/home')
 			loading.value = false
 		} catch {

@@ -72,3 +72,29 @@ exports.updateVerificationLevel = functions
 				return {level: `Verification level updated to ${level} successfully`};
 			});
 	});
+
+exports.addUsername = functions
+	.region('us-central1')
+	.https.onCall(async (data: any, context: any) => {
+		const username = data.username;
+		const uid = context?.auth?.uid;
+
+		if (!context.auth) {
+			throw new functions.https.HttpsError(
+				'failed-precondition',
+				'The function must be called ' + 'while authenticated.'
+			);
+		}
+		await admin
+			.auth()
+			.setCustomUserClaims(uid, {username: username});
+
+		return admin
+			.firestore()
+			.collection('usernames')
+			.doc(uid as string)
+			.update({id: uid})
+			.then(() => {
+				return {level: `Username created successfully`};
+			});
+	});

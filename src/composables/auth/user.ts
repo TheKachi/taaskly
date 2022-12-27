@@ -8,6 +8,7 @@ interface globalStateType {
     isLoggedIn: Ref<boolean>,
     hasAProfile: Ref<boolean>,
     id: RemovableRef<string | null>,
+    username: RemovableRef<string | null>,
 }
 
 const globalState:globalStateType = {
@@ -15,6 +16,7 @@ const globalState:globalStateType = {
     user: useStorage('userString', '').value ? JSON.parse(useStorage('userString', '').value) as User : null,
     isLoggedIn: useStorage('isLoggedIn', false),
     hasAProfile: useStorage('hasAProfile', false),
+    username: useStorage('username', ''),
     id: useStorage('id', null)
 }
 
@@ -28,6 +30,9 @@ export const useUser = () => {
     const setProfileStatus = (status: boolean) => {
         globalState.hasAProfile.value = status
     }
+    const setProfileUsername = (name: string) => {
+        globalState.username.value = name
+    }
 
     const clearUser = () => {
         globalState.user = null
@@ -37,5 +42,5 @@ export const useUser = () => {
         globalState.id.value = null
     }
 
-    return { setUser, clearUser, ...globalState, setProfileStatus }
+    return { setUser, clearUser, ...globalState, setProfileStatus, setProfileUsername }
 }
