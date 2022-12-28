@@ -20,7 +20,7 @@
 			<div class=" text-gray-700 mt-1 flex gap-2">
 				<span class="accept-btn text-xs px-0 hover:px-2"> <icon name="hand_shake" class="w-5" /> Make an Offer</span>
 				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()"> <icon name="share" class="w-5" /> share</span>
-				<span class="flag-btn text-xs px-0 hover:px-2"> <icon name="flag" class="w-5" /> flag</span>
+				<span class="flag-btn text-xs px-0 hover:px-2"> <icon name="delete" class="w-5" /> Delete</span>
 			</div>
 		</div>
 	</article>
