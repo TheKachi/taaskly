@@ -74,7 +74,7 @@
 import Modal from '@/components/core/modal/Modal.vue'
 import { useAuthModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
-import { routes } from '@/composables/menu'
+import { routes } from '@/composables/utils/menu'
 const { user } = useUser()
 </script>
 

@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import { useAuthModal } from '@/composables/core/modals'
-import { routes } from '@/composables/menu'
+import { routes } from '@/composables/utils/menu'
 
 </script>
 

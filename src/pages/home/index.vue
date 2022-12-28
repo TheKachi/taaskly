@@ -2,6 +2,10 @@
 <template>
 	<LazyTabs :selected="selected" :tabs="tabViews" @changed="updateTab($event)" />
 
+	<keep-alive>
+		<component :is="tabs[selected]" />
+	</keep-alive>
+
 	<button
 		class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-secondary !text-white fixed bottom-4 right-6 mobile"
 		@click="useTaskModal().openCreateTask()"

@@ -1,7 +1,7 @@
 <template>
 	<main class="w-full h-screen p-5">
 		<div>
-			<LazyTabs :selected="selected" :tabs="tabViews" @changed="updateTab($event)" />
+			<TabComponents :selected="selected" :tabs="tabViews" @changed="updateTab($event)" />
 			<keep-alive>
 				<component :is="tabs[selected]" />
 			</keep-alive>
@@ -10,25 +10,20 @@
 </template>
 
 <script lang="ts" setup>
-import { useSignin } from '@/composables/auth/auth'
-import { useUser } from '@/composables/auth/user'
 import verification from '@/pages/account/Verification.vue'
 import account from '@/pages/account/Account.vue'
-const { googleSignin, signOut } = useSignin()
-const { isLoggedIn, user } = useUser()
+import { useTabs } from '@/composables/utils/tabs'
 
-const selected = ref('account')
-const tabViews = ['account', 'verification']
+const { TabComponents, initTabs, selected, tabViews, updateTab, tabs } = useTabs()
 
-const tabs = markRaw({
-	verification,
-	account
-})
-const updateTab = (data) => {
-useRouter().push({ query: { q: data } })
-	useRoute().query.q = data
-	selected.value = data
-}
+initTabs(
+	'account',
+	['account', 'verification'],
+	markRaw({ verification, account })
+)
+
+// const tabs =
+
 onMounted(() => {
 if (useRoute().query.q && (selected.value = useRoute().query.q)) {
 	selected.value = useRoute().query.q
