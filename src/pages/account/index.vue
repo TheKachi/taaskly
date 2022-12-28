@@ -14,7 +14,7 @@ import verification from '@/pages/account/Verification.vue'
 import account from '@/pages/account/Account.vue'
 import { useTabs } from '@/composables/utils/tabs'
 
-const { TabComponents, initTabs, selected, tabViews, updateTab, tabs } = useTabs()
+const { TabComponents, initTabs, selected, tabViews, updateTab, tabs, onTabMounted } = useTabs()
 
 initTabs(
 	'account',
@@ -22,12 +22,8 @@ initTabs(
 	markRaw({ verification, account })
 )
 
-// const tabs =
-
 onMounted(() => {
-if (useRoute().query.q && (selected.value = useRoute().query.q)) {
-	selected.value = useRoute().query.q
-}
+	onTabMounted()
 })
 
 definePageMeta({

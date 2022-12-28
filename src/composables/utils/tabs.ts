@@ -4,7 +4,7 @@ import TabComponents from '@/components/core/Tabs.vue'
 export const useTabs = () => {
 	const tabViews = ref([] as Array<string>)
 	const selected = ref('')
-	let tabs:any
+	const tabs = ref({} as Raw<Component>)
 
 	const initTabs = (
 		selectedStr: string,
@@ -13,7 +13,7 @@ export const useTabs = () => {
 	) => {
 		selected.value = selectedStr
 		tabViews.value = tabStringArray
-		tabs = tabComp
+		tabs.value = tabComp
 	}
 	const updateTab = (data: any) => {
 		useRouter().push({ query: { q: data } })
@@ -21,5 +21,11 @@ export const useTabs = () => {
 		selected.value = data
 	}
 
-	return { initTabs, TabComponents, selected, tabViews, tabs, updateTab }
+	const onTabMounted = () => {
+		if (useRoute().query.q && (selected.value = useRoute().query.q as any)) {
+			selected.value = useRoute().query.q as any
+		}
+	}
+
+	return { initTabs, TabComponents, selected, tabViews, tabs, updateTab, onTabMounted }
 }
