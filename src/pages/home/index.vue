@@ -1,7 +1,7 @@
 
 <template>
 	<LazyTasksReferralCard />
-	<LazyTasksCard v-for="n in 10" :id="n" :key="n" />
+	<LazyTasksCard v-for="task in tasks" :id="task.id" :key="task.id" :task="task" />
 	<button
 		class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-secondary !text-white fixed bottom-4 right-6 mobile"
 		@click="useTaskModal().openCreateTask()"
@@ -17,7 +17,9 @@
 import { useTaskModal } from '@/composables/core/modals'
 import { useFetchHomeTasks } from '@/composables/tasks'
 const { fetchHomeTasks, loading, tasks } = useFetchHomeTasks()
-fetchHomeTasks()
+
+await fetchHomeTasks()
+console.log(tasks.value)
 
 definePageMeta({
 	layout: 'home-with-header',

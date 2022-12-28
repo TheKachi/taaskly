@@ -11,7 +11,7 @@
 			<div id="amount" class="relative w-full">
 				<span class="absolute left-2 text-base font-bold top-1.5 bg-primary rounded px-2 py-1 text-white">#</span>
 				<input
-					v-model="createTaskForm.amount.value"
+					v-model="createTaskForm.price.value"
 					v-money
 					placeholder="The price of the task"
 					type="tel"

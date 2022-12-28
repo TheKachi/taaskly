@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { saveFirestoreDocument, getFirestoreUserCollection } from '@/firebase/firestore'
+import { saveFirestoreDocument, getFirestoreUserCollection, getFirestoreNonUserCollection } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
 import { useTaskModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
@@ -12,7 +12,7 @@ const createTaskForm = {
     updated_at: ref(new Date().toISOString()),
     userId: userId.value,
     startDate: ref(''),
-    amount: ref(''),
+    price: ref(''),
     status: ref('available'),
     offers: ref(0),
     remote: ref(false),
@@ -33,22 +33,26 @@ export const useCreateTask = () => {
             return
         }
 
+        const taskId = uuidv4()
         try {
-            await saveFirestoreDocument('tasks', uuidv4(), {
+            await saveFirestoreDocument('tasks', taskId, {
+                id: taskId,
                 userId: createTaskForm.userId,
                 desc: createTaskForm.desc.value,
                 startDate: createTaskForm.startDate.value,
-                amount: createTaskForm.amount.value,
+                price: createTaskForm.price.value,
                 status: createTaskForm.status.value,
                 offers: createTaskForm.offers.value,
                 remote: createTaskForm.remote.value,
                 location: createTaskForm.location.value,
                 tags: createTaskForm.tags.value,
                 created_at: createTaskForm.created_at.value,
-                updated_at: createTaskForm.updated_at.value
+                updated_at: createTaskForm.updated_at.value,
+                user: createTaskForm.user
             })
             loading.value = false
             useTaskModal().closeCreateTask()
+            useFetchHomeTasks().fetchHomeTasks()
         } catch (e:any) {
             loading.value = false
             useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
@@ -65,7 +69,7 @@ export const useFetchHomeTasks = () => {
     const fetchHomeTasks = async () => {
         loading.value = true
         try {
-            tasks.value = await getFirestoreUserCollection('tasks')
+            tasks.value = await getFirestoreNonUserCollection('tasks')
             loading.value = false
         } catch (e:any) {
             loading.value = false

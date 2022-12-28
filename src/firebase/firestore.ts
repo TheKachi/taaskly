@@ -40,6 +40,17 @@ export const getSingleFirestoreDocument = async (
 	}
 }
 
+export const getFirestoreNonUserCollection = async (collectionName: string) => {
+	const collectionRef = collection(db, collectionName)
+  const q = query(collectionRef, limit(50), where('userId', '!=', id.value))
+  const result:any = []
+	const querySnapshot = await getDocs(q)
+	querySnapshot.forEach((doc) => {
+    result.push(doc.data())
+  })
+
+  return result
+}
 export const getFirestoreUserCollection = async (collectionName: string) => {
 	const collectionRef = collection(db, collectionName)
   const q = query(collectionRef, limit(50), where('userId', '==', id.value))
