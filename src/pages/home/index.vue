@@ -38,6 +38,8 @@ definePageMeta({
 	middleware: ['is-authenticated', 'has-profile']
 })
 
+onMounted(onTabMounted)
+
 </script>
 
 <style scoped lang="scss">

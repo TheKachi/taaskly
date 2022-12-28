@@ -40,9 +40,9 @@ export const getSingleFirestoreDocument = async (
 	}
 }
 
-export const getFirestoreNonUserCollection = async (collectionName: string) => {
+export const getFirestoreCollection = async (collectionName: string) => {
 	const collectionRef = collection(db, collectionName)
-  const q = query(collectionRef, limit(50), where('userId', '!=', id.value))
+  const q = query(collectionRef, limit(50))
   const result:any = []
 	const querySnapshot = await getDocs(q)
 	querySnapshot.forEach((doc) => {

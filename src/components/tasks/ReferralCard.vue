@@ -1,5 +1,5 @@
 <template>
-	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer" @click="$router.push(`/tasks/referrals`)">
+	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer">
 		<div class="flex-shrink-0">
 			<Avatar name="Taaskly" />
 		</div>

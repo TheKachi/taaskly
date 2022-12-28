@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { saveFirestoreDocument, getFirestoreUserCollection, getFirestoreNonUserCollection } from '@/firebase/firestore'
+import { saveFirestoreDocument, getFirestoreCollection } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
 import { useTaskModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
@@ -67,9 +67,10 @@ export const useFetchHomeTasks = () => {
     const tasks = ref([])
 
     const fetchHomeTasks = async () => {
+        if (tasks.value.length > 0) return
         loading.value = true
         try {
-            tasks.value = await getFirestoreNonUserCollection('tasks')
+            tasks.value = await getFirestoreCollection('tasks')
             loading.value = false
         } catch (e:any) {
             loading.value = false
@@ -77,5 +78,12 @@ export const useFetchHomeTasks = () => {
         }
     }
 
-    return { tasks, fetchHomeTasks, loading }
+    const myTasks = computed(() => {
+        return tasks.value.filter((task:any) => task.userId === userId.value)
+    })
+    const homeTasks = computed(() => {
+        return tasks.value.filter((task:any) => task.userId !== userId.value)
+    })
+
+    return { tasks, fetchHomeTasks, loading, myTasks, homeTasks }
 }
