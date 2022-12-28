@@ -1,6 +1,8 @@
 
 <template>
-	<LazyTabs :selected="selected" :tabs="tabViews" @changed="updateTab($event)" />
+	<div class="flex w-full py-2 justify-start px-3">
+		<LazyTabs :selected="selected" :tabs="tabViews" @changed="updateTab($event)" />
+	</div>
 
 	<keep-alive>
 		<component :is="tabs[selected]" />
@@ -19,11 +21,23 @@
 
 <script lang="ts" setup>
 import { useTaskModal } from '@/composables/core/modals'
+import { useTabs } from '@/composables/utils/tabs'
+import tasks from '@/pages/home/tasks.vue'
+import myTasks from '@/pages/home/myTasks.vue'
+
+const { TabComponents, initTabs, selected, tabViews, updateTab, tabs, onTabMounted } = useTabs()
+
+initTabs(
+	'tasks',
+	['tasks', 'myTasks'],
+	markRaw({ tasks, myTasks })
+)
 
 definePageMeta({
 	layout: 'home-with-header',
 	middleware: ['is-authenticated', 'has-profile']
 })
+
 </script>
 
 <style scoped lang="scss">

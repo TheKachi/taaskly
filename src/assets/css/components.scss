@@ -75,10 +75,10 @@
         @apply text-primary font-bold text-2xl pb-2;
     }
     .tab-body {
-        @apply inline-flex items-center sticky z-10 p-1 top-4 outline-none rounded overflow-auto bg-gray-100 text-xs text-primary;
+        @apply inline-flex items-center w-full z-10 p-1 top-4 outline-none rounded overflow-auto bg-gray-100 text-xs text-primary;
     }
     .tab-item {
-        @apply cursor-pointer font-semibold text-primary bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded whitespace-nowrap;
+        @apply cursor-pointer flex-1 justify-center text-center font-semibold text-primary bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded whitespace-nowrap;
     }
     .active {
         @apply opacity-100 bg-white text-primary border border-primary;
