@@ -14,7 +14,7 @@
 
 		<div class="flex items-center gap-4">
 			<!-- <Badge :name="profileData?.profileLevel ? profileData?.profileLevel : 'loading...'" class="text-base hidden sm:block" /> -->
-			<nuxt-link
+			<!-- <nuxt-link
 				v-if="profileData && profileData.verifiedLevel === 0"
 				to="/account/?q=verification"
 			>
@@ -23,7 +23,7 @@
 			<Badge
 				v-else
 				:name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'"
-			/>
+			/> -->
 			<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
 		</div>
 	</nav>
