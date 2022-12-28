@@ -6,7 +6,8 @@
 			<!-- <span class="flex center"><input id="" type="checkbox" name=""> Immediately </span> -->
 		</div>
 		<div class="field relative">
-			<label for="student">Task Price  <icon v-tooltip="'how much are you willing to pay for this task'" name="info" class="w-4 text-black cursor-pointer" />  </label>
+			<!-- <label for="student">Task Price  <icon v-tooltip="'how much are you willing to pay for this task'" name="info" class="w-4 text-black cursor-pointer" />  </label> -->
+			<label for="student">Task Price  <icon name="info" class="w-4 text-black cursor-pointer" />  </label>
 			<div id="amount" class="relative w-full">
 				<span class="absolute left-2 text-base font-bold top-1.5 bg-primary rounded px-2 py-1 text-white">#</span>
 				<input
