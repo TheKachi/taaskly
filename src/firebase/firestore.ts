@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import { Ref } from 'vue'
 import {
 	doc,
 	onSnapshot,
@@ -46,35 +47,38 @@ export const getSingleFirestoreDocument = async (
 	}
 }
 
-export const getFirestoreCollection = async (collectionName: string) => {
+export const getFirestoreCollection = async (collectionName: string, ArrayRef:Ref<any>) => {
 	const collectionRef = collection(db, collectionName)
 	const q = query(collectionRef, limit(FETCHLIMIT))
 	const result: any = []
-	const querySnapshot = await getDocs(q)
-	querySnapshot.forEach((doc) => {
-		result.push(doc.data())
-	})
 
-	return result
-}
-
-export const getFirestoreUserCollection = async (collectionName: string) => {
-	const collectionRef = collection(db, collectionName)
-	const q = query(
-		collectionRef,
-		limit(FETCHLIMIT),
-		where('userId', '==', id.value)
-	)
-	const result: any = []
-
-	const unsubscribe = await onSnapshot(q, (querySnapshot) => {
+	const unsubscribe = onSnapshot(q, (querySnapshot) => {
 		querySnapshot.forEach((doc) => {
 			result.push(doc.data())
 		})
+		ArrayRef.value = result
 	})
 
 	return result
 }
+
+// export const getFirestoreUserCollection = async (collectionName: string, ArrayRef:Ref<any>) => {
+// 	const collectionRef = collection(db, collectionName)
+// 	const q = query(
+// 		collectionRef,
+// 		limit(FETCHLIMIT),
+// 		where('userId', '==', id.value)
+// 	)
+// 	const result: any = []
+
+// 	const unsubscribe = onSnapshot(q, (querySnapshot) => {
+// 		querySnapshot.forEach((doc) => {
+// 			result.push(doc.data())
+// 		})
+// 		console.log(result)
+// 		ArrayRef.value = result
+// 	})
+// }
 
 export const deleteFirestoreDocument = async (
 	collection: string,

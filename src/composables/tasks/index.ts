@@ -74,7 +74,7 @@ export const useFetchHomeTasks = () => {
         if (tasks.value.length > 0) return
         loading.value = true
         try {
-            tasks.value = await getFirestoreCollection('tasks')
+            await getFirestoreCollection('tasks', tasks)
             loading.value = false
         } catch (e:any) {
             loading.value = false
@@ -82,10 +82,18 @@ export const useFetchHomeTasks = () => {
         }
     }
 
+    watch(tasks, (val) => {
+        console.log('This is the watch func')
+
+    console.log(val)
+    })
+
     const myTasks = computed(() => {
+        console.log('myTasks changed')
         return tasks.value.filter((task:any) => task.userId === userId.value)
     })
     const homeTasks = computed(() => {
+              console.log('homeTasks changed')
         return tasks.value.filter((task:any) => task.userId !== userId.value)
     })
 
