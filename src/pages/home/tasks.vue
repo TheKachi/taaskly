@@ -6,7 +6,7 @@
 <script setup lang="ts">
 import { useFetchHomeTasks } from '@/composables/tasks'
 const { fetchHomeTasks, loading, homeTasks } = useFetchHomeTasks()
-fetchHomeTasks()
+ fetchHomeTasks()
 </script>
 
 <style scoped>

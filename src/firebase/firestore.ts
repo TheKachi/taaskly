@@ -50,16 +50,12 @@ export const getSingleFirestoreDocument = async (
 export const getFirestoreCollection = async (collectionName: string, ArrayRef:Ref<any>) => {
 	const collectionRef = collection(db, collectionName)
 	const q = query(collectionRef, limit(FETCHLIMIT))
-	const result: any = []
 
 	const unsubscribe = onSnapshot(q, (querySnapshot) => {
 		querySnapshot.forEach((doc) => {
-			result.push(doc.data())
+			ArrayRef.value.push(doc.data())
 		})
-		ArrayRef.value = result
 	})
-
-	return result
 }
 
 // export const getFirestoreUserCollection = async (collectionName: string, ArrayRef:Ref<any>) => {

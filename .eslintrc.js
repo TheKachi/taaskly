@@ -25,6 +25,7 @@ module.exports = {
 		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-tabs': 'off',
+		'no-unused-expressions': 'off',
 		'no-unused-vars': 'off',
 		'import/no-mutable-exports': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',

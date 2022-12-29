@@ -82,18 +82,10 @@ export const useFetchHomeTasks = () => {
         }
     }
 
-    watch(tasks, (val) => {
-        console.log('This is the watch func')
-
-    console.log(val)
-    })
-
     const myTasks = computed(() => {
-        console.log('myTasks changed')
         return tasks.value.filter((task:any) => task.userId === userId.value)
     })
     const homeTasks = computed(() => {
-              console.log('homeTasks changed')
         return tasks.value.filter((task:any) => task.userId !== userId.value)
     })
 
