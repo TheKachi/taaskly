@@ -27,6 +27,10 @@ const createTaskForm = {
 export const useCreateTask = () => {
     const loading = ref(false)
     const create = async () => {
+        if (!userId.value) {
+            useAlert().openAlert({ type: 'ERROR', msg: 'UserId is missing' })
+            return
+        }
         loading.value = true
         if (formStep.value === 1) {
             formStep.value = 2

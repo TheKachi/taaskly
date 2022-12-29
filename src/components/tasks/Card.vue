@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
-defineProps({
+const props = defineProps({
 	id: {
 		type: String || Number,
 		requireed: true,
@@ -40,6 +40,8 @@ defineProps({
 		default: () => {}
 	}
 })
+
+console.log(props.task)
 </script>
 
 <style scoped>
