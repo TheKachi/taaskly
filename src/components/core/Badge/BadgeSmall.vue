@@ -1,7 +1,7 @@
 <template>
 	<span
 		v-if="name"
-		class="py-0.5 px-2 font-medium text-xs  rounded-3xl border border-primary font-medium"
+		class="py-0.5 px-2 font-medium text-xs  rounded-3xl border border-primary"
 	>
 		<slot>{{ name }}</slot>
 	</span>
