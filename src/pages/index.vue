@@ -1,28 +1,16 @@
 <template>
 	<LazyTopbarHomeNavBar />
-	<main class="w-full bg-clear pt-36 text-primary md:overflow-y-hidden min-h-screen">
-		<section class="container mx-auto w-full md:mt-24 relative px-5 md:px-0 flex flex-col md:flex-row gap-8">
-			<div class="w-full flex flex-col justify-center items-center md:items-start">
-				<h1 class="font-semibold text-[32px] text-center md:text-start md:text-[45px] max-w-[560px]">
-					Don't stress about the things you need to do, <span class="grad">use Taaskly</span>
-				</h1>
-				<!-- <h1 class="font-semibold text-[32px] text-center md:text-start md:text-[45px] max-w-[560px]">
-					Work <span class="grad">whenever</span>  and <span class="grad">wherever</span>  you want, doing <span class="grad">whatever</span>  you want.
-				</h1> -->
+	<main class="container mx-auto center-col min-h-screen text-center">
+		<h1 class="text-black max-w-[597px] ">
+			Everything you need in one place.
+		</h1>
+		<p class="max-w-[651px] mt-2 text-xl font-medium">
+			Find whatever <b class="text-secondary">services</b>, <b class="text-secondary">shops</b>  or <b class="text-secondary">individuals</b>  around you needed to get your work done.
+		</p>
 
-				<p class="text-base md:text-lg text-center md:text-start max-w-[480px] md:mt-7 mt-2.5">
-					Earn up to <b>N100,000+</b>  a month simple performing tasks on Taaskly
-				</p>
-
-				<div class="flex flex-col justify-center md:justify-start md:flex-row gap-6 items-center mt-12">
-					<nuxt-link to="/auth/signup" class="btn-primary h-14 px-20 hover:-translate-y-2 transite">
-						Get Started
-					</nuxt-link>
-				</div>
-			</div>
-
-			<img src="@/assets/images/landing/cta.png" alt="" class="md:w-[45vw] md:absolute -right-14">
-		</section>
+		<button class="btn-primary mt-8 min-w-[388px]">
+			Get Started
+		</button>
 	</main>
 </template>
 
@@ -38,6 +26,11 @@ definePageMeta({
 </script>
 
 <style scoped>
+h1 {
+        font-size: clamp(40px, 8.8vw, 58px);
+        font-weight: 800;
+		line-height: clamp(40px, 9vw, 75px) ;
+    }
 /* .grad{
 background: linear-gradient(65deg, #89216b , var(--red));
   -webkit-background-clip: text;

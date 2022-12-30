@@ -9,7 +9,7 @@
 			</div>
 			<div class="flex items-center gap-2">
 				<BadgeSmall :name="`#${task.price}`" class="bg-black text-white" />
-				<BadgeSmall name="Physical" />
+				<BadgeSmall v-for="tag in tags" name="Physical" />
 				<BadgeSmall name="Errand" />
 				<BadgeSmall name="Pickup" />
 			</div>
@@ -40,7 +40,7 @@ const props = defineProps({
 		default: () => {}
 	}
 })
-
+console.log(props.task)
 </script>
 
 <style scoped>
