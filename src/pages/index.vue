@@ -5,12 +5,14 @@
 			Everything you need in one place.
 		</h1>
 		<p class="max-w-[651px] mt-2 text-xl font-medium">
-			Find whatever <b class="text-secondary">services</b>, <b class="text-secondary">shops</b>  or <b class="text-secondary">individuals</b>  around you needed to get your work done.
+			Find whatever <nuxt-link to="/auth/login" class="text-secondary">
+				services
+			</nuxt-link>, <b class="text-secondary">shops</b>  or <b class="text-secondary">individuals</b>  around you needed to get your work done.
 		</p>
 
-		<button class="btn-primary mt-8 min-w-[388px]">
+		<nuxt-link to="/auth/login" class="btn-primary mt-8 min-w-[388px]">
 			Get Started
-		</button>
+		</nuxt-link>
 	</main>
 </template>
 
@@ -26,6 +28,9 @@ definePageMeta({
 </script>
 
 <style scoped>
+b{
+	@apply underline hover:scale-105 cursor-pointer;
+}
 h1 {
         font-size: clamp(40px, 8.8vw, 58px);
         font-weight: 800;
