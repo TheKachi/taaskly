@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { saveFirestoreDocument, getFirestoreCollection } from '@/firebase/firestore'
+import { saveFirestoreDocument, getFirestoreCollection, deleteFirestoreDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
 import { useTaskModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
@@ -90,4 +90,19 @@ export const useFetchHomeTasks = () => {
     })
 
     return { tasks, fetchHomeTasks, loading, myTasks, homeTasks }
+}
+
+export const useDeleteTask = () => {
+    const loading = ref(false)
+    const deleteTask = async (id:string) => {
+        loading.value = true
+        try {
+            await deleteFirestoreDocument('tasks', id)
+            loading.value = false
+        } catch (e:any) {
+            loading.value = false
+            useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+        }
+    }
+    return { loading, deleteTask }
 }

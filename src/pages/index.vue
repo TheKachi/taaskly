@@ -1,6 +1,7 @@
 <template>
 	<LazyTopbarHomeNavBar />
-	<main class="container mx-auto center-col min-h-screen text-center">
+	<main class="container mx-auto center-col min-h-screen text-center relative">
+		
 		<h1 class="text-black max-w-[597px] ">
 			Everything you need in one place.
 		</h1>
@@ -14,7 +15,7 @@
 			</nuxt-link>  around you needed to get your work done.
 		</p>
 
-		<nuxt-link to="/auth/login" class="btn-primary mt-8 min-w-[388px]">
+		<nuxt-link to="/auth/login" class="btn-primary mt-8 min-w-[388px] !no-underline">
 			Get Started
 		</nuxt-link>
 	</main>
@@ -25,6 +26,8 @@
 // import { useUser } from '@/composables/auth/user'
 // const { googleSignin, signOut } = useSignin()
 // const { isLoggedIn, user } = useUser()
+
+const badgeArray = ref([])
 
 definePageMeta({
 	layout: 'landing'
