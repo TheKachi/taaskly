@@ -7,7 +7,11 @@
 		<p class="max-w-[651px] mt-2 text-xl font-medium">
 			Find whatever <nuxt-link to="/auth/login" class="text-secondary">
 				services
-			</nuxt-link>, <b class="text-secondary">shops</b>  or <b class="text-secondary">individuals</b>  around you needed to get your work done.
+			</nuxt-link>, <nuxt-link to="/auth/login" class="text-secondary">
+				shops
+			</nuxt-link>  or <nuxt-link to="/auth/login" class="text-secondary">
+				individuals
+			</nuxt-link>  around you needed to get your work done.
 		</p>
 
 		<nuxt-link to="/auth/login" class="btn-primary mt-8 min-w-[388px]">
@@ -28,7 +32,7 @@ definePageMeta({
 </script>
 
 <style scoped>
-b{
+a{
 	@apply underline hover:scale-105 cursor-pointer;
 }
 h1 {
