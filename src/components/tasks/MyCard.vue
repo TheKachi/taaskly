@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
+
 defineProps({
 	id: {
 		type: String || Number,

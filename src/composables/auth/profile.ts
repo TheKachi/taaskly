@@ -1,4 +1,3 @@
-
 import { watchDebounced } from '@vueuse/core'
 import { Ref } from 'vue'
 import {
@@ -36,32 +35,43 @@ const { id } = useUser()
 const formStep = ref(1)
 export const useCreateProfile = () => {
 	const loading = ref(false)
+	const phoneNumError = ref()
+	watch(profileFormState.phone, (val) => {
+		if (val.toString().length < 10) {
+			phoneNumError.value = 'Invalid Phone Number'
+		} else {
+			phoneNumError.value = null
+		}
+	})
 	const createProfile = async () => {
 		loading.value = true
 		const profileUploadData = {
-				id: id.value,
-				username: profileFormState.username.value,
-				first_name: profileFormState.first_name.value,
-				last_name: profileFormState.last_name.value,
-				email: profileFormState.email.value,
-				phone: profileFormState.phone.value,
-				student: profileFormState.student.value,
-				university: profileFormState.university.value,
-				address: profileFormState.address.value,
-				gender: profileFormState.gender.value,
-				dob: profileFormState.dob.value,
-				desc: profileFormState.desc.value,
-				verifiedLevel: profileFormState.verifiedLevel.value,
-				profileLevel: profileFormState.profileLevel.value,
-				tasker_rating: profileFormState.tasker_rating.value,
-				runner_rating: profileFormState.runner_rating.value,
-				created_at: profileFormState.created_at.value,
-				updated_at: profileFormState.updated_at.value
+			id: id.value,
+			username: profileFormState.username.value,
+			first_name: profileFormState.first_name.value,
+			last_name: profileFormState.last_name.value,
+			email: profileFormState.email.value,
+			phone: profileFormState.phone.value,
+			student: profileFormState.student.value,
+			university: profileFormState.university.value,
+			address: profileFormState.address.value,
+			gender: profileFormState.gender.value,
+			dob: profileFormState.dob.value,
+			desc: profileFormState.desc.value,
+			verifiedLevel: profileFormState.verifiedLevel.value,
+			profileLevel: profileFormState.profileLevel.value,
+			tasker_rating: profileFormState.tasker_rating.value,
+			runner_rating: profileFormState.runner_rating.value,
+			created_at: profileFormState.created_at.value,
+			updated_at: profileFormState.updated_at.value
 		}
 
 		try {
-			await saveFirestoreDocument('users', useUser().id.value as string, profileUploadData)
-			// await updateProfileClaim()
+			await saveFirestoreDocument(
+				'users',
+				useUser().id.value as string,
+				profileUploadData
+			)
 			useUser().setProfileStatus(true)
 			useUser().setProfileUsername(profileFormState.username.value)
 			profileData.value = profileUploadData
@@ -71,7 +81,6 @@ export const useCreateProfile = () => {
 			loading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
 		}
-		// }
 	}
 
 	const initForm = () => {
@@ -83,7 +92,14 @@ export const useCreateProfile = () => {
 			' '
 		)[1] as string
 	}
-	return { createProfile, formStep, profileFormState, loading, initForm }
+	return {
+		createProfile,
+		formStep,
+		profileFormState,
+		loading,
+		initForm,
+		phoneNumError
+	}
 }
 
 export const useProfile = () => {
@@ -108,9 +124,11 @@ export const useUsername = () => {
 
 	const checkUsername = async () => {
 		loading.value = true
+		profileFormState.username.value =
+			profileFormState.username.value.toLowerCase()
 		const isUsernameAvailableFuncValue = await getSingleFirestoreDocument(
 			'usernames',
-			profileFormState.username.value.toLowerCase()
+			profileFormState.username.value
 		)
 		if (isUsernameAvailableFuncValue) {
 			isUsernameAvailable.value = false

@@ -48,7 +48,16 @@
 					</div>
 					<div class="field">
 						<label for="phone">Phone No (whatsapp preferred)</label>
-						<input id="phone" v-model="profileFormState.phone.value" type="tel" class="input-field" required>
+						<input
+							id="phone"
+							v-model="profileFormState.phone.value"
+							type="number"
+							class="input-field"
+							:class="[phoneNumError? '!border-rose-500':'']"
+							required
+						>
+
+						<span v-if="phoneNumError" class="text-rose-500 font-bold">{{ phoneNumError }}</span>
 					</div>
 				</div>
 
@@ -63,7 +72,7 @@
 					</div>
 				</div>
 
-				<button class="btn-primary" :disabled="loading || !isUsernameAvailable || usernameLoading">
+				<button class="btn-primary" :disabled="loading || !isUsernameAvailable || usernameLoading || phoneNumError">
 					<span v-if="!loading"> 	{{ formStep==1 ? 'Next':'Create' }}</span>
 					<Spinner v-else />
 				</button>
@@ -75,7 +84,7 @@
 <script setup lang="ts">
 import { useCreateProfile, useUsername } from '@/composables/auth/profile'
 import { useAuthModal } from '@/composables/core/modals'
-const { loading, profileFormState, formStep, createProfile, initForm } = useCreateProfile()
+const { loading, profileFormState, formStep, createProfile, initForm, phoneNumError } = useCreateProfile()
 const { isUsernameAvailable, loading: usernameLoading } = useUsername()
 
 initForm()
