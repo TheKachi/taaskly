@@ -36,9 +36,9 @@
 					Create a Service
 				</h1>
 				<p class="text-sm ">
-					Create an Service shop in minutes and get access to various tools to help you grow.
+					Create a Service in minutes and get access to various tools to help you grow.
 				</p>
-				<button class="btn bg-clear text-primary w-full mt-3 text-night">
+				<button class="btn bg-clear w-full mt-3 text-night">
 					Create
 				</button>
 			</div>

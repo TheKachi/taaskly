@@ -7,7 +7,7 @@
 		</div>
 		<div class="field relative">
 			<label>What type of task is this?</label>
-			<div class="flex self-start bg-gray-200 rounded border border-primary w-full">
+			<div class="flex self-start bg-gray-200 rounded border border-night w-full">
 				<label for="physical" class="label-radio">
 					<input
 						id="physical"

@@ -16,7 +16,7 @@
 					<span v-if="!n.children">
 						<nuxt-link
 							:to="n.route"
-							class="flex items-center black"
+							class="flex items-center black use-hover"
 						>
 							<icon :name="n.icon" class="mr-4 w-6" />
 							<p class="text-lg">
@@ -50,14 +50,14 @@
 					@click="useAuthModal().openLogout()"
 				>
 					<icon name="exit" class="mr-4 w-5" />
-					<p class="text-base">
+					<p class="text-lg">
 						Sign Out
 					</p>
 				</button>
 			</div>
 
 			<button
-				class="menu-btn flex items-center font-semibold !text-primary  border-2 border-primary hover:bg-primary hover:!text-white fixed bottom-4"
+				class="menu-btn flex items-center font-semibold !text-clear hover  bg-primary fixed bottom-4 hover:scale-105 transite !duration-200"
 				@click="useTaskModal().openCreateTask()"
 			>
 				<icon name="task" class="mr-4 w-5" />
@@ -80,8 +80,8 @@ import { routes } from '@/composables/utils/menu'
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a, .menu-btn {
-	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-[10ms] rounded mt-1;
-&:hover{
+	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-75 rounded mt-1;
+&:hover.use-hover{
 	@apply border border-primary;
 }
 }
