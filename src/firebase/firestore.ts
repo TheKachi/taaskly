@@ -55,6 +55,7 @@ export const getFirestoreCollection = async (collectionName: string, ArrayRef:Re
 		querySnapshot.forEach((doc) => {
 			ArrayRef.value.push(doc.data())
 		})
+		console.log(ArrayRef.value)
 	})
 }
 

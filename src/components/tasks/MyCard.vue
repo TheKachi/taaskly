@@ -1,5 +1,5 @@
 <template>
-	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer" @click="$router.push(`/tasks/${id}`)">
+	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer">
 		<div class="flex-shrink-0">
 			<Avatar :name="task.user.username" />
 		</div>
@@ -16,9 +16,12 @@
 				{{ task.desc }}
 			</div>
 			<div class=" text-gray-700 mt-1 flex gap-2">
-				<span class="accept-btn text-xs px-0 hover:px-2"> <icon name="hand_shake" class="w-5" /> Make an Offer</span>
-				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()"> <icon name="share" class="w-5" /> share</span>
-				<span class="flag-btn text-xs px-0 hover:px-2"> <icon name="delete" class="w-5" /> Delete</span>
+				<button class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()">
+					<icon name="share" class="w-5" /> share
+				</button>
+				<button class="flag-btn text-xs px-0 hover:px-2" @click="setTaskId(id)">
+					<icon name="delete" class="w-5" /> Delete
+				</button>
 			</div>
 		</div>
 	</article>
@@ -26,7 +29,8 @@
 
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
-
+import { useDeleteTask } from '@/composables/tasks'
+const { setTaskId } = useDeleteTask()
 defineProps({
 	id: {
 		type: String || Number,
