@@ -2,7 +2,7 @@
 	<span
 		v-if="name"
 		:style="`width: ${size}px; height: ${size}px; object-fit: cover;`"
-		class="flex items-center justify-center uppercase  bg-secondary text-white font-medium rounded-full"
+		class="flex items-center justify-center uppercase  bg-light_primary text-white font-medium rounded-full"
 	>
 		<span :style="`font-size: ${size/2}px;line-height: 1em`">{{ name[0] }}</span>
 	</span>

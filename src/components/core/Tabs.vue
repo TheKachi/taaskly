@@ -1,6 +1,6 @@
 
 <template>
-	<div class="tab-body border border-primary">
+	<div class="tab-body border border-grey_two">
 		<span v-for="tab in tabs" :key="tab" :class="['tab-item transite', tab==selected ? 'active' :''] " @click="onClick(tab)">{{ tab }}</span>
 	</div>
 </template>

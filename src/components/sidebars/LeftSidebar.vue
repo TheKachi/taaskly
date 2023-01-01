@@ -18,8 +18,8 @@
 							:to="n.route"
 							class="flex items-center black"
 						>
-							<icon :name="n.icon" class="mr-4 w-5" />
-							<p class="text-base">
+							<icon :name="n.icon" class="mr-4 w-6" />
+							<p class="text-lg">
 								{{ n.name }}
 							</p>
 						</nuxt-link>
@@ -80,19 +80,18 @@ import { routes } from '@/composables/utils/menu'
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a, .menu-btn {
-	@apply text-grey_two w-[190px] h-11 px-6 text-sm duration-[10ms] rounded mt-1;
+	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-[10ms] rounded mt-1;
 &:hover{
 	@apply border border-primary;
 }
 }
 /* exact link will show the primary color for only the exact matching link */
 a.router-link-exact-active.black {
-	@apply shadow-md ;
-	color: var(--clear);
-	background-color: var(--primary);
-	font-weight: 500;
+	@apply text-primary font-bold ;
+	color: var(--primary);
+	// background-color: var(--primary);
 	& > svg {
-		color: var(--clear);
+		color: var(--primary);
 	}
 }
 

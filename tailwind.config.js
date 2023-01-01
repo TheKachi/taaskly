@@ -21,6 +21,7 @@ module.exports = {
 				secondary: 'var(--secondary)',
         secondaryLight: 'var(--secondaryLight)',
         light_primary: 'var(  --light_primary)',
+        faded_primary: 'var(  --faded_primary)',
 				blue: 'var(--blue)',
 				red: 'var(--red)',
 				grey: 'var(--grey)',
