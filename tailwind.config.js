@@ -19,16 +19,10 @@ module.exports = {
 			colors: {
 				primary: 'var(--primary)',
 				secondary: 'var(--secondary)',
-				secondaryLight: 'var(--secondaryLight)',
-				clear: 'var(--clear)',
-				grey: 'var(--grey)',
-				red: 'var(--red)',
-				green: 'var(--green)',
-				purple: 'var(--purple)',
-				pink: 'var(--pink)',
-				line: 'var(--line)',
-				light_primary: 'var(  --light_primary)',
-				night: 'var(--night)'
+        secondaryLight: 'var(--secondaryLight)',
+        light_primary: 'var(  --light_primary)',
+				blue: 'var(--blue)'
+
       },
       gridTemplateColumns: {
         4: 'repeat(auto-fill, minmax(0, var(--column-width)))'

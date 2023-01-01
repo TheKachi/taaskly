@@ -125,7 +125,7 @@ export const useUsername = () => {
 	const checkUsername = async () => {
 		loading.value = true
 		profileFormState.username.value =
-			profileFormState.username.value.toLowerCase()
+			profileFormState.username.value.replace(/ /g, '').toLowerCase()
 		const isUsernameAvailableFuncValue = await getSingleFirestoreDocument(
 			'usernames',
 			profileFormState.username.value
@@ -138,7 +138,7 @@ export const useUsername = () => {
 		loading.value = false
 	}
 
-	watchDebounced(profileFormState.username, checkUsername, { debounce: 1000 })
+	watchDebounced(profileFormState.username, checkUsername, { debounce: 500 })
 
 	return { isUsernameAvailable, checkUsername, loading }
 }

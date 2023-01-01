@@ -2,16 +2,8 @@
     --primary: #35355b;
     --secondary: #89216b;
     --secondaryLight: #89216b4b;
-    --clear: #ffffff;
-    --night: #000000;
-    --grey: #f4f7fa;
-    --line: #737882c9;
-    --red: #d93535;
-    --green: #00a88b;
-    --purple: #6a6dcd;
-    --pink: #c440a1;
     --light_primary: #c4c4d0;
-    --column-width: 150px;
+    --blue: #5e87c5;
 }
 
 /* Dark mode for root variable */
