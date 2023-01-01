@@ -19,6 +19,11 @@
 					</option>
 				</select>
 			</div>
+
+			<div class="bg-blue rounded">
+				<icon />
+				Hello World
+			</div>
 		</div>
 	</aside>
 </template>

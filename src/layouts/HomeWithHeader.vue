@@ -1,6 +1,6 @@
 <template>
 	<div class="flex w-full h-screen bg-grey relative  md:py-0 sm:px-4 px-0 overflow-y-hidden ">
-		<SidebarsLeftSidebar />
+		<LazySidebarsLeftSidebar />
 
 		<div class="relative bg-clear page w-full border-x border-secondary mx  h-screen sm:h-auto  mt ">
 			<TopbarDefaultTopbar />
