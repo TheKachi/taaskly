@@ -11,7 +11,7 @@
 				>
 			</div>
 
-			<div class="relative mt-12">
+			<div class="relative mt-[70px]">
 				<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
 					<span v-if="!n.children">
 						<nuxt-link
@@ -46,7 +46,7 @@
 					</details>
 				</div>
 				<button
-					class="menu-btn flex items-center black !text-[#ff615c] cursor-pointer"
+					class="menu-btn flex items-center black !text-grey_two cursor-pointer"
 					@click="useAuthModal().openLogout()"
 				>
 					<icon name="exit" class="mr-4 w-5" />
@@ -57,7 +57,7 @@
 			</div>
 
 			<button
-				class="menu-btn flex items-center font-semibold !text-secondary  border-2 border-secondary hover:bg-secondary hover:!text-white fixed bottom-4"
+				class="menu-btn flex items-center font-semibold !text-primary  border-2 border-primary hover:bg-primary hover:!text-white fixed bottom-4"
 				@click="useTaskModal().openCreateTask()"
 			>
 				<icon name="task" class="mr-4 w-5" />
@@ -80,9 +80,9 @@ import { routes } from '@/composables/utils/menu'
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a, .menu-btn {
-	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded mt-1;
+	@apply text-grey_two w-[190px] h-11 px-6 text-sm duration-[10ms] rounded mt-1;
 &:hover{
-	@apply border border-secondary;
+	@apply border border-primary;
 }
 }
 /* exact link will show the primary color for only the exact matching link */

@@ -16,7 +16,7 @@
 				{{ task.desc }}
 			</div>
 			<div class=" text-gray-700 mt-1 flex gap-2">
-				<button class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()">
+				<button class="my-share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()">
 					<icon name="share" class="w-5" /> share
 				</button>
 				<button class="flag-btn text-xs px-0 hover:px-2" @click="setTaskId(id)">

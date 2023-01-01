@@ -1,11 +1,16 @@
 :root {
-    --primary: #35355b;
-    --secondary: #89216b;
+    --primary: #6738f9;
+    --secondary: #92dce5;
     --secondaryLight: #89216b4b;
     --light_primary: #c4c4d0;
-    --blue: #5e87c5;
+    --blue: #554a27;
+    --red: #f02d3a;
     --clear: #ffffff;
+    --night: #000000;
     --grey: #f4f7fa;
+    --grey_two: #2b2b38;
+    --grey_four: #aaaaaf;
+    --line: #737882c9;
 }
 
 /* Dark mode for root variable */

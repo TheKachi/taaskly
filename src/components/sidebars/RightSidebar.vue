@@ -20,9 +20,27 @@
 				</select>
 			</div>
 
-			<div class="bg-blue rounded">
-				<icon />
-				Hello World
+			<div class="bg-primary rounded mt-16 flex flex-col gap-3 items-start p-5 text-white">
+				<h1 class="font-bold text-xl">
+					Create a Shop
+				</h1>
+				<p class="text-sm">
+					Create an online shop in minutes and get access to various tools to help you grow.
+				</p>
+				<button class="btn bg-clear text-primary w-full mt-3">
+					Create
+				</button>
+			</div>
+			<div class="bg-secondary rounded mt-5 flex flex-col gap-3 items-start p-5 text-night">
+				<h1 class="font-bold text-xl">
+					Create a Service
+				</h1>
+				<p class="text-sm ">
+					Create an Service shop in minutes and get access to various tools to help you grow.
+				</p>
+				<button class="btn bg-clear text-primary w-full mt-3 text-night">
+					Create
+				</button>
 			</div>
 		</div>
 	</aside>

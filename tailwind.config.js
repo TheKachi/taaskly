@@ -22,8 +22,13 @@ module.exports = {
         secondaryLight: 'var(--secondaryLight)',
         light_primary: 'var(  --light_primary)',
 				blue: 'var(--blue)',
+				red: 'var(--red)',
 				grey: 'var(--grey)',
-				clear: 'var(--clear)'
+				grey_two: 'var(--grey_two)',
+				grey_four: 'var(--grey_four)',
+				clear: 'var(--clear)',
+				night: 'var(--night)',
+				line: 'var(--line)'
 
       },
       gridTemplateColumns: {
