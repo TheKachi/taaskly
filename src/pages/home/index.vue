@@ -9,7 +9,7 @@
 	</keep-alive>
 
 	<button
-		class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-secondary !text-white fixed bottom-4 right-6 mobile"
+		class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-primary !text-white fixed bottom-4 right-6 mobile"
 		@click="useTaskModal().openCreateTask()"
 	>
 		<icon name="task" class="mr-4 w-5 text-white" />

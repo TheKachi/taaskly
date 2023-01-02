@@ -74,6 +74,7 @@ export const useCreateProfile = () => {
 			)
 			useUser().setProfileStatus(true)
 			useUser().setProfileUsername(profileFormState.username.value)
+			useUser().setIdValue(id.value as string)
 			profileData.value = profileUploadData
 			useRouter().push('/home')
 			loading.value = false

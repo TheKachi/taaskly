@@ -30,6 +30,9 @@ export const useUser = () => {
     const setProfileStatus = (status: boolean) => {
         globalState.hasAProfile.value = status
     }
+    const setIdValue = (id: string) => {
+        globalState.id.value = id
+    }
     const setProfileUsername = (name: string) => {
         globalState.username.value = name
     }
@@ -42,5 +45,5 @@ export const useUser = () => {
         globalState.id.value = null
     }
 
-    return { setUser, clearUser, ...globalState, setProfileStatus, setProfileUsername }
+    return { setUser, clearUser, ...globalState, setProfileStatus, setProfileUsername, setIdValue }
 }
