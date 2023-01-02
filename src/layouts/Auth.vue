@@ -13,7 +13,7 @@
 
 <style scoped>
 .layout-body{
-	  background: var(--line);
+	  background: var(--clear);
 
 }
 </style>

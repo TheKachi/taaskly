@@ -21,7 +21,7 @@ const globalState:globalStateType = {
 }
 
 export const useUser = () => {
-    const setUser = (user: User) => {
+    const setUser = (user: User, username?:string) => {
         globalState.userString.value = JSON.stringify(user) as any
         globalState.user = user
         globalState.id.value = user.uid
@@ -29,9 +29,6 @@ export const useUser = () => {
     }
     const setProfileStatus = (status: boolean) => {
         globalState.hasAProfile.value = status
-    }
-    const setIdValue = (id: string) => {
-        globalState.id.value = id
     }
     const setProfileUsername = (name: string) => {
         globalState.username.value = name
@@ -43,7 +40,8 @@ export const useUser = () => {
         globalState.isLoggedIn.value = false
         globalState.hasAProfile.value = false
         globalState.id.value = null
+        globalState.username.value = null
     }
 
-    return { setUser, clearUser, ...globalState, setProfileStatus, setProfileUsername, setIdValue }
+    return { setUser, clearUser, ...globalState, setProfileStatus, setProfileUsername }
 }
