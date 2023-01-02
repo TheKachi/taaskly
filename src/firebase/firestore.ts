@@ -47,15 +47,28 @@ export const getSingleFirestoreDocument = async (
 	}
 }
 
-export const getFirestoreCollection = async (collectionName: string, ArrayRef:Ref<any>) => {
+export const getFirestoreCollection = async (
+	collectionName: string,
+	ArrayRef: Ref<any>
+) => {
 	const collectionRef = collection(db, collectionName)
 	const q = query(collectionRef, limit(FETCHLIMIT))
 
-	const unsubscribe = onSnapshot(q, (querySnapshot) => {
-		querySnapshot.forEach((doc) => {
-			ArrayRef.value.push(doc.data())
+	const unsubscribe = onSnapshot(q, (snapshot) => {
+		snapshot.docChanges().forEach((change) => {
+			if (change.type === 'added') {
+				console.log('New city: ', change.doc.data())
+					ArrayRef.value.push(change.doc.data())
+			}
+			if (change.type === 'modified') {
+				console.log('Modified city: ', change.doc.data())
+				ArrayRef.value.push(change.doc.data())
+			}
+			if (change.type === 'removed') {
+				console.log('Removed city: ', change.doc.data())
+				ArrayRef.value.push(change.doc.data())
+			}
 		})
-		console.log(ArrayRef.value)
 	})
 }
 
