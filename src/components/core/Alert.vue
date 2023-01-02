@@ -3,7 +3,7 @@
 		<div
 			v-if="active"
 			:class="[
-				`overflow-hidden max-w-[70%]  shadow-xl fixed top-8 right-4 p-4 py-5 rounded-lg box  bg-white z-[900000000000000]`,
+				`overflow-hidden max-w-[90%]  shadow-xl fixed top-8 right-4 p-4 py-5 rounded-lg box  bg-white z-[900000000000000]`,
 			]"
 		>
 			<div :style="`width:${BORDER_WIDTH}%`" :class="[`${BG} h-1  absolute  bottom-0 left-0 transition-all duration-300`]" />
