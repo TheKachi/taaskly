@@ -124,8 +124,8 @@ export const useFlagTask = () => {
 	const loading = ref(false)
 
 	const setFlagTaskId = (id: string) => {
-		globalData.deleteTaskId.value = id
-		useTaskModal().openDeleteTask()
+		globalData.flagTaskId.value = id
+		useTaskModal().openFlagTask()
 	}
 	const flagTask = async () => {
 		loading.value = true
