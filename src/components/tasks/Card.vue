@@ -26,6 +26,10 @@
 
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
+import { useFlagTask } from '@/composables/tasks'
+
+const { setFlagTaskId } = useFlagTask()
+
 const props = defineProps({
 	id: {
 		type: String || Number,

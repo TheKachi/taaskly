@@ -30,7 +30,8 @@
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
 import { useDeleteTask } from '@/composables/tasks'
-const { setTaskId } = useDeleteTask()
+const { setDeleteTaskId } = useDeleteTask()
+
 defineProps({
 	id: {
 		type: String || Number,

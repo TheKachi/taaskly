@@ -11,7 +11,8 @@ import { useUser } from '@/composables/auth/user'
 const formStep = ref(1)
 
 const globalData = {
-	deleteTaskId: ref('')
+	deleteTaskId: ref(''),
+	flagTaskId: ref('')
 }
 const { id: userId, username } = useUser()
 
@@ -101,7 +102,7 @@ export const useFetchHomeTasks = () => {
 
 export const useDeleteTask = () => {
 	const loading = ref(false)
-	const setTaskId = (id: string) => {
+	const setDeleteTaskId = (id: string) => {
 		globalData.deleteTaskId.value = id
 		useTaskModal().openDeleteTask()
 	}
@@ -116,5 +117,26 @@ export const useDeleteTask = () => {
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
 		}
 	}
-	return { loading, deleteTask, setTaskId }
+	return { loading, deleteTask, setDeleteTaskId }
+}
+
+export const useFlagTask = () => {
+	const loading = ref(false)
+
+	const setFlagTaskId = (id: string) => {
+		globalData.deleteTaskId.value = id
+		useTaskModal().openDeleteTask()
+	}
+	const flagTask = async () => {
+		loading.value = true
+		try {
+			await deleteFirestoreDocument('tasks', globalData.deleteTaskId.value)
+			loading.value = false
+			useTaskModal().closeDeleteTask()
+		} catch (e: any) {
+			loading.value = false
+			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+		}
+	}
+	return { loading, flagTask, setFlagTaskId }
 }
