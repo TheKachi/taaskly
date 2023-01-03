@@ -106,7 +106,6 @@ export const useDeleteTask = () => {
 	const deleteTask = async () => {
 		loading.value = true
 		try {
-			console.log(TaskId.value)
 			await deleteFirestoreDocument('tasks', TaskId.value)
 			loading.value = false
 			useTaskModal().closeDeleteTask()

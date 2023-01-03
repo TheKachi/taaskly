@@ -72,7 +72,6 @@ export const useCreateProfile = () => {
 				useUser().id.value as string,
 				profileUploadData
 			)
-			console.log(profileFormState.username.value)
 			useUser().setProfileStatus(true)
 			useUser().setProfileUsername(profileFormState.username.value)
 			profileData.value = profileUploadData

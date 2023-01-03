@@ -57,16 +57,15 @@ export const getFirestoreCollection = async (
 	const unsubscribe = onSnapshot(q, (snapshot) => {
 		snapshot.docChanges().forEach((change) => {
 			if (change.type === 'added') {
-				console.log('New city: ', change.doc.data())
-					ArrayRef.value.push(change.doc.data())
+				ArrayRef.value.push(change.doc.data())
 			}
 			if (change.type === 'modified') {
-				console.log('Modified city: ', change.doc.data())
 				ArrayRef.value.push(change.doc.data())
 			}
 			if (change.type === 'removed') {
-				console.log('Removed city: ', change.doc.data())
-				const changedArray = ArrayRef.value.filter((item) => item.id !== change.doc.data().id)
+				const changedArray = ArrayRef.value.filter(
+					(item) => item.id !== change.doc.data().id
+				)
 				ArrayRef.value = changedArray
 			}
 		})
