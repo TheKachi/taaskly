@@ -9,8 +9,10 @@ import { useTaskModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
 
 const formStep = ref(1)
-const TaskId = ref('')
 
+const globalData = {
+	deleteTaskId: ref('')
+}
 const { id: userId, username } = useUser()
 
 const createTaskForm = {
@@ -100,13 +102,13 @@ export const useFetchHomeTasks = () => {
 export const useDeleteTask = () => {
 	const loading = ref(false)
 	const setTaskId = (id: string) => {
-		TaskId.value = id
+		globalData.deleteTaskId.value = id
 		useTaskModal().openDeleteTask()
 	}
 	const deleteTask = async () => {
 		loading.value = true
 		try {
-			await deleteFirestoreDocument('tasks', TaskId.value)
+			await deleteFirestoreDocument('tasks', globalData.deleteTaskId.value)
 			loading.value = false
 			useTaskModal().closeDeleteTask()
 		} catch (e: any) {
