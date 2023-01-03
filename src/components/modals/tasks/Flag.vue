@@ -1,7 +1,7 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		title="Delete Task"
+		title="Flag Task"
 	>
 		<p class="text-primary text-lg tracking-[0.1rem] text-center">
 			Are you sure you want to Flag this Task?

@@ -15,7 +15,7 @@ type CoreTypes = 'SocialShare'
 
 const AuthModals = { Logout, DefaultVerification } as Record<AuthTypes, any>
 const SidebarModals = { MobileSidebar } as Record<SidebarTypes, any>
-const TaskModals = { CreateTask, DeleteTask } as Record<TaskTypes, any>
+const TaskModals = { CreateTask, DeleteTask, FlagTask } as Record<TaskTypes, any>
 const CoreModals = { SocialShare } as Record<CoreTypes, any>
 
 export const modal = useModal(ref([] as any))

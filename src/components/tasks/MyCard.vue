@@ -19,7 +19,7 @@
 				<button class="my-share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()">
 					<icon name="share" class="w-5" /> share
 				</button>
-				<button class="flag-btn text-xs px-0 hover:px-2" @click="setTaskId(id)">
+				<button class="flag-btn text-xs px-0 hover:px-2" @click="setDeleteTaskId(id)">
 					<icon name="delete" class="w-5" /> Delete
 				</button>
 			</div>
