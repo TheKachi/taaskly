@@ -49,7 +49,7 @@ export const getSingleFirestoreDocument = async (
 
 export const getFirestoreCollection = async (
 	collectionName: string,
-	ArrayRef: Ref<any>
+	ArrayRef: Ref<Array<any>>
 ) => {
 	const collectionRef = collection(db, collectionName)
 	const q = query(collectionRef, limit(FETCHLIMIT))
@@ -66,7 +66,8 @@ export const getFirestoreCollection = async (
 			}
 			if (change.type === 'removed') {
 				console.log('Removed city: ', change.doc.data())
-				ArrayRef.value.push(change.doc.data())
+				const changedArray = ArrayRef.value.filter((item) => item.id !== change.doc.data().id)
+				ArrayRef.value = changedArray
 			}
 		})
 	})
