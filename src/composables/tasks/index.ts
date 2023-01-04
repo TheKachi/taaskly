@@ -26,7 +26,8 @@ const createTaskForm = {
 	offers: ref(0),
 	remote: ref(false),
 	location: ref({}),
-	tags: ref([])
+	tags: ref([]),
+	flags: ref([])
 }
 
 export const useCreateTask = () => {
@@ -55,6 +56,7 @@ export const useCreateTask = () => {
 				remote: createTaskForm.remote.value,
 				location: createTaskForm.location.value,
 				tags: createTaskForm.tags.value,
+				flags: createTaskForm.flags.value,
 				created_at: createTaskForm.created_at.value,
 				updated_at: createTaskForm.updated_at.value,
 				user: {
@@ -122,6 +124,7 @@ export const useDeleteTask = () => {
 
 export const useFlagTask = () => {
 	const loading = ref(false)
+	const flagReason = ref('')
 
 	const setFlagTaskId = (id: string) => {
 		globalData.flagTaskId.value = id
@@ -130,7 +133,7 @@ export const useFlagTask = () => {
 	const flagTask = async () => {
 		loading.value = true
 		try {
-			await updateFirestoreDocument('tasks', globalData.deleteTaskId.value)
+			await updateFirestoreDocument('tasks', globalData.flagTaskId.value, { userId: userId.value })
 			loading.value = false
 			useTaskModal().closeDeleteTask()
 		} catch (e: any) {
@@ -138,5 +141,5 @@ export const useFlagTask = () => {
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
 		}
 	}
-	return { loading, flagTask, setFlagTaskId }
+	return { loading, flagTask, setFlagTaskId, flagReason }
 }
