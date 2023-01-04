@@ -19,19 +19,27 @@ import { useUser } from '@/composables/auth/user'
 const { id } = useUser()
 const FETCHLIMIT = 20
 
-export const saveFirestoreDocument = async (
+export const setFirestoreDocument = async (
 	collection: string,
 	id: string = uuidv4(),
 	data: any
 ) => {
 	await setDoc(doc(db, collection, id), data)
 }
+
 export const updateFirestoreDocument = async (
 	collection: string,
 	id: string = uuidv4(),
 	data: any
 ) => {
 	await updateDoc(doc(db, collection, id), data)
+}
+
+export const deleteFirestoreDocument = async (
+	collection: string,
+	id: string
+) => {
+	await deleteDoc(doc(db, collection, id))
 }
 
 export const getSingleFirestoreDocument = async (
@@ -70,29 +78,4 @@ export const getFirestoreCollection = async (
 			}
 		})
 	})
-}
-
-// export const getFirestoreUserCollection = async (collectionName: string, ArrayRef:Ref<any>) => {
-// 	const collectionRef = collection(db, collectionName)
-// 	const q = query(
-// 		collectionRef,
-// 		limit(FETCHLIMIT),
-// 		where('userId', '==', id.value)
-// 	)
-// 	const result: any = []
-
-// 	const unsubscribe = onSnapshot(q, (querySnapshot) => {
-// 		querySnapshot.forEach((doc) => {
-// 			result.push(doc.data())
-// 		})
-// 		console.log(result)
-// 		ArrayRef.value = result
-// 	})
-// }
-
-export const deleteFirestoreDocument = async (
-	collection: string,
-	id: string
-) => {
-	await deleteDoc(doc(db, collection, id))
 }

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import {
-	saveFirestoreDocument,
+	setFirestoreDocument, updateFirestoreDocument,
 	getFirestoreCollection,
 	deleteFirestoreDocument
 } from '@/firebase/firestore'
@@ -44,7 +44,7 @@ export const useCreateTask = () => {
 
 		const taskId = uuidv4()
 		try {
-			await saveFirestoreDocument('tasks', taskId, {
+			await setFirestoreDocument('tasks', taskId, {
 				id: taskId,
 				userId: userId.value,
 				desc: createTaskForm.desc.value,
@@ -130,7 +130,7 @@ export const useFlagTask = () => {
 	const flagTask = async () => {
 		loading.value = true
 		try {
-			await deleteFirestoreDocument('tasks', globalData.deleteTaskId.value)
+			await updateFirestoreDocument('tasks', globalData.deleteTaskId.value)
 			loading.value = false
 			useTaskModal().closeDeleteTask()
 		} catch (e: any) {
