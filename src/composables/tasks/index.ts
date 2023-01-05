@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import { arrayUnion } from 'firebase/firestore'
 import {
 	setFirestoreDocument, updateFirestoreDocument,
 	getFirestoreCollection,
@@ -133,9 +134,9 @@ export const useFlagTask = () => {
 	const flagTask = async () => {
 		loading.value = true
 		try {
-			await updateFirestoreDocument('tasks', globalData.flagTaskId.value, { userId: userId.value })
+			await updateFirestoreDocument('tasks', globalData.flagTaskId.value, { flags: arrayUnion({ userId: userId.value, reason: flagReason.value }) })
 			loading.value = false
-			useTaskModal().closeDeleteTask()
+			useTaskModal().closeFlagTask()
 		} catch (e: any) {
 			loading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })

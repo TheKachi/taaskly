@@ -68,7 +68,10 @@ export const getFirestoreCollection = async (
 				ArrayRef.value.push(change.doc.data())
 			}
 			if (change.type === 'modified') {
-				ArrayRef.value.push(change.doc.data())
+				const changedArray = ArrayRef.value.filter(
+					(item) => item.id !== change.doc.data().id
+				)
+				ArrayRef.value = [...changedArray, change.doc.data()]
 			}
 			if (change.type === 'removed') {
 				const changedArray = ArrayRef.value.filter(

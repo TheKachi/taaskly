@@ -5,10 +5,10 @@
 		</div>
 		<div class="ml-4 flex flex-col items-start w-full">
 			<div class="text-lg font-bold">
-				<a href="#" class="text-night">{{ task.user.username }}</a>
+				<a href="#" class="text-night capitalize">{{ task.user.username }}</a>
 			</div>
 			<div class="flex items-center gap-2">
-				<BadgeSmall :name="`#${task.price}`" class="bg-black text-white" />
+				<BadgeSmall :name="Number(task.price)==0 ? 'Free': `#${task.price}`" class="bg-black text-white" />
 				<BadgeSmall v-for="tag in task.tags" :key="tag" :name="tag" />
 			</div>
 
