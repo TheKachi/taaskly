@@ -26,26 +26,50 @@
 			/> -->
 			<!-- <Avatar v-if="user" :name="user.displayName" :src="user.photoURL" /> -->
 
-			<VDropdown
-				:distance="14"
-
-				class="cursor-pointer"
-			>
-				<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
-				<template #popper>
-					<div class="w-full p-4">
-						<button
-							class="menu-btn flex items-center black !text-[#ff615c] cursor-pointer"
-							@click="useAuthModal().openLogout()"
-						>
-							<icon name="exit" class="mr-4 w-5" />
-							<p class="text-base">
-								Sign Out
-							</p>
-						</button>
+			<div ref="target" class="flex flex-col relative">
+				<div
+					class="cursor-pointer flex items-center gap-2.5"
+					@click="toggleMenu"
+				>
+					<avatar :name="business.name" :size="32" />
+					<div class="flex flex-col">
+						<span class="text-sm font-semibold text-secondary">{{ user.first_name }} {{ user.last_name }}</span>
+						<span class="text-xs font-medium text-greyDark">{{
+							business.name
+						}}</span>
 					</div>
-				</template>
-			</VDropdown>
+					<icon
+						name="downArrow"
+						:class="[
+							'ml-5 w-6 !text-secondary duration-300',
+							showMenu ? 'rotate-180' : '',
+						]"
+					/>
+				</div>
+				<transition name="slide" appear :duration="500">
+					<div
+						v-if="showMenu"
+						mode="out-in"
+						class="bg-white z-[1000000000] px-4 bg-shadow text-sm font-light absolute top-[2.5rem] right-0 bsha border-divider w-[232px] rounded-[10px] pt-3 pb-4"
+					>
+						<div class="flex flex-col pb-1 pt-2.5 gap-4 mt-4">
+							<div
+								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
+								@click="$router.push('/auth/business')"
+							>
+								<icon name="add" class="w-6 text-greyDark mr-4" />
+								New business
+							</div>
+							<div
+								class="cursor-pointer flex items-center text-secondary text-base font-medium"
+							>
+								<icon name="signOut" class="w-6 mr-4" />
+								Sign Out
+							</div>
+						</div>
+					</div>
+				</transition>
+			</div>
 		</div>
 	</nav>
 </template>
