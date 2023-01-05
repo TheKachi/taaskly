@@ -69,7 +69,6 @@ export default {
 		'@': './src'
 	},
 	modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss'],
-	// buildModules: ['floating-vue/nuxt'],
 
 	css: ['/src/assets/css/main.css'],
 	components: [
