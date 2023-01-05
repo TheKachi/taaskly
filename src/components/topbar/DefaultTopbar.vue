@@ -28,20 +28,17 @@
 
 			<div ref="target" class="flex flex-col relative">
 				<div
-					class="cursor-pointer flex items-center gap-2.5"
+					class="cursor-pointer flex items-center gap-2.5 rounded p-1.5 bg-gray-100"
 					@click="toggleMenu"
 				>
-					<avatar :name="business.name" :size="32" />
+					<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
 					<div class="flex flex-col">
-						<span class="text-sm font-semibold text-secondary">{{ user.first_name }} {{ user.last_name }}</span>
-						<span class="text-xs font-medium text-greyDark">{{
-							business.name
-						}}</span>
+						<span class="text-sm font-semibold text-primary truncate w-20">{{ user.displayName }}</span>
 					</div>
 					<icon
-						name="downArrow"
+						name="down"
 						:class="[
-							'ml-5 w-6 !text-secondary duration-300',
+							'ml-1 w-6 duration-300',
 							showMenu ? 'rotate-180' : '',
 						]"
 					/>
@@ -75,10 +72,17 @@
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from '@vueuse/core'
 import { useAuthModal, useSidebarModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
 import { useProfile } from '@/composables/auth/profile'
+
 const { user } = useUser()
+const target = ref(null)
+const showMenu = ref(false)
+const closeMenu = () => (showMenu.value = false)
+const toggleMenu = () => (showMenu.value = !showMenu.value)
+onClickOutside(target, closeMenu)
 
 const { getProfile, loading, profileData } = useProfile()
 onMounted(getProfile)
@@ -87,5 +91,13 @@ const topbarName = computed(() => useRoute().name)
 </script>
 
 <style scoped lang="scss">
-
+.slide-enter-active,
+.slide-leave-active {
+	transition: all 0.2s ease;
+}
+.slide-enter-from,
+.slide-leave-to {
+	transform: translateY(-10px);
+	opacity: 0;
+}
 </style>
