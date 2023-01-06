@@ -17,7 +17,7 @@
 			</div>
 			<div class=" text-gray-700 mt-1 flex gap-2">
 				<span class="accept-btn text-xs px-0 hover:px-2"> <icon name="hand_shake" class="w-5" /> Make an Offer</span>
-				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()"> <icon name="share" class="w-5" /> share</span>
+				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="shareCard(task)"> <icon name="share" class="w-5" /> share</span>
 				<span class="flag-btn text-xs px-0 hover:px-2" @click.stop="setFlagTaskId(id)"> <icon name="flag" class="w-5" /> flag</span>
 			</div>
 		</div>
@@ -27,6 +27,17 @@
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
 import { useFlagTask } from '@/composables/tasks'
+import { useShareUtil } from '@/composables/utils/share'
+const { shareData } = useShareUtil()
+
+const shareCard = (task) => {
+	console.log(task)
+	shareData({
+		title: `${task.user.username} task`,
+		text: task.desc,
+		url: `${location.href}/tasks/${task.id}`
+	})
+}
 
 const { setFlagTaskId } = useFlagTask()
 

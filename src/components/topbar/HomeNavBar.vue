@@ -10,7 +10,7 @@
 					<img
 						src="/logo-text.svg"
 						alt="logo"
-						class="w-40"
+						class="h-8"
 					>
 				</a>
 

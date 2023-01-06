@@ -12,7 +12,7 @@ export default {
 	},
 	app: {
 		head: {
-			title: 'Taaskly',
+			title: 'Taaskly - Everything you need in one place',
 			htmlAttrs: { lang: 'en' },
 			meta: [
 				{ charset: 'utf-8' },
