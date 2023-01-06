@@ -27,7 +27,8 @@
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
 import { useFlagTask } from '@/composables/tasks'
-
+import { useShareUtil } from '@/composables/core/share'
+const { s } = useShareUtil()
 const { setFlagTaskId } = useFlagTask()
 
 const props = defineProps({
