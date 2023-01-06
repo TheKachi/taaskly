@@ -16,7 +16,7 @@
 				{{ task.desc }}
 			</div>
 			<div class=" text-gray-700 mt-1 flex gap-2">
-				<button class="my-share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()">
+				<button class="my-share-btn text-xs px-0 hover:px-2" @click.stop="shareCard(task)">
 					<icon name="share" class="w-5" /> share
 				</button>
 				<button class="flag-btn text-xs px-0 hover:px-2" @click="setDeleteTaskId(id)">
@@ -30,8 +30,18 @@
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
 import { useDeleteTask } from '@/composables/tasks'
+import { useShareUtil } from '@/composables/utils/share'
 const { setDeleteTaskId } = useDeleteTask()
+const { shareData } = useShareUtil()
 
+const shareCard = (task) => {
+	// console.log(task)
+	shareData({
+		title: `${task.user.username} task`,
+		text: task.desc,
+		url: `${location.href}/tasks/${task.id}`
+	})
+}
 defineProps({
 	id: {
 		type: String || Number,
