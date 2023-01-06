@@ -47,7 +47,6 @@
 				</div>
 				<button
 					class="menu-btn flex items-center black !text-grey_two cursor-pointer"
-					@click="useAuthModal().openLogout()"
 				>
 					<icon name="exit" class="mr-4 w-5" />
 					<p class="text-lg">

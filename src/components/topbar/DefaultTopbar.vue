@@ -47,7 +47,7 @@
 					<div
 						v-if="showMenu"
 						mode="out-in"
-						class="bg-white z-[1000000000] px-4 bg-shadow text-sm font-light absolute top-[2.5rem] right-0 bsha border-divider w-[232px] rounded-[10px] pt-3 pb-4"
+						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border w-52 rounded p-4"
 					>
 						<div class="flex flex-col pb-1 pt-2.5 gap-4 mt-4">
 							<div
@@ -58,7 +58,8 @@
 								New business
 							</div>
 							<div
-								class="cursor-pointer flex items-center text-secondary text-base font-medium"
+								class="cursor-pointer flex items-center  text-base font-medium"
+								@click="useAuthModal().openLogout()"
 							>
 								<icon name="signOut" class="w-6 mr-4" />
 								Sign Out
