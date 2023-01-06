@@ -31,11 +31,11 @@ import { useShareUtil } from '@/composables/utils/share'
 const { shareData } = useShareUtil()
 
 const shareCard = (task) => {
-	// console.log(task)
+	console.log(useRoute())
 	shareData({
-		title: `${task.user.username} task`,
+		title: `${task.user.username}'s task`,
 		text: task.desc,
-		url: `${location.href}/tasks/${task.id}`
+		url: `${location.hostname}/tasks/${task.id}`
 	})
 }
 

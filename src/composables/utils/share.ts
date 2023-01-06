@@ -11,7 +11,6 @@ export const copyToClipboard = () => {
 	const { copy, copied, isSupported } = useClipboard({ source })
 
 	const copyData = (copyDataObj: CopyToClipboardCopyDataType) => {
-		console.log('called 2')
 		if (!isSupported.value) return useAlert().openAlert({ type: 'ERROR', msg: 'Seems like your device doesn\'t clipboarding' })
 		source.value = copyDataObj.info
 		copy()
@@ -23,8 +22,6 @@ export const copyToClipboard = () => {
 
 export const useShareUtil = () => {
 	const shareData = (shareDataObj: shareDataType) => {
-		console.log('called 1')
-		console.log(isSupported)
 		if (!isSupported.value) {
 		useCoreModal().openSocialShare()
 		}

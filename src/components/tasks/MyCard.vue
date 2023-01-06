@@ -35,11 +35,10 @@ const { setDeleteTaskId } = useDeleteTask()
 const { shareData } = useShareUtil()
 
 const shareCard = (task) => {
-	// console.log(task)
 	shareData({
 		title: `${task.user.username} task`,
 		text: task.desc,
-		url: `${location.href}/tasks/${task.id}`
+		url: `${location.hostname}/tasks/${task.id}`
 	})
 }
 defineProps({
