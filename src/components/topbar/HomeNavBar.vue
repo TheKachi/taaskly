@@ -10,7 +10,7 @@
 					<img
 						src="/logo-text.svg"
 						alt="logo"
-						class="w-[78px] md:w-auto"
+						class="w-40"
 					>
 				</a>
 

@@ -45,15 +45,6 @@
 						</div>
 					</details>
 				</div>
-				<button
-					class="menu-btn flex items-center black !text-grey_two cursor-pointer"
-					@click="useAuthModal().openLogout()"
-				>
-					<icon name="exit" class="mr-4 w-5" />
-					<p class="text-lg">
-						Sign Out
-					</p>
-				</button>
 			</div>
 
 			<button
@@ -82,7 +73,7 @@ import { routes } from '@/composables/utils/menu'
 a, .menu-btn {
 	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-75 rounded mt-1;
 &:hover.use-hover{
-	@apply border border-primary;
+	@apply border border-night;
 }
 }
 /* exact link will show the primary color for only the exact matching link */

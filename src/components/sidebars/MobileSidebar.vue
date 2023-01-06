@@ -10,9 +10,9 @@
 			<div>
 				<div class="flex items-center pl-4 mb-4 ">
 					<img
-						src="/favicon.svg"
+						src="/logo-text.svg"
 						alt="logo"
-						class="h-10 border rounded-full border-primary"
+						class="h-8"
 					>
 				</div>
 

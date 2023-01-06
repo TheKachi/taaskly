@@ -1,6 +1,6 @@
 import { profileData } from './profile'
 import { useUser } from '@/composables/auth/user'
-import { saveFirestoreDocument } from '@/firebase/firestore'
+import { setFirestoreDocument } from '@/firebase/firestore'
 import { useAuthModal } from '@/composables/core/modals'
 import { useAlert } from '@/composables/core/useNotification'
 import { uploadBlob } from '@/firebase/storage'
@@ -20,7 +20,7 @@ export const useVerification = () => {
 	const verify = async () => {
 		loading.value = true
 		try {
-			await saveFirestoreDocument('Verification', id.value as string, {
+			await setFirestoreDocument('Verification', id.value as string, {
 				student: verificationFormState.student.value,
 				id_type: verificationFormState.id_type.value,
 				createdAt: new Date().toISOString(),

@@ -1,7 +1,7 @@
 import { watchDebounced } from '@vueuse/core'
 import { Ref } from 'vue'
 import {
-	saveFirestoreDocument,
+	setFirestoreDocument,
 	getSingleFirestoreDocument
 } from '../../firebase/firestore'
 import { useAlert } from '../core/useNotification'
@@ -67,7 +67,7 @@ export const useCreateProfile = () => {
 		}
 
 		try {
-			await saveFirestoreDocument(
+			await setFirestoreDocument(
 				'users',
 				useUser().id.value as string,
 				profileUploadData

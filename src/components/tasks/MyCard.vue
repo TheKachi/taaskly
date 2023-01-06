@@ -5,10 +5,10 @@
 		</div>
 		<div class="ml-4 flex flex-col items-start w-full">
 			<div class="text-lg font-bold">
-				<a href="#" class="text-night">{{ task.user.username }}</a>
+				<a href="#" class="text-night capitalize">{{ task.user.username }}</a>
 			</div>
 			<div class="flex items-center gap-2">
-				<BadgeSmall :name="`#${task.price}`" class="bg-black text-white" />
+				<BadgeSmall :name="Number(task.price)==0 ? 'free': `#${task.price}`" class="bg-black text-white" />
 				<BadgeSmall v-for="tag in task.tags" :key="tag" :name="tag" />
 			</div>
 
@@ -19,7 +19,7 @@
 				<button class="my-share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()">
 					<icon name="share" class="w-5" /> share
 				</button>
-				<button class="flag-btn text-xs px-0 hover:px-2" @click="setTaskId(id)">
+				<button class="flag-btn text-xs px-0 hover:px-2" @click="setDeleteTaskId(id)">
 					<icon name="delete" class="w-5" /> Delete
 				</button>
 			</div>
@@ -30,7 +30,8 @@
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
 import { useDeleteTask } from '@/composables/tasks'
-const { setTaskId } = useDeleteTask()
+const { setDeleteTaskId } = useDeleteTask()
+
 defineProps({
 	id: {
 		type: String || Number,

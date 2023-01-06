@@ -24,16 +24,71 @@
 				v-else
 				:name="profileData ? `Level ${profileData.profileLevel}` : 'loading...'"
 			/> -->
-			<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
+			<!-- <Avatar v-if="user" :name="user.displayName" :src="user.photoURL" /> -->
+
+			<div ref="target" class="flex flex-col relative">
+				<div
+					class="cursor-pointer flex items-center gap-2.5 rounded p-1.5 bg-gray-100"
+					@click="toggleMenu"
+				>
+					<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
+					<div class="flex flex-col">
+						<span class="text-sm font-semibold text-primary truncate w-20">{{ user.displayName }}</span>
+					</div>
+					<icon
+						name="down"
+						:class="[
+							'ml-1 w-6 duration-300',
+							showMenu ? 'rotate-180' : '',
+						]"
+					/>
+				</div>
+				<transition name="slide" appear :duration="500">
+					<div
+						v-if="showMenu"
+						mode="out-in"
+						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded p-4"
+					>
+						<div class="flex flex-col pb-1 pt-2.5 gap-4 ">
+							<button
+								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
+							>
+								<icon name="shop" class="w-6 text-greyDark mr-4" />
+								Switch to Shop dashboard
+							</button>
+							<button
+								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
+							>
+								<icon name="service" class="w-6 text-greyDark mr-4" />
+								Switch to Service dashboard
+							</button>
+							<button
+								class="cursor-pointer flex items-center  text-base font-medium"
+								@click="useAuthModal().openLogout()"
+							>
+								<icon name="signOut" class="w-6 mr-4" />
+								Sign Out
+							</button>
+						</div>
+					</div>
+				</transition>
+			</div>
 		</div>
 	</nav>
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from '@vueuse/core'
 import { useAuthModal, useSidebarModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
 import { useProfile } from '@/composables/auth/profile'
+
 const { user } = useUser()
+const target = ref(null)
+const showMenu = ref(false)
+const closeMenu = () => (showMenu.value = false)
+const toggleMenu = () => (showMenu.value = !showMenu.value)
+onClickOutside(target, closeMenu)
 
 const { getProfile, loading, profileData } = useProfile()
 onMounted(getProfile)
@@ -42,5 +97,13 @@ const topbarName = computed(() => useRoute().name)
 </script>
 
 <style scoped lang="scss">
-
+.slide-enter-active,
+.slide-leave-active {
+	transition: all 0.2s ease;
+}
+.slide-enter-from,
+.slide-leave-to {
+	transform: translateY(-10px);
+	opacity: 0;
+}
 </style>

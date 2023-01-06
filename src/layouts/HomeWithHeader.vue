@@ -6,7 +6,7 @@
 			<TopbarDefaultTopbar />
 			<Alert />
 			<PageLoading />
-			<div class="w-full h-full relative overflow-y-auto overflow-hidden">
+			<div class="w-full h-full relative overflow-y-auto overflow-hidden bg-clear">
 				<section class="flex-col flex items-stretch overflow-y-auto pt-16 pb-6 relative">
 					<slot />
 				</section>

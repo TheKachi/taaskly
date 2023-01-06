@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
+import { arrayUnion } from 'firebase/firestore'
 import {
-	saveFirestoreDocument,
+	setFirestoreDocument, updateFirestoreDocument,
 	getFirestoreCollection,
 	deleteFirestoreDocument
 } from '@/firebase/firestore'
@@ -9,8 +10,11 @@ import { useTaskModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
 
 const formStep = ref(1)
-const TaskId = ref('')
 
+const globalData = {
+	deleteTaskId: ref(''),
+	flagTaskId: ref('')
+}
 const { id: userId, username } = useUser()
 
 const createTaskForm = {
@@ -23,7 +27,8 @@ const createTaskForm = {
 	offers: ref(0),
 	remote: ref(false),
 	location: ref({}),
-	tags: ref([])
+	tags: ref([]),
+	flags: ref([])
 }
 
 export const useCreateTask = () => {
@@ -41,7 +46,7 @@ export const useCreateTask = () => {
 
 		const taskId = uuidv4()
 		try {
-			await saveFirestoreDocument('tasks', taskId, {
+			await setFirestoreDocument('tasks', taskId, {
 				id: taskId,
 				userId: userId.value,
 				desc: createTaskForm.desc.value,
@@ -52,6 +57,7 @@ export const useCreateTask = () => {
 				remote: createTaskForm.remote.value,
 				location: createTaskForm.location.value,
 				tags: createTaskForm.tags.value,
+				flags: createTaskForm.flags.value,
 				created_at: createTaskForm.created_at.value,
 				updated_at: createTaskForm.updated_at.value,
 				user: {
@@ -99,14 +105,14 @@ export const useFetchHomeTasks = () => {
 
 export const useDeleteTask = () => {
 	const loading = ref(false)
-	const setTaskId = (id: string) => {
-		TaskId.value = id
+	const setDeleteTaskId = (id: string) => {
+		globalData.deleteTaskId.value = id
 		useTaskModal().openDeleteTask()
 	}
 	const deleteTask = async () => {
 		loading.value = true
 		try {
-			await deleteFirestoreDocument('tasks', TaskId.value)
+			await deleteFirestoreDocument('tasks', globalData.deleteTaskId.value)
 			loading.value = false
 			useTaskModal().closeDeleteTask()
 		} catch (e: any) {
@@ -114,5 +120,27 @@ export const useDeleteTask = () => {
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
 		}
 	}
-	return { loading, deleteTask, setTaskId }
+	return { loading, deleteTask, setDeleteTaskId }
+}
+
+export const useFlagTask = () => {
+	const loading = ref(false)
+	const flagReason = ref('')
+
+	const setFlagTaskId = (id: string) => {
+		globalData.flagTaskId.value = id
+		useTaskModal().openFlagTask()
+	}
+	const flagTask = async () => {
+		loading.value = true
+		try {
+			await updateFirestoreDocument('tasks', globalData.flagTaskId.value, { flags: arrayUnion({ userId: userId.value, reason: flagReason.value }) })
+			loading.value = false
+			useTaskModal().closeFlagTask()
+		} catch (e: any) {
+			loading.value = false
+			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+		}
+	}
+	return { loading, flagTask, setFlagTaskId, flagReason }
 }
