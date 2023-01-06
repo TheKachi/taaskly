@@ -6,6 +6,7 @@ const source = ref('')
 const { share, isSupported } = useShare()
 
 export const copyToClipboard = () => {
+	console.log('called')
 	const source = ref('')
 
 	const { copy, copied, isSupported } = useClipboard({ source })
@@ -22,11 +23,13 @@ export const copyToClipboard = () => {
 
 export const useShareUtil = () => {
 	const shareData = (shareDataObj: shareDataType) => {
+		console.log('called')
 		if (!isSupported) {
-			copyToClipboard().copyData({ info: shareDataObj.href, msg: 'Link copied to clipboard' })
+			console.log('called')
+			copyToClipboard().copyData({ info: shareDataObj.url, msg: 'Link copied to clipboard' })
 		}
 		try {
-			share({ title: shareDataObj.title, text: shareDataObj.desc, url: shareDataObj.href })
+			share({ title: shareDataObj.title, text: shareDataObj.desc, url: shareDataObj.url })
 		} catch {
 			copyToClipboard().copyData({ info: source.value, msg: 'Link copied to clipboard' })
 		}

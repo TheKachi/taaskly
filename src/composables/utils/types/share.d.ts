@@ -4,7 +4,7 @@ export interface CopyToClipboardCopyDataType {
 }
 
 export interface shareDataType {
-    href: string;
+    url: string;
     title: string;
     desc: string;
 }
