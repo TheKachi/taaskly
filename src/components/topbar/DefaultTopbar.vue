@@ -47,23 +47,28 @@
 					<div
 						v-if="showMenu"
 						mode="out-in"
-						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border w-52 rounded p-4"
+						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded p-4"
 					>
-						<div class="flex flex-col pb-1 pt-2.5 gap-4 mt-4">
-							<div
+						<div class="flex flex-col pb-1 pt-2.5 gap-4 ">
+							<button
 								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
-								@click="$router.push('/auth/business')"
 							>
-								<icon name="add" class="w-6 text-greyDark mr-4" />
-								New business
-							</div>
-							<div
+								<icon name="shop" class="w-6 text-greyDark mr-4" />
+								Switch to Shop dashboard
+							</button>
+							<button
+								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
+							>
+								<icon name="service" class="w-6 text-greyDark mr-4" />
+								Switch to Service dashboard
+							</button>
+							<button
 								class="cursor-pointer flex items-center  text-base font-medium"
 								@click="useAuthModal().openLogout()"
 							>
 								<icon name="signOut" class="w-6 mr-4" />
 								Sign Out
-							</div>
+							</button>
 						</div>
 					</div>
 				</transition>
