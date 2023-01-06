@@ -38,7 +38,7 @@ const shareCard = (task) => {
 	shareData({
 		title: `${task.user.username} task`,
 		text: task.desc,
-		url: `${location.hostname}/tasks/${task.id}`
+		url: `/tasks/${task.id}`
 	})
 }
 defineProps({
