@@ -31,7 +31,7 @@ import { useShareUtil } from '@/composables/utils/share'
 const { shareData } = useShareUtil()
 
 const shareCard = (task) => {
-	console.log(task)
+	// console.log(task)
 	shareData({
 		title: `${task.user.username} task`,
 		text: task.desc,
