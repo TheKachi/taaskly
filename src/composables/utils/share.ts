@@ -4,6 +4,7 @@ import { useCoreModal } from '@/composables/core/modals'
 import { useAlert } from '@/composables/core/useNotification'
 
 const { share, isSupported } = useShare()
+const globalShareData = ref({})
 
 export const copyToClipboard = () => {
 	const source = ref('')
@@ -11,10 +12,15 @@ export const copyToClipboard = () => {
 	const { copy, copied, isSupported } = useClipboard({ source })
 
 	const copyData = (copyDataObj: CopyToClipboardCopyDataType) => {
-		if (!isSupported.value) return useAlert().openAlert({ type: 'ERROR', msg: 'Seems like your device doesn\'t clipboarding' })
+		if (!isSupported.value)
+			return useAlert().openAlert({
+				type: 'ERROR',
+				msg: 'Seems like your device doesn\'t clipboarding'
+			})
 		source.value = copyDataObj.info
 		copy()
-		if (copied) return useAlert().openAlert({ type: 'SUCCESS', msg: copyDataObj.msg })
+		if (copied)
+			return useAlert().openAlert({ type: 'SUCCESS', msg: copyDataObj.msg })
 	}
 
 	return { copyData }
@@ -23,12 +29,20 @@ export const copyToClipboard = () => {
 export const useShareUtil = () => {
 	const shareData = (shareDataObj: shareDataType) => {
 		if (!isSupported.value) {
-		useCoreModal().openSocialShare()
+			globalShareData.value = shareDataObj
+			useCoreModal().openSocialShare()
 		}
 		try {
-			share({ title: shareDataObj.title, text: shareDataObj.desc, url: shareDataObj.url })
+			share({
+				title: shareDataObj.title,
+				text: shareDataObj.desc,
+				url: shareDataObj.url
+			})
 		} catch {
-			copyToClipboard().copyData({ info: shareDataObj.url, msg: 'Link copied to clipboard' })
+			copyToClipboard().copyData({
+				info: shareDataObj.url,
+				msg: 'Link copied to clipboard'
+			})
 		}
 	}
 

@@ -27,7 +27,6 @@
 
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
-import icon from '@/components/core/icon.vue'
 defineProps({
 
 })
