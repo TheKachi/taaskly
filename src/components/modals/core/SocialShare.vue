@@ -11,16 +11,12 @@
 				</span>
 			</button>
 			<button class="btn font-semibold bg-[#075e54] text-white w-full">
-				<span class="w-64 flex items-center">
-					<icon class="w-6 mr-2" name="whatsapp_outline" />
-					Whatsapp
-				</span>
+				<icon class="w-6 mr-2" name="whatsapp_outline" />
+				Whatsapp
 			</button>
 			<button class="btn font-semibold bg-[#1DA1F2] text-white w-full">
-				<span class="w-64 flex items-center">
-					<icon class="w-6 mr-2" name="twitter" />
-					Twitter
-				</span>
+				<icon class="w-6 mr-2" name="twitter" />
+				Twitter
 			</button>
 		</section>
 	</Modal>
@@ -28,26 +24,4 @@
 
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
-import { useVerification } from '@/composables/auth/verification'
-import { toBase64 } from '@/composables/utils/index'
-const { verify, verificationFormState, loading, percentage, uploadFile } = useVerification()
-
-const name = ref('Choose a File')
-		   const update = async (el) => {
-			   const file = el.target.files[0]
-			   verificationFormState.document.value = file
-			   const file_name = el.srcElement.files[0].name
-			   name.value = file_name
-			   uploadFile()
-		   }
 </script>
-
-<style scoped>
-.input::before{
-	content: var(--tw-content);
-    height: 100%;
-	width: var(--w);
-    background: #35355b76;
-	position: absolute;
-}
-</style>
