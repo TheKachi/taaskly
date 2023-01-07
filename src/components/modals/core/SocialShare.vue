@@ -8,7 +8,7 @@
 				<icon class="w-6 mr-2" name="clipboard" />
 				Copy to Clipboard
 			</button>
-			<button class="bg-[#075e54]">
+			<button class="bg-[#25D366]" @click="shareToWhatsapp">
 				<icon class="w-6 mr-2" name="whatsapp_outline" />
 				Whatsapp
 			</button>
@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
 import { useSocialShare } from '@/composables/utils/share'
-const { copyToClipboard, shareToTwitter } = useSocialShare()
+const { copyToClipboard, shareToTwitter, shareToWhatsapp } = useSocialShare()
 </script>
 
 <style scoped>

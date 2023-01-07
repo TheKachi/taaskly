@@ -34,7 +34,7 @@ export const useShareUtil = () => {
 		try {
 			share({
 				title: shareDataObj.title,
-				text: shareDataObj.desc,
+				text: shareDataObj.text,
 				url: shareDataObj.url
 			})
 		} catch {
@@ -68,5 +68,13 @@ export const useSocialShare = () => {
 		if (shouldCloseModal) useCoreModal().closeSocialShare()
 	}
 
-	return { copyToClipboard, shareToTwitter }
+	const shareToWhatsapp = (shouldCloseModal = true) => {
+		console.log(globalShareData)
+		window.open(`https://web.whatsapp.com/send?text=Check%20out%20this%20task%20on%20taaskly%20${globalShareData!.value!.url}`,
+			'_blank'
+		)
+		if (shouldCloseModal) useCoreModal().closeSocialShare()
+	}
+
+	return { copyToClipboard, shareToTwitter, shareToWhatsapp }
 }

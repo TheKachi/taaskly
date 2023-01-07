@@ -6,5 +6,5 @@ export interface CopyToClipboardCopyDataType {
 export interface shareDataType {
     url: string;
     title: string;
-    desc: string;
+    text: string;
 }
