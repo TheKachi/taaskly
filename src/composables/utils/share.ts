@@ -58,7 +58,6 @@ export const useSocialShare = () => {
 	}
 
 	const shareToTwitter = (shouldCloseModal = true) => {
-		console.log(globalShareData)
 		window.open(
 			`https://twitter.com/intent/tweet?url=${
 				globalShareData!.value!.url
@@ -69,7 +68,6 @@ export const useSocialShare = () => {
 	}
 
 	const shareToWhatsapp = (shouldCloseModal = true) => {
-		console.log(globalShareData)
 		window.open(`https://web.whatsapp.com/send?text=Check%20out%20this%20task%20on%20taaskly%20${globalShareData!.value!.url}`,
 			'_blank'
 		)
