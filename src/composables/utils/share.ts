@@ -4,11 +4,10 @@ import { useCoreModal } from '@/composables/core/modals'
 import { useAlert } from '@/composables/core/useNotification'
 
 const { share, isSupported } = useShare()
-const globalShareData = ref({})
+const globalShareData = ref<shareDataType>()
 
-export const copyToClipboard = () => {
+export const useCopyToClipboard = () => {
 	const source = ref('')
-
 	const { copy, copied, isSupported } = useClipboard({ source })
 
 	const copyData = (copyDataObj: CopyToClipboardCopyDataType) => {
@@ -39,7 +38,7 @@ export const useShareUtil = () => {
 				url: shareDataObj.url
 			})
 		} catch {
-			copyToClipboard().copyData({
+			useCopyToClipboard().copyData({
 				info: shareDataObj.url,
 				msg: 'Link copied to clipboard'
 			})
@@ -47,4 +46,27 @@ export const useShareUtil = () => {
 	}
 
 	return { shareData }
+}
+
+export const useSocialShare = () => {
+	const copyToClipboard = (shouldCloseModal = true) => {
+		useCopyToClipboard().copyData({
+			info: globalShareData!.value!.url,
+			msg: 'Link copied to clipboard'
+		})
+		if (shouldCloseModal) useCoreModal().closeSocialShare()
+	}
+
+	const shareToTwitter = (shouldCloseModal = true) => {
+		console.log(globalShareData)
+		window.open(
+			`https://twitter.com/intent/tweet?url=${
+				globalShareData!.value!.url
+			}&title=check%20out%20this%20task&via=taaskly`,
+			'_blank'
+		)
+		if (shouldCloseModal) useCoreModal().closeSocialShare()
+	}
+
+	return { copyToClipboard, shareToTwitter }
 }
