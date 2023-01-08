@@ -32,3 +32,11 @@ export const mainRoutes = [
 	}
 
 ]
+
+export const shopRoutes = [
+	{
+		icon: 'dashboard',
+		name: 'Overview',
+		route: '/shop'
+	}
+]

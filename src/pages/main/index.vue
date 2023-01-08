@@ -1,13 +1,9 @@
 <template>
-	<div>
-		services
-	</div>
+	loading...
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-	layout: 'main-default'
-})
+useRouter().push('/main/home')
 </script>
 
 <style scoped>

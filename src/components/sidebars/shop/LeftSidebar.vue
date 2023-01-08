@@ -5,14 +5,14 @@
 		<div class="h-full relative py-4">
 			<div class="w-full flex justify-start pl-6">
 				<img
-					src="/logo-text.svg"
+					src="/logo-text-shop.svg"
 					alt="logo"
-					class="h-8"
+					class="w-36"
 				>
 			</div>
 
 			<div class="relative mt-[70px]">
-				<div v-for="n in mainRoutes" :key="n.name" class="w-full flex flex-col gap-4">
+				<div v-for="n in shopRoutes" :key="n.name" class="w-full flex flex-col gap-4">
 					<span v-if="!n.children">
 						<nuxt-link
 							:to="n.route"
@@ -46,23 +46,13 @@
 					</details>
 				</div>
 			</div>
-
-			<button
-				class="menu-btn flex items-center font-semibold !text-clear hover  bg-primary fixed bottom-4 hover:scale-105 transite !duration-200"
-				@click="useTaskModal().openCreateTask()"
-			>
-				<icon name="task" class="mr-4 w-5" />
-				<p class="text-base">
-					Create Task
-				</p>
-			</button>
 		</div>
 	</aside>
 </template>
 
 <script lang="ts" setup>
 import { useAuthModal, useTaskModal } from '@/composables/core/modals'
-import { mainRoutes } from '@/composables/utils/menu'
+import { shopRoutes } from '@/composables/utils/menu'
 
 </script>
 

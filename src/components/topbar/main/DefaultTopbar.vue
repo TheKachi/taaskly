@@ -50,12 +50,13 @@
 						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded p-4"
 					>
 						<div class="flex flex-col pb-1 pt-2.5 gap-4 ">
-							<button
+							<nuxt-link
+								to="/shop"
 								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
 							>
 								<icon name="shop" class="w-6 text-greyDark mr-4" />
 								Switch to Shop dashboard
-							</button>
+							</nuxt-link>
 							<button
 								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
 							>
