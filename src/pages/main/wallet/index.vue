@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import Wallet from '@/pages/wallet/Wallet.vue'
-import History from '@/pages/wallet/History.vue'
+import Wallet from '@/pages/main/wallet/Wallet.vue'
+import History from '@/pages/main/wallet/History.vue'
 
 const selected = ref('Wallet')
 const tabViews = ['Wallet', 'History']

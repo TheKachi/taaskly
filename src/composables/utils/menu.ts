@@ -1,34 +1,34 @@
-export const routes = [
+export const mainRoutes = [
 	{
 		icon: 'dashboard',
 		name: 'Home',
-		route: '/home'
+		route: '/main/home'
 	},
 	{
 		icon: 'service',
 		name: 'Services',
-		route: '/services'
+		route: '/main/services'
 	},
 	{
 		icon: 'shop',
-		name: 'Shops',
-		route: '/shops'
+		name: 'MarketPlace',
+		route: '/main/shops'
 	},
 
 	{
 		icon: 'wallet',
 		name: 'Wallet',
-		route: '/wallet'
+		route: '/main/wallet'
 	},
 	{
 		icon: 'profile',
 		name: 'Account',
-		route: '/account'
+		route: '/main/account'
 	},
 	{
 		icon: 'help',
 		name: 'Help',
-		route: '/help'
+		route: '/main/help'
 	}
 
 ]

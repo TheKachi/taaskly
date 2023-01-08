@@ -12,7 +12,7 @@
 			</div>
 
 			<div class="relative mt-[70px]">
-				<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
+				<div v-for="n in mainRoutes" :key="n.name" class="w-full flex flex-col gap-4">
 					<span v-if="!n.children">
 						<nuxt-link
 							:to="n.route"
@@ -62,7 +62,7 @@
 
 <script lang="ts" setup>
 import { useAuthModal, useTaskModal } from '@/composables/core/modals'
-import { routes } from '@/composables/utils/menu'
+import { mainRoutes } from '@/composables/utils/menu'
 
 </script>
 

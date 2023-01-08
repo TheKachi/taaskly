@@ -22,7 +22,7 @@
 				</p>
 
 				<div class="relative mt-5 pt-4 border-t">
-					<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
+					<div v-for="n in mainRoutes" :key="n.name" class="w-full flex flex-col gap-4">
 						<span v-if="!n.children">
 							<nuxt-link
 								:to="n.route"
@@ -74,7 +74,7 @@
 import Modal from '@/components/core/modal/Modal.vue'
 import { useAuthModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
-import { routes } from '@/composables/utils/menu'
+import { mainRoutes } from '@/composables/utils/menu'
 const { user } = useUser()
 </script>
 

@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { useWallet } from '../../composables/wallet/index'
+import { useWallet } from '@/composables/wallet/index'
 const { fundWallet, loading } = useWallet()
 </script>
 
