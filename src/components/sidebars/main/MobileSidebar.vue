@@ -18,7 +18,7 @@
 
 				<p v-if="user" class="text-xl font-medium ml-4 flex flex-col">
 					<span class="text-gray-500">Hello</span>
-					<span class="text-sm tx flex-wrap">{{ user.displayName.split(' ')[0] }}</span>
+					<span class="text-sm tx flex-wrap">{{ user.displayName?.split(' ')[0] }}</span>
 				</p>
 
 				<div class="relative mt-5 pt-4 border-t">
@@ -28,7 +28,8 @@
 								:to="n.route"
 								class="flex items-center black"
 							>
-								<icon :name="n.icon" class="mr-4 w-5" />
+								<component :is="n.icon" class="mr-4 w-5" />
+								<!-- <icon :name="n.icon" class="mr-4 w-5" /> -->
 								<p class="text-base">
 									{{ n.name }}
 								</p>
@@ -37,7 +38,8 @@
 
 						<details v-else>
 							<summary class="flex py-1.5 items-center px-6 mt-3 duration-75 black">
-								<icon :name="n.icon" class="mr-4 w-5" />
+								<component :is="n.icon" class="mr-4 w-5" />
+								<!-- <icon :name="n.icon" class="mr-4 w-5" /> -->
 								<p class="text-base font-medium text-gray300">
 									{{ n.name }}
 								</p>
@@ -59,7 +61,7 @@
 						class="menu-btn flex items-center black !text-[#ff615c] cursor-pointer"
 						@click="useAuthModal().openLogout()"
 					>
-						<icon name="exit" class="mr-4 w-5" />
+						<exit class="mr-4 w-5" />
 						<p class="text-base">
 							Sign Out
 						</p>
@@ -75,6 +77,7 @@ import Modal from '@/components/core/modal/Modal.vue'
 import { useAuthModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
 import { mainRoutes } from '@/composables/utils/menu'
+import exit from '@/assets/icons/src/exit.vue'
 const { user } = useUser()
 </script>
 

@@ -2,11 +2,12 @@
 	<nav
 		class="absolute  w-full top-0  h-16 px-4  flex items-center justify-between box-border z-20 bg-white shadow"
 	>
-		<icon
+		<!-- <icon
 			class="mobile w-8 cursor-pointer z-50"
 			name="menu"
 			@click="useSidebarModal().openMobileSidebar()"
-		/>
+		/> -->
+		<component :is="menu" class="mobile cursor-pointer z-50" @click="useSidebarModal().openMobileSidebar()" />
 
 		<h1 class="font-semibold text-xl capitalize pc">
 			{{ topbarName }}
@@ -35,8 +36,7 @@
 					<div class="flex flex-col">
 						<span class="text-sm font-semibold text-primary truncate w-20">{{ user.displayName }}</span>
 					</div>
-					<icon
-						name="down"
+					<down
 						:class="[
 							'ml-1 w-6 duration-300',
 							showMenu ? 'rotate-180' : '',
@@ -54,21 +54,21 @@
 								to="/shop"
 								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
 							>
-								<icon name="shop" class="w-6 text-greyDark mr-4" />
+								<shop class="w-6 text-greyDark mr-4" />
 								Switch to Shop dashboard
 							</nuxt-link>
 							<nuxt-link
 								to="/service"
 								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
 							>
-								<icon name="service" class="w-6 text-greyDark mr-4" />
+								<service class="w-6 text-greyDark mr-4" />
 								Switch to Service dashboard
 							</nuxt-link>
 							<button
 								class="cursor-pointer flex items-center  text-base font-medium"
 								@click="useAuthModal().openLogout()"
 							>
-								<icon name="signOut" class="w-6 mr-4" />
+								<signOut class="w-6 mr-4" />
 								Sign Out
 							</button>
 						</div>
@@ -84,6 +84,11 @@ import { onClickOutside } from '@vueuse/core'
 import { useAuthModal, useSidebarModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
 import { useProfile } from '@/composables/auth/profile'
+import menu from '@/assets/icons/src/menu.vue'
+import down from '~~/src/assets/icons/src/down.vue'
+import shop from '~~/src/assets/icons/src/shop.vue'
+import service from '~~/src/assets/icons/src/service.vue'
+import signOut from '~~/src/assets/icons/src/signOut.vue'
 
 const { user } = useUser()
 const target = ref(null)
