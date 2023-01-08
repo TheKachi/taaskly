@@ -18,7 +18,8 @@
 							:to="n.route"
 							class="flex items-center black use-hover"
 						>
-							<icon :name="n.icon" class="mr-4 w-6" />
+							<component :is="n.icon" class="mr-4" />
+							<!-- <icon :name="n.icon" class="mr-4 w-6" /> -->
 							<p class="text-lg">
 								{{ n.name }}
 							</p>
@@ -27,7 +28,8 @@
 
 					<details v-else>
 						<summary class="flex py-1.5 items-center px-6 mt-3 duration-75 black">
-							<icon :name="n.icon" class="mr-4 w-5" />
+							<component :is="n.icon" class="mr-4" />
+							<!-- <icon :name="n.icon" class="mr-4 w-5" /> -->
 							<p class="text-base font-medium text-gray300">
 								{{ n.name }}
 							</p>
@@ -51,7 +53,8 @@
 				class="menu-btn flex items-center font-semibold !text-clear hover  bg-primary fixed bottom-4 hover:scale-105 transite !duration-200"
 				@click="useTaskModal().openCreateTask()"
 			>
-				<icon name="task" class="mr-4 w-5" />
+				<!-- <icon name="task" class="mr-4 w-5" /> -->
+				<task class="mr-4 w-5" />
 				<p class="text-base">
 					Create Task
 				</p>
@@ -63,6 +66,7 @@
 <script lang="ts" setup>
 import { useAuthModal, useTaskModal } from '@/composables/core/modals'
 import { mainRoutes } from '@/composables/utils/menu'
+import task from '@/assets/icons/src/task.vue'
 
 </script>
 

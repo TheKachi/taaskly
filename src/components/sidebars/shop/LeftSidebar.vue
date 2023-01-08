@@ -18,7 +18,8 @@
 							:to="n.route"
 							class="flex items-center black use-hover"
 						>
-							<icon :name="n.icon" class="mr-4 w-6" />
+							<!-- <icon :name="n.icon" class="mr-4 w-6" /> -->
+							<component :is="n.icon" class="mr-4 w-6" />
 							<p class="text-lg">
 								{{ n.name }}
 							</p>
@@ -27,7 +28,8 @@
 
 					<details v-else>
 						<summary class="flex py-1.5 items-center px-6 mt-3 duration-75 black">
-							<icon :name="n.icon" class="mr-4 w-5" />
+							<!-- <icon :name="n.icon" class="mr-4 w-5" /> -->
+							<component :is="n.icon" class="mr-4 w-5" />
 							<p class="text-base font-medium text-gray300">
 								{{ n.name }}
 							</p>
