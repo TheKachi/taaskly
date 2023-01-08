@@ -70,11 +70,13 @@
 				</nuxt-link>
 			</div>
 
-			<icon
+			<!-- <icon
 				class="mobile w-6 cursor-pointer z-50"
 				:name="show ? 'close' : 'menu'"
 				@click="toggleMenu"
-			/>
+			/> -->
+
+			<component :is="show ? close : menu" class="cursor-pointer" @click="toggleMenu" />
 		</header>
 
 		<div
@@ -118,6 +120,9 @@
 </template>
 
 <script setup lang="ts">
+import close from '@/assets/icons/src/close.vue'
+import menu from '@/assets/icons/src/menu.vue'
+
 const show = ref(false)
 const toggleMenu = () => (show.value = !show.value)
 const navigateTo = (route: string) => {
