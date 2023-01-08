@@ -22,8 +22,8 @@
 <script lang="ts" setup>
 import { useTaskModal } from '@/composables/core/modals'
 import { useTabs } from '@/composables/utils/tabs'
-import tasks from '@/pages/home/tasks.vue'
-import myTasks from '@/pages/home/myTasks.vue'
+import tasks from '@/pages/main/home/tasks.vue'
+import myTasks from '@/pages/main/home/myTasks.vue'
 
 const { TabComponents, initTabs, selected, tabViews, updateTab, tabs, onTabMounted } = useTabs()
 
@@ -34,7 +34,7 @@ initTabs(
 )
 
 definePageMeta({
-	layout: 'home-with-header',
+	layout: 'main-default',
 	middleware: ['is-authenticated', 'has-profile']
 })
 

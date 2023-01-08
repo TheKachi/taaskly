@@ -5,21 +5,21 @@
 		<div class="h-full relative py-4">
 			<div class="w-full flex justify-start pl-6">
 				<img
-					src="/logo-text.svg"
+					src="/logo-text-service.svg"
 					alt="logo"
-					class="h-8"
+					class="w-36"
 				>
 			</div>
 
 			<div class="relative mt-[70px]">
-				<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
+				<div v-for="n in serviceRoutes" :key="n.name" class="w-full flex flex-col gap-4">
 					<span v-if="!n.children">
 						<nuxt-link
 							:to="n.route"
 							class="flex items-center black use-hover"
 						>
-							<component :is="n.iconComp" class="mr-4" />
 							<!-- <icon :name="n.icon" class="mr-4 w-6" /> -->
+							<component :is="n.icon" class="mr-4 w-6" />
 							<p class="text-lg">
 								{{ n.name }}
 							</p>
@@ -28,8 +28,8 @@
 
 					<details v-else>
 						<summary class="flex py-1.5 items-center px-6 mt-3 duration-75 black">
-							<component :is="n.iconComp" class="mr-4" />
 							<!-- <icon :name="n.icon" class="mr-4 w-5" /> -->
+							<component :is="n.icon" class="mr-4 w-5" />
 							<p class="text-base font-medium text-gray300">
 								{{ n.name }}
 							</p>
@@ -48,25 +48,13 @@
 					</details>
 				</div>
 			</div>
-
-			<button
-				class="menu-btn flex items-center font-semibold !text-clear hover  bg-primary fixed bottom-4 hover:scale-105 transite !duration-200"
-				@click="useTaskModal().openCreateTask()"
-			>
-				<!-- <icon name="task" class="mr-4 w-5" /> -->
-				<task class="mr-4 w-5" />
-				<p class="text-base">
-					Create Task
-				</p>
-			</button>
 		</div>
 	</aside>
 </template>
 
 <script lang="ts" setup>
 import { useAuthModal, useTaskModal } from '@/composables/core/modals'
-import { routes } from '@/composables/utils/menu'
-import task from '@/assets/icons/src/task.vue'
+import { serviceRoutes } from '@/composables/utils/menu'
 
 </script>
 

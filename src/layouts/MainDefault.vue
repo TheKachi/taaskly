@@ -1,9 +1,9 @@
 <template>
 	<div class="flex w-full h-screen bg-clear relative  md:py-0 sm:px-4 px-0 overflow-y-hidden ">
-		<LazySidebarsLeftSidebar />
+		<LazySidebarsMainLeftSidebar />
 
 		<div class="relative bg-clear page w-full border-x border-faded_primary mx  h-screen sm:h-auto  mt ">
-			<TopbarDefaultTopbar />
+			<TopbarMainDefaultTopbar />
 			<Alert />
 			<PageLoading />
 			<div class="w-full h-full relative overflow-y-auto overflow-hidden bg-clear">
@@ -13,7 +13,7 @@
 			</div>
 			<LazyModalBase />
 		</div>
-		<LazySidebarsRightSidebar />
+		<LazySidebarsMainRightSidebar />
 	</div>
 </template>
 

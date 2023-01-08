@@ -1,47 +1,56 @@
-import Dashboard from '../../assets/icons/src/dashboard.vue'
+import dashboard from '~~/src/assets/icons/src/dashboard.vue'
 import service from '~~/src/assets/icons/src/service.vue'
 import shop from '~~/src/assets/icons/src/shop.vue'
 import wallet from '~~/src/assets/icons/src/wallet.vue'
 import profile from '~~/src/assets/icons/src/profile.vue'
 import help from '~~/src/assets/icons/src/help.vue'
 
-export const routes = [
+export const mainRoutes = [
 	{
-		icon: 'dashboard',
+		icon: dashboard,
 		name: 'Home',
-		route: '/home',
-		iconComp: Dashboard
+		route: '/main/home'
 	},
 	{
-		icon: 'service',
+		icon: service,
 		name: 'Services',
-		route: '/services',
-		iconComp: service
+		route: '/main/services'
 	},
 	{
-		icon: 'shop',
-		name: 'Shops',
-		route: '/shops',
-		iconComp: shop
+		icon: shop,
+		name: 'MarketPlace',
+		route: '/main/shops'
 	},
 
 	{
-		icon: 'wallet',
+		icon: wallet,
 		name: 'Wallet',
-		route: '/wallet',
-		iconComp: wallet
+		route: '/main/wallet'
 	},
 	{
-		icon: 'profile',
+		icon: profile,
 		name: 'Account',
-		route: '/account',
-		iconComp: profile
+		route: '/main/account'
 	},
 	{
-		icon: 'help',
+		icon: help,
 		name: 'Help',
-		route: '/help',
-		iconComp: help
+		route: '/main/help'
 	}
 
+]
+
+export const shopRoutes = [
+	{
+		icon: dashboard,
+		name: 'Overview',
+		route: '/shop'
+	}
+]
+export const serviceRoutes = [
+	{
+		icon: dashboard,
+		name: 'Overview',
+		route: '/shop'
+	}
 ]

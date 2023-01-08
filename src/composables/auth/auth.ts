@@ -17,7 +17,7 @@ export const useSignin = () => {
 			useUser().setProfileStatus(hasProfile)
 			useUser().setProfileUsername(username)
 			await useProfile().getProfile()
-			useRouter().push('/home')
+			useRouter().push('/main/home')
 			loading.value = false
 		} catch {
 			loading.value = false

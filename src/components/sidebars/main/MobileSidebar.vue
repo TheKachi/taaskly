@@ -18,17 +18,17 @@
 
 				<p v-if="user" class="text-xl font-medium ml-4 flex flex-col">
 					<span class="text-gray-500">Hello</span>
-					<span class="text-sm tx flex-wrap">{{ user.displayName.split(' ')[0] }}</span>
+					<span class="text-sm tx flex-wrap">{{ user.displayName?.split(' ')[0] }}</span>
 				</p>
 
 				<div class="relative mt-5 pt-4 border-t">
-					<div v-for="n in routes" :key="n.name" class="w-full flex flex-col gap-4">
+					<div v-for="n in mainRoutes" :key="n.name" class="w-full flex flex-col gap-4">
 						<span v-if="!n.children">
 							<nuxt-link
 								:to="n.route"
 								class="flex items-center black"
 							>
-								<component :is="n.iconComp" class="mr-4 w-5" />
+								<component :is="n.icon" class="mr-4 w-5" />
 								<!-- <icon :name="n.icon" class="mr-4 w-5" /> -->
 								<p class="text-base">
 									{{ n.name }}
@@ -38,7 +38,7 @@
 
 						<details v-else>
 							<summary class="flex py-1.5 items-center px-6 mt-3 duration-75 black">
-								<component :is="n.iconComp" class="mr-4 w-5" />
+								<component :is="n.icon" class="mr-4 w-5" />
 								<!-- <icon :name="n.icon" class="mr-4 w-5" /> -->
 								<p class="text-base font-medium text-gray300">
 									{{ n.name }}
@@ -76,7 +76,7 @@
 import Modal from '@/components/core/modal/Modal.vue'
 import { useAuthModal } from '@/composables/core/modals'
 import { useUser } from '@/composables/auth/user'
-import { routes } from '@/composables/utils/menu'
+import { mainRoutes } from '@/composables/utils/menu'
 import exit from '@/assets/icons/src/exit.vue'
 const { user } = useUser()
 </script>

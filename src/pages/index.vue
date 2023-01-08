@@ -1,5 +1,5 @@
 <template>
-	<LazyTopbarHomeNavBar />
+	<TopbarMainHomeNavBar />
 	<main class="container mx-auto center-col min-h-screen text-center relative">
 		<!-- <LazyBadgeHomeBadge v-for="badge in badgeArray" :key="badge.name" :name="badge.name" :badge="badge" /> -->
 		<h1 class="text-black max-w-[597px] ">

@@ -2,6 +2,6 @@ import { useUser } from '@/composables/auth/user'
 
 export default function isNotAuthenticated(route:any) {
 	if (useUser().isLoggedIn.value) {
-		return navigateTo('/home')
+		return navigateTo('/main/home')
 	}
 }

@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import verification from '@/pages/account/Verification.vue'
-import account from '@/pages/account/Account.vue'
+import verification from '@/pages/main/account/Verification.vue'
+import account from '@/pages/main/account/Account.vue'
 import { useTabs } from '@/composables/utils/tabs'
 
 const { TabComponents, initTabs, selected, tabViews, updateTab, tabs, onTabMounted } = useTabs()
@@ -27,7 +27,7 @@ onMounted(() => {
 })
 
 definePageMeta({
-	layout: 'home-with-header',
+	layout: 'main-default',
 	middleware: ['is-authenticated', 'has-profile']
 })
 </script>

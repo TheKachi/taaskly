@@ -50,18 +50,20 @@
 						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded p-4"
 					>
 						<div class="flex flex-col pb-1 pt-2.5 gap-4 ">
-							<button
+							<nuxt-link
+								to="/shop"
 								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
 							>
 								<shop class="w-6 text-greyDark mr-4" />
 								Switch to Shop dashboard
-							</button>
-							<button
+							</nuxt-link>
+							<nuxt-link
+								to="/service"
 								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
 							>
 								<service class="w-6 text-greyDark mr-4" />
 								Switch to Service dashboard
-							</button>
+							</nuxt-link>
 							<button
 								class="cursor-pointer flex items-center  text-base font-medium"
 								@click="useAuthModal().openLogout()"
