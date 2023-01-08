@@ -57,12 +57,13 @@
 								<icon name="shop" class="w-6 text-greyDark mr-4" />
 								Switch to Shop dashboard
 							</nuxt-link>
-							<button
+							<nuxt-link
+								to="/service"
 								class="cursor-pointer flex items-center text-greyDark text-base font-medium"
 							>
 								<icon name="service" class="w-6 text-greyDark mr-4" />
 								Switch to Service dashboard
-							</button>
+							</nuxt-link>
 							<button
 								class="cursor-pointer flex items-center  text-base font-medium"
 								@click="useAuthModal().openLogout()"

@@ -40,3 +40,10 @@ export const shopRoutes = [
 		route: '/shop'
 	}
 ]
+export const serviceRoutes = [
+	{
+		icon: 'dashboard',
+		name: 'Overview',
+		route: '/shop'
+	}
+]
