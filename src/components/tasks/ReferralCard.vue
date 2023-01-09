@@ -1,5 +1,5 @@
 <template>
-	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer">
+	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer" @click="$router.push(`/main/referrals`)">
 		<div class="flex-shrink-0">
 			<Avatar name="Taaskly" />
 		</div>
@@ -29,9 +29,7 @@
 import { useCoreModal } from '@/composables/core/modals'
 import hand_shake from '@/assets/icons/src/hand_shake.vue'
 import share from '@/assets/icons/src/share.vue'
-defineProps({
 
-})
 </script>
 
 <style scoped>
