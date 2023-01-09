@@ -76,7 +76,7 @@
 				@click="toggleMenu"
 			/> -->
 
-			<component :is="show ? close : menu" class="cursor-pointer" @click="toggleMenu" />
+			<component :is="show ? close : menu" class="cursor-pointer mobile" @click="toggleMenu" />
 		</header>
 
 		<div

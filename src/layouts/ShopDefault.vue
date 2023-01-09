@@ -1,4 +1,5 @@
 <template>
+	<NuxtLoadingIndicator />
 	<div class="flex w-full h-screen bg-clear relative  md:py-0  sm:pl-4 overflow-y-hidden ">
 		<LazySidebarsShopLeftSidebar />
 
