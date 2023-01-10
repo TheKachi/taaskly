@@ -5,6 +5,7 @@
 
 		<div class="relative bg-clear page w-full border-x border-faded_primary mx  h-screen sm:h-auto  mt ">
 			<!-- <TopbarDefaultTopbar /> -->
+			<TopbarMainShopTopbar />
 			<Alert />
 			<PageLoading />
 			<div class="w-full h-full relative overflow-y-auto overflow-hidden bg-clear">
