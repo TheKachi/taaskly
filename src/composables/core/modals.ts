@@ -7,16 +7,17 @@ import CreateTask from '@/components/modals/tasks/Create.vue'
 import DeleteTask from '@/components/modals/tasks/Delete.vue'
 import FlagTask from '@/components/modals/tasks/Flag.vue'
 import SocialShare from '@/components/modals/core/SocialShare.vue'
+import Referral from '@/components/modals/core/Referral.vue'
 
 type AuthTypes = 'Logout' | 'DefaultVerification'
 type SidebarTypes = 'MobileSidebar'
 type TaskTypes = 'CreateTask' | 'DeleteTask' | 'FlagTask'
-type CoreTypes = 'SocialShare'
+type CoreTypes = 'SocialShare' | 'Referral'
 
 const AuthModals = { Logout, DefaultVerification } as Record<AuthTypes, any>
 const SidebarModals = { MobileSidebar } as Record<SidebarTypes, any>
 const TaskModals = { CreateTask, DeleteTask, FlagTask } as Record<TaskTypes, any>
-const CoreModals = { SocialShare } as Record<CoreTypes, any>
+const CoreModals = { SocialShare, Referral } as Record<CoreTypes, any>
 
 export const modal = useModal(ref([] as any))
 const authModal = modal.register('Auth', AuthModals)

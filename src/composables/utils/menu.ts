@@ -68,13 +68,8 @@ export const shopRoutes = [
 	},
 	{
 		icon: dashboard,
-		name: 'Coupon',
-		route: '/shop/coupons'
-	},
-	{
-		icon: dashboard,
-		name: 'Storefront',
-		route: '/shop/storefront'
+		name: 'Website',
+		route: '/shop/website'
 	}
 ]
 
