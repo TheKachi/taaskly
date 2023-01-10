@@ -38,7 +38,7 @@
 				<p class="text-sm ">
 					Create a Service in minutes and get access to various tools to help you grow.
 				</p>
-				<button class="btn bg-clear w-full mt-3 text-night">
+				<button class="btn bg-clear w-full mt-3 text-night" @click="useServiceProfileModal()">
 					Create
 				</button>
 			</div>
@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useAuthModal } from '@/composables/core/modals'
+import { useAuthModal, useServiceProfileModal } from '@/composables/core/modals'
 import { routes } from '@/composables/utils/menu'
 
 </script>
