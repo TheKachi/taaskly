@@ -1,34 +1,82 @@
-export const routes = [
+import dashboard from '~~/src/assets/icons/src/dashboard.vue'
+import service from '~~/src/assets/icons/src/service.vue'
+import shop from '~~/src/assets/icons/src/shop.vue'
+import wallet from '~~/src/assets/icons/src/wallet.vue'
+import profile from '~~/src/assets/icons/src/profile.vue'
+import help from '~~/src/assets/icons/src/help.vue'
+
+export const mainRoutes = [
 	{
-		icon: 'dashboard',
+		icon: dashboard,
 		name: 'Home',
-		route: '/home'
+		route: '/main/home'
 	},
 	{
-		icon: 'service',
+		icon: service,
 		name: 'Services',
-		route: '/services'
+		route: '/main/services'
 	},
 	{
-		icon: 'shop',
-		name: 'Shops',
-		route: '/shops'
+		icon: shop,
+		name: 'MarketPlace',
+		route: '/main/shops'
 	},
 
 	{
-		icon: 'wallet',
+		icon: wallet,
 		name: 'Wallet',
-		route: '/wallet'
+		route: '/main/wallet'
 	},
 	{
-		icon: 'profile',
+		icon: profile,
 		name: 'Account',
-		route: '/account'
+		route: '/main/account'
 	},
 	{
-		icon: 'help',
+		icon: help,
 		name: 'Help',
-		route: '/help'
+		route: '/main/help'
 	}
 
+]
+
+export const shopRoutes = [
+	{
+		icon: dashboard,
+		name: 'Overview',
+		route: '/shop'
+	},
+	{
+		icon: dashboard,
+		name: 'Orders',
+		route: '/shop/order'
+	},
+	{
+		icon: dashboard,
+		name: 'Customers',
+		route: '/shop/customers'
+	},
+	{
+		icon: dashboard,
+		name: 'Products',
+		route: '/shop/products'
+	},
+	{
+		icon: dashboard,
+		name: 'Categories',
+		route: '/shop/categories'
+	},
+	{
+		icon: dashboard,
+		name: 'Website',
+		route: '/shop/website'
+	}
+]
+
+export const serviceRoutes = [
+	{
+		icon: dashboard,
+		name: 'Overview',
+		route: '/shop'
+	}
 ]

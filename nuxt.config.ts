@@ -10,6 +10,11 @@ export default {
 			routes: ['/', '/home', '/login', '/register', '/tasks/**']
 		}
 	},
+		vue: {
+		compilerOptions: {
+			isCustomElement: (tag) => ['lottie-player'].includes(tag)
+		}
+	},
 	app: {
 		head: {
 			title: 'Taaskly - Everything you need in one place',
@@ -47,6 +52,7 @@ export default {
 
 				{ name: 'format-detection', content: 'telephone=no' }
 			],
+			script: [{ src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js' }],
 			link: [
 				{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
 				{

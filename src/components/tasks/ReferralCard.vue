@@ -1,5 +1,5 @@
 <template>
-	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer">
+	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer" @click="$router.push(`/main/referrals`)">
 		<div class="flex-shrink-0">
 			<Avatar name="Taaskly" />
 		</div>
@@ -18,8 +18,8 @@
 				Refer your friends to use taaskly and earn <b>3%</b>  of their earnings. Terms and conditions apply
 			</div>
 			<div class=" text-gray-700 mt-1 flex gap-2">
-				<span class="accept-btn text-xs px-0 hover:px-2"> <icon name="hand_shake" class="w-5" />Generate referral link</span>
-				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()"> <icon name="share" class="w-5" /> share</span>
+				<span class="accept-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openReferral()"> <handShakeIcon class="w-5" />Generate referral link</span>
+				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()"> <share class="w-5" /> share</span>
 			</div>
 		</div>
 	</article>
@@ -27,9 +27,9 @@
 
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
-defineProps({
+import handShakeIcon from '@/assets/icons/src/hand_shake.vue'
+import share from '@/assets/icons/src/share.vue'
 
-})
 </script>
 
 <style scoped>
