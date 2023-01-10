@@ -45,8 +45,39 @@ export const shopRoutes = [
 		icon: dashboard,
 		name: 'Overview',
 		route: '/shop'
+	},
+	{
+		icon: dashboard,
+		name: 'Orders',
+		route: '/shop/order'
+	},
+	{
+		icon: dashboard,
+		name: 'Customers',
+		route: '/shop/customers'
+	},
+	{
+		icon: dashboard,
+		name: 'Products',
+		route: '/shop/products'
+	},
+	{
+		icon: dashboard,
+		name: 'Categories',
+		route: '/shop/categories'
+	},
+	{
+		icon: dashboard,
+		name: 'Coupon',
+		route: '/shop/coupons'
+	},
+	{
+		icon: dashboard,
+		name: 'Storefront',
+		route: '/shop/storefront'
 	}
 ]
+
 export const serviceRoutes = [
 	{
 		icon: dashboard,
