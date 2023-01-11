@@ -31,5 +31,3 @@ button{
 	@apply btn font-semibold text-white w-full justify-start
 }
 </style>
-
-// firebase use --add
