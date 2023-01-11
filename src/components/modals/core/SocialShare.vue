@@ -1,7 +1,7 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		title="Share Task"
+		title="Share Modal"
 	>
 		<section class="flex flex-col gap-4">
 			<button class=" bg-night" @click="copyToClipboard">
@@ -31,3 +31,5 @@ button{
 	@apply btn font-semibold text-white w-full justify-start
 }
 </style>
+
+// firebase use --add
