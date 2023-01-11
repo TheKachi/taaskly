@@ -13,7 +13,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID as string,
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID as string
 }
-
   // authDomain: "taaskly-dev.firebaseapp.com",
   // projectId: "taaskly-dev",
   // storageBucket: "taaskly-dev.appspot.com",
