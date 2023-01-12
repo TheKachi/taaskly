@@ -5,6 +5,7 @@
 		"generate-sprite": "svgstore -o ./src/assets/icons/sprite.svg ./src/assets/icons/source/*.svg",
 		"prestart": "yarn generate-sprite && yarn generate-icon-name-enum",
 		"build": "nuxt build",
+		"deploy": "firebase deploy --only functions",
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
