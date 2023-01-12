@@ -1,5 +1,6 @@
 
 <template>
+	<NuxtLoadingIndicator />
 	<slot />
 	<ModalBase />
 	<PageLoading />
