@@ -1,6 +1,7 @@
 @import url('./components.scss');
 @import url('./variables.css');
 @import url('./global.css');
+@import url('./transition.css');
 @import url('./tasks/index.css');
 
 @tailwind base;

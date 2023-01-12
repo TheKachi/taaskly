@@ -9,7 +9,9 @@
 			<PageLoading />
 			<div class="w-full h-full relative overflow-y-auto overflow-hidden bg-clear">
 				<section class="flex-col flex items-stretch overflow-y-auto pt-16 pb-6 relative">
-					<slot />
+					<div class="py-2 md:py-3 px-3 md:px-6">
+						<slot />
+					</div>
 				</section>
 			</div>
 			<LazyModalBase />
