@@ -1,5 +1,4 @@
 <template>
-	<PageLoadingIndicator />
 	<div class="layout-body">
 		<slot />
 		<ModalBase />

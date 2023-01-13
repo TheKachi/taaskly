@@ -1,6 +1,5 @@
 
 <template>
-	<PageLoadingIndicator />
 	<slot />
 	<ModalBase />
 	<PageLoading />

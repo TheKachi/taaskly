@@ -1,6 +1,5 @@
 
 <template>
-	<PageLoadingIndicator />
 	<div class="p-5">
 		<slot />
 		<ModalBase />
