@@ -1,6 +1,6 @@
 
 <template>
-	<NuxtLoadingIndicator :height="6" color="#4F1DED" />
+	<PageLoadingIndicator />
 	<div class="flex w-full h-screen bg-grey relative  md:py-0 sm:px-4 px-0 overflow-y-hidden ">
 		<SidebarsLeftSidebar />
 

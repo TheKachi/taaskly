@@ -1,6 +1,6 @@
 
 <template>
-	<NuxtLoadingIndicator :height="6" color="#4F1DED" />
+	<PageLoadingIndicator />
 	<div class="p-5">
 		<slot />
 		<ModalBase />

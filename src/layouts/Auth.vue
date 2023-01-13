@@ -1,6 +1,5 @@
-
 <template>
-	<PageLoadingIndicator :height="6" color="#4F1DED" />
+	<PageLoadingIndicator />
 	<div class="layout-body">
 		<slot />
 		<ModalBase />
