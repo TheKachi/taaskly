@@ -1,5 +1,5 @@
 <template>
-	<NuxtLoadingIndicator />
+	<NuxtLoadingIndicator :height="6" color="#4F1DED" />
 	<div class="flex w-full h-screen bg-clear relative  md:py-0 sm:px-4 px-0 overflow-y-hidden ">
 		<LazySidebarsMainLeftSidebar />
 
