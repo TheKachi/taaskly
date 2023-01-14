@@ -76,7 +76,12 @@ export const shopRoutes = [
 export const serviceRoutes = [
 	{
 		icon: dashboard,
-		name: 'Overview',
-		route: '/shop'
+		name: 'My services',
+		route: '/service'
+	},
+	{
+		icon: dashboard,
+		name: 'Offers',
+		route: '/service/offers'
 	}
 ]

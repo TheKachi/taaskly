@@ -38,7 +38,7 @@
 				<p class="text-sm ">
 					Create a Service in minutes and get access to various tools to help you grow.
 				</p>
-				<button class="btn bg-light w-full mt-3 text-dark">
+				<button class="btn bg-clear w-full mt-3 text-night" @click="useServiceProfileModal()">
 					Create
 				</button>
 			</div>
