@@ -7,7 +7,7 @@
 			name="menu"
 			@click="useSidebarModal().openMobileSidebar()"
 		/> -->
-		<component :is="menu" class="mobile cursor-pointer z-50" @click="useSidebarModal().openMobileSidebar()" />
+		<component :is="menu" class="mobile cursor-pointer z-50" @click="useSidebarModal().openShopMobileSidebar()" />
 
 		<h1 class="font-semibold text-xl capitalize pc">
 			{{ topbarName }}
