@@ -53,7 +53,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useAuthModal, useTaskModal } from '@/composables/core/modals'
 import { serviceRoutes } from '@/composables/utils/menu'
 
 </script>
