@@ -40,7 +40,7 @@ select {
     transform: translateY(500px);
 }
 
-.slideUp-enter-active,
+.slideUp-enter-active,2
 .slideUp-leave-active {
     transition: all 0.75s ease;
 }
