@@ -5,7 +5,8 @@
 			Create a Service to get started
 			<button
 				class="menu-btn flex items-center font-semibold !text-clear hover  bg-primary fixed bottom-4 hover:scale-105 transite !duration-200"
-				@click="useServiceProfileModal().openCreateService()">
+				@click="useServiceProfileModal().openCreateService()"
+			>
 				<p class="text-base">
 					Create Service
 				</p>
