@@ -46,7 +46,7 @@ const grids = [
 <style scoped>
 @media only screen and (min-width: 900px) {
 	.gridbox{
-		grid-template-columns: auto auto auto auto;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 }
 
