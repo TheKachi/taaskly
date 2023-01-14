@@ -27,8 +27,8 @@ module.exports = {
 				grey: 'var(--grey)',
 				grey_two: 'var(--grey_two)',
 				grey_four: 'var(--grey_four)',
-				clear: 'var(--clear)',
-				night: 'var(--night)',
+				light: 'var(--light)',
+				dark: 'var(--dark)',
 				line: 'var(--line)'
 
       },

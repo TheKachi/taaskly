@@ -13,7 +13,7 @@
 					{{ title }}
 					<icon
 						name="close"
-						class="text-night w-7 cursor-pointer"
+						class="text-dark w-7 cursor-pointer"
 						@click="closeModal()"
 					/>
 				</header>

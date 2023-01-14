@@ -89,11 +89,11 @@ a, .menu-btn {
 /* exact link will show the primary color for only the exact matching link */
 a.router-link-exact-active.black {
 
-	color: var(--clear);
+	color: var(--light);
 	background-color: var(--primary);
 	font-weight: 500;
 	& > svg {
-		color: var(--clear);
+		color: var(--light);
 	}
 }
 .tx{

@@ -4,7 +4,7 @@
 		title="Share Modal"
 	>
 		<section class="flex flex-col gap-4">
-			<button class=" bg-night" @click="copyToClipboard">
+			<button class=" bg-dark" @click="copyToClipboard">
 				<icon class="w-6 mr-2" name="clipboard" />
 				Copy to Clipboard
 			</button>

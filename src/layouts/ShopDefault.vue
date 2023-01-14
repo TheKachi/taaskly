@@ -1,13 +1,13 @@
 <template>
-	<div class="flex w-full h-screen bg-clear relative  md:py-0  sm:pl-4 overflow-y-hidden ">
+	<div class="flex w-full h-screen bg-light relative  md:py-0  sm:pl-4 overflow-y-hidden ">
 		<LazySidebarsShopLeftSidebar />
 
-		<div class="relative bg-clear page w-full border-x border-faded_primary mx  h-screen sm:h-auto  mt ">
+		<div class="relative bg-light page w-full border-x border-faded_primary mx  h-screen sm:h-auto  mt ">
 			<!-- <TopbarDefaultTopbar /> -->
 			<TopbarMainShopTopbar />
 			<Alert />
 			<PageLoading />
-			<div class="w-full h-full relative overflow-y-auto overflow-hidden bg-clear">
+			<div class="w-full h-full relative overflow-y-auto overflow-hidden bg-light">
 				<section class="flex-col flex items-stretch overflow-y-auto pt-16 pb-6 relative">
 					<div class="py-2 md:py-3 px-3 md:px-6">
 						<slot />

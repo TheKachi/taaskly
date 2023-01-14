@@ -16,7 +16,7 @@ export function useGeolocation() {
 			watcher = await navigator.geolocation.watchPosition((position) => { coords.value = position.coords }, error, options)
 	})
 	onUnmounted(() => {
-		if (watcher) navigator.geolocation.clearWatch(watcher)
+		if (watcher) navigator.geolocation.lightWatch(watcher)
 	})
 
 	return { coords, isSupported }

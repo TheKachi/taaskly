@@ -65,7 +65,7 @@ import { serviceRoutes } from '@/composables/utils/menu'
 a, .menu-btn {
 	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-75 rounded mt-1;
 &:hover.use-hover{
-	@apply border border-night;
+	@apply border border-dark;
 }
 }
 /* exact link will show the primary color for only the exact matching link */

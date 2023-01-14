@@ -40,7 +40,7 @@ watch(active, (value) => {
 		BORDER_WIDTH.value -= substractedValue
 		}, 75)
 
-		setTimeout(() => { clearInterval(intervalSequence) }, ALERT_DURATION)
+		setTimeout(() => { lightInterval(intervalSequence) }, ALERT_DURATION)
 	}
 })
 const ICON = computed({

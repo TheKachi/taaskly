@@ -12,11 +12,11 @@ import { useUser } from '@/composables/auth/user'
 
 const { openAlert } = useAlert()
 const { closeLoading } = useLoading()
-const { clearUser, setUser } = useUser()
+const { lightUser, setUser } = useUser()
 
 onAuthStateChanged(auth, (user) => {
 	if (user) setUser(user)
-	else clearUser()
+	else lightUser()
 })
 
 const provider = new GoogleAuthProvider()
@@ -34,7 +34,7 @@ export const googleAuth = async () => {
 export const signOutUser = async () => {
 	try {
 		await signOut(auth)
-		useUser().clearUser()
+		useUser().lightUser()
 	} catch (error:any) {
 		closeLoading()
 		openAlert({ type: 'ERROR', msg: `Oops seems something went wrong 😕 : ${error.message}` })

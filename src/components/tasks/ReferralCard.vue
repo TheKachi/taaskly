@@ -5,7 +5,7 @@
 		</div>
 		<div class="ml-4 flex flex-col items-start w-full">
 			<div class="text-lg font-bold">
-				<a href="#" class="text-night">Taaskly</a>
+				<a href="#" class="text-dark">Taaskly</a>
 			</div>
 			<div class="flex items-center gap-2">
 				<BadgeSmall name="3%" class="bg-black text-white" />

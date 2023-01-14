@@ -4,7 +4,7 @@
     }
     label,
     .label {
-        @apply font-medium text-base text-night mb-1 flex gap-2;
+        @apply font-medium text-base text-dark mb-1 flex gap-2;
     }
     .input-field {
         @apply border border-gray-400 w-full h-11 px-4 rounded  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
@@ -16,7 +16,7 @@
         @apply container flex justify-center items-center min-h-screen py-12;
     }
     .auth-box {
-        @apply w-[450px] mx-auto relative inset-x-0 top-5 max-w-[100%] bg-clear px-9 py-7 flex flex-col gap-2 shadow-md border;
+        @apply w-[450px] mx-auto relative inset-x-0 top-5 max-w-[100%] bg-light px-9 py-7 flex flex-col gap-2 shadow-md border;
         -webkit-perspective: 1000px;
         perspective: 1000px;
         -webkit-transform-style: preserve-3d;
@@ -38,13 +38,13 @@
         @apply rounded px-6 py-2.5 flex justify-center items-center disabled:bg-gray-500 box-border h-11;
     }
     .btn-primary {
-        @apply btn bg-primary text-clear;
+        @apply btn bg-primary text-light;
     }
     .btn-primary-inverse {
-        @apply btn bg-clear text-primary;
+        @apply btn bg-light text-primary;
     }
     .btn-secondary {
-        @apply btn bg-clear text-primary border border-primary;
+        @apply btn bg-light text-primary border border-primary;
     }
     .pc {
         @apply hidden lg:flex;
@@ -56,10 +56,10 @@
         @apply bg-white flex flex-col items-start gap-4  py-8 px-10 rounded-md w-[470px] max-w-[90%] max-h-[90vh] overflow-y-auto;
     }
     .modal-title {
-        @apply font-medium text-xl text-start w-full text-night border-b border-line pb-2;
+        @apply font-medium text-xl text-start w-full text-dark border-b border-line pb-2;
     }
     .modal-btn {
-        @apply rounded px-4 py-2 bg-primary text-clear w-full mt-6 flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
+        @apply rounded px-4 py-2 bg-primary text-light w-full mt-6 flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
     }
     .sidebar {
         @apply fixed inset-y-0 left-0;

@@ -27,18 +27,18 @@
 				<p class="text-sm">
 					Create an online shop in minutes and get access to various tools to help you grow.
 				</p>
-				<button class="btn bg-clear text-primary w-full mt-3">
+				<button class="btn bg-light text-primary w-full mt-3">
 					Create
 				</button>
 			</div>
-			<div class="bg-secondary rounded mt-5 flex flex-col gap-3 items-start p-5 text-night">
+			<div class="bg-secondary rounded mt-5 flex flex-col gap-3 items-start p-5 text-dark">
 				<h1 class="font-bold text-xl">
 					Create a Service
 				</h1>
 				<p class="text-sm ">
 					Create a Service in minutes and get access to various tools to help you grow.
 				</p>
-				<button class="btn bg-clear w-full mt-3 text-night">
+				<button class="btn bg-light w-full mt-3 text-dark">
 					Create
 				</button>
 			</div>
@@ -64,11 +64,11 @@ a, .menu-btn {
 /* exact link will show the primary color for only the exact matching link */
 a.router-link-exact-active.black {
 	@apply shadow-md ;
-	color: var(--clear);
+	color: var(--light);
 	background-color: var(--primary);
 	font-weight: 500;
 	& > svg {
-		color: var(--clear);
+		color: var(--light);
 	}
 }
 

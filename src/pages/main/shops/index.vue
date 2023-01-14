@@ -1,7 +1,7 @@
 <template>
 	<main class="p-4 flex gap-3 flex-wrap center">
 		<div v-for="n in 10" :key="n" class="card">
-			<h1 class="text-night text-5xl">
+			<h1 class="text-dark text-5xl">
 				Shoes
 			</h1>
 		</div>
@@ -17,7 +17,7 @@ definePageMeta({
 
 <style scoped>
 .card{
-	@apply border border-night;
+	@apply border border-dark;
 	    height: 200px;
     width: 100%;
 	max-width: 250px;

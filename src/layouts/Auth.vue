@@ -12,7 +12,7 @@
 
 <style scoped>
 .layout-body{
-	  background: var(--clear);
+	  background: var(--light);
 
 }
 </style>

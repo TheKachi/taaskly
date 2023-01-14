@@ -34,7 +34,7 @@ export const useUser = () => {
         globalState.username.value = name
     }
 
-    const clearUser = () => {
+    const lightUser = () => {
         globalState.user = null
         globalState.userString.value = null
         globalState.isLoggedIn.value = false
@@ -43,5 +43,5 @@ export const useUser = () => {
         globalState.username.value = null
     }
 
-    return { setUser, clearUser, ...globalState, setProfileStatus, setProfileUsername }
+    return { setUser, lightUser, ...globalState, setProfileStatus, setProfileUsername }
 }

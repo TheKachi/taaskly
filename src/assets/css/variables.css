@@ -6,8 +6,8 @@
     --faded_primary: #03030321;
     --blue: #554a27;
     --red: #f02d3a;
-    --clear: #ffffff;
-    --night: #000000;
+    --light: #ffffff;
+    --dark: #000000;
     --grey: #f4f7fa;
     --grey_two: #2b2b38;
     --grey_four: #aaaaaf;
@@ -24,8 +24,8 @@
         --faded_primary: #03030321;
         --blue: #554a27;
         --red: #f02d3a;
-        --clear: #000000;
-        --night: #ffffff;
+        --light: #000000;
+        --dark: #ffffff;
         --grey: #f4f7fa;
         --grey_two: #2b2b38;
         --grey_four: #aaaaaf;
