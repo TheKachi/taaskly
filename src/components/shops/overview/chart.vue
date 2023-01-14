@@ -32,55 +32,34 @@
 					>
 						<div class="flex flex-col overflow-hidden">
 							<button
-								class="cursor-pointer flex items-center text-base font-medium hover:bg-white p-2"
-								@click="setChartView('This week')"
+								v-for="item in drop_buttons"
+								:key="item"
+								class="chart_control_dropdown"
+								@click="setChartView(item)"
 							>
-								This week
-							</button>
-							<button
-								class="cursor-pointer flex items-center text-base font-medium hover:bg-white p-2"
-								@click="setChartView('This month')"
-							>
-								This month
-							</button>
-							<button
-								class="cursor-pointer flex items-center text-base font-medium hover:bg-white p-2"
-								@click="setChartView('This year')"
-							>
-								This year
+								{{ item }}
 							</button>
 						</div>
 					</div>
 				</transition>
 			</div>
 		</div>
-		<Bar :data="data" :options="options" />
+		<ChartBarchart :chart-data="data" :options="options" />
 	</div>
 </template>
 
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
-import { ref } from 'vue'
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-} from 'chart.js'
-import { Bar } from 'vue-chartjs'
 import down from '~~/src/assets/icons/src/down.vue'
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
-
+const now = ref(false)
 const target = ref(null)
 const showMenu = ref(false)
 const closeMenu = () => (showMenu.value = false)
 const toggleMenu = () => (showMenu.value = !showMenu.value)
 onClickOutside(target, closeMenu)
 const currentChartView = ref('This week')
+const drop_buttons = ref(['This week', 'This month', 'This year'])
 const data = ref({
         labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         datasets: [{ data: [40, 20, 12, 34, 53, 42, 11] }]
@@ -93,4 +72,10 @@ const setChartView = (str:string) => {
 	currentChartView.value = str
 	closeMenu()
 }
+
+onMounted(() => {
+	setTimeout(() => {
+		now.value = true
+	}, 3000)
+})
 </script>

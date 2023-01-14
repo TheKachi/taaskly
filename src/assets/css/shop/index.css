@@ -1,0 +1,6 @@
+@layer components {
+    .chart_control_dropdown {
+        @apply cursor-pointer flex items-center text-base font-medium hover:bg-white p-2;
+    }
+    
+}
