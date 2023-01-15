@@ -52,7 +52,6 @@
 import { onClickOutside } from '@vueuse/core'
 import down from '~~/src/assets/icons/src/down.vue'
 
-const now = ref(false)
 const target = ref(null)
 const showMenu = ref(false)
 const closeMenu = () => (showMenu.value = false)
@@ -73,9 +72,4 @@ const setChartView = (str:string) => {
 	closeMenu()
 }
 
-onMounted(() => {
-	setTimeout(() => {
-		now.value = true
-	}, 3000)
-})
 </script>
