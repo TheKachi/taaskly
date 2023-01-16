@@ -3,7 +3,8 @@
 		<LazySidebarsServiceLeftSidebar />
 
 		<div class="relative bg-light page w-full border-x border-faded_primary mx  h-screen sm:h-auto  mt ">
-			<!-- <TopbarDefaultTopbar /> -->
+			<TopbarServicesDefaultTopbarService />
+
 			<Alert />
 			<PageLoading />
 			<div class="w-full h-full relative overflow-y-auto overflow-hidden bg-light">
@@ -17,32 +18,35 @@
 </template>
 
 <script setup lang="ts">
+// import DefaultTopbarService from '../components/topbar/services/DefaultTopbarService.vue'
 
 </script>
 
 <style scoped lang="scss">
-.page{
-    background-color: #fff;
-    // border-top-left-radius: 12px;
-    box-shadow: -3px 3px 12px rgb(10 46 101 / 3%);
-    // padding: 20px;
+.page {
+	background-color: #fff;
+	// border-top-left-radius: 12px;
+	box-shadow: -3px 3px 12px rgb(10 46 101 / 3%);
+	// padding: 20px;
 
-	@media (max-width: 680px){
-    border-radius: 0;
-    width: 100%;
-    padding: 0px;
-    box-shadow: none;
+	@media (max-width: 680px) {
+		border-radius: 0;
+		width: 100%;
+		padding: 0px;
+		box-shadow: none;
 	}
 }
-.mx{
+
+.mx {
 	margin-left: min(20%, 14rem);
 
-	@media (max-width:1024px){
+	@media (max-width:1024px) {
 		margin-left: 0;
 		margin-right: 0;
 	}
 }
-.mt{
+
+.mt {
 	// margin-top: min(20%, 3rem);
 	// @media (max-width:640px){
 	// 	margin-top: 64px;

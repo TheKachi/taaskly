@@ -76,12 +76,32 @@ export const shopRoutes = [
 export const serviceRoutes = [
 	{
 		icon: dashboard,
-		name: 'My services',
+		name: 'Overview',
 		route: '/service'
 	},
 	{
 		icon: dashboard,
-		name: 'Offers',
-		route: '/service/offers'
+		name: 'Connects',
+		route: '/service/orders'
+	},
+	{
+		icon: dashboard,
+		name: 'Customers',
+		route: '/service/customers'
+	},
+	{
+		icon: dashboard,
+		name: 'Products',
+		route: '/service/products'
+	},
+	{
+		icon: dashboard,
+		name: 'My Services',
+		route: '/service/services'
+	},
+	{
+		icon: dashboard,
+		name: 'Website',
+		route: '/service/website'
 	}
 ]
