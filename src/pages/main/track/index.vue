@@ -1,7 +1,6 @@
 
 <template>
 	<div class="p-5">
-		<!-- Track, omoo -->
 		<form class="auth-form" @submit.prevent="verify">
 			<div class="field relative">
 				<label for="student">Description of the task</label>

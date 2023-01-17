@@ -52,7 +52,7 @@ export default {
 
 				{ name: 'format-detection', content: 'telephone=no' }
 			],
-			script: [{ src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js' }],
+			script: [{ src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js', defer: true, async: true }],
 			link: [
 				{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
 				{

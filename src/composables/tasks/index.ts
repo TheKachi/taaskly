@@ -78,17 +78,18 @@ export const useCreateTask = () => {
 }
 
 export const useFetchHomeTasks = () => {
-	const loading = ref(false)
+	const taskloading = ref(false)
 	const tasks = ref([])
 
 	const fetchHomeTasks = async () => {
 		if (tasks.value.length > 0) return
-		loading.value = true
+		taskloading.value = true
 		try {
+			console.log(getFirestoreCollection)
 			await getFirestoreCollection('tasks', tasks)
-			loading.value = false
+			taskloading.value = false
 		} catch (e: any) {
-			loading.value = false
+			taskloading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
 		}
 	}
@@ -100,7 +101,7 @@ export const useFetchHomeTasks = () => {
 		return tasks.value.filter((task: any) => task.userId !== userId.value)
 	})
 
-	return { tasks, fetchHomeTasks, loading, myTasks, homeTasks }
+	return { tasks, fetchHomeTasks, taskloading, myTasks, homeTasks }
 }
 
 export const useDeleteTask = () => {

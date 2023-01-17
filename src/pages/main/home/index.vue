@@ -24,6 +24,7 @@ import { useTaskModal } from '@/composables/core/modals'
 import { useTabs } from '@/composables/utils/tabs'
 import tasks from '@/pages/main/home/tasks.vue'
 import myTasks from '@/pages/main/home/myTasks.vue'
+import { useFetchHomeTasks } from '@/composables/tasks'
 
 const { TabComponents, initTabs, selected, tabViews, updateTab, tabs, onTabMounted } = useTabs()
 
