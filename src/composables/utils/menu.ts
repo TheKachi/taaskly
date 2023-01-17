@@ -81,8 +81,8 @@ export const serviceRoutes = [
 	},
 	{
 		icon: dashboard,
-		name: 'Connects',
-		route: '/service/orders'
+		name: 'Schedules',
+		route: '/service/schedules'
 	},
 	{
 		icon: dashboard,
@@ -91,12 +91,7 @@ export const serviceRoutes = [
 	},
 	{
 		icon: dashboard,
-		name: 'Products',
-		route: '/service/products'
-	},
-	{
-		icon: dashboard,
-		name: 'My Services',
+		name: 'Services',
 		route: '/service/services'
 	},
 	{

@@ -3,7 +3,7 @@
 		<LazySidebarsServiceLeftSidebar />
 
 		<div class="relative bg-light page w-full border-x border-faded_primary mx  h-screen sm:h-auto  mt ">
-			<TopbarServicesDefaultTopbarService />
+			<TopbarServiceDefaultTopbarService />
 
 			<Alert />
 			<PageLoading />
