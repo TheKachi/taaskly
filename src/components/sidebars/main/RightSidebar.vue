@@ -28,7 +28,7 @@
 					Create an online shop in minutes and get access to various tools to help you grow.
 				</p>
 				<button class="btn bg-light text-primary w-full mt-3">
-					Create
+					Join Waitlist
 				</button>
 			</div>
 			<div class="bg-secondary rounded mt-5 flex flex-col gap-3 items-start p-5 text-dark">
@@ -38,8 +38,8 @@
 				<p class="text-sm ">
 					Create a Service in minutes and get access to various tools to help you grow.
 				</p>
-				<button class="btn bg-clear w-full mt-3 text-night" @click="useServiceProfileModal()">
-					Create
+				<button class="btn bg-dark w-full mt-3 text-light">
+					Join Waitlist
 				</button>
 			</div>
 		</div>

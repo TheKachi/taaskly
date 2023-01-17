@@ -18,6 +18,7 @@ exports.userFirstTimeProfileUpdate = functions
 			dataValues.email;
 
 		const username = dataValues.username;
+		const email = dataValues.email;
 		const SENDGRID_KEY = process.env.SENDGRID_KEY;
 		sgMail.setApiKey(SENDGRID_KEY as string);
 
@@ -33,7 +34,7 @@ exports.userFirstTimeProfileUpdate = functions
 			.firestore()
 			.collection('usernames')
 			.doc(username)
-			.create({id: uid, username: username});
+			.create({id: uid, username: username, email: email});
 
 
 		await admin

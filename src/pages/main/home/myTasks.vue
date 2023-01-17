@@ -1,6 +1,9 @@
 <template>
 	<LazyTasksReferralCard />
-	<LazyTasksMyCard v-for="task in myTasks" :id="task.id" :key="task.id" :task="task" />
+	<div>
+		<LazyTasksMyCard v-for="task in myTasks" :id="task.id" :key="task.id" :task="task" />
+	</div>
+	<!-- <TasksLoadingCard/> -->
 </template>
 
 <script setup lang="ts">
