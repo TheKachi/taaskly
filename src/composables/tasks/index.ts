@@ -77,19 +77,15 @@ export const useCreateTask = () => {
 	return { formStep, create, createTaskForm, loading }
 }
 
+const tasks = ref([])
+const taskloading = ref(false)
 export const useFetchHomeTasks = () => {
-	const taskloading = ref(false)
-	const tasks = ref([])
-
 	const fetchHomeTasks = async () => {
 		if (tasks.value.length > 0) return
 		taskloading.value = true
 		try {
-			console.log('hi')
-			console.log(getFirestoreCollection('tasks', tasks))
 			await getFirestoreCollection('tasks', tasks)
 			taskloading.value = false
-			console.log('ewo')
 		} catch (e: any) {
 			taskloading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })

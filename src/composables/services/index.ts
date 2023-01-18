@@ -18,7 +18,7 @@ export const useServiceProfileForm = (type: 'create' | 'edit') => {
 		return
 	}
 	const create = async () => {
-		console.log('createprofileForm', createProfileForm)
+		// console.log('createprofileForm', createProfileForm)
 	}
 	return { profileFormStep, createProfileForm, create, loading }
 }
