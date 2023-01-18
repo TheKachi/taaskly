@@ -62,7 +62,8 @@ export const getFirestoreCollection = async (
 	const collectionRef = collection(db, collectionName)
 	const q = query(collectionRef, limit(FETCHLIMIT))
 
-	const unsubscribe = onSnapshot(q, (snapshot) => {
+	const initFetch = (resolve) => {
+		onSnapshot(q, (snapshot) => {
 		snapshot.docChanges().forEach((change) => {
 			if (change.type === 'added') {
 				ArrayRef.value.push(change.doc.data())
@@ -80,5 +81,10 @@ export const getFirestoreCollection = async (
 				ArrayRef.value = changedArray
 			}
 		})
+			console.log(ArrayRef.value)
+			resolve()
 	})
+	}
+
+	return new Promise((resolve) => initFetch(resolve))
 }

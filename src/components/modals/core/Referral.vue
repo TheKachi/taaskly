@@ -4,7 +4,7 @@
 		title="Referral Modal"
 	>
 		<section class="flex flex-col gap-4 w-full justify-center items-center">
-			<lottie-player
+			<!-- <lottie-player
 				id="share"
 				background="transparent"
 				direction="backward"
@@ -12,7 +12,7 @@
 				speed="1"
 				autoplay
 				class="max-w-[200px]"
-			/>
+			/> -->
 			<p>Your referral ID is your username => Kromate</p>
 			<button class="btn-primary">
 				copy referral link

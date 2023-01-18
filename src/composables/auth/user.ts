@@ -16,7 +16,7 @@ const globalState:globalStateType = {
     user: useStorage('userString', '').value ? JSON.parse(useStorage('userString', '').value) as User : null,
     isLoggedIn: useStorage('isLoggedIn', false),
     hasAProfile: useStorage('hasAProfile', false),
-    username: useStorage('username', ''),
+    username: useStorage('taaskly_username', ''),
     id: useStorage('id', null)
 }
 
