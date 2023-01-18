@@ -1,30 +1,35 @@
 <template>
-	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer">
-		<h1 class="text-4xl font-bold">
+	<article v-for="n in 3" :key="n" class="flex p-4  border-t border-secondaryLight  cursor-pointer">
+		<!-- <h1 class="text-4xl font-bold">
 			loading...
-		</h1>
+		</h1> -->
 
-		<!-- <div class="flex-shrink-0">
-			<Avatar :name="task.user.username" />
+		<div class="flex-shrink-0">
+			<Skeleton radius="90px" height="36px" width="36px" />
+			<!-- <Avatar :name="task.user.username" /> -->
 		</div>
 		<div class="ml-4 flex flex-col items-start w-full">
 			<div class="text-lg font-bold">
-				<a href="#" class="text-dark capitalize">{{ task.user.username }}</a>
+				<Skeleton radius="1px" height="23px" width="80px" />
+				<!-- <a href="#" class="text-dark capitalize">{{ task.user.username }}</a> -->
 			</div>
-			<div class="flex items-center gap-2">
-				<BadgeSmall :name="Number(task.price)==0 ? 'Free': `#${task.price}`" class="bg-black text-white" />
-				<BadgeSmall v-for="tag in task.tags" :key="tag" :name="tag" />
+			<div class="flex items-center gap-2 mt-3">
+				<Skeleton radius="90px" height="20px" width="50px" />
+				<Skeleton radius="90px" height="20px" width="50px" />
+				<Skeleton radius="90px" height="20px" width="50px" />
+				<Skeleton radius="90px" height="20px" width="50px" />
 			</div>
 
-			<div class="text-[15px] text-gray-700 mt-2">
-				{{ task.desc }}
+			<div class="text-[15px] text-gray-700 mt-2 w-full gap-3 flex flex-col">
+				<Skeleton radius="1px" height="20px" width="100%" />
+				<Skeleton radius="1px" height="20px" width="60%" />
 			</div>
-			<div class=" text-gray-700 mt-1 flex gap-2">
-				<span class="accept-btn text-xs px-0 hover:px-2"> <hand_shake class="w-5" /> Make an Offer</span>
-				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="shareCard(task)"> <share class="w-5" /> share</span>
-				<span class="flag-btn text-xs px-0 hover:px-2" @click.stop="setFlagTaskId(id)"> <flag class="w-5" /> flag</span>
+			<div class="flex gap-2 mt-3">
+				<Skeleton radius="3px" height="24px" width="104px" />
+				<Skeleton radius="3px" height="24px" width="58px" />
+				<Skeleton radius="3px" height="24px" width="55px" />
 			</div>
-		</div> -->
+		</div>
 	</article>
 </template>
 
