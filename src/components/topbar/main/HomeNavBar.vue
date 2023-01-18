@@ -65,7 +65,7 @@
 				<nuxt-link to="/auth/login" class="btn-secondary">
 					Log In
 				</nuxt-link>
-				<nuxt-link to="/auth/signup" class="btn-primary">
+				<nuxt-link to="/auth/register" class="btn-primary">
 					Sign up
 				</nuxt-link>
 			</div>
@@ -86,7 +86,7 @@
 			<nuxt-link to="/auth/login" class="btn-secondary mb-4">
 				Log In
 			</nuxt-link>
-			<nuxt-link to="/auth/signup" class="btn-primary">
+			<nuxt-link to="/auth/register" class="btn-primary">
 				Sign up
 			</nuxt-link>
 

@@ -6,6 +6,7 @@ import MobileSidebar from '@/components/sidebars/main/MobileSidebar.vue'
 import CreateTask from '@/components/modals/tasks/Create.vue'
 import DeleteTask from '@/components/modals/tasks/Delete.vue'
 import FlagTask from '@/components/modals/tasks/Flag.vue'
+import OfferTask from '@/components/modals/tasks/Offer.vue'
 import SocialShare from '@/components/modals/core/SocialShare.vue'
 import ShopMobileSidebar from '@/components/sidebars/shop/MobileSidebar.vue'
 import Referral from '@/components/modals/core/Referral.vue'
@@ -13,13 +14,13 @@ import CreateService from '@/components/modals/services/profile/CreateService.vu
 
 type AuthTypes = 'Logout' | 'DefaultVerification'
 type SidebarTypes = 'MobileSidebar' | 'ShopMobileSidebar'
-type TaskTypes = 'CreateTask' | 'DeleteTask' | 'FlagTask'
+type TaskTypes = 'CreateTask' | 'DeleteTask' | 'FlagTask' | 'OfferTask'
 type CoreTypes = 'SocialShare' | 'Referral'
 type ServiceProfileTypes = 'CreateService'
 
 const AuthModals = { Logout, DefaultVerification } as Record<AuthTypes, any>
 const SidebarModals = { MobileSidebar, ShopMobileSidebar } as Record<SidebarTypes, any>
-const TaskModals = { CreateTask, DeleteTask, FlagTask } as Record<TaskTypes, any>
+const TaskModals = { CreateTask, DeleteTask, FlagTask, OfferTask } as Record<TaskTypes, any>
 const CoreModals = { SocialShare, Referral } as Record<CoreTypes, any>
 const ServiceProfileModals = { CreateService } as Record<ServiceProfileTypes, any>
 

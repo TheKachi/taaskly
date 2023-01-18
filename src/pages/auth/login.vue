@@ -15,7 +15,7 @@
 			</form>
 
 			<p class="text-sm mt-4 text-center">
-				Don't have an Account? <nuxt-link to="/auth/signup" class="font-bold italic">
+				Don't have an Account? <nuxt-link to="/auth/register" class="font-bold italic">
 					Sign up
 				</nuxt-link>
 			</p>

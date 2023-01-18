@@ -4,6 +4,9 @@
 			<h1 class="auth-title">
 				Create an account
 			</h1>
+			<h1 v-if="referred" class="auth-title text-sm">
+				You have been referred by {{ decryptString(referred) }}
+			</h1>
 			<p class="text-sm text-center mb-2">
 				We encourage passwordless login being more secure and safe
 			</p>
@@ -24,9 +27,13 @@
 </template>
 
 <script setup lang="ts">
+import { decryptString } from '@/composables/utils'
 import { useSignin } from '@/composables/auth/auth'
 const { googleSignin, loading } = useSignin()
 
+const referred = useRoute().query.refer
+
+console.log(referred)
 definePageMeta({
 	layout: 'auth',
 	middleware: 'is-not-authenticated'
