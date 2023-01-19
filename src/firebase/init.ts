@@ -13,12 +13,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID as string,
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID as string
 }
-  // authDomain: "taaskly-dev.firebaseapp.com",
-  // projectId: "taaskly-dev",
-  // storageBucket: "taaskly-dev.appspot.com",
-  // messagingSenderId: "1036911639881",
-  // appId: "1:1036911639881:web:6dc017b45bf0bb2fd9ae98",
-  // measurementId: "G-VQRW5CL8TG"
 
 export const app = initializeApp(firebaseConfig)
   export let analytics:any
@@ -34,9 +28,9 @@ export const storage = getStorage(app)
 export const functions = getFunctions(getApp(), 'us-central1')
 
 // If on localhost, use all firebase services locally
-// if (location.hostname === 'localhost') {
-//   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
-//   connectFirestoreEmulator(db, 'localhost', 8181)
-//   connectFunctionsEmulator(functions, 'localhost', 5001)
-//   connectStorageEmulator(storage, 'localhost', 9199)
-// }
+if (location.hostname === 'localhost') {
+  connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
+  connectFirestoreEmulator(db, 'localhost', 8181)
+  connectFunctionsEmulator(functions, 'localhost', 5001)
+  connectStorageEmulator(storage, 'localhost', 9199)
+}
