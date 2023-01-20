@@ -1,12 +1,7 @@
 <template>
 	<main class="p-4 flex gap-3 flex-wrap center  min-h-[80vh]">
-		<!-- <div v-for="n in 10" :key="n" class="card">
-			<h1 class="text-dark text-5xl">
-				Tailor
-			</h1>
-		</div> -->
 		<LazyComingSoon
-			class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
+			:img="defaultImg"
 			title="Services Coming Soon"
 			description="Using an online service for your customers to see all the services you render."
 		/>
@@ -14,6 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import defaultImg from '@/assets/images/main/coming_soon_service.svg'
+
 definePageMeta({
 	layout: 'main-default',
 	middleware: ['is-authenticated', 'has-profile']

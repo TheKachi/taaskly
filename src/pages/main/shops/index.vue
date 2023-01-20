@@ -1,13 +1,15 @@
 <template>
 	<main class="p-4 flex gap-3 flex-wrap center min-h-[80vh]">
 		<LazyComingSoon
-			title="Shops Coming Soon"
+			:img="defaultImg"
+			title="Marketplace coming soon"
 			description="Using an online shop to get access to various tools to help you grow your business."
 		/>
 	</main>
 </template>
 
 <script setup lang="ts">
+import defaultImg from '@/assets/images/main/coming_soon_market.svg'
 definePageMeta({
 	layout: 'main-default',
 	middleware: ['is-authenticated', 'has-profile']

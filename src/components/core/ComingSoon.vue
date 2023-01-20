@@ -1,37 +1,37 @@
 <template>
-	<div>
-		<div
-			class="flex flex-col gap-4 justify-center"
+	<section
+		class="flex flex-col gap-4 justify-center items-center mt-6"
+	>
+		<img
+			:src="props.img"
+			class="w-96"
+			alt=" Coming Soon illustration"
 		>
-			<div>
-				<img
-					src="../../assets/images/main/construction-img.svg"
-					class="w-full h-full object-contain max-w-[400px] mx-auto"
-					alt=" Coming Soon illustration"
-				>
-			</div>
-			<h2
-				class="text-2xl font-semibold text-center"
-			>
-				{{ title }}
-			</h2>
-			<p class="text-xl font-medium text-center max-w-[500px] mx-auto">
-				{{ description }}
-			</p>
-			<button class="btn bg-dark w-[60%] mx-auto mt-3 text-light">
-				Join Waitlist
-			</button>
-		</div>
-	</div>
+
+		<h2
+			class="text-2xl font-semibold text-center"
+		>
+			{{ title }}
+		</h2>
+		<p class="text-xl font-medium text-center max-w-[500px] mx-auto">
+			{{ description }}
+		</p>
+		<!-- <button class="btn bg-dark w-[60%] mx-auto mt-3 text-light">
+			Join Waitlist
+		</button> -->
+	</section>
 </template>
 
 <script setup lang="ts">
+import defaultImg from '@/assets/images/main/coming_soon_service.svg'
 interface Props {
+  img: string;
   title: string;
   description: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  img: defaultImg,
   title: 'Coming Soon',
   description: 'Coming Soon description'
 })
