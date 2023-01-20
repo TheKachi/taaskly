@@ -3,7 +3,7 @@
 		<LazyComingSoon
 			:img="defaultImg"
 			title="Services Coming Soon"
-			description="Do you need a tutor to help with an assignment, a barber to give you that nice cut, a tailor to slimfit a dress or a software developer to build your startup. using Taaskly you can find all these services around you and more. <br> <br> You can also list your services here."
+			description="Tutors, Hair Stylist, Fashion Designers or Software developers, using Taaskly Services you can find all these individuals around you and more. <br> <br> You can also list your services here."
 			btn-text="List your Services"
 		/>
 	</main>
