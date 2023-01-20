@@ -1,10 +1,15 @@
 <template>
-	<main class="p-4 flex gap-3 flex-wrap center">
-		<div v-for="n in 10" :key="n" class="card">
+	<main class="p-4 flex gap-3 flex-wrap center  min-h-[80vh]">
+		<!-- <div v-for="n in 10" :key="n" class="card">
 			<h1 class="text-dark text-5xl">
 				Tailor
 			</h1>
-		</div>
+		</div> -->
+		<LazyComingSoon
+			class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
+			title="Services Coming Soon"
+			description="Using an online service for your customers to see all the services you render."
+		/>
 	</main>
 </template>
 
