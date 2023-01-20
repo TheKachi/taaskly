@@ -64,7 +64,6 @@
 		"firebase-functions": "^4.1.0",
 		"gsap": "^3.11.3",
 		"uuid": "^9.0.0",
-		"vue-chartjs": "^5.2.0",
-		"vuedraggable": "^4.1.0"
+		"vue-chartjs": "^5.2.0"
 	}
 }

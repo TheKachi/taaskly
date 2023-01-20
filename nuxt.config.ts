@@ -89,7 +89,7 @@ export default {
 			postcssOptions: require('./postcss.config.js')
 		}
 	},
-	plugins: ['@/plugins/draggable.ts', '@/plugins/currency/index.ts'],
+	plugins: ['@/plugins/currency/index.ts'],
 	dir: {
 		layouts: './src/layouts',
 		pages: './src/pages',

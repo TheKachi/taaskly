@@ -1,12 +1,6 @@
 <template>
 	<main class="p-4 flex gap-3 flex-wrap center min-h-[80vh]">
-		<!-- <div v-for="n in 10" :key="n" class="card">
-			<h1 class="text-dark text-5xl">
-				Shoes
-			</h1>
-		</div> -->
 		<LazyComingSoon
-			class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
 			title="Shops Coming Soon"
 			description="Using an online shop to get access to various tools to help you grow your business."
 		/>
