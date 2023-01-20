@@ -3,7 +3,8 @@
 		<LazyComingSoon
 			:img="defaultImg"
 			title="Marketplace coming soon"
-			description="Using an online shop to get access to various tools to help you grow your business."
+			description="Cakes, Snacks, Bags, Clothes e.t.c. whatever it is that you need  you can find vendors around you using Taaskly Marketplace. <br> <br> You can also sell your products here."
+			btn-text="Start Selling"
 		/>
 	</main>
 </template>

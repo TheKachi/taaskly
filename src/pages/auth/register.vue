@@ -33,7 +33,6 @@ const { googleSignin, loading } = useSignin()
 
 const referred = useRoute().query.refer
 
-console.log(referred)
 definePageMeta({
 	layout: 'auth',
 	middleware: 'is-not-authenticated'
