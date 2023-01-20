@@ -1,6 +1,6 @@
 <template>
-	<div>
-		Hello World from orders
+	<div class="w-full">
+		<ShopsOrderTable />
 	</div>
 </template>
 
