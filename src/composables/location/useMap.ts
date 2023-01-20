@@ -43,7 +43,7 @@ export const initMap = async (mapDiv:any) => {
 
 	const checkLoc = setInterval(async () => {
 		if (coords.value.latitude || coords.value.longitude) {
-			await lightInterval(checkLoc)
+			await clearInterval(checkLoc)
 			await setMarker(currPos)
 			useLoading().closeLoading()
 		}
