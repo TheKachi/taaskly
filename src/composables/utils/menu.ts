@@ -19,7 +19,7 @@ export const mainRoutes = [
 	{
 		icon: shop,
 		name: 'MarketPlace',
-		route: '/main/shops'
+		route: '/main/marketplace'
 	},
 
 	{
@@ -34,8 +34,8 @@ export const mainRoutes = [
 	},
 	{
 		icon: help,
-		name: 'Help',
-		route: '/main/help'
+		name: 'Support',
+		route: '/main/support'
 	}
 
 ]
@@ -100,3 +100,45 @@ export const serviceRoutes = [
 		route: '/service/website'
 	}
 ]
+
+export const mainTopbarName = {
+	'main-tasks-id': {
+		name: 'Tasks',
+		can_go_back: true,
+		back_routes: '/main/home'
+	},
+	'main-home': {
+		name: 'Home',
+		can_go_back: false
+	},
+	'main-services': {
+		name: 'Services',
+		can_go_back: false
+	},
+	'main-marketplace': {
+		name: 'MarketPlace',
+		can_go_back: false
+	},
+	'main-wallet': {
+		name: 'Wallet',
+		can_go_back: false
+	},
+	'main-account': {
+		name: 'Account',
+		can_go_back: false
+	},
+	'main-support': {
+		name: 'Support',
+		can_go_back: false
+	},
+	'main-referrals': {
+		name: 'Refferals',
+		can_go_back: true,
+		back_routes: '/main/home'
+	}
+}
+
+export const topbarName = (name: string) => {
+	if (name in mainTopbarName) return mainTopbarName[name]
+	return { name }
+}

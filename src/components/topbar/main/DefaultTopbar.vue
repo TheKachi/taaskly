@@ -2,11 +2,21 @@
 	<nav
 		class="absolute  w-full top-0  h-16 px-4  flex items-center justify-between box-border z-20 bg-white shadow"
 	>
-		<component :is="menu" class="mobile cursor-pointer z-50" @click="useSidebarModal().openMobileSidebar()" />
+		<div class="items-center gap-4 mobile">
+			<component :is="down" v-if="topbarName($route.name).can_go_back" class="cursor-pointer z-50 rotate-90" @click="$router.go(-1)" />
+			<component :is="menu" v-else class="cursor-pointer z-50" @click="useSidebarModal().openMobileSidebar()" />
 
-		<h1 class="font-semibold text-xl capitalize pc">
-			{{ topbarName }}
-		</h1>
+			<h1 class="font-semibold text-lg capitalize">
+				{{ topbarName($route.name).name }}
+			</h1>
+		</div>
+
+		<div class="items-center gap-3 pc">
+			<component :is="down" v-if="topbarName($route.name).can_go_back" class="cursor-pointer z-50 rotate-90" @click="$router.go(-1)" />
+			<h1 class="font-semibold text-xl capitalize">
+				{{ topbarName($route.name).name }}
+			</h1>
+		</div>
 
 		<div class="flex items-center gap-4">
 			<div ref="target" class="flex flex-col relative">
@@ -71,6 +81,7 @@ import down from '~~/src/assets/icons/src/down.vue'
 import shop from '~~/src/assets/icons/src/shop.vue'
 import service from '~~/src/assets/icons/src/service.vue'
 import signOut from '~~/src/assets/icons/src/signOut.vue'
+import { topbarName } from '@/composables/utils/menu'
 
 const { user } = useUser()
 const target = ref(null)
@@ -82,17 +93,5 @@ onClickOutside(target, closeMenu)
 const { getProfile, loading, profileData } = useProfile()
 onMounted(getProfile)
 
-const topbarName = computed(() => useRoute().name)
+// const topbarName = computed(() => useRoute().name)
 </script>
-
-<style scoped lang="scss">
-.slide-enter-active,
-.slide-leave-active {
-	transition: all 0.2s ease;
-}
-.slide-enter-from,
-.slide-leave-to {
-	transform: translateY(-10px);
-	opacity: 0;
-}
-</style>
