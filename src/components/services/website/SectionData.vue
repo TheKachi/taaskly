@@ -1,14 +1,9 @@
 <template>
-	<div class="">
-		<div class="">
-			<h5>Featured</h5>
-			<div class="grid grid-cols-3 gap-4">
-				<ServicesWebsiteFeaturesProfileCard />
-				<ServicesWebsiteFeaturesProfileCard />
-				<ServicesWebsiteFeaturesProfileCard />
-				<ServicesWebsiteFeaturesProfileCard />
-			</div>
-		</div>
+	<div class="grid grid-cols-3 gap-4">
+		<ServicesWebsiteFeaturesProfileCard />
+		<ServicesWebsiteFeaturesProfileCard />
+		<ServicesWebsiteFeaturesProfileCard />
+		<ServicesWebsiteFeaturesProfileCard />
 	</div>
 </template>
 

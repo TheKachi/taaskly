@@ -1,7 +1,10 @@
 <template>
 	<div class="container max-w-5xl">
-		<ServicesWebsiteProfileInfoCard />
-		<ServicesWebsiteFeaturedSection class="mt-4" />
+		<FrontHeader />
+		<div class="flex mt-8 gap-12">
+			<FrontCategoryTab />
+			<ServicesWebsiteSectionData />
+		</div>
 	</div>
 </template>
 
