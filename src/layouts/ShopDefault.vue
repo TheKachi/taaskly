@@ -3,8 +3,7 @@
 		<LazySidebarsShopLeftSidebar />
 
 		<div class="relative bg-light page w-full border-x border-faded_primary mx  h-screen sm:h-auto  mt ">
-			<!-- <TopbarDefaultTopbar /> -->
-			<TopbarMainShopTopbar />
+			<TopbarShopDefaultTopbar />
 			<Alert />
 			<PageLoading />
 			<div class="w-full h-full relative overflow-y-auto overflow-hidden bg-light">
