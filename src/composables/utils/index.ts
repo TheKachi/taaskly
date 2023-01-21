@@ -44,5 +44,10 @@ export const decryptString = (text, key = 10) => {
 }
 
 export const convertToCurrency = (value: number) => {
-  return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+  return new Intl.NumberFormat('en-NG', {
+  style: 'currency',
+  currency: 'NGN'
+}).format(value)
+
+  // value.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 }

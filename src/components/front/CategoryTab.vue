@@ -14,8 +14,6 @@ const selected = computed({
     get: () => useRoute().query.category
 })
 
-console.log(selected.value)
-
 const categories = ref([
     { name: 'All', selected: true },
     { name: 'New' },
