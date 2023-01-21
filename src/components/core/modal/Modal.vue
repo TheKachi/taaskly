@@ -10,10 +10,10 @@
 		>
 			<div v-if="type == 'popup'" class="modal">
 				<header class="modal-title flex justify-between w-full items-center">
-					{{ title }}
+					<span class="">{{ title }}</span>
 					<icon
 						name="close"
-						class="text-dark w-7 cursor-pointer"
+						class="text-dark w-7 cursor-pointer  border border-dark rounded-md"
 						@click="closeModal()"
 					/>
 				</header>
@@ -21,7 +21,7 @@
 					<slot />
 				</div>
 			</div>
-			<transition v-else name="slide" appear :duration="500">
+			<transition v-if="type == 'sidebar'" name="slide" appear :duration="500">
 				<div class="sidebar">
 					<slot />
 				</div>
@@ -82,7 +82,7 @@ const closeModal = () => {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.5);
 	width: 100vw;
 	max-width: 100vw;
 	min-height: 100%;

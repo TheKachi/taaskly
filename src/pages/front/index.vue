@@ -1,5 +1,5 @@
 <template>
-	<div class="h-full bg-light_primary p-5 flex flex-col gap-4">
+	<div class="container max-w-5xl">
 		<ServicesWebsiteProfileInfoCard />
 		<ServicesWebsiteFeaturedSection class="mt-4" />
 	</div>
@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-	layout: 'demo-default'
+	layout: 'front-default'
 })
 
 </script>
