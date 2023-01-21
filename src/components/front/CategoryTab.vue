@@ -3,7 +3,7 @@
 		<h4 class="header bg-primary text-light py-2 px-4 w-full">
 			Categories
 		</h4>
-		<router-link v-for="category in categories" :key="category.name" :to="`?category=${category.name}`" :class="[ selected == category.name ?'active':'', 'py-2 px-4 border-y border-dark']">
+		<router-link v-for="category in categories" :key="category.name" :to="`?category=${category.name}`" :class="[ selected == category.name ?'active':'', 'py-2 px-4 border-y border-dark transite']">
 			{{ category.name }}
 		</router-link>
 	</div>
@@ -30,7 +30,7 @@ const categories = ref([
     @apply border border-y-2 font-bold;
 }
 a{
-    @apply hover:shadow hover:scale-y-105 hover:font-bold transite;
+    @apply hover:shadow hover:scale-y-105 hover:font-bold ;
     &:last-child {
      @apply rounded-b-md ;
     }

@@ -15,19 +15,6 @@
 			</div>
 			<LazyModalBase />
 		</div>
-		<div
-			class="relative inline-flex items-center justify-center px-4 py-0 mt-8 text-sm text-gray-800 bg-white rounded-md shadow-md md:fixed bottom-0 left-3 md:left-2 md:bottom-2"
-		>
-			<div class="flex flex-col justify-center py-1">
-				<nuxt-link to="#">
-					<img
-						src="/logo-text.svg"
-						alt="Selar Logo"
-						class="h-10 p-2"
-					>
-				</nuxt-link>
-			</div>
-		</div>
 	</div>
 </template>
 
