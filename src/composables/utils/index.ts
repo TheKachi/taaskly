@@ -42,3 +42,7 @@ export const decryptString = (text, key = 10) => {
   }
   return result
 }
+
+export const convertToCurrency = (value: number) => {
+  return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+}
