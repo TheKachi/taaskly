@@ -51,7 +51,7 @@
         @apply bg-white flex flex-col items-start gap-4 px-8 p-6 rounded-md w-[470px] max-w-[90%] max-h-[90vh] overflow-y-auto shadow-md border border-dark;
     }
     .modal-title {
-        @apply font-bold text-[24px] text-start w-full text-dark pb-4;
+        @apply font-bold text-2xl text-start w-full text-dark pb-4;
     }
     .modal-btn {
         @apply rounded px-4 py-3 bg-primary text-light w-full mt-6 flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
