@@ -33,6 +33,6 @@
 }
 
 .front-header{
-	@apply flex flex-col md:flex-row gap-6 items-center md:items-start justify-center py-10 px-4 w-full text-center md:text-left md:rounded-md shadow md:border border-dark md:mt-12
+	@apply flex flex-col md:flex-row gap-6 items-center md:items-start justify-center py-10 px-4 w-full text-center md:text-left md:rounded-md shadow-md md:border border-dark md:mt-12
 }
 </style>
