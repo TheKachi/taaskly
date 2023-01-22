@@ -26,6 +26,7 @@ export enum IconNames {
   'share' = 'share',
   'shop' = 'shop',
   'signOut' = 'signOut',
+  'star' = 'star',
   'task' = 'task',
   'twitter' = 'twitter',
   'wallet' = 'wallet',
