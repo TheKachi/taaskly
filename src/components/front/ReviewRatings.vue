@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full md:max-w-[15rem] lg:flex flex-col border border-dark rounded-md gap-2 p-2.5 hidden">
+	<div class="w-full md:max-w-[15rem] flex flex-col border border-dark rounded-md gap-2 p-2.5 ">
 		<div class="bg-primary text-light py-2 px-4  center-col gap-3">
 			<h2 class="text-3xl font-bold ">
 				5.0/5
@@ -12,7 +12,7 @@
 			</p>
 		</div>
 
-		<div class="flex flex-col ">
+		<div class="flex flex-col items-start ">
 			<div class="rater">
 				<h5 class="text-base font-medium">
 					5
@@ -53,10 +53,10 @@
 
 <style scoped>
 .rater{
- @apply flex gap-2 items-center justify-between
+ @apply flex gap-2 items-center justify-between w-full
 }
 .rater-body{
- @apply w-full border border-dark h-3.5 rounded-full p-0.5 max-w-[120px]
+ @apply w-full border border-dark h-3.5 rounded-full p-0.5 md:max-w-[120px]
 }
 .rater-fill{
     @apply bg-primary h-full rounded-full

@@ -1,5 +1,5 @@
 <template>
-	<section class="flex items-start justify-between mt-6 gap-12 px-2.5 lg:px-0 w-full ">
+	<section class="flex flex-col md:flex-row items-start justify-between mt-6 lg:gap-12 gap-6 px-2.5 lg:px-0 w-full ">
 		<FrontReviewRatings />
 		<div class="flex flex-col border border-dark rounded-md ">
 			<article v-for="n in 4" :key="n" class="flex p-4     cursor-pointer">
