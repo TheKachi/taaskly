@@ -5,7 +5,7 @@
 			<Alert />
 			<PageLoading />
 			<div
-				class="w-full h-full relative overflow-y-auto overflow-hidden bg-[#25175416]"
+				class="w-full h-full relative overflow-y-auto overflow-hidden bg-light"
 			>
 				<section
 					class="flex-col flex items-stretch overflow-y-auto pt-16 pb-6 relative"

@@ -7,7 +7,7 @@
 			:key="product.name"
 			class="border border-dark p-2 sm:p-2.5 rounded-md flex flex-col justify-between hover:shadow-md md:hover:scale-105 transite !duration-200 w-full"
 		>
-			<img :src="product.image" :alt="product.name" class="w-full">
+			<img :src="product.image" :alt="product.name" class="w-full border border-dark rounded-md">
 
 			<div class="flex flex-col gap-2 mt-4 transite">
 				<p class="font-medium">
