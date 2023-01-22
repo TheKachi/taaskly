@@ -1,7 +1,7 @@
 <template>
 	<div class="front-header">
 		<img
-			class="w-36 h-36 object-fit border-2 border-dark rounded-full p-1"
+			class="w-36 h-36 object-fit border-2 border-light shadow rounded-full p-0.5"
 			src="/logo.svg"
 			alt="service profile image"
 		>
@@ -29,7 +29,7 @@
 
 <style scoped>
 .pill{
-	@apply border-none  !px-[0.75rem] !py-[0.25rem]
+	@apply border-2 border-light shadow  !px-[0.75rem] !py-[0.25rem]
 }
 
 .front-header{
