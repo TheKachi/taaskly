@@ -6,7 +6,12 @@
 				<icon class="w-7 cursor-pointer absolute left-0" name="back" @click="useAuthModal().openLogout()" />
 				{{ formStep==1 ? 'Create a profile ':'Almost done' }}
 			</h1>
-			<p class="text-sm text-center mb-2">
+			<p
+				v-if="profileFormState.referrer.value"
+				class="text-sm text-center mb-2 max-w-xs"
+				v-html="formStep==1 ? `Basic details to get you started on your Journey with <b class='text-lg '> ${profileFormState.referrer.value}</b>  on Taaskly` :'Few steps left' "
+			/>
+			<p v-else class="text-sm text-center mb-2 max-w-xs">
 				{{ formStep==1 ? 'Basic details to get you started on your Journey with taaskly':'Few steps left' }}
 			</p>
 			<form class="auth-form" @submit.prevent="createProfile">

@@ -1,7 +1,7 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		title="Share Modal"
+		title="Share"
 	>
 		<section class="flex flex-col gap-4">
 			<button class=" bg-dark" @click="copyToClipboard">

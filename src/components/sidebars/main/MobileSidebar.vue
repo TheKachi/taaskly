@@ -57,15 +57,6 @@
 							</div>
 						</details>
 					</div>
-					<button
-						class="menu-btn flex items-center black !text-[#ff615c] cursor-pointer"
-						@click="useAuthModal().openLogout()"
-					>
-						<exit class="mr-4 w-5" />
-						<p class="text-base">
-							Sign Out
-						</p>
-					</button>
 				</div>
 			</div>
 		</aside>

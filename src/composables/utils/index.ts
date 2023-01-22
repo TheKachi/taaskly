@@ -37,7 +37,7 @@ export const decryptString = (text, key = 10) => {
   let result = ''
   for (let i = 0; i < text.length; i++) {
     let char = text.charCodeAt(i)
-    char = String.fromCharCode((char - 65 + key) % 26 + 65)
+    char = String.fromCharCode((char - 65 + key) % 26 + 65).toLocaleLowerCase()
     result += char
   }
   return result

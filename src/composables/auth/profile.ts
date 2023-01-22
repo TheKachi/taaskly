@@ -27,7 +27,8 @@ const profileFormState = {
 	tasker_rating: ref(false),
 	runner_rating: ref(false),
 	created_at: ref(new Date().toISOString()),
-	updated_at: ref(new Date().toISOString())
+	updated_at: ref(new Date().toISOString()),
+	referrer: ref('')
 }
 export const profileData = ref({}) as Ref<ProfileType>
 
@@ -63,7 +64,8 @@ export const useCreateProfile = () => {
 			tasker_rating: profileFormState.tasker_rating.value,
 			runner_rating: profileFormState.runner_rating.value,
 			created_at: profileFormState.created_at.value,
-			updated_at: profileFormState.updated_at.value
+			updated_at: profileFormState.updated_at.value,
+			referrer: profileFormState.referrer.value
 		}
 
 		try {
@@ -91,6 +93,7 @@ export const useCreateProfile = () => {
 		profileFormState.last_name.value = useUser().user?.displayName?.split(
 			' '
 		)[1] as string
+		profileFormState.referrer.value = localStorage.getItem('taaskly_referral') as string
 	}
 	return {
 		createProfile,

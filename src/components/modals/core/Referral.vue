@@ -1,12 +1,12 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		title="Referral Modal"
+		title="Referral"
 	>
 		<section class="flex flex-col gap-4 w-full justify-center items-start">
-			<p>Your referral ID is </p>
-			<span>{{ encodedName }}</span>
-			<button class="btn-primary" @click="copyUrl">
+			<p>Your referral ID is <b>{{ encodedName }}</b> </p>
+
+			<button class="btn-primary w-full" @click="copyUrl">
 				copy referral link
 			</button>
 		</section>

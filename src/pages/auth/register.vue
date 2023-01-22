@@ -4,7 +4,7 @@
 			<h1 class="auth-title">
 				Create an account
 			</h1>
-			<h1 v-if="referred" class="auth-title text-sm">
+			<h1 v-if="referred" class="auth-title text-sm ">
 				You have been referred by {{ decryptString(referred) }}
 			</h1>
 			<p class="text-sm text-center mb-2">

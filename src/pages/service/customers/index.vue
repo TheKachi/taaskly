@@ -7,7 +7,7 @@
 <script setup lang="ts">
 definePageMeta({
 	layout: 'service-default',
-	middleware: ['is-authenticated', 'has-profile']
+	middleware: ['is-authenticated', 'has-no-profile']
 })
 </script>
 

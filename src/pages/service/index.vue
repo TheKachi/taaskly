@@ -20,7 +20,7 @@ import { useAuthModal, useServiceProfileModal } from '@/composables/core/modals'
 const emptyServices = ref(true)
 definePageMeta({
 	layout: 'service-default',
-	middleware: ['is-authenticated', 'has-profile']
+	middleware: ['is-authenticated', 'has-no-profile']
 })
 </script>
 

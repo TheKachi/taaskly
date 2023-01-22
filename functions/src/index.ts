@@ -13,6 +13,9 @@ exports.userFirstTimeProfileUpdate = functions
 		const webhook = new IncomingWebhook(SLACK_WEBHOOK_URL as string);
 		const dataValues = snap.data();
 		const uid = dataValues.id;
+		const referrer = dataValues.referrer;
+		const created_at = dataValues.created_at;
+
 		const first_name = dataValues.first_name ?
 			dataValues.first_name :
 			dataValues.email;
@@ -36,6 +39,7 @@ exports.userFirstTimeProfileUpdate = functions
 			.doc(username)
 			.create({id: uid, username: username, email: email});
 
+		await admin.firestore().collection('usernames').doc(referrer).collection('referrals').doc(uid).create({id: uid, username: username, email: email, created_at: created_at});
 
 		await admin
 			.auth()

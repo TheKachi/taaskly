@@ -32,7 +32,7 @@
 import dashboard from '~~/src/assets/icons/src/dashboard.vue'
 definePageMeta({
 	layout: 'shop-default',
-	middleware: ['is-authenticated', 'has-profile']
+	middleware: ['is-authenticated', 'has-no-profile']
 })
 
 const grids = [
