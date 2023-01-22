@@ -2,7 +2,7 @@
 	<div class="flex w-full h-screen bg-light relative  md:py-0 sm:px-4 px-0 overflow-y-hidden ">
 		<LazySidebarsMainLeftSidebar />
 
-		<div class="relative bg-light page w-full border-x border-faded_primary mx  h-screen sm:h-auto  mt ">
+		<div class="relative bg-light page w-full border-x border-dark mx  h-screen sm:h-auto  mt ">
 			<TopbarMainDefaultTopbar />
 			<Alert />
 			<PageLoading />

@@ -1,5 +1,5 @@
 <template>
-	<article v-for="n in 3" :key="n" class="flex p-4  border-t border-secondaryLight  cursor-pointer">
+	<article v-for="n in 3" :key="n" class="flex p-4  border-t border-dark  cursor-pointer">
 		<!-- <h1 class="text-4xl font-bold">
 			loading...
 		</h1> -->

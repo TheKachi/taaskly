@@ -1,5 +1,5 @@
 <template>
-	<article class="flex p-4  border-t border-secondaryLight  cursor-pointer" @click="$router.push(`/main/tasks/${id}`)">
+	<article class="flex p-4  border-t border-dark  cursor-pointer" @click="$router.push(`/main/tasks/${id}`)">
 		<div class="flex-shrink-0">
 			<Avatar :name="task.user.username" />
 		</div>
