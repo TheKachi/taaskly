@@ -11,7 +11,10 @@
 
 <script setup lang="ts">
 const selected = computed({
-    get: () => useRoute().query.category
+    get: () => {
+        if (useRoute().query.category) return useRoute().query.category
+        else return 'All'
+    }
 })
 
 const categories = ref([
