@@ -4,9 +4,11 @@
 		<LazyTabs :selected="selected" :tabs="tabViews" @changed="updateTab($event)" />
 	</div>
 
-	<keep-alive>
-		<component :is="tabs[selected]" />
-	</keep-alive>
+	<div class="mb-12">
+		<keep-alive>
+			<component :is="tabs[selected]" />
+		</keep-alive>
+	</div>
 
 	<button
 		class="menu-btn  items-center font-semibold shadow-lg  border border-black bg-primary !text-white fixed bottom-4 right-6 mobile"
