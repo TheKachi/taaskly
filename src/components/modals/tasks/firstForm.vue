@@ -7,8 +7,8 @@
 		</div>
 		<div class="field relative">
 			<label>What type of task is this?</label>
-			<div class="flex self-start bg-gray-200 rounded border border-dark w-full">
-				<label for="physical" class="label-radio">
+			<div class="flex self-start bg-gray-200 rounded border border-dark w-full transite">
+				<label for="physical" class="label-radio transite">
 					<input
 						id="physical"
 						v-model="createTaskForm.remote.value"
@@ -20,7 +20,7 @@
 					>
 					<span>Physical</span>
 				</label>
-				<label for="online" class="label-radio">
+				<label for="online" class="label-radio transite">
 					<input
 						id="online"
 						v-model="createTaskForm.remote.value"

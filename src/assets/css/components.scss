@@ -48,7 +48,7 @@
         @apply flex lg:hidden;
     }
     .modal {
-        @apply bg-white flex flex-col items-start gap-4 px-8 p-6 rounded-md w-[470px] max-w-[90%] max-h-[90vh] overflow-y-auto shadow-md border border-dark;
+        @apply bg-white flex flex-col items-start gap-4 px-8 p-6 sm:rounded-md sm:w-[470px] max-w-[100%] w-screen h-screen sm:h-auto max-h-screen overflow-y-auto shadow-md border border-dark transite;
     }
     .modal-title {
         @apply font-bold text-2xl text-start w-full text-dark pb-4;
