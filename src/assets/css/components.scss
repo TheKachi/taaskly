@@ -26,7 +26,7 @@
         @apply font-bold text-xl text-center flex w-full items-center justify-center relative text-primary;
     }
     .auth-form {
-        @apply flex flex-col gap-3 overflow-y-auto;
+        @apply flex flex-col gap-3 overflow-y-auto w-full items-center;
     }
     .btn {
         @apply rounded px-6 py-2.5 flex justify-center items-center disabled:bg-gray-500 box-border h-11;

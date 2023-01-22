@@ -11,7 +11,7 @@
 				We encourage passwordless login being more secure and safe
 			</p>
 			<form class="auth-form" @submit.prevent="googleSignin">
-				<button class="btn-primary" :disabled="loading">
+				<button class="btn-primary w-full" :disabled="loading">
 					<span v-if="!loading"> 	Sign up with Google</span>
 					<Spinner v-else />
 				</button>

@@ -14,7 +14,7 @@
 			<p v-else class="text-sm text-center mb-2 max-w-xs">
 				{{ formStep==1 ? 'Basic details to get you started on your Journey with taaskly':'Few steps left' }}
 			</p>
-			<form class="auth-form" @submit.prevent="createProfile">
+			<form class="auth-form " @submit.prevent="createProfile">
 				<div v-if="formStep == 1" id="step 1" class="auth-form">
 					<div class="field">
 						<!-- <label for="username">Username <icon v-tooltip="'You can only set this once'" name="info" class="w-4 text-black cursor-pointer" /> </label> -->
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 
-				<button class="btn-primary" :disabled="loading || !isUsernameAvailable || usernameLoading || phoneNumError">
+				<button class="btn-primary w-full mt-4" :disabled="loading || !isUsernameAvailable || usernameLoading || phoneNumError">
 					<span v-if="!loading"> 	{{ formStep==1 ? 'Next':'Create' }}</span>
 					<Spinner v-else />
 				</button>
@@ -96,7 +96,7 @@ initForm()
 
 definePageMeta({
 	layout: 'auth',
-	middleware: 'is-authenticated'
+	middleware: ['is-authenticated', 'has-profile']
 })
 
 </script>
