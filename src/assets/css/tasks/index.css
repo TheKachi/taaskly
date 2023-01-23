@@ -1,14 +1,14 @@
 @layer components {
     .accept-btn {
-        @apply text-sm text-primary font-bold flex items-center pl-0 gap-2 hover:bg-primary hover:text-white hover:px-3 py-1 rounded transite;
+        @apply text-sm text-primary font-bold flex items-center pl-0 gap-2 hover:bg-primary hover:text-white hover:px-3 py-1 rounded transite cursor-pointer;
     }
     .share-btn {
-        @apply text-base text-secondary font-bold flex items-center gap-2 hover:bg-secondary hover:text-light px-3 py-1 rounded transite;
+        @apply text-base text-secondary font-bold flex items-center gap-2 hover:bg-secondary hover:text-light px-3 py-1 rounded transite cursor-pointer;
     }
     .my-share-btn {
-        @apply text-base text-primary font-bold flex items-center gap-2 hover:bg-primary hover:text-white px-3 py-1 rounded transite;
+        @apply text-base text-primary font-bold flex items-center gap-2 hover:bg-primary hover:text-white px-3 py-1 rounded transite cursor-pointer;
     }
     .flag-btn {
-        @apply text-base text-red font-bold flex items-center gap-2 hover:bg-red hover:text-white px-3 py-1 rounded transite;
+        @apply text-base text-red font-bold flex items-center gap-2 hover:bg-red hover:text-white px-3 py-1 rounded transite cursor-pointer;
     }
 }

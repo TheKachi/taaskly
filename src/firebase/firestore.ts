@@ -85,3 +85,34 @@ export const getFirestoreCollection = async (
 	})
 	})
 }
+
+export const getFirestoreSubCollection = async (
+	collectionName: string,
+	ArrayRef: Ref<Array<any>>
+) => {
+	const collectionRef = collection(db, collectionName)
+	const q = query(collectionRef, limit(FETCHLIMIT))
+
+	return new Promise((resolve) => {
+		const unsub = onSnapshot(q, (snapshot) => {
+		snapshot.docChanges().forEach((change) => {
+			if (change.type === 'added') {
+				ArrayRef.value.push(change.doc.data())
+			}
+			if (change.type === 'modified') {
+				const changedArray = ArrayRef.value.filter(
+					(item) => item.id !== change.doc.data().id
+				)
+				ArrayRef.value = [...changedArray, change.doc.data()]
+			}
+			if (change.type === 'removed') {
+				const changedArray = ArrayRef.value.filter(
+					(item) => item.id !== change.doc.data().id
+				)
+				ArrayRef.value = changedArray
+			}
+		})
+			resolve(ArrayRef.value)
+	})
+	})
+}
