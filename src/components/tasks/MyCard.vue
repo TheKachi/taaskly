@@ -1,5 +1,5 @@
 <template>
-	<article class="flex p-4  border-t border-dark  cursor-pointer">
+	<article class="card-body">
 		<div class="flex-shrink-0">
 			<Avatar :name="task.user.username" />
 		</div>

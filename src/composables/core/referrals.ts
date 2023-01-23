@@ -16,7 +16,8 @@ export const useReferrals = () => {
 		if (referrals.value.length > 0) return
         loading.value = true
         try {
-			await getFirestoreSubCollection('tasks', referrals)
+			await getFirestoreSubCollection('usernames', username.value as string, 'referrals', referrals)
+			console.log(referrals)
 			loading.value = false
 		} catch (e: any) {
 			loading.value = false

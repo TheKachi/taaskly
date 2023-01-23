@@ -88,9 +88,11 @@ export const getFirestoreCollection = async (
 
 export const getFirestoreSubCollection = async (
 	collectionName: string,
+	documentName: string,
+	subCollectionName: string,
 	ArrayRef: Ref<Array<any>>
 ) => {
-	const collectionRef = collection(db, collectionName)
+	const collectionRef = collection(db, collectionName, documentName, subCollectionName)
 	const q = query(collectionRef, limit(FETCHLIMIT))
 
 	return new Promise((resolve) => {
