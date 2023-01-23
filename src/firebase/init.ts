@@ -1,6 +1,6 @@
 import { initializeApp, getApp } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
-import { getAuth, connectAuthEmulator, Auth } from 'firebase/auth'
+import { getAuth, connectAuthEmulator } from 'firebase/auth'
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore'
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import { getStorage, connectStorageEmulator } from 'firebase/storage'
@@ -22,7 +22,7 @@ isSupported().then((supported) => {
   }
 })
 
-export const auth = process.client ? getAuth(app) : {} as Auth
+export const auth = getAuth(app)
 export const db = getFirestore(app)
 export const storage = getStorage(app)
 export const functions = getFunctions(getApp(), 'us-central1')

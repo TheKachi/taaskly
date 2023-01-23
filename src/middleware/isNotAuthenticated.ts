@@ -9,12 +9,10 @@ export default function isNotAuthenticated(route: any) {
 }
 
 const hasReferer = () => {
-	if (process.client) {
 		const params = new URLSearchParams(window.location.search)
 		const refer = params.get('refer')
 
 		if (refer) {
 			localStorage.setItem('taaskly_referral', decryptString(refer))
 		}
-	}
 }
