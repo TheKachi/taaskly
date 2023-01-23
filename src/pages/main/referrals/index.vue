@@ -1,13 +1,20 @@
 
 <template>
-	<div>
-		this is a list of your referrals
-	</div>
+	<main class="p-4 flex flex-col gap-3">
+		<h1 class="text-base font-medium">
+			Below are the list of people that have signed up using your referral link
+		</h1>
+		<section class="flex flex-col">
+			<article v-for="referral in referrals" :key="referral.id">
+				{{ referral.created_at }} - {{ referral.username }}
+			</article>
+		</section>
+	</main>
 </template>
 
 <script setup lang="ts">
 import { useReferrals } from '@/composables/core/referrals'
-const { fetchReferral, loading } = useReferrals()
+const { fetchReferral, loading, referrals } = useReferrals()
 
 onMounted(() => {
 	fetchReferral()

@@ -5,7 +5,7 @@ import {
 import { useAlert } from '@/composables/core/useNotification'
 import { useUser } from '@/composables/auth/user'
 
-const { id: userId, username } = useUser()
+const { username } = useUser()
 
 const referrals = ref([])
 
@@ -25,5 +25,5 @@ export const useReferrals = () => {
 		}
 	}
 
-	return { loading, fetchReferral }
+	return { loading, fetchReferral, referrals }
 }
