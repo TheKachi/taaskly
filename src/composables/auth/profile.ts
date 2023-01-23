@@ -93,7 +93,7 @@ export const useCreateProfile = () => {
 		profileFormState.last_name.value = useUser().user?.displayName?.split(
 			' '
 		)[1] as string
-		profileFormState.referrer.value = localStorage.getItem('taaskly_referral') as string
+		profileFormState.referrer.value = process.client ? localStorage.getItem('taaskly_referral') as string : ''
 	}
 	return {
 		createProfile,

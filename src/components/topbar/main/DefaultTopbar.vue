@@ -18,7 +18,7 @@
 			</h1>
 		</div>
 
-		<div class="flex items-center gap-4">
+		<div v-if="user" class="flex items-center gap-4">
 			<div ref="target" class="flex flex-col relative">
 				<div
 					class="cursor-pointer flex items-center gap-2.5 rounded-md p-1.5 bg-gray-100"
