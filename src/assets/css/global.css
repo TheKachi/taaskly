@@ -53,6 +53,6 @@ select {
         @apply flex flex-col justify-center items-center;
     }
     .transite {
-        @apply transition-all duration-75 ease-linear;
+        @apply transition-all duration-300 ease-in-out;
     }
 }
