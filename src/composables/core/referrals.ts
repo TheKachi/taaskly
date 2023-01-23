@@ -17,7 +17,6 @@ export const useReferrals = () => {
         loading.value = true
         try {
 			await getFirestoreSubCollection('usernames', username.value as string, 'referrals', referrals)
-			console.log(referrals)
 			loading.value = false
 		} catch (e: any) {
 			loading.value = false
