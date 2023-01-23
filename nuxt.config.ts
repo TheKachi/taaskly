@@ -4,11 +4,10 @@ import eslintPlugin from 'vite-plugin-eslint'
 export default {
 	ssr: process.env.NODE_ENV === 'production',
 	// ssr: true,
-	preset: 'node-server',
 	nitro: {
 		prerender: {
 			crawlLinks: true,
-			routes: ['/', '/home', '/login', '/register', '/tasks/**']
+			routes: ['/']
 		}
 	},
 		vue: {
