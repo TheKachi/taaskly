@@ -14,10 +14,12 @@ const { openAlert } = useAlert()
 const { closeLoading } = useLoading()
 const { lightUser, setUser } = useUser()
 
-onAuthStateChanged(auth, (user) => {
+if (process.client) {
+	onAuthStateChanged(auth, (user) => {
 	if (user) setUser(user)
 	else lightUser()
 })
+}
 
 const provider = new GoogleAuthProvider()
 
