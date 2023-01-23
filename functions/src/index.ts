@@ -15,6 +15,7 @@ exports.userFirstTimeProfileUpdate = functions
 		const uid = dataValues.id;
 		const referrer = dataValues.referrer;
 		const created_at = dataValues.created_at;
+		const name = dataValues.first_name+' '+dataValues.last_name;
 
 		const first_name = dataValues.first_name ?
 			dataValues.first_name :
@@ -39,7 +40,7 @@ exports.userFirstTimeProfileUpdate = functions
 			.doc(username)
 			.create({id: uid, username: username, email: email});
 
-		await admin.firestore().collection('usernames').doc(referrer).collection('referrals').doc(uid).create({id: uid, username: username, email: email, created_at: created_at});
+		await admin.firestore().collection('usernames').doc(referrer).collection('referrals').doc(uid).create({id: uid, username: username, email: email, created_at: created_at, name: name});
 
 		await admin
 			.auth()

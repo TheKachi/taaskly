@@ -12,6 +12,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { Loader } from '@googlemaps/js-api-loader'
+import * as geofire from 'geofire-common'
 
 const props = defineProps({
   modelValue: { type: Object, default: () => {} },
@@ -34,12 +35,16 @@ onMounted(() => {
 	})
     const fillInAddress = () => {
 	const place = autocomplete.value.getPlace()
-	const latlng = {
-		lat: place.geometry.location.lat(),
-		lng: place.geometry.location.lat()
-	}
-    const emitter = { name: document.getElementById('autocomplete').value, ...latlng }
+	const lat = place.geometry.location.lat()
+	const lng = place.geometry.location.lat()
 
+	const latlng = { lat, lng }
+	const hash = geofire.geohashForLocation([lat, lng])
+
+    const emitter = {
+			geohash: hash,
+			location: { name: document.getElementById('autocomplete').value, ...latlng }
+	}
     emit('update:modelValue', emitter)
 }
 	loader.load().then(() => {
