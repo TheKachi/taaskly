@@ -4,6 +4,7 @@ import shop from '~~/src/assets/icons/src/shop.vue'
 import wallet from '~~/src/assets/icons/src/wallet.vue'
 import profile from '~~/src/assets/icons/src/profile.vue'
 import help from '~~/src/assets/icons/src/help.vue'
+import order from '~~/src/assets/icons/src/order.vue'
 
 export const mainRoutes = [
 	{
@@ -47,7 +48,7 @@ export const shopRoutes = [
 		route: '/shop'
 	},
 	{
-		icon: dashboard,
+		icon: order,
 		name: 'Orders',
 		route: '/shop/order'
 	},
