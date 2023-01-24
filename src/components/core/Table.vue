@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<!-- table loader -->
-
-		<table class="w-full px-4">
+		<!-- Implement empty state for this table -->
+		<table class="w-full px-4 border border-dark">
 			<thead class="px-4">
-				<tr class="h-[52px] border-divider border-b px-4">
+				<tr class="h-[52px] border-dark border-b px-4">
 					<th
 						v-for="(header, i) in headers"
 						:key="i"
-						class="uppercase text-sm text-[#4B5563] font-bold text-left px-4"
+						class="uppercase text-sm text-light font-bold text-left px-4 bg-dark"
 						:style="`width: ${header.width ? header.width : defaultColWidth}%;`"
 					>
 						{{ header.text }}
@@ -45,7 +45,7 @@
 			<tbody v-else>
 				<tr v-for="n in 3" :key="n" class="border-t border-gray50 py-8 font-normal  text-sm h-[52px]">
 					<td v-for="(header, i) in headers" :key="i" class="px-4">
-						<Skeleton height="15px" radius="6px" />
+						<Skeleton height="15px" radius="3px" />
 					</td>
 				</tr>
 			</tbody>

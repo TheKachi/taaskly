@@ -10,7 +10,7 @@ export default {
   },
 
   callUpdateItems (text:any, cb:any) {
-    lightTimeout(this.timeout)
+    clearTimeout(this.timeout)
     if (this.isUpdateItems(text)) {
       this.timeout = setTimeout(cb, this.wait)
     }

@@ -5,45 +5,54 @@
 			Below are the list of people that have signed up using your referral link
 		</h1>
 		<section class="flex flex-col">
-			<article v-for="referral in referrals" :key="referral.id">
-				{{ referral.created_at }} - {{ referral.username }}
-			</article>
 			<Table
 				class="w-full"
 				:loading="loading"
 				:headers="headers"
 				:table-data="ReferralData"
 				:has-options="false"
-			/>
+			>
+				<template #item="{ item }">
+					<div v-if="item.created_at">
+						{{ formatTime(item.data.created_at).date }} <br>
+					</div>
+					<div v-else-if="item.amount_earned">
+						{{ convertToCurrency(item.data.amount_earned) }} <br>
+					</div>
+				</template>
+			</Table>
 		</section>
 	</main>
 </template>
 
 <script setup lang="ts">
 import { useReferrals } from '@/composables/core/referrals'
+import { formatTime, convertToCurrency } from '@/composables/utils'
 const { fetchReferral, loading, referrals } = useReferrals()
 
-	const headers = [
-			{ text: 'Name', value: 'name' },
-			{ text: 'Username', value: 'username' },
-			{ text: 'Email', value: 'email' },
-			{ text: 'Created at', value: 'created_at' }
-		]
+	const headers = ref([
+			{ text: 'Name', value: 'name', width: 20 },
+			{ text: 'Username', value: 'username', width: 15 },
+			{ text: 'Email', value: 'email', width: 25 },
+			{ text: 'Created at', value: 'created_at', width: 15 },
+			{ text: 'Amount Earned', value: 'amount_earned', width: 25 }
+		])
+
 const ReferralData = computed({
 	get: () => {
 		return referrals.value.map((referral) => {
 			return {
-				name: referral.username,
+				name: referral.name,
 				email: referral.email,
-				phone: referral.phone,
-				totalSpent: referral.totalSpent
+				username: referral.username,
+				created_at: referral.created_at,
+				amount_earned: 0
 			}
 		})
 	}
 })
 onMounted(async () => {
 	await fetchReferral()
-	console.log(referrals.value)
 })
 definePageMeta({
 	layout: 'main-default',
