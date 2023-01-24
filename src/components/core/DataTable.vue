@@ -1,5 +1,5 @@
 <template>
-	<div v-if="now" class="rounded bg-gray-100  flex flex-col overflow-hidden" >
+	<div v-if="now" class="rounded bg-gray-100  flex flex-col overflow-hidden">
 		<div class="flex flex-col gap-4 md:flex-row md:items-center justify-between p-6">
 			<div class="w-full md:w-fit h-fit relative">
 				<input type="text" class="p-2 pl-16 bg-light w-full md:w-[300px] rounded focus:outline-none">

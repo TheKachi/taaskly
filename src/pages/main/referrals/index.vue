@@ -8,6 +8,13 @@
 			<article v-for="referral in referrals" :key="referral.id">
 				{{ referral.created_at }} - {{ referral.username }}
 			</article>
+			<Table
+				class="w-full"
+				:loading="loading"
+				:headers="headers"
+				:table-data="ReferralData"
+				:has-options="false"
+			/>
 		</section>
 	</main>
 </template>
@@ -16,8 +23,27 @@
 import { useReferrals } from '@/composables/core/referrals'
 const { fetchReferral, loading, referrals } = useReferrals()
 
-onMounted(() => {
-	fetchReferral()
+	const headers = [
+			{ text: 'Name', value: 'name' },
+			{ text: 'Username', value: 'username' },
+			{ text: 'Email', value: 'email' },
+			{ text: 'Created at', value: 'created_at' }
+		]
+const ReferralData = computed({
+	get: () => {
+		return referrals.value.map((referral) => {
+			return {
+				name: referral.username,
+				email: referral.email,
+				phone: referral.phone,
+				totalSpent: referral.totalSpent
+			}
+		})
+	}
+})
+onMounted(async () => {
+	await fetchReferral()
+	console.log(referrals.value)
 })
 definePageMeta({
 	layout: 'main-default',
