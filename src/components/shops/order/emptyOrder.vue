@@ -1,6 +1,6 @@
 <template>
 	<div class="w-full flex flex-col justify-center items-center gap-3">
-		<img src="@/assets/images/shop/order/no-order.svg" alt="Empty eorder image" class="max-h-[255px]">
+		<img src="@/assets/images/shop/order/no-order.svg" alt="Empty order image" class="max-h-[255px]">
 		<h1 class="text-2xl font-semibold text-center">
 			You have no order yet
 		</h1>

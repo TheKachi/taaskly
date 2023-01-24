@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import Add from '../../../assets/icons/src/add.vue'
+import Add from '@/assets/icons/src/add.vue'
 definePageMeta({
 	layout: 'shop-default',
 	middleware: ['is-authenticated', 'has-profile']
