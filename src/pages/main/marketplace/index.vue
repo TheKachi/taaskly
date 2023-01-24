@@ -13,7 +13,7 @@
 import defaultImg from '@/assets/images/main/coming_soon_market.svg'
 definePageMeta({
 	layout: 'main-default',
-	middleware: ['is-authenticated', 'has-profile']
+	middleware: ['is-authenticated', 'has-no-profile']
 })
 </script>
 

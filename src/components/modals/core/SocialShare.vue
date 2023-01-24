@@ -1,7 +1,7 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		title="Share Modal"
+		title="Share"
 	>
 		<section class="flex flex-col gap-4">
 			<button class=" bg-dark" @click="copyToClipboard">
@@ -28,6 +28,6 @@ const { copyToClipboard, shareToTwitter, shareToWhatsapp } = useSocialShare()
 
 <style scoped>
 button{
-	@apply btn font-semibold text-white w-full justify-start
+	@apply rounded-md px-6 py-2.5 flex items-center disabled:bg-gray-500 box-border h-11 font-semibold text-white w-full justify-start
 }
 </style>

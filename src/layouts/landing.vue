@@ -1,9 +1,8 @@
 
 <template>
 	<slot />
-	<ModalBase />
-	<PageLoading />
-	<Alert />
+	<!-- <ModalBase /> -->
+	<!-- <Alert /> -->
 </template>
 
 <script setup lang="ts">

@@ -1,14 +1,16 @@
 <template>
 	<div>
-		Hello World from customers
+		<DataTable :table-header="['NAME', 'EMAIL', 'PHONE', 'TOTAL-SPENT']" :data="items" data-type="Customer" />
 	</div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
 	layout: 'shop-default',
-	middleware: ['is-authenticated', 'has-profile']
+	middleware: ['is-authenticated', 'has-no-profile']
 })
+
+const items = ref([])
 </script>
 
 <style scoped>

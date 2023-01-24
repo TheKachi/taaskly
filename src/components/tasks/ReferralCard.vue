@@ -1,5 +1,5 @@
 <template>
-	<article class="flex p-4  border-t border-dark  cursor-pointer" @click="$router.push(`/main/referrals`)">
+	<article class="card-body" @click="$router.push(`/main/referrals`)">
 		<div class="flex-shrink-0">
 			<Avatar name="Taaskly" />
 		</div>

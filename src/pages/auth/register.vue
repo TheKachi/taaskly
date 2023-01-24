@@ -4,14 +4,14 @@
 			<h1 class="auth-title">
 				Create an account
 			</h1>
-			<h1 v-if="referred" class="auth-title text-sm">
+			<h1 v-if="referred" class="auth-title text-sm ">
 				You have been referred by {{ decryptString(referred) }}
 			</h1>
 			<p class="text-sm text-center mb-2">
 				We encourage passwordless login being more secure and safe
 			</p>
 			<form class="auth-form" @submit.prevent="googleSignin">
-				<button class="btn-primary" :disabled="loading">
+				<button class="btn-primary w-full" :disabled="loading">
 					<span v-if="!loading"> 	Sign up with Google</span>
 					<Spinner v-else />
 				</button>

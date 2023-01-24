@@ -55,7 +55,7 @@ export const useCreateTask = () => {
 				status: createTaskForm.status.value,
 				offers: createTaskForm.offers.value,
 				remote: createTaskForm.remote.value,
-				location: createTaskForm.location.value,
+				...createTaskForm.location.value,
 				tags: createTaskForm.tags.value,
 				flags: createTaskForm.flags.value,
 				created_at: createTaskForm.created_at.value,

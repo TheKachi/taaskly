@@ -13,7 +13,7 @@
 					<span class="">{{ title }}</span>
 					<icon
 						name="close"
-						class="text-dark w-7 cursor-pointer  border border-dark rounded-md"
+						class="text-dark w-7 cursor-pointer  border-[1.5px] border-dark rounded-md"
 						@click="closeModal()"
 					/>
 				</header>
@@ -106,7 +106,7 @@ const closeModal = () => {
 
 .fade-enter-active,
 .fade-leave-active {
-	transition: all 0.35s ease;
+	transition: all 0.25s linear;
 }
 .fade-enter-from,
 .fade-leave-to {

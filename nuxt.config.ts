@@ -2,14 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
-	ssr: process.env.NODE_ENV === 'production',
-	// ssr: true,
-	nitro: {
-		prerender: {
-			crawlLinks: true,
-			routes: ['/', '/home', '/login', '/register', '/tasks/**']
-		}
-	},
+	ssr: false,
 		vue: {
 		compilerOptions: {
 			isCustomElement: (tag) => ['lottie-player'].includes(tag)
@@ -61,11 +54,14 @@ export default {
 				},
 				{
 					href: 'https://fonts.gstatic.com',
-					rel: 'preconnect'
+					rel: 'preconnect',
+					crossorigin: true
 				},
 				{
-					href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap',
-					rel: 'stylesheet'
+					href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap',
+					rel: 'stylesheet',
+					defer: true,
+					async: true
 				}
 			]
 		}
@@ -81,6 +77,7 @@ export default {
 		'@/components',
 		{ path: '@/components/core', extensions: ['vue'] }
 	],
+
 	tailwindcss: {
 		cssPath: '@/assets/css/main.css'
 	},

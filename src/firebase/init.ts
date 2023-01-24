@@ -28,9 +28,9 @@ export const storage = getStorage(app)
 export const functions = getFunctions(getApp(), 'us-central1')
 
 // If on localhost, use all firebase services locally
-if (location.hostname === 'localhost') {
-  connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
-  connectFirestoreEmulator(db, 'localhost', 8181)
-  connectFunctionsEmulator(functions, 'localhost', 5001)
-  connectStorageEmulator(storage, 'localhost', 9199)
-}
+// if (process.client && location.hostname === 'localhost') {
+//   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
+//   connectFirestoreEmulator(db, 'localhost', 8181)
+//   connectFunctionsEmulator(functions, 'localhost', 5001)
+//   connectStorageEmulator(storage, 'localhost', 9199)
+// }

@@ -20,25 +20,25 @@
 				</select>
 			</div>
 
-			<div class="bg-primary rounded mt-16 flex flex-col gap-3 items-start p-5 text-white">
+			<div class="border border-primary rounded-md mt-16 flex flex-col gap-3 items-start p-5 text-primary">
 				<h1 class="font-bold text-xl">
 					Create a Shop
 				</h1>
 				<p class="text-sm">
 					Create an online shop in minutes and get access to various tools to help you grow.
 				</p>
-				<button class="btn bg-light text-primary w-full mt-3">
+				<button class="btn  border border-primary w-full mt-3 hover:bg-primary hover:text-light transite">
 					Join Waitlist
 				</button>
 			</div>
-			<div class="bg-secondary rounded mt-5 flex flex-col gap-3 items-start p-5 text-dark">
+			<div class="border border-secondary rounded-md mt-5 flex flex-col gap-3 items-start p-5 text-secondary">
 				<h1 class="font-bold text-xl">
 					Create a Service
 				</h1>
 				<p class="text-sm ">
 					Create a Service in minutes and get access to various tools to help you grow.
 				</p>
-				<button class="btn bg-dark w-full mt-3 text-light">
+				<button class="btn  border border-secondary w-full mt-3 hover:bg-secondary hover:text-light transite">
 					Join Waitlist
 				</button>
 			</div>

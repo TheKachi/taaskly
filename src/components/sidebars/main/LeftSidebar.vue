@@ -19,7 +19,6 @@
 							class="flex items-center black use-hover"
 						>
 							<component :is="n.icon" class="mr-4" />
-							<!-- <icon :name="n.icon" class="mr-4 w-6" /> -->
 							<p class="text-lg">
 								{{ n.name }}
 							</p>
@@ -29,7 +28,6 @@
 					<details v-else>
 						<summary class="flex py-1.5 items-center px-6 mt-3 duration-75 black">
 							<component :is="n.icon" class="mr-4" />
-							<!-- <icon :name="n.icon" class="mr-4 w-5" /> -->
 							<p class="text-base font-medium text-gray300">
 								{{ n.name }}
 							</p>
@@ -50,10 +48,9 @@
 			</div>
 
 			<button
-				class="menu-btn flex items-center font-semibold !text-light hover  bg-primary fixed bottom-4 hover:scale-105 transite !duration-200"
+				class="menu-btn "
 				@click="useTaskModal().openCreateTask()"
 			>
-				<!-- <icon name="task" class="mr-4 w-5" /> -->
 				<task class="mr-4 w-5" />
 				<p class="text-base">
 					Create Task
@@ -74,11 +71,20 @@ import task from '@/assets/icons/src/task.vue'
 .bg-shadow {
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
-a, .menu-btn {
-	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-75 rounded mt-1;
+a {
+	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-75 rounded-md mt-1;
 &:hover.use-hover{
 	@apply border border-dark;
 }
+}
+
+.menu-btn{
+	@apply flex items-center font-semibold  border-2
+	  border-primary text-primary fixed bottom-4 hover:scale-105
+	  transite duration-200 w-[190px] h-11 px-6 text-4xl rounded-md;
+	  &:hover{
+		@apply bg-primary text-light;
+	  }
 }
 /* exact link will show the primary color for only the exact matching link */
 a.router-link-exact-active.black {
@@ -111,7 +117,7 @@ summary {
 	cursor: pointer;
 }
 svg {
-	transition: all 0.3s;
+	transition: all 0.15s;
 }
 summary::-webkit-details-marker {
 	display: none;

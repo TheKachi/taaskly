@@ -21,7 +21,7 @@
 			</div>
 		</div>
 
-		<div class="flex items-center gap-10 mt-8">
+		<div class="flex items-center gap-10 mt-8 w-full">
 			<button class="btn-secondary w-full" @click="formStep--">
 				Back
 			</button>

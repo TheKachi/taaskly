@@ -14,7 +14,7 @@ import defaultImg from '@/assets/images/main/coming_soon_service.svg'
 
 definePageMeta({
 	layout: 'main-default',
-	middleware: ['is-authenticated', 'has-profile']
+	middleware: ['is-authenticated', 'has-no-profile']
 })
 </script>
 

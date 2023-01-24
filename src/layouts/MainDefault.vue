@@ -1,5 +1,5 @@
 <template>
-	<div class="flex w-full h-screen bg-light relative  md:py-0  px-0 overflow-y-hidden ">
+	<div class="flex w-full h-screen bg-light relative  md:py-0 lg:px-4 px-0 overflow-y-hidden ">
 		<LazySidebarsMainLeftSidebar />
 
 		<div class="relative bg-light page w-full border-x border-dark mx  h-screen sm:h-auto  mt ">
