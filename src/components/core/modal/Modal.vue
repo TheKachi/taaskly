@@ -1,5 +1,5 @@
 <template>
-	<transition name="fade" appear :duration="500">
+	<transition name="modal" appear :duration="500">
 		<div
 			:close="closeModal"
 			:class="[
@@ -77,7 +77,7 @@ const closeModal = () => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .bg-modal {
 	position: fixed;
 	top: 0;
@@ -104,13 +104,16 @@ const closeModal = () => {
 	backdrop-filter: blur(1.5px);
 }
 
-.fade-enter-active,
-.fade-leave-active {
-	transition: all 0.25s linear;
+.modal-enter-active,
+.modal-leave-active {
+	transition: all 0.23s linear;
 }
-.fade-enter-from,
-.fade-leave-to {
+.modal-enter-from,
+.modal-leave-to {
 	opacity: 0;
+	@media screen and (max-width: 640px) {
+		transform: translateY(500px);
+	}
 }
 .slide-enter-active,
 .slide-leave-active {
