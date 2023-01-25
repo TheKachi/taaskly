@@ -1,5 +1,5 @@
 <template>
-	<main class="flex flex-col">
+	<main class="flex flex-col px-4">
 		<LandingHero />
 	</main>
 </template>
