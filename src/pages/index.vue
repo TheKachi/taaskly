@@ -1,13 +1,13 @@
 <template>
-	<TopbarMainHomeNavBar />
-	<main class="container mx-auto center-col min-h-screen text-center relative">
-		hello
+	<main>
+		<LandingHero />
 	</main>
 </template>
 
 <script lang="ts" setup>
 // import { useSignin } from '@/composables/auth/auth'
 // import { useUser } from '@/composables/auth/user'
+
 // const { googleSignin, signOut } = useSignin()
 // const { isLoggedIn, user } = useUser()
 
