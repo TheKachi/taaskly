@@ -1,5 +1,5 @@
 <template>
-	<div class="lg:col-span-2 min-h-[300px] max-h-[400px] overflow-auto rounded bg-gray-100 p-6 flex flex-col gap-4">
+	<div class="lg:col-span-2 min-h-[300px] max-h-[400px] overflow-auto rounded-md bg-gray-100 p-6 flex flex-col gap-4">
 		<div class="flex items-center justify-between">
 			<div class="flex flex-col">
 				<p class="text-sm font-medium text-grey_two">
@@ -11,7 +11,7 @@
 			</div>
 			<div ref="target" class="flex flex-col relative">
 				<div
-					class="cursor-pointer border border-black flex items-center gap-2.5 rounded p-1.5 bg-gray-100"
+					class="cursor-pointer border border-black flex items-center gap-2.5 rounded-md p-1.5 bg-gray-100"
 					@click="toggleMenu"
 				>
 					<div class="flex flex-col">
@@ -28,7 +28,7 @@
 					<div
 						v-if="showMenu"
 						mode="out-in"
-						class="bg-gray-100 z-20 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-[150px] rounded overflow-hidden"
+						class="bg-gray-100 z-20 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-[150px] rounded-md overflow-hidden"
 					>
 						<div class="flex flex-col overflow-hidden">
 							<button

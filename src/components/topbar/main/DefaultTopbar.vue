@@ -39,7 +39,7 @@
 					<div
 						v-if="showMenu"
 						mode="out-in"
-						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded p-4"
+						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded-md p-4"
 					>
 						<div class="flex flex-col pb-1 pt-2.5 gap-4 ">
 							<nuxt-link

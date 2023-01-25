@@ -1,14 +1,14 @@
 <template>
 	<div class="flex flex-col gap-6">
 		<p>current date</p>
-		<div class="p-3 md:px-4 bg-orange-100 border border-red rounded border-dashed flex items-center flex-col md:flex-row gap-4 justify-between min-h-[100px]">
+		<div class="p-3 md:px-4 bg-orange-100 border border-red rounded-md border-dashed flex items-center flex-col md:flex-row gap-4 justify-between min-h-[100px]">
 			<p>A few steps left to set your store up completely (3/5)</p>
-			<button class="py-3 px-5 bg-[#ac6315] text-white rounded font-medium">
+			<button class="py-3 px-5 bg-[#ac6315] text-white rounded-md font-medium">
 				Complete setup
 			</button>
 		</div>
 		<div class="gridbox grid gap-6 grid-cols-2 ">
-			<div v-for="item in grids" :key="item.title" class="px-3 py-4 flex items-center gap-4 rounded bg-gray-100">
+			<div v-for="item in grids" :key="item.title" class="px-3 py-4 flex items-center gap-4 rounded-md bg-gray-100">
 				<component :is="item.icon" />
 				<div class="flex flex-col">
 					<p>{{ item.title }}</p>

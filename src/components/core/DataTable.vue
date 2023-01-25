@@ -1,15 +1,15 @@
 <template>
-	<div v-if="now" class="rounded bg-gray-100  flex flex-col overflow-hidden">
+	<div v-if="now" class="rounded-md bg-gray-100  flex flex-col overflow-hidden">
 		<div class="flex flex-col gap-4 md:flex-row md:items-center justify-between p-6">
 			<div class="w-full md:w-fit h-fit relative">
-				<input type="text" class="p-2 pl-16 bg-light w-full md:w-[300px] rounded focus:outline-none">
+				<input type="text" class="p-2 pl-16 bg-light w-full md:w-[300px] rounded-md focus:outline-none">
 				<search class="absolute top-1/2 left-4 -translate-y-1/2" />
 			</div>
 			<div class="flex gap-4">
-				<button class="p-2 px-3 min-w-[90px] bg-light rounded text-primary text-sm">
+				<button class="p-2 px-3 min-w-[90px] bg-light rounded-md text-primary text-sm">
 					Filter
 				</button>
-				<button class="p-2 px-3 min-w-[90px] bg-light rounded text-primary text-sm flex items-center gap-2">
+				<button class="p-2 px-3 min-w-[90px] bg-light rounded-md text-primary text-sm flex items-center gap-2">
 					<add />
 					Create {{ dataType }}
 				</button>
@@ -27,7 +27,7 @@
 				<p v-else class="text-primary">
 					No {{ dataType }} found, click on Create Product to start <br> adding {{ dataType }}s
 				</p>
-				<button v-if="dataType == 'Order' || dataType == 'Customer'" class="p-2 px-3 min-w-[90px] bg-light rounded text-primary text-sm">
+				<button v-if="dataType == 'Order' || dataType == 'Customer'" class="p-2 px-3 min-w-[90px] bg-light rounded-md text-primary text-sm">
 					Share store
 				</button>
 			</div>

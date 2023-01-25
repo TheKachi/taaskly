@@ -1,13 +1,13 @@
 <template>
-	<transition name="modal" appear :duration="500">
-		<div
-			:close="closeModal"
-			:class="[
-				type == 'popup' ? 'bg-modal' : 'bg-sidebar',
-				'transition-all modal-background',
-			]"
-			@click.self="autoClose ? close($el) : null"
-		>
+	<div
+		:close="closeModal"
+		:class="[
+			type == 'popup' ? 'bg-modal' : 'bg-sidebar',
+			'transition-all modal-background',
+		]"
+		@click.self="autoClose ? close($el) : null"
+	>
+		<transition name="modal" appear>
 			<div v-if="type == 'popup'" class="modal">
 				<header class="modal-title flex justify-between w-full items-center">
 					<span class="">{{ title }}</span>
@@ -21,13 +21,13 @@
 					<slot />
 				</div>
 			</div>
-			<transition v-if="type == 'sidebar'" name="slide" appear :duration="500">
-				<div class="sidebar">
-					<slot />
-				</div>
-			</transition>
-		</div>
-	</transition>
+		</transition>
+		<transition v-if="type == 'sidebar'" name="slide" appear>
+			<div class="sidebar">
+				<slot />
+			</div>
+		</transition>
+	</div>
 </template>
 
 <script lang="ts" setup>

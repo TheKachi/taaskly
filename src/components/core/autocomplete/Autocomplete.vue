@@ -19,7 +19,7 @@
 				<span
 					v-for="(tag, i) in tags"
 					:key="tag"
-					class="flex gap-2 bg-grey_two px-3 py-1 rounded text-sm text-white"
+					class="flex gap-2 bg-grey_two px-3 py-1 rounded-md text-sm text-white"
 				>
 					{{ tag }}
 					<Icon

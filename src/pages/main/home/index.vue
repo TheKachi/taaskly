@@ -50,6 +50,6 @@ fetchHomeTasks()
 
 <style scoped lang="scss">
 .menu-btn {
-	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded mt-1;
+	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded-md mt-1;
 }
 </style>

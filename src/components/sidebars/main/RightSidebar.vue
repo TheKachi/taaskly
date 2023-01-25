@@ -56,7 +56,7 @@ import { useAuthModal } from '@/composables/core/modals'
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a, .menu-btn {
-	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded mt-1;
+	@apply text-primary w-[190px] h-11 px-6 text-sm duration-[10ms] rounded-md mt-1;
 &:hover{
 	@apply border border-secondary;
 }
