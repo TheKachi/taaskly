@@ -4,12 +4,12 @@
 			Features
 		</h1>
 
-		<article v-for="n in 3" :key="n" class=" border-y-2 border-dark   flex flex-col lg:flex-row items-center gap-[52px]">
+		<article v-for="n in features" :key="n.title" class=" border-y-2 border-dark   flex flex-col lg:flex-row items-center gap-[52px]">
 			<!-- <img src="/hero.png" alt="hero" class="border-2 p-5 border-dark rounded-2xl w-1/2"> -->
-			<div class="center w-full">
-				<div class="flex flex-col justify-between gap-8 md:max-w-[459px]">
+			<div class="center w-full px-4 py-8 text-center md:text-start">
+				<div class="flex flex-col justify-between items-center md:items-start gap-8 md:max-w-[492px]">
 					<h1 class="text-[64px] font-black leading-[76.8px]">
-						Post and Accept Tasks
+						{{ n.title }}
 					</h1>
 
 					<p class="text-lg md:text-2xl font-medium ">
@@ -28,15 +28,19 @@
 </template>
 
 <script setup lang="ts">
-
+const features = ref([
+	{ title: 'Post and Accept Tasks' },
+	{ title: 'Find services around you' },
+	{ title: 'Find shops around you' }
+])
 </script>
 
 <style scoped>
-article{
-
+article:nth-child(odd){
+	@apply flex-row-reverse
 }
 h1 {
-        font-size: clamp(40px, 9vw, 50px);
+        font-size: clamp(36px, 9vw, 50px);
         font-weight: 900;
 		line-height: clamp(40px, 8vw, 75px) ;
     }
