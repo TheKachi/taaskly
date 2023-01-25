@@ -37,11 +37,11 @@
 
 		<div v-if="!createTaskForm.remote.value" class="field">
 			<label for="location">Task Location</label>
-			<LazyLocationInput v-model="createTaskForm.location.value" />
+			<LocationInput v-model="createTaskForm.location.value" />
 		</div>
 		<div class="field relative">
 			<label for="tags">Tags</label>
-			<LazyAutocomplete v-model="createTaskForm.tags.value" placeholder="Enter Tasks Tags to help with filtering" @update="createTaskForm.tags.value = $event" />
+			<Autocomplete v-model="createTaskForm.tags.value" placeholder="Enter Tasks Tags to help with filtering" @update="createTaskForm.tags.value = $event" />
 		</div>
 
 		<button class="modal-btn">
