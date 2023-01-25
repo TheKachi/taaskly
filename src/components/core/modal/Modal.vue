@@ -112,7 +112,7 @@ const closeModal = () => {
 .modal-leave-to {
 	opacity: 0;
 	@media screen and (max-width: 640px) {
-		transform: translateY(500px);
+		transform: translateY(1000px);
 	}
 }
 .slide-enter-active,
