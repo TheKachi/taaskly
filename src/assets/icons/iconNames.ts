@@ -21,6 +21,7 @@ export enum IconNames {
   'invoice' = 'invoice',
   'menu' = 'menu',
   'note' = 'note',
+  'post' = 'post',
   'profile' = 'profile',
   'service' = 'service',
   'share' = 'share',
