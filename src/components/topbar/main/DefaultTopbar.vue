@@ -1,6 +1,6 @@
 <template>
 	<nav
-		class="absolute  w-full top-0  h-16 px-4  flex items-center justify-between box-border z-20 bg-white shadow"
+		class="absolute  w-full top-0  h-16 px-4  flex items-center justify-between box-border z-20 bg-white border-b border-dark"
 	>
 		<div class="items-center gap-4 mobile">
 			<component :is="down" v-if="topbarName($route.name).can_go_back" class="cursor-pointer z-50 rotate-90" @click="$router.go(-1)" />

@@ -1,13 +1,13 @@
 <template>
-	<main class="flex flex-col px-4">
+	<main class="flex flex-col ">
 		<LandingHero />
+		<LandingFeatures />
 	</main>
 </template>
 
 <script lang="ts" setup>
 // import { useSignin } from '@/composables/auth/auth'
 // import { useUser } from '@/composables/auth/user'
-
 // const { googleSignin, signOut } = useSignin()
 // const { isLoggedIn, user } = useUser()
 

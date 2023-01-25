@@ -1,5 +1,5 @@
 <template>
-	<section class="container border-[3px] border-dark rounded-2xl md:min-h-[550px] mt-14 p-6 py-10 md:p-10 flex flex-col lg:flex-row items-center gap-[52px]">
+	<section class="container border-[3px] border-dark rounded-2xl md:min-h-[550px] mt-14 p-6 py-10 md:p-10 flex flex-col lg:flex-row items-center gap-[52px] px-4">
 		<!-- <img src="/hero.png" alt="hero" class="border-2 p-5 border-dark rounded-2xl w-1/2"> -->
 		<img src="/hero.png" alt="hero" class="rounded-2xl lg:w-1/2 hidden md:block h-full">
 
