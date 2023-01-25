@@ -10,9 +10,8 @@
 					<img
 						src="/logo-text.svg"
 						alt="logo"
-						class="h-8"
-						width="130px"
-						height="32px"
+						width="130"
+						height="32"
 					>
 				</a>
 			</div>
