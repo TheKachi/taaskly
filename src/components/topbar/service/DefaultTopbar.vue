@@ -11,7 +11,7 @@
 		<div v-if="user" class="flex items-center gap-4">
 			<div ref="target" class="flex flex-col relative">
 				<div
-					class="cursor-pointer flex items-center gap-2.5 rounded p-1.5 bg-gray-100"
+					class="cursor-pointer flex items-center gap-2.5 rounded-md p-1.5 bg-gray-100"
 					@click="toggleMenu"
 				>
 					<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
@@ -29,7 +29,7 @@
 					<div
 						v-if="showMenu"
 						mode="out-in"
-						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded p-4"
+						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded-md p-4"
 					>
 						<div class="flex flex-col pb-1 pt-2.5 gap-4 ">
 							<nuxt-link

@@ -63,7 +63,7 @@ import { shopRoutes } from '@/composables/utils/menu'
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
 a, .menu-btn {
-	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-75 rounded mt-1;
+	@apply text-grey_two w-[190px] h-11 px-6 text-4xl duration-75 rounded-md mt-1;
 &:hover.use-hover{
 	@apply border border-dark;
 }

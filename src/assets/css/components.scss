@@ -7,10 +7,10 @@
         @apply font-medium text-base text-dark mb-1 flex gap-2;
     }
     .input-field {
-        @apply border border-gray-400 w-full h-11 px-4 rounded  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
+        @apply border border-gray-400 w-full h-11 px-4 rounded-md  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
     }
     .input-textarea {
-        @apply border border-gray-400 w-full  p-4 rounded  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
+        @apply border border-gray-400 w-full  p-4 rounded-md  outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
     }
     .main-layout {
         @apply container flex justify-center items-center min-h-screen py-12 px-2.5;
@@ -29,7 +29,7 @@
         @apply flex flex-col gap-3 overflow-y-auto w-full items-center;
     }
     .btn {
-        @apply rounded-md px-6 py-2.5 flex justify-center items-center disabled:bg-gray-500 box-border h-11;
+        @apply rounded-md px-4 py-2 flex justify-center items-center disabled:bg-gray-500 box-border h-9;
     }
     .btn-primary {
         @apply btn bg-primary text-light;
@@ -38,7 +38,7 @@
         @apply btn bg-light text-primary;
     }
     .btn-secondary {
-        @apply btn bg-light text-primary border border-primary;
+        @apply btn bg-light text-primary border-2 border-primary;
     }
     .pc {
         @apply hidden lg:flex;
@@ -53,7 +53,7 @@
         @apply font-bold text-2xl text-start w-full text-dark pb-4;
     }
     .modal-btn {
-        @apply rounded px-4 py-3 bg-primary text-light w-full mt-6 flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
+        @apply rounded-md px-4 py-3 border-2 border-primary text-primary hover:text-light hover:bg-primary transite w-full mt-6 flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
     }
     .sidebar {
         @apply fixed inset-y-0 left-0;
@@ -69,21 +69,21 @@
         @apply text-primary font-bold text-2xl pb-2;
     }
     .tab-body {
-        @apply inline-flex items-center w-full z-10 p-1 top-4 outline-none rounded overflow-auto bg-gray-100 text-xs text-grey_two;
+        @apply inline-flex items-center w-full z-10 p-1 top-4 outline-none rounded-md overflow-auto bg-light text-xs text-grey_two;
     }
     .tab-item {
-        @apply text-grey_two cursor-pointer flex-1 justify-center text-center font-semibold  bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded whitespace-nowrap;
+        @apply text-grey_two cursor-pointer flex-1 justify-center text-center font-semibold  bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded-md whitespace-nowrap;
     }
     .active {
-        @apply opacity-100 bg-white text-grey_two border border-grey_two;
+        @apply opacity-100 text-dark border-2 border-dark shadow;
     }
     .label-radio {
         @apply m-0 px-5 py-2 w-full text-center flex-1 items-center justify-center;
     }
     label:has(input:checked) {
-        @apply bg-grey_two text-white rounded relative;
+        @apply bg-grey_two text-white rounded-md relative;
         &::after {
-            @apply absolute top-0 right-0 bottom-0 left-0 rounded;
+            @apply absolute top-0 right-0 bottom-0 left-0 rounded-md;
             content: '';
             background: url('../../assets/icons/source/check.svg') transparent no-repeat 90% center;
         }

@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="w-full h-4/5">
 		<Bar :data="chartData" :options="options" />
 	</div>
 </template>

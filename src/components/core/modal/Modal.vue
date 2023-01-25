@@ -1,13 +1,13 @@
 <template>
-	<transition name="fade" appear :duration="500">
-		<div
-			:close="closeModal"
-			:class="[
-				type == 'popup' ? 'bg-modal' : 'bg-sidebar',
-				'transition-all modal-background',
-			]"
-			@click.self="autoClose ? close($el) : null"
-		>
+	<div
+		:close="closeModal"
+		:class="[
+			type == 'popup' ? 'bg-modal' : 'bg-sidebar',
+			'transition-all modal-background',
+		]"
+		@click.self="autoClose ? close($el) : null"
+	>
+		<transition name="modal" appear>
 			<div v-if="type == 'popup'" class="modal">
 				<header class="modal-title flex justify-between w-full items-center">
 					<span class="">{{ title }}</span>
@@ -21,13 +21,13 @@
 					<slot />
 				</div>
 			</div>
-			<transition v-if="type == 'sidebar'" name="slide" appear :duration="500">
-				<div class="sidebar">
-					<slot />
-				</div>
-			</transition>
-		</div>
-	</transition>
+		</transition>
+		<transition v-if="type == 'sidebar'" name="slide" appear>
+			<div class="sidebar">
+				<slot />
+			</div>
+		</transition>
+	</div>
 </template>
 
 <script lang="ts" setup>
@@ -77,7 +77,7 @@ const closeModal = () => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .bg-modal {
 	position: fixed;
 	top: 0;
@@ -104,13 +104,16 @@ const closeModal = () => {
 	backdrop-filter: blur(1.5px);
 }
 
-.fade-enter-active,
-.fade-leave-active {
-	transition: all 0.25s linear;
+.modal-enter-active,
+.modal-leave-active {
+	transition: all 0.23s linear;
 }
-.fade-enter-from,
-.fade-leave-to {
+.modal-enter-from,
+.modal-leave-to {
 	opacity: 0;
+	@media screen and (max-width: 640px) {
+		transform: translateY(1000vh);
+	}
 }
 .slide-enter-active,
 .slide-leave-active {

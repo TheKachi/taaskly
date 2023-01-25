@@ -18,7 +18,7 @@
 				<div ref="target" class="flex flex-col relative">
 					<div
 						v-if="user"
-						class="cursor-pointer flex items-center gap-2.5 rounded p-1.5 px-2 md:border bg-gray-100"
+						class="cursor-pointer flex items-center gap-2.5 rounded-md p-1.5 px-2 md:border bg-gray-100"
 					>
 						<Avatar v-if="user" :name="user.displayName" :src="user.photoURL" />
 						<div class="flex flex-col">

@@ -1,5 +1,5 @@
 <template>
-	<div class="lg:col-span-2 min-h-[300px] max-h-[400px] overflow-auto rounded bg-gray-100 p-4 flex flex-col gap-4">
+	<div class="lg:col-span-2 min-h-[300px] max-h-[400px] overflow-auto rounded-md bg-gray-100 p-4 flex flex-col gap-4">
 		<div class="flex items-center justify-between">
 			<h3 class="text-lg font-semibold">
 				Recent Orders

@@ -7,12 +7,12 @@
 			Are you sure you want to sign out?
 		</p>
 
-		<div class="grid grid-cols-2 gap-4">
-			<button class="modal-btn" @click="useAuthModal().closeLogout()">
-				No
+		<div class="flex flex-col">
+			<button class="modal-btn border-red bg-red text-light hover:bg-red" @click="signOut">
+				Logout
 			</button>
-			<button class="modal-btn bg-red" @click="signOut">
-				Yes
+			<button class="modal-btn text-dark mt-3" @click="useAuthModal().closeLogout()">
+				Cancel
 			</button>
 		</div>
 	</Modal>
