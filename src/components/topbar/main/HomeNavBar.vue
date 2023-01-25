@@ -1,25 +1,22 @@
 <template>
-	<nav
-		class="w-full md:py-2  center fixed top-0 z-20 inset-x-0 bg-light shadow md:px-[22px] "
-	>
+	<nav class="w-full h-20  center fixed top-0 z-20 inset-x-0 bg-light border-b-[3px] border-dark md:px-[22px]">
 		<header
-			class="w-full container mx-auto shadow-nav md:shadow-none flex items-center justify-between z-20 px-5 md:px-0 h-16 shadow"
+			class="w-full container mx-auto shadow-nav md:shadow-none flex items-center justify-between z-20 px-5 md:px-0 "
 		>
-			<div class="flex items-center">
-				<a href="/">
-					<img
-						src="/logo-text.svg"
-						alt="logo"
-						width="130"
-						height="32"
-					>
-				</a>
-			</div>
+			<a href="/">
+				<img
+					src="/logo-text.svg"
+					alt="logo"
+					width="116"
+					height="28"
+				>
+			</a>
+
 			<div class=" items-center justify-between gap-3 pc">
-				<nuxt-link to="/auth/login" class="btn-secondary">
+				<nuxt-link to="/auth/login" class="btn">
 					Log In
 				</nuxt-link>
-				<nuxt-link to="/auth/register" class="btn-primary">
+				<nuxt-link to="/auth/register" class="btn btn-secondary">
 					Sign up
 				</nuxt-link>
 			</div>
@@ -27,17 +24,19 @@
 			<component :is="show ? close : menu" class="cursor-pointer mobile" @click="toggleMenu" />
 		</header>
 
-		<div
-			v-if="show"
-			class="fixed inset-0 bg-light bg  h-screen pt-32 px-5 bg-white"
-		>
-			<nuxt-link to="/auth/login" class="btn-secondary mb-4">
-				Log In
-			</nuxt-link>
-			<nuxt-link to="/auth/register" class="btn-primary">
-				Sign up
-			</nuxt-link>
-		</div>
+		<transition v-if="show" name="slide" appear>
+			<div
+
+				class="absolute border-2 border-dark rounded-xl top-24 py-7  w-11/12  px-7 bg-white"
+			>
+				<nuxt-link to="/auth/login" class="btn-secondary mb-4">
+					Log In
+				</nuxt-link>
+				<nuxt-link to="/auth/register" class="btn-primary">
+					Sign up
+				</nuxt-link>
+			</div>
+		</transition>
 	</nav>
 </template>
 
@@ -55,20 +54,15 @@ const navigateTo = (route: string) => {
 </script>
 
 <style scoped>
-.shadow-card{
-	background: #FFFCF9;
-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-@apply py-3 px-4 pr-6 w-max min-w-[1rem]
+.btn{
+	@apply text-sm
 }
-.mobile-card {
-	@apply hidden opacity-0 flex-col gap-5 absolute pt-36   items-start justify-start ;
+.slide-enter-active,
+.slide-leave-active {
+	transition: all 0.25s ease-in;
 }
-.option:hover > .nav-icon {
-	transform: rotate(180deg);
-}
-.option:hover > .mobile-card,
-.option:focus-within > .mobile-card {
-	display: flex;
-	opacity: 1;
+.slide-enter-from,
+.slide-leave-to {
+	transform: translateY(-200px);
 }
 </style>

@@ -29,7 +29,7 @@
         @apply flex flex-col gap-3 overflow-y-auto w-full items-center;
     }
     .btn {
-        @apply rounded-md px-6 py-2.5 flex justify-center items-center disabled:bg-gray-500 box-border h-11;
+        @apply rounded-md px-4 py-2 flex justify-center items-center disabled:bg-gray-500 box-border h-9;
     }
     .btn-primary {
         @apply btn bg-primary text-light;
@@ -38,7 +38,7 @@
         @apply btn bg-light text-primary;
     }
     .btn-secondary {
-        @apply btn bg-light text-primary border border-primary;
+        @apply btn bg-light text-primary border-2 border-primary;
     }
     .pc {
         @apply hidden lg:flex;
@@ -69,13 +69,13 @@
         @apply text-primary font-bold text-2xl pb-2;
     }
     .tab-body {
-        @apply inline-flex items-center w-full z-10 p-1 top-4 outline-none rounded-md overflow-auto bg-gray-100 text-xs text-grey_two;
+        @apply inline-flex items-center w-full z-10 p-1 top-4 outline-none rounded-md overflow-auto bg-light text-xs text-grey_two;
     }
     .tab-item {
         @apply text-grey_two cursor-pointer flex-1 justify-center text-center font-semibold  bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded-md whitespace-nowrap;
     }
     .active {
-        @apply opacity-100 bg-white text-grey_two border border-grey_two;
+        @apply opacity-100 text-dark border-2 border-dark shadow;
     }
     .label-radio {
         @apply m-0 px-5 py-2 w-full text-center flex-1 items-center justify-center;
