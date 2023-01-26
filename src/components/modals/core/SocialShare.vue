@@ -7,9 +7,8 @@
 			<button @click="shareToTwitter">
 				<twitterIcon class="hover:text-[#1DA1F2] text-[#1DA1F2] sm:text-light" />
 			</button>
-			<button class="bg-[#25D366]" @click="shareToWhatsapp">
-				<icon class="w-6 mr-2" name="whatsapp_outline" />
-				Whatsapp
+			<button @click="shareToWhatsapp">
+				<whatsappIcon class="hover:text-[#25D366] text-[#25D366] sm:text-light" />
 			</button>
 			<button class="bg-[#1DA1F2]" @click="shareToTwitter">
 				<icon class="w-6 mr-2" name="twitter" />
@@ -21,6 +20,7 @@
 
 <script setup lang="ts">
 import twitterIcon from '@/assets/images/social/twitter.vue'
+import whatsappIcon from '@/assets/images/social/whatsapp.vue'
 import Modal from '@/components/core/modal/Modal.vue'
 import { useSocialShare } from '@/composables/utils/share'
 const { copyToClipboard, shareToTwitter, shareToWhatsapp } = useSocialShare()
