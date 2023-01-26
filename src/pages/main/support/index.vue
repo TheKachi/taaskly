@@ -1,38 +1,61 @@
-<template>
-	<main class="w-full h-screen">
-		<section class="mt-12">
-			<h1 class="page-title">
-				We are always ready to help
-			</h1>
-			<p>You can reach out to us on the following platforms</p>
 
-			<div class="grid sm:grid-cols-3 md:grid-cols-4 mt-8 gap-x-12 gap-y-8 justify-center md:justify-start items-center">
-				<a href="#" target="_blank" class="box hover:border border-[#ea4336] transite">
-					<img src="@/assets/images/social/mail.svg" alt="mail">
-				</a>
-				<a href="#" target="_blank" class="box hover:border border-[#58e072] transite">
-					<img src="@/assets/images/social/whatsapp.svg" alt="whatsapp">
-				</a>
-				<a href="#" target="_blank" class="box hover:border border-[#00acee] transite">
-					<img src="@/assets/images/social/twitter.svg" alt="twitter">
-				</a>
-				<a href="#" target="_blank" class="box hover:border border-[#0072b1] transite">
-					<img src="@/assets/images/social/linkedin.svg" alt="linkedin">
-				</a>
-				<a href="#" target="_blank" class="box hover:border border-[#cd486b] transite">
-					<img src="@/assets/images/social/instagram.svg" alt="instagram">
-				</a>
-			</div>
+<template>
+	<main class="flex flex-col px-14 py-12 relative">
+		<!-- <h1 class="text-[32px] font-bold mb-2">
+			Support
+		</h1> -->
+		<p class="text-grey4">
+			Use the channels below to contact us or get help.
+		</p>
+
+		<section class="border border-primary p-5 rounded-md max-w-[730px] grid grid-cols-2 mt-6 gap-y-4 gap-x-5">
+			<a v-for="link in links" :key="link.name" :href="link.to" class="profile-link">
+				<icon :name="link.icon" class="w-8 svg" />
+				<span class="text-sm ml-3 font-medium">{{ link.name }}</span>
+				<icon name="right" class="w-6 ml-auto" />
+			</a>
 		</section>
 	</main>
 </template>
 
-<script lang="ts" setup>
-import { useSignin } from '@/composables/auth/auth'
-import { useUser } from '@/composables/auth/user'
-const { googleSignin, signOut } = useSignin()
-const { isLoggedIn, user } = useUser()
-
+<script setup lang="ts">
+const links = ref([
+	{
+		name: 'Frequently asked questions',
+		icon: 'faq',
+		to: '#'
+},
+	{
+		name: 'Chat with us',
+		icon: 'phone',
+		to: '#'
+},
+	{
+		name: 'Our Policies',
+		icon: 'policy',
+		to: '#'
+},
+	{
+		name: 'Instagram',
+		icon: 'instagram',
+		to: '#'
+},
+	{
+		name: 'Call us',
+		icon: 'phone',
+		to: '#'
+},
+	{
+		name: 'Twitter',
+		icon: 'twitter',
+		to: '#'
+},
+	{
+		name: 'Email us',
+		icon: 'email',
+		to: '#'
+}
+])
 definePageMeta({
 	layout: 'main-default',
 	middleware: 'is-authenticated'
@@ -40,14 +63,10 @@ definePageMeta({
 </script>
 
 <style scoped>
-.box{
-width: 150px;
-height: 150px;
-left: 880px;
-top: 495px;
-background: #121a2109;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset -1px -1px 4px rgba(255, 255, 255, 0.15), inset 3px 5px 3px rgba(255, 255, 255, 0.15);
-backdrop-filter: blur(114px);
-border-radius: 14px;
-}
+    .profile-link{
+        @apply flex items-center text-dark w-full py-2 bg-light min-h-[72px] pl-3 pr-4 rounded-md border border-dark;
+    }
+	.svg{
+		@apply border border-dark h-10 w-10 p-2 text-secondary rounded
+	}
 </style>

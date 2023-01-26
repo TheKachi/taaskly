@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
+	// ssr: true ,
 	ssr: process.env.NODE_ENV === 'production',
 	routeRules: {
 		'/': { static: true },
