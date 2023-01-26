@@ -3,10 +3,9 @@
 		modal="$atts.modal"
 		title="Share"
 	>
-		<section class="flex flex-col gap-4">
-			<button class=" bg-dark" @click="copyToClipboard">
-				<icon class="w-6 mr-2" name="clipboard" />
-				Copy to Clipboard
+		<section class="grid grid-cols-3 gap-4">
+			<button @click="shareToTwitter">
+				<twitterIcon class="hover:text-[#1DA1F2] text-[#1DA1F2] sm:text-light" />
 			</button>
 			<button class="bg-[#25D366]" @click="shareToWhatsapp">
 				<icon class="w-6 mr-2" name="whatsapp_outline" />
@@ -21,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+import twitterIcon from '@/assets/images/social/twitter.vue'
 import Modal from '@/components/core/modal/Modal.vue'
 import { useSocialShare } from '@/composables/utils/share'
 const { copyToClipboard, shareToTwitter, shareToWhatsapp } = useSocialShare()
