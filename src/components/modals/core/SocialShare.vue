@@ -21,7 +21,7 @@
 					Or copy link
 				</p>
 				<div class="border border-dark rounded-md px-3 py-2 flex items-center  justify-between w-full">
-					<span class="w-9/12 truncate">	https://www.linkgoeshere.com/promo</span>
+					<span class="w-9/12 truncate">	{{ globalShareData.url }}</span>
 
 					<button class="btn" @click="copyToClipboard">
 						Copy
@@ -38,7 +38,7 @@ import whatsappIcon from '@/assets/images/social/whatsapp.vue'
 import facebookIcon from '@/assets/images/social/facebook.vue'
 import Modal from '@/components/core/modal/Modal.vue'
 import { useSocialShare } from '@/composables/utils/share'
-const { copyToClipboard, shareToTwitter, shareToWhatsapp } = useSocialShare()
+const { copyToClipboard, shareToTwitter, shareToWhatsapp, globalShareData } = useSocialShare()
 </script>
 
 <style scoped lang='scss'>
