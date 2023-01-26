@@ -20,21 +20,21 @@
 
 <script setup lang="ts">
 const links = ref([
-	{
-		name: 'Frequently asked questions',
-		icon: 'faq',
-		to: '#'
-},
+// 	{
+// 		name: 'Frequently asked questions',
+// 		icon: 'faq',
+// 		to: '#'
+// },
 	{
 		name: 'Chat with us',
 		icon: 'phone',
 		to: '#'
 },
-	{
-		name: 'Our Policies',
-		icon: 'policy',
-		to: '#'
-},
+// 	{
+// 		name: 'Our Policies',
+// 		icon: 'policy',
+// 		to: '#'
+// },
 	{
 		name: 'Instagram',
 		icon: 'instagram',
