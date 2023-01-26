@@ -37,5 +37,6 @@ export enum IconNames {
   'task' = 'task',
   'twitter' = 'twitter',
   'wallet' = 'wallet',
+  'whatsapp' = 'whatsapp',
   'whatsapp_outline' = 'whatsapp_outline'
 }

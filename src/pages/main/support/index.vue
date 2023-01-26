@@ -1,6 +1,6 @@
 
 <template>
-	<main class="flex flex-col px-14 py-12 relative">
+	<main class="flex flex-col w-full  p-5">
 		<!-- <h1 class="text-[32px] font-bold mb-2">
 			Support
 		</h1> -->
@@ -8,8 +8,8 @@
 			Use the channels below to contact us or get help.
 		</p>
 
-		<section class="border border-primary p-5 rounded-md max-w-[730px] grid grid-cols-2 mt-6 gap-y-4 gap-x-5">
-			<a v-for="link in links" :key="link.name" :href="link.to" class="profile-link">
+		<section class="border border-primary p-5 rounded-md  grid sm:grid-cols-2 mt-6 gap-y-4 gap-x-5">
+			<a v-for="link in links" :key="link.name" :href="link.to" class="profile-link" target="_blank">
 				<icon :name="link.icon" class="w-8 svg" />
 				<span class="text-sm ml-3 font-medium">{{ link.name }}</span>
 				<icon name="right" class="w-6 ml-auto" />
@@ -27,7 +27,7 @@ const links = ref([
 // },
 	{
 		name: 'Chat with us',
-		icon: 'phone',
+		icon: 'whatsapp',
 		to: '#'
 },
 // 	{
