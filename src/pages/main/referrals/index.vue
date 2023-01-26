@@ -4,7 +4,7 @@
 		<h1 class="text-base font-medium">
 			Below are the list of people that have signed up using your referral link
 		</h1>
-		<section class="flex flex-col">
+		<section class="flex flex-col overflow-x-auto">
 			<Table
 				class="w-full"
 				:loading="loading"
