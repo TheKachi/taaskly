@@ -2,8 +2,15 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
-	ssr: false,
-		vue: {
+	ssr: process.env.NODE_ENV === 'production',
+	routeRules: {
+		'/': { static: true },
+		'/main/**': { ssr: false },
+		'/shop/**': { ssr: false },
+		'/service/**': { ssr: false },
+		'/auth/**': { ssr: false }
+	},
+	vue: {
 		compilerOptions: {
 			isCustomElement: (tag) => ['lottie-player'].includes(tag)
 		}
@@ -19,12 +26,18 @@ export default {
 					'http-equiv': 'Content-Security-Policy',
 					content: 'upgrade-insecure-requests'
 				},
-				{ name: 'title', content: 'Taaskly - Everything you need in one place' },
+				{
+					name: 'title',
+					content: 'Taaskly - Everything you need in one place'
+				},
 				{
 					name: 'description',
 					content: 'Don\'t stress about the things you need to do, use Taaskly'
 				},
-				{ name: 'twitter:title', content: 'Taaskly - Everything you need in one place' },
+				{
+					name: 'twitter:title',
+					content: 'Taaskly - Everything you need in one place'
+				},
 				{ name: 'twitter:image', content: '/favicon.svg' },
 				{
 					name: 'twitter:description',
@@ -33,7 +46,10 @@ export default {
 				{ name: 'twitter:card', content: 'summary_large_image' },
 				{ name: 'twitter:site', content: '@taaskly' },
 				{ name: 'twitter:creator', content: '@taaskly' },
-				{ property: 'og:title', content: 'Taaskly - Everything you need in one place' },
+				{
+					property: 'og:title',
+					content: 'Taaskly - Everything you need in one place'
+				},
 				{ property: 'og:type', content: 'site' },
 				{ property: 'og:url', content: 'https://taaskly.xyz/' },
 				{ property: 'og:image', content: '/favicon.svg' },
@@ -45,7 +61,13 @@ export default {
 
 				{ name: 'format-detection', content: 'telephone=no' }
 			],
-			script: [{ src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js', defer: true, async: true }],
+			script: [
+				{
+					src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
+					defer: true,
+					async: true
+				}
+			],
 			link: [
 				{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
 				{
@@ -66,10 +88,10 @@ export default {
 			]
 		}
 	},
-	 loading: {
-    color: 'blue',
-    height: '5px'
-  },
+	loading: {
+		color: 'blue',
+		height: '5px'
+	},
 
 	alias: {
 		'@': './src'

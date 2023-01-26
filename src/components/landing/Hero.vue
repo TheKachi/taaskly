@@ -24,7 +24,7 @@
 					</button>
 					<button class="btn bg-dark text-light h-11">
 						<icon name="biz" class="w-5" />
-						<span class="ml-2">Post a Job</span>
+						<span class="ml-2">Find a shop</span>
 					</button>
 				</div>
 			</article>
