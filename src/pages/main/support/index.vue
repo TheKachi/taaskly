@@ -26,8 +26,13 @@ const links = ref([
 // 		to: '#'
 // },
 	{
-		name: 'Chat with us',
+		name: 'Join the community on WhatsApp',
 		icon: 'whatsapp',
+		to: '#'
+},
+	{
+		name: 'Twitter',
+		icon: 'twitter',
 		to: '#'
 },
 // 	{
@@ -45,9 +50,10 @@ const links = ref([
 		icon: 'phone',
 		to: '#'
 },
+
 	{
-		name: 'Twitter',
-		icon: 'twitter',
+		name: 'Chat with us',
+		icon: 'whatsapp',
 		to: '#'
 },
 	{
@@ -67,6 +73,6 @@ definePageMeta({
         @apply flex items-center text-dark w-full py-2 bg-light min-h-[72px] pl-3 pr-4 rounded-md border border-dark;
     }
 	.svg{
-		@apply border border-dark h-10 w-10 p-2 text-secondary rounded
+		@apply border border-dark h-10 w-10 p-2 text-primary rounded
 	}
 </style>

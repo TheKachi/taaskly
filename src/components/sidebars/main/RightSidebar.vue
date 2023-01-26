@@ -52,6 +52,9 @@ import { useAuthModal } from '@/composables/core/modals'
 </script>
 
 <style scoped lang="scss">
+.btn{
+	@apply h-11 ;
+}
 .bg-shadow {
 	box-shadow: 0px 2px 16px rgba(31, 41, 55, 0.12);
 }
