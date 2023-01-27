@@ -42,7 +42,7 @@ const shareCard = (task) => {
 	shareData({
 		title: 'Join me on Taaskly',
 		text: cardReferralMsg.value,
-		url: `${location.host}/auth/register/?refer=${encodedName}`
+		url: `/auth/register/?refer=${encodedName}`
 	})
 }
 </script>
