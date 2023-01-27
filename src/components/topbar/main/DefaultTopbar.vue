@@ -1,6 +1,6 @@
 <template>
 	<nav
-		class="absolute  w-full top-0  h-16 px-4  flex items-center justify-between box-border z-20 bg-white shadow"
+		class="absolute  w-full top-0  h-16 px-4  flex items-center justify-between box-border z-20 bg-white border-b border-dark"
 	>
 		<div class="items-center gap-4 mobile">
 			<component :is="down" v-if="topbarName($route.name).can_go_back" class="cursor-pointer z-50 rotate-90" @click="$router.go(-1)" />
@@ -39,7 +39,7 @@
 					<div
 						v-if="showMenu"
 						mode="out-in"
-						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded p-4"
+						class="bg-white z-20 px-4 shadow text-sm absolute top-[3.5rem] right-0 border border-primary w-72 rounded-md p-4"
 					>
 						<div class="flex flex-col pb-1 pt-2.5 gap-4 ">
 							<nuxt-link

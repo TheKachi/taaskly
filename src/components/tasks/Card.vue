@@ -31,12 +31,13 @@ import { useShareUtil } from '@/composables/utils/share'
 import hand_shake from '@/assets/icons/src/hand_shake.vue'
 import share from '@/assets/icons/src/share.vue'
 import flag from '@/assets/icons/src/flag.vue'
+import { cardShareMsg } from '@/composables/utils/content'
 const { shareData } = useShareUtil()
 
 const shareCard = (task) => {
 	shareData({
 		title: `${task.user.username}'s task`,
-		text: task.desc,
+		text: cardShareMsg.value,
 		url: `/tasks/${task.id}`
 	})
 }

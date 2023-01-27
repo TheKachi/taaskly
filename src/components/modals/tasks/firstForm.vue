@@ -7,7 +7,7 @@
 		</div>
 		<div class="field relative">
 			<label>What type of task is this?</label>
-			<div class="flex self-start bg-gray-200 rounded border border-dark w-full transite">
+			<div class="flex self-start bg-gray-200 rounded-md border border-dark w-full transite">
 				<label for="physical" class="label-radio transite">
 					<input
 						id="physical"
@@ -37,11 +37,11 @@
 
 		<div v-if="!createTaskForm.remote.value" class="field">
 			<label for="location">Task Location</label>
-			<LazyLocationInput v-model="createTaskForm.location.value" />
+			<LocationInput v-model="createTaskForm.location.value" />
 		</div>
 		<div class="field relative">
 			<label for="tags">Tags</label>
-			<LazyAutocomplete v-model="createTaskForm.tags.value" placeholder="Enter Tasks Tags to help with filtering" @update="createTaskForm.tags.value = $event" />
+			<Autocomplete v-model="createTaskForm.tags.value" placeholder="Enter Tasks Tags to help with filtering" @update="createTaskForm.tags.value = $event" />
 		</div>
 
 		<button class="modal-btn">

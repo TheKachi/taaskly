@@ -9,3 +9,4 @@
         @apply border border-gray-400 w-full h-8 py-1.5 px-2 rounded  outline-none hover:border-2 focus:border border-black lg:max-w-[70%] focus:border-primary transition-all duration-200 ease-in;
     }
 }
+

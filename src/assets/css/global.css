@@ -52,6 +52,6 @@ select {
         @apply flex flex-col justify-center items-center;
     }
     .transite {
-        @apply transition-all duration-300 ease-in-out;
+        @apply transition-all duration-75 md:duration-150 ease-linear;
     }
 }

@@ -74,5 +74,5 @@ export const useSocialShare = () => {
 		if (shouldCloseModal) useCoreModal().closeSocialShare()
 	}
 
-	return { copyToClipboard, shareToTwitter, shareToWhatsapp }
+	return { copyToClipboard, shareToTwitter, shareToWhatsapp, globalShareData }
 }
