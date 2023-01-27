@@ -29,7 +29,7 @@
         @apply flex flex-col gap-3 overflow-y-auto w-full items-center;
     }
     .btn {
-        @apply rounded-md px-4 py-2 flex justify-center items-center disabled:bg-gray-500 box-border h-9;
+        @apply rounded-md px-4 py-2 flex justify-center items-center disabled:bg-gray-500 box-border h-11;
     }
     .btn-primary {
         @apply btn bg-primary text-light;

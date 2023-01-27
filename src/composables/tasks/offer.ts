@@ -1,5 +1,7 @@
+import { v4 as uuidv4 } from 'uuid'
 import { useTaskModal } from '@/composables/core/modals'
 import { useAlert } from '@/composables/core/useNotification'
+import { setFirestoreDocument } from '@/firebase/firestore'
 
 const globalData = {
 	selectedTask: ref({}),
@@ -8,7 +10,8 @@ const globalData = {
    const credential = {
         type: ref(''),
         price: ref(''),
-        offerMsg: ref('')
+        offerMsg: ref(''),
+        step: ref(0)
     }
 
 export const useOfferTask = () => {
@@ -19,16 +22,25 @@ export const useOfferTask = () => {
         credential.price.value = task.price
          useTaskModal().openOfferTask()
 	}
-	// const flagTask = async () => {
-	// 	loading.value = true
-	// 	try {
-	// 		// await updateFirestoreDocument('tasks', globalData.taskId.value, { flags: arrayUnion({ userId: userId.value, reason: flagReason.value }) })
-	// 		loading.value = false
-	// 		useTaskModal().closeOfferTask()
-	// 	} catch (e: any) {
-	// 		loading.value = false
-	// 		useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
-	// 	}
-	// }
+	setFirestoreDocument
+
+	const makeOffer = async () => {
+		if (credential.step.value === 0) return credential.step.value++
+		else {
+			const offerId = uuidv4()
+			try {
+			await setFirestoreDocument('tasks', offerId, {
+
+			})
+			loading.value = false
+			useTaskModal().closeCreateTask()
+			useAlert().openAlert({ type: 'SUCCESS', msg: 'Offer sent' })
+		} catch (e: any) {
+			loading.value = false
+			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+		}
+		}
+	}
+
 	return { loading, setTask, ...globalData, credential }
 }
