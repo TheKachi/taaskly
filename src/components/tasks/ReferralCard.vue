@@ -19,7 +19,7 @@
 			</div>
 			<div class=" text-gray-700 mt-1 flex gap-2">
 				<span class="accept-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openReferral()"> <handShakeIcon class="w-5" />Generate referral link</span>
-				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="useCoreModal().openSocialShare()"> <share class="w-5" /> share</span>
+				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="shareCard()"> <share class="w-5" /> share</span>
 			</div>
 		</div>
 	</article>
@@ -27,9 +27,24 @@
 
 <script setup lang="ts">
 import { useCoreModal } from '@/composables/core/modals'
+import { encryptString } from '@/composables/utils'
 import handShakeIcon from '@/assets/icons/src/hand_shake.vue'
 import share from '@/assets/icons/src/share.vue'
+import { useShareUtil } from '@/composables/utils/share'
+import { cardReferralMsg } from '@/composables/utils/content'
+import { useUser } from '@/composables/auth/user'
+const { shareData } = useShareUtil()
 
+const { username } = useUser()
+const encodedName = encryptString(username.value)
+
+const shareCard = (task) => {
+	shareData({
+		title: 'Join me on Taaskly',
+		text: cardReferralMsg.value,
+		url: `${location.host}/auth/register/?refer=${encodedName}`
+	})
+}
 </script>
 
 <style scoped>
