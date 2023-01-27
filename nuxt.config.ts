@@ -2,13 +2,13 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
-	// ssr: true ,
-	ssr: process.env.NODE_ENV === 'production',
+	ssr: true,
+	// ssr: process.env.NODE_ENV === 'production',
 	routeRules: {
 		'/': { static: true },
 		'/auth/register/**': { ssr: true },
 		'/auth/login/**': { ssr: true },
-		'/main/**': { ssr: false },
+		'/main/**': { ssr: true },
 		'/shop/**': { ssr: false },
 		'/service/**': { ssr: false },
 		'/auth/**': { ssr: false }

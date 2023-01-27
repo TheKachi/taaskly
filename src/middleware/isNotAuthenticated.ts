@@ -2,9 +2,11 @@ import { useUser } from '@/composables/auth/user'
 import { decryptString } from '@/composables/utils'
 
 export default function isNotAuthenticated(route: any) {
-	hasReferer()
+	if (process.client) {
+			hasReferer()
 	if (useUser().isLoggedIn.value) {
 		return navigateTo('/main/home')
+	}
 	}
 }
 
