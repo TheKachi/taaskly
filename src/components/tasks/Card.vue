@@ -16,7 +16,7 @@
 				{{ task.desc }}
 			</div>
 			<div class=" text-gray-700 mt-1 flex gap-2">
-				<span class="accept-btn text-xs px-0 hover:px-2" @click.stop="useTaskModal().openOfferTask()"> <hand_shake class="w-5" /> Make an Offer</span>
+				<span class="accept-btn text-xs px-0 hover:px-2" @click.stop="setTask(task)"> <hand_shake class="w-5" /> Make an Offer</span>
 				<span class="share-btn text-xs px-0 hover:px-2" @click.stop="shareCard(task)"> <share class="w-5" /> share</span>
 				<span class="flag-btn text-xs px-0 hover:px-2" @click.stop="setFlagTaskId(id)"> <flag class="w-5" /> flag</span>
 			</div>
@@ -32,7 +32,10 @@ import hand_shake from '@/assets/icons/src/hand_shake.vue'
 import share from '@/assets/icons/src/share.vue'
 import flag from '@/assets/icons/src/flag.vue'
 import { cardShareMsg } from '@/composables/utils/content'
+import { useOfferTask } from '@/composables/tasks/offer'
 const { shareData } = useShareUtil()
+
+const { setTask } = useOfferTask()
 
 const shareCard = (task) => {
 	shareData({

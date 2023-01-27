@@ -8,8 +8,8 @@
 			<form class="auth-form mt-1.5" @submit.prevent="create">
 				<div class="field relative">
 					<label for="student">Write an Offer</label>
-					<textarea placeholder="Why should you be choosen for this task?" rows="4" class="input-textarea" required />
-					<span id="counter" class="text-sm font-medium ml-auto mt-1">140</span>
+					<textarea v-model="credential.offerMsg.value" placeholder="Why should you be choosen for this task?" rows="4" class="input-textarea" required />
+					<!-- <span id="counter" class="text-sm font-medium ml-auto mt-1">140</span> -->
 				</div>
 
 				<div class="field relative">
@@ -18,6 +18,7 @@
 					<div id="amount" class="relative w-full">
 						<span class="absolute left-2 text-base font-bold top-1.5 bg-primary rounded-md px-2 py-1 text-white">#</span>
 						<input
+							v-model="credential.price.value"
 							v-money
 							placeholder="The price of the task"
 							type="tel"
@@ -38,7 +39,9 @@
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
 import { useCreateTask } from '~~/src/composables/tasks'
+import { useOfferTask } from '@/composables/tasks/offer'
 const { formStep } = useCreateTask()
+const { credential } = useOfferTask()
 </script>
 
 <style scoped>
