@@ -42,5 +42,5 @@ export const useOfferTask = () => {
 		}
 	}
 
-	return { loading, setTask, ...globalData, credential }
+	return { loading, setTask, ...globalData, credential, makeOffer }
 }
