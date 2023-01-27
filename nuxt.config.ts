@@ -6,6 +6,8 @@ export default {
 	ssr: process.env.NODE_ENV === 'production',
 	routeRules: {
 		'/': { static: true },
+		'/auth/register': { static: true },
+		'/auth/login': { static: true },
 		'/main/**': { ssr: false },
 		'/shop/**': { ssr: false },
 		'/service/**': { ssr: false },
