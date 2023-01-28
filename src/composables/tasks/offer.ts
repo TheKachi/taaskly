@@ -1,16 +1,19 @@
 import { v4 as uuidv4 } from 'uuid'
 import { useTaskModal } from '@/composables/core/modals'
 import { useAlert } from '@/composables/core/useNotification'
-import { setFirestoreDocument } from '@/firebase/firestore'
+import { setFirestoreSubDocument } from '@/firebase/firestore'
+import { useUser } from '@/composables/auth/user'
 
+const { id: userId, username } = useUser()
 const globalData = {
-	selectedTask: ref({}),
+	selectedTask: ref({} as any),
 	taskId: ref('')
 }
    const credential = {
         type: ref(''),
         price: ref(''),
         offerMsg: ref(''),
+        status: ref(''),
         step: ref(0)
     }
 
@@ -22,18 +25,21 @@ export const useOfferTask = () => {
         credential.price.value = task.price
          useTaskModal().openOfferTask()
 	}
-	setFirestoreDocument
 
 	const makeOffer = async () => {
 		if (credential.step.value === 0) return credential.step.value++
 		else {
-			const offerId = uuidv4()
+			loading.value = true
 			try {
-			await setFirestoreDocument('tasks', offerId, {
-
+			await setFirestoreSubDocument('tasks', globalData.selectedTask.value.id, 'offers', userId.value as string, {
+				id: userId.value,
+				type: credential.type.value,
+				price: credential.price.value,
+				status: credential.status.value,
+				offerMsg: credential.offerMsg.value
 			})
 			loading.value = false
-			useTaskModal().closeCreateTask()
+			useTaskModal().closeOfferTask()
 			useAlert().openAlert({ type: 'SUCCESS', msg: 'Offer sent' })
 		} catch (e: any) {
 			loading.value = false
