@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default {
 	ssr: false,
@@ -64,7 +65,7 @@ export default {
 
 				{ name: 'format-detection', content: 'telephone=no' }
 			],
-			script: [
+			script: [{ src: '/scripts/pwa.js', type: 'module' },
 				{
 					src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
 					defer: true,
@@ -123,7 +124,13 @@ export default {
 	},
 	vite: {
 		plugins: [
-			eslintPlugin({ useEslintrc: true, exclude: ['src/helpers/**/*'] })
+			eslintPlugin({ useEslintrc: true, exclude: ['src/helpers/**/*'] }),
+			VitePWA({
+				registerType: 'autoUpdate',
+			 devOptions: {
+        enabled: true
+				}
+			})
 		],
 		server: {
 			watch: {

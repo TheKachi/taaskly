@@ -27,6 +27,21 @@
 					</div>
 				</div>
 
+				<div v-else class="auth-form">
+					<div class="field relative">
+						<label class="more">Your reason</label>
+						<p>{{ credential.offerMsg.value }}</p>
+					</div>
+					<div class="field relative">
+						<label class="more">Your asking price</label>
+						<p>{{ credential.price.value }}</p>
+					</div>
+					<div class="field relative">
+						<label class="more">how much you would actually be paid</label>
+						<p>{{ paidAmount(credential.price.value) }}</p>
+					</div>
+				</div>
+
 				<div class="flex items-center gap-10  w-full">
 					<button v-if=" credential.step.value===1" class="modal-btn" @click="credential.step.value--">
 						Back
@@ -46,8 +61,10 @@
 import Modal from '@/components/core/modal/Modal.vue'
 import { useCreateTask } from '~~/src/composables/tasks'
 import { useOfferTask } from '@/composables/tasks/offer'
+import { paidAmount } from '@/composables/utils'
 const { formStep } = useCreateTask()
 const { credential, loading, makeOffer } = useOfferTask()
+
 </script>
 
 <style scoped>
@@ -57,5 +74,8 @@ const { credential, loading, makeOffer } = useOfferTask()
 	width: var(--w);
     background: #35355b76;
 	position: absolute;
+}
+label.more{
+	@apply text-xl font-bold
 }
 </style>
