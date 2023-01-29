@@ -1,5 +1,5 @@
 <template>
-	<article class="card-body" @click="$router.push(`/main/tasks/${id}`)">
+	<article class="card-body" @click="showTaskIdDetailsPage(task)">
 		<div class="flex-shrink-0">
 			<Avatar :name="task.user.username" />
 		</div>
@@ -33,9 +33,9 @@ import share from '@/assets/icons/src/share.vue'
 import flag from '@/assets/icons/src/flag.vue'
 import { cardShareMsg } from '@/composables/utils/content'
 import { useOfferTask } from '@/composables/tasks/offer'
+import { useTaskIdDetails } from '@/composables/tasks/id'
 const { shareData } = useShareUtil()
-
-const { setTask } = useOfferTask()
+const { showTaskIdDetailsPage } = useTaskIdDetails()
 
 const shareCard = (task) => {
 	shareData({

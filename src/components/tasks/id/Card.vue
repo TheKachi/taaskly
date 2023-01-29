@@ -1,11 +1,11 @@
 <template>
-	<article class="card-body" @click="$router.push(`/main/tasks/${id}`)">
+	<article v-if="task" class="card-body border-b border-t-0" @click="$router.push(`/main/tasks/${id}`)">
 		<div class="flex-shrink-0">
-			<Avatar :name="task.user.username" />
+			<Avatar v-if="task.user" :name="task.user.username" />
 		</div>
 		<div class="ml-4 flex flex-col items-start w-full">
 			<div class="text-lg font-bold">
-				<a href="#" class="text-dark capitalize">{{ task.user.username }}</a>
+				<a v-if="task.user" href="#" class="text-dark capitalize">{{ task.user.username }}</a>
 			</div>
 			<div class="flex items-center gap-2">
 				<BadgeSmall :name="Number(task.price)==0 ? 'Free': `#${task.price}`" class="bg-black text-white" />
@@ -50,12 +50,12 @@ const { setFlagTaskId } = useFlagTask()
 const props = defineProps({
 	id: {
 		type: String || Number,
-		requireed: true,
+		required: true,
 		default: ''
 	},
 	task: {
 		type: Object,
-		requireed: true,
+		required: true,
 		default: () => {}
 	}
 })
