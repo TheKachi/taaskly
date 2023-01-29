@@ -11,10 +11,8 @@ const loading = ref(false)
 		try {
             const task = await getSingleFirestoreDocument('tasks', id)
             taskIdDetails.value = task
-            console.log(taskIdDetails.value)
 			loading.value = false
         } catch (e: any) {
-            console.log(e)
 			loading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
 		}

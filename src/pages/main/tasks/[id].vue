@@ -20,7 +20,6 @@ import { useFetchIdTask } from '@/composables/tasks/id'
 const { params, query, name } = useRoute()
 const { loading, fetchIdTask, taskIdDetails } = useFetchIdTask()
 
-console.log(params, name)
 definePageMeta({
 	layout: 'main-default'
 })
