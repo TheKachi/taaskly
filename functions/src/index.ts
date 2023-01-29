@@ -28,7 +28,6 @@ exports.userFirstTimeProfileUpdate = functions
 		const SENDGRID_KEY = process.env.SENDGRID_KEY;
 		sgMail.setApiKey(SENDGRID_KEY as string);
 		const intro = introMsg(first_name);
-
 		const msg = {
 			to: dataValues.email,
 			from: 'Taaskly <support@taaskly.xyz>',
@@ -42,8 +41,10 @@ exports.userFirstTimeProfileUpdate = functions
 			.collection('usernames')
 			.doc(username)
 			.create({id: uid, username: username, email: email});
+		if (referrer) {
+	await admin.firestore().collection('usernames').doc(referrer).collection('referrals').doc(uid).create({id: uid, username: username, email: email, created_at: created_at, name: name});
+}
 
-		await admin.firestore().collection('usernames').doc(referrer).collection('referrals').doc(uid).create({id: uid, username: username, email: email, created_at: created_at, name: name});
 
 		await admin
 			.auth()
