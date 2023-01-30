@@ -2,8 +2,8 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
-	ssr: false,
-	// ssr: process.env.NODE_ENV === 'production',
+	// ssr: false,
+	ssr: process.env.NODE_ENV === 'production',
 	routeRules: {
 		'/': { static: true },
 		'/auth/register/**': { ssr: false },

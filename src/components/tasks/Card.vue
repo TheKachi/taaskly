@@ -36,7 +36,7 @@ import { useOfferTask } from '@/composables/tasks/offer'
 import { useTaskIdDetails } from '@/composables/tasks/id'
 const { shareData } = useShareUtil()
 const { showTaskIdDetailsPage } = useTaskIdDetails()
-
+const { setTask } = useOfferTask()
 const shareCard = (task) => {
 	shareData({
 		title: `${task.user.username}'s task`,
