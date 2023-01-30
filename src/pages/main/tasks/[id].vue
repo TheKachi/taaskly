@@ -6,7 +6,7 @@
 	</Head>
 	<!-- ========================================================================== -->
 	<div>
-		<TasksLoadingCard v-if="loading" :count="1" />
+		<TasksIdLoadingCard v-if="loading" :count="1" class="border-b !border-t-0" />
 		<div v-else>
 			<TasksIdCard :id="taskIdDetails.id" :key="taskIdDetails.id" :task="taskIdDetails" />
 		</div>

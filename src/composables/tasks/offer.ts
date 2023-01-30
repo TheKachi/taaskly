@@ -50,3 +50,9 @@ export const useOfferTask = () => {
 
 	return { loading, setTask, ...globalData, credential, makeOffer }
 }
+
+export const useFetchOffers = () => {
+	const loading = ref(false)
+
+	return { loading }
+}
