@@ -1,6 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
-import { VitePWA } from 'vite-plugin-pwa'
 
 export default {
 	ssr: false,
@@ -100,7 +99,7 @@ export default {
 	alias: {
 		'@': './src'
 	},
-	modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss'],
+	modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss', '@vite-pwa/nuxt'],
 
 	css: ['/src/assets/css/main.css'],
 	components: [
@@ -124,13 +123,7 @@ export default {
 	},
 	vite: {
 		plugins: [
-			eslintPlugin({ useEslintrc: true, exclude: ['src/helpers/**/*'] }),
-			VitePWA({
-				registerType: 'autoUpdate',
-			 devOptions: {
-        enabled: true
-				}
-			})
+			eslintPlugin({ useEslintrc: true, exclude: ['src/helpers/**/*'] })
 		],
 		server: {
 			watch: {

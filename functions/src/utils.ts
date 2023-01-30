@@ -11,7 +11,7 @@ To prove that we are not exaggerating, here is what you can do with Taaskly: <br
 
 <br>
 
-Now that you know the benefits of Taaskly, you should share [referal link] with your friends so they can also live a soft life like you.
+Now that you know the benefits of Taaskly, you should share [referal link] with your friends so they can also live a soft life like you. <br>
 
 <b style="font-weight:700; color:'#4F1DED';">Final note: </b>Taaskly is still in beta, and to deliver a continuous top-notch experience, your feedback would mean a lot to us. Please feel free to contact us at <a href="mailto:anthony@taaskly.xyz"> support@taaskly.xyz </a>
 or <a href="https://wa.me/+2348115222468?" target="_blank" rel="noopener noreferrer">+2348115222468</a> if you have any concerns.

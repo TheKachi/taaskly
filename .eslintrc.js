@@ -36,7 +36,6 @@ module.exports = {
 		'import/no-named-as-default': 'off',
 		'vue/no-template-shadow': 'off',
 		'no-var': 'error',
-		'unused-import': 'off',
 		'space-before-function-paren': 'off',
 		camelcase: 'off',
 		'accessor-pairs': 'off',
