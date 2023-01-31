@@ -1,5 +1,5 @@
 <template>
-	<article class="card-body">
+	<article :class="[inner? 'border-b':'border-t hover:border-x-[2.5px]']" class="card-body">
 		<div class="flex-shrink-0">
 			<Avatar :name="task.user.username" />
 		</div>
@@ -42,6 +42,11 @@ const shareCard = (task) => {
 	})
 }
 defineProps({
+	inner: {
+		type: Boolean,
+		default: false,
+		required: false
+	},
 	id: {
 		type: String || Number,
 		requireed: true,

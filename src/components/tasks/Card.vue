@@ -1,5 +1,5 @@
 <template>
-	<article :class="[inner? 'border-b':'border-t hover:border-x-[2.5px]', 'flex p-4   border-dark  cursor-pointer']" class="card-body" @click="showTaskIdDetailsPage(task)">
+	<article :class="[inner? 'border-b':'border-t hover:border-x-[2.5px]']" class="card-body" @click="showTaskIdDetailsPage(task)">
 		<div class="flex-shrink-0">
 			<Avatar v-if="task.user" :name="task.user.username" />
 		</div>
@@ -48,7 +48,7 @@ const shareCard = (task) => {
 const { setFlagTaskId } = useFlagTask()
 
 const props = defineProps({
-		inner: {
+	inner: {
 		type: Boolean,
 		default: false,
 		required: false

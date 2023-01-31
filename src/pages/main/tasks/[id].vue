@@ -11,7 +11,7 @@
 			<TasksCard :id="taskIdDetails.id" :key="taskIdDetails.id" :task="taskIdDetails" :inner="true" />
 		</div>
 
-		<TasksIdOfferLoadingCard v-if="offerLoading" :count="3" />
+		<TasksLoadingCard v-if="offerLoading" :count="3" type="offer" />
 		<div v-else>
 			<TasksOffers v-for="offer in offers" :key="offer.id" :offer="offer" />
 		</div>
