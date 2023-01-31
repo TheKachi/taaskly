@@ -1,9 +1,11 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import {IncomingWebhook} from '@slack/webhook';
+import {introMsg} from './utils';
 // .IncomingWebhook;
 admin.initializeApp();
 import sgMail = require('@sendgrid/mail');
+
 
 exports.userFirstTimeProfileUpdate = functions
 	.runWith({secrets: ['SENDGRID_KEY', 'SLACK_WEBHOOK_URL']})
@@ -25,13 +27,13 @@ exports.userFirstTimeProfileUpdate = functions
 		const email = dataValues.email;
 		const SENDGRID_KEY = process.env.SENDGRID_KEY;
 		sgMail.setApiKey(SENDGRID_KEY as string);
-
+		const intro = introMsg(first_name);
 		const msg = {
 			to: dataValues.email,
 			from: 'Taaskly <support@taaskly.xyz>',
 			subject: 'Welcome to Taaskly !!!',
-			text: `Hello ${first_name}, Welcome to Taaskly !!! <br> <br> At Taaskly we are trying to create new ways for you get your tasks done and also earn money with ease. <br> <br> We are currently in beta and we would love to hear your feedback. <br> <br> Please feel free to reach out to us at <a href="mailto:anthony@taaskly.xyz"> anthony@taaskly.xyz </a> or <a href="https://wa.me/+2348115222468?" target="_blank" rel="noopener noreferrer">+2348115222468</a> <br> <br> Thanks, <br> <br>  Taaskly Team`,
-			html: `Hello ${first_name}, Welcome to Taaskly !!! <br> <br> At Taaskly we are trying to create new ways for you get your tasks done and also earn money with ease. <br> <br> We are currently in beta and we would love to hear your feedback. <br> <br> Please feel free to reach out to us at <a href="mailto:anthony@taaskly.xyz"> anthony@taaskly.xyz </a> or <a href="https://wa.me/+2348115222468?" target="_blank" rel="noopener noreferrer">+2348115222468</a> <br> <br> Thanks, <br> <br>  Taaskly Team`,
+			text: intro,
+			html: intro,
 		};
 
 		await admin
@@ -39,8 +41,10 @@ exports.userFirstTimeProfileUpdate = functions
 			.collection('usernames')
 			.doc(username)
 			.create({id: uid, username: username, email: email});
+		if (referrer) {
+	await admin.firestore().collection('usernames').doc(referrer).collection('referrals').doc(uid).create({id: uid, username: username, email: email, created_at: created_at, name: name});
+}
 
-		await admin.firestore().collection('usernames').doc(referrer).collection('referrals').doc(uid).create({id: uid, username: username, email: email, created_at: created_at, name: name});
 
 		await admin
 			.auth()

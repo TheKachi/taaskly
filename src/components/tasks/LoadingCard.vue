@@ -1,5 +1,5 @@
 <template>
-	<article v-for="n in 3" :key="n" class="flex p-4  border-t border-dark  cursor-pointer">
+	<article v-for="n in count" :key="n" class="flex p-4  border-t border-dark  cursor-pointer">
 		<!-- <h1 class="text-4xl font-bold">
 			loading...
 		</h1> -->
@@ -34,7 +34,13 @@
 </template>
 
 <script setup lang="ts">
-
+defineProps({
+	count: {
+		type: Number,
+		default: 3,
+		required: false
+	}
+})
 </script>
 
 <style scoped>

@@ -2,7 +2,7 @@
 	<LazyTasksReferralCard />
 	<TasksLoadingCard v-if="taskloading" />
 	<div v-else>
-		<LazyTasksMyCard v-for="task in myTasks" :id="task.id" :key="task.id" :task="task" />
+		<TasksMyCard v-for="task in myTasks" :id="task.id" :key="task.id" :task="task" />
 	</div>
 </template>
 

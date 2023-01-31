@@ -20,8 +20,8 @@
 			</div>
 
 			<div class="grid grid-cols-1 gap-4">
-				<button class="modal-btn bg-primary" :disabled="loading" type="submit">
-					<span v-if="!loading"> flag</span>
+				<button class="modal-btn " :disabled="loading" type="submit">
+					<span v-if="!loading"> Flag</span>
 					<Spinner v-else />
 				</button>
 			</div>

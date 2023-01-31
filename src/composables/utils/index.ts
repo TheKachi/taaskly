@@ -76,3 +76,8 @@ export const formatTime = (dateData: string) => {
 		time: `${hour.split(' ')[0]} : ${minute} ${hour.split(' ')[1]}`
 	}
 }
+
+export const paidAmount = (amount: string, percentage = 10) => {
+  const parseAmount = parseFloat(amount.replace(',', '').replace(' ', ''))
+  return (parseAmount - (parseAmount * percentage) / 100)
+}

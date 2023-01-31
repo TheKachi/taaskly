@@ -5,12 +5,6 @@ export type ProfileType = {
 	last_name: string;
 	email: string;
 	phone: string;
-	student: string;
-	university: string;
-	address: string;
-	gender: string;
-	dob: string;
-	desc: string;
 	verifiedLevel: number;
 	profileLevel: number;
 	tasker_rating: number | boolean;

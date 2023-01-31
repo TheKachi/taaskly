@@ -1,11 +1,11 @@
 <template>
-	<article class="card-body" @click="showTaskIdDetailsPage(task)">
+	<article v-if="task" class="card-body border-b border-t-0" @click="$router.push(`/main/tasks/${id}`)">
 		<div class="flex-shrink-0">
-			<Avatar :name="task.user.username" />
+			<Avatar v-if="task.user" :name="task.user.username" />
 		</div>
 		<div class="ml-4 flex flex-col items-start w-full">
 			<div class="text-lg font-bold">
-				<a href="#" class="text-dark capitalize">{{ task.user.username }}</a>
+				<a v-if="task.user" href="#" class="text-dark capitalize">{{ task.user.username }}</a>
 			</div>
 			<div class="flex items-center gap-2">
 				<BadgeSmall :name="Number(task.price)==0 ? 'Free': `#${task.price}`" class="bg-black text-white" />
@@ -33,10 +33,10 @@ import share from '@/assets/icons/src/share.vue'
 import flag from '@/assets/icons/src/flag.vue'
 import { cardShareMsg } from '@/composables/utils/content'
 import { useOfferTask } from '@/composables/tasks/offer'
-import { useTaskIdDetails } from '@/composables/tasks/id'
 const { shareData } = useShareUtil()
-const { showTaskIdDetailsPage } = useTaskIdDetails()
+
 const { setTask } = useOfferTask()
+
 const shareCard = (task) => {
 	shareData({
 		title: `${task.user.username}'s task`,
@@ -50,12 +50,12 @@ const { setFlagTaskId } = useFlagTask()
 const props = defineProps({
 	id: {
 		type: String || Number,
-		requireed: true,
+		required: true,
 		default: ''
 	},
 	task: {
 		type: Object,
-		requireed: true,
+		required: true,
 		default: () => {}
 	}
 })

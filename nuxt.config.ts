@@ -2,12 +2,12 @@ import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
 
 export default {
-	// ssr: true ,
+	// ssr: false,
 	ssr: process.env.NODE_ENV === 'production',
 	routeRules: {
 		'/': { static: true },
-		'/auth/register/**': { ssr: true },
-		'/auth/login/**': { ssr: true },
+		'/auth/register/**': { ssr: false },
+		'/auth/login/**': { ssr: false },
 		'/main/**': { ssr: false },
 		'/shop/**': { ssr: false },
 		'/service/**': { ssr: false },
@@ -64,7 +64,7 @@ export default {
 
 				{ name: 'format-detection', content: 'telephone=no' }
 			],
-			script: [
+			script: [{ src: '/scripts/pwa.js', type: 'module' },
 				{
 					src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
 					defer: true,
@@ -99,7 +99,7 @@ export default {
 	alias: {
 		'@': './src'
 	},
-	modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss'],
+	modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss', '@vite-pwa/nuxt'],
 
 	css: ['/src/assets/css/main.css'],
 	components: [

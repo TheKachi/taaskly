@@ -68,6 +68,7 @@ export const useCreateTask = () => {
 			loading.value = false
 			useTaskModal().closeCreateTask()
 			useFetchHomeTasks().fetchHomeTasks()
+			useAlert().openAlert({ type: 'SUCCESS', msg: 'Task posted successfully' })
 		} catch (e: any) {
 			loading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
@@ -136,6 +137,7 @@ export const useFlagTask = () => {
 			await updateFirestoreDocument('tasks', globalData.flagTaskId.value, { flags: arrayUnion({ userId: userId.value, reason: flagReason.value }) })
 			loading.value = false
 			useTaskModal().closeFlagTask()
+			useAlert().openAlert({ type: 'SUCCESS', msg: 'Tasks Flagged successfully' })
 		} catch (e: any) {
 			loading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })

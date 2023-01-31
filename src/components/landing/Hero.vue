@@ -16,7 +16,7 @@
 				<div class="flex items-center  gap-2 w-full flex-wrap mt-6">
 					<button class="btn bg-dark text-light h-11">
 						<icon name="post" class="w-5" />
-						<span class="ml-2">Post a Job</span>
+						<span class="ml-2">Post a task</span>
 					</button>
 					<button class="btn bg-dark text-light h-11">
 						<icon name="search" class="w-5" />
