@@ -64,7 +64,6 @@ export const useFetchOffers = () => {
         try {
 			await getFirestoreSubCollection('tasks', id, 'offers', offers)
 			loading.value = false
-			console.log(offers.value)
 		} catch (e: any) {
 			loading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
