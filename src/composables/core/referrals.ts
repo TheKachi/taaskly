@@ -1,7 +1,4 @@
-import { v4 as uuidv4 } from 'uuid'
-import {
-	getFirestoreSubCollection
-} from '@/firebase/firestore'
+import { getFirestoreSubCollection } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
 import { useUser } from '@/composables/auth/user'
 

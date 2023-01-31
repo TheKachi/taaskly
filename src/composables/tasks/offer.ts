@@ -1,7 +1,6 @@
-import { v4 as uuidv4 } from 'uuid'
+import { getFirestoreSubCollection, setFirestoreSubDocument } from '@/firebase/firestore'
 import { useTaskModal } from '@/composables/core/modals'
 import { useAlert } from '@/composables/core/useNotification'
-import { setFirestoreSubDocument } from '@/firebase/firestore'
 import { useUser } from '@/composables/auth/user'
 
 const { id: userId, username } = useUser()
@@ -51,8 +50,20 @@ export const useOfferTask = () => {
 	return { loading, setTask, ...globalData, credential, makeOffer }
 }
 
+const offers = ref([])
 export const useFetchOffers = () => {
 	const loading = ref(false)
 
-	return { loading }
+		const fetchOffers = async (id:string) => {
+		if (offers.value.length > 0) return
+        loading.value = true
+        try {
+			await getFirestoreSubCollection('tasks', id, 'referrals', offers)
+			loading.value = false
+		} catch (e: any) {
+			loading.value = false
+			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
+		}
+	}
+	return { loading, offers, fetchOffers }
 }
