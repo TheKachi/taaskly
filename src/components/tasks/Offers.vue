@@ -1,6 +1,6 @@
 <template>
 	<div id="offers" class="flex flex-col">
-		<article v-for="n in 5" :key="n" class="flex p-4 cursor-pointer border">
+		<article class="flex p-4 cursor-pointer border">
 			<div class="flex-shrink-0">
 				<Avatar v-if="offer.user" :name="offer.user.username" />
 			</div>
