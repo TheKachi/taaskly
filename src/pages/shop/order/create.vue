@@ -1,6 +1,6 @@
 <template>
-	<section class="w-full grid grid-cols-12 gap-4 rounded-md min-h-[80vh]">
-		<div class="bg-gray-100 w-full col-span-8 p-6 rounded-md">
+	<section class="w-full flex flex-col mt-10 lg:grid lg:grid-cols-12 gap-4 rounded-md min-h-[80vh]">
+		<div class="bg-gray-100 w-full lg:col-span-8 p-6 rounded-md">
 			<div class="flex justify-between items-center mt-2 mb-8 gap-4">
 				<input placeholder="Search Product" type="text" class="input-field-search-product">
 				<div ref="target" class="flex flex-col relative">
@@ -43,7 +43,7 @@
 			<div
 				v-for="item in topProducts"
 				:key="item.title"
-				class="flex items-center gap-4 py-2 border-t justify-between hover:bg-white cursor-pointer"
+				class="flex items-center gap-4 py-4 border-t justify-between hover:bg-white cursor-pointer"
 			>
 				<div class="flex items-center gap-2">
 					<img :src="item.img" :alt="item.title" class="w-[40px] h-[40px] rounded object-cover">
@@ -64,9 +64,9 @@
 		</div>
 		<aside class="col-span-4 bg-gray-100 w-full px-4 py-6 rounded-md flex flex-col justify-between">
 			<div class="flex justify-between items-center pb-4">
-				<a href="#" class="underline text-md">
+				<button class="underline text-md" @click="useShopModal().openAddCustomer()">
 					Add Customer
-				</a>
+				</button>
 				<button class=" px-4 py-2 text-sm my-auto bg-red text-light rounded-md ">
 					Clear
 				</button>
@@ -75,7 +75,7 @@
 				<div
 					v-for="item in topProducts"
 					:key="item.title"
-					class="flex w-full items-center gap-3 py-2 border-t justify-between lg:flex-row flex-col"
+					class="flex w-full items-center gap-3 py-2 border-t justify-between lg:px-2 px-8"
 				>
 					<div>
 						<div class="flex items-center gap-2">
@@ -137,6 +137,7 @@
 import { onClickOutside } from '@vueuse/core'
 import Add from '@/assets/icons/src/add.vue'
 import down from '@/assets/icons/src/down.vue'
+import { useShopModal } from '@/composables/core/modals'
 
 definePageMeta({
 	layout: 'shop-default',
