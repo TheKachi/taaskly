@@ -13,7 +13,7 @@ const globalData = {
         price: ref(''),
         offerMsg: ref(''),
         status: ref(''),
-        step: ref(0)
+		step: ref(0)
     }
 
 export const useOfferTask = () => {
@@ -35,7 +35,11 @@ export const useOfferTask = () => {
 				type: credential.type.value,
 				price: credential.price.value,
 				status: credential.status.value,
-				offerMsg: credential.offerMsg.value
+				offerMsg: credential.offerMsg.value,
+				user: {
+					id: userId.value,
+					username: username.value
+				}
 			})
 			loading.value = false
 			useTaskModal().closeOfferTask()
@@ -58,8 +62,9 @@ export const useFetchOffers = () => {
 		if (offers.value.length > 0) return
         loading.value = true
         try {
-			await getFirestoreSubCollection('tasks', id, 'referrals', offers)
+			await getFirestoreSubCollection('tasks', id, 'offers', offers)
 			loading.value = false
+			console.log(offers.value)
 		} catch (e: any) {
 			loading.value = false
 			useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })

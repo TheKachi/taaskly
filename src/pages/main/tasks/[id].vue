@@ -6,19 +6,24 @@
 	</Head>
 	<!-- ========================================================================== -->
 	<div>
-		<TasksIdLoadingCard v-if="loading" :count="1" class="border-b !border-t-0" />
+		<TasksIdLoadingCard v-if="loading" :count="1" />
 		<div v-else>
 			<TasksIdCard :id="taskIdDetails.id" :key="taskIdDetails.id" :task="taskIdDetails" />
 		</div>
 
-		<TasksIdOffers />
+		<TasksIdOfferLoadingCard v-if="offerLoading" :count="3" />
+		<div v-else>
+			<TasksIdOffers v-for="offer in offers" :key="offer.id" :offer="offer" />
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { useFetchIdTask } from '@/composables/tasks/id'
+import { useFetchOffers } from '@/composables/tasks/offer'
 const { params, query, name } = useRoute()
 const { loading, fetchIdTask, taskIdDetails } = useFetchIdTask()
+const { fetchOffers, offers, loading: offerLoading } = useFetchOffers()
 
 definePageMeta({
 	layout: 'main-default'
@@ -26,6 +31,7 @@ definePageMeta({
 onMounted(() => {
 	const id = useRoute().params.id
 	fetchIdTask(id)
+	fetchOffers(id)
 })
 </script>
 
