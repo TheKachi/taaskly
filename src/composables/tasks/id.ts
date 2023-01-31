@@ -26,6 +26,10 @@ export const useTaskIdDetails = () => {
         taskIdDetails.value = task
         useRouter().push(`/main/tasks/${task.id}`)
     }
+    const showMyTaskIdDetailsPage = (task: any) => {
+        taskIdDetails.value = task
+        useRouter().push(`/main/tasks/u/${task.id}`)
+    }
 
-    return { showTaskIdDetailsPage }
+    return { showTaskIdDetailsPage, showMyTaskIdDetailsPage }
 }

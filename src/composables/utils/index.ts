@@ -44,12 +44,16 @@ export const decryptString = (text, key = 10) => {
 }
 
 export const convertToCurrency = (value: number) => {
+  let parseAmount
+  if (typeof value !== 'number') {
+       parseAmount = parseFloat((value as string).replace(',', '').replace(' ', ''))
+  } else {
+       parseAmount = value
+  }
   return new Intl.NumberFormat('en-NG', {
   style: 'currency',
   currency: 'NGN'
-}).format(value)
-
-  // value.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+}).format(parseAmount)
 }
 
 export const formatTime = (dateData: string) => {

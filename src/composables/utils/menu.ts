@@ -107,6 +107,11 @@ export const mainTopbarName = {
 		can_go_back: true,
 		back_routes: '/main/home'
 	},
+	'main-tasks-u-id': {
+		name: 'My Tasks',
+		can_go_back: true,
+		back_routes: '/main/home'
+	},
 	'main-home': {
 		name: 'Home',
 		can_go_back: false
