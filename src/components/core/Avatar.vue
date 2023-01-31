@@ -2,7 +2,7 @@
 	<span
 		v-if="name"
 		:style="`width: ${size}px; height: ${size}px; object-fit: cover;`"
-		class="flex items-center justify-center uppercase  bg-faded_primary text-dark font-bold rounded-full"
+		class="flex items-center justify-center uppercase  bg-faded_primary border border-[#69696a] text-dark font-bold rounded-full"
 	>
 		<span :style="`font-size: ${size/2}px;line-height: 1em`">{{ name[0] }}</span>
 	</span>
@@ -10,7 +10,7 @@
 		v-else
 		:src="src"
 		:style="`width: ${size}px; height: ${size}px; object-fit: cover;`"
-		class="!max-w-[1920px] rounded-full"
+		class="!max-w-[1920px] rounded-full border border-dark"
 	>
 </template>
 

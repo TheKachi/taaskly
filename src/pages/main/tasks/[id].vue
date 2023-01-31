@@ -6,14 +6,14 @@
 	</Head>
 	<!-- ========================================================================== -->
 	<div>
-		<TasksIdLoadingCard v-if="loading" :count="1" />
+		<TasksLoadingCard v-if="loading" :count="1" :inner="true" />
 		<div v-else>
-			<TasksIdCard :id="taskIdDetails.id" :key="taskIdDetails.id" :task="taskIdDetails" />
+			<TasksCard :id="taskIdDetails.id" :key="taskIdDetails.id" :task="taskIdDetails" :inner="true" />
 		</div>
 
 		<TasksIdOfferLoadingCard v-if="offerLoading" :count="3" />
 		<div v-else>
-			<TasksIdOffers v-for="offer in offers" :key="offer.id" :offer="offer" />
+			<TasksOffers v-for="offer in offers" :key="offer.id" :offer="offer" />
 		</div>
 	</div>
 </template>

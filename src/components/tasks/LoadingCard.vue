@@ -1,5 +1,5 @@
 <template>
-	<article v-for="n in count" :key="n" class="flex p-4  border-t border-dark  cursor-pointer">
+	<article v-for="n in count" :key="n" :class="[inner? 'border-b':'border-t', 'flex p-4   border-dark  cursor-pointer']">
 		<!-- <h1 class="text-4xl font-bold">
 			loading...
 		</h1> -->
@@ -35,6 +35,11 @@
 
 <script setup lang="ts">
 defineProps({
+	inner: {
+		type: Boolean,
+		default: false,
+		required: false
+	},
 	count: {
 		type: Number,
 		default: 3,

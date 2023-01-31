@@ -1,11 +1,11 @@
 <template>
-	<article class="card-body" @click="showTaskIdDetailsPage(task)">
+	<article :class="[inner? 'border-b':'border-t hover:border-x-[2.5px]', 'flex p-4   border-dark  cursor-pointer']" class="card-body" @click="showTaskIdDetailsPage(task)">
 		<div class="flex-shrink-0">
-			<Avatar :name="task.user.username" />
+			<Avatar v-if="task.user" :name="task.user.username" />
 		</div>
 		<div class="ml-4 flex flex-col items-start w-full">
 			<div class="text-lg font-bold">
-				<a href="#" class="text-dark capitalize">{{ task.user.username }}</a>
+				<a v-if="task.user" href="#" class="text-dark capitalize">{{ task.user.username }}</a>
 			</div>
 			<div class="flex items-center gap-2">
 				<BadgeSmall :name="Number(task.price)==0 ? 'Free': `#${task.price}`" class="bg-black text-white" />
@@ -48,6 +48,11 @@ const shareCard = (task) => {
 const { setFlagTaskId } = useFlagTask()
 
 const props = defineProps({
+		inner: {
+		type: Boolean,
+		default: false,
+		required: false
+	},
 	id: {
 		type: String || Number,
 		requireed: true,

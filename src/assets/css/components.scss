@@ -89,6 +89,9 @@
         }
     }
     .card-body {
-        @apply flex p-4  border-t border-dark  cursor-pointer hover:border-x-[2.5px] transite;
+        @apply flex p-4  border-dark  cursor-pointer transite;
+    }
+    .card-body:last-child {
+        @apply border-b;
     }
 }
