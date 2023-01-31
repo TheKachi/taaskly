@@ -54,8 +54,8 @@ export const useOfferTask = () => {
 	return { loading, setTask, ...globalData, credential, makeOffer }
 }
 
-const offers = ref([])
 export const useFetchOffers = () => {
+	const offers = ref([])
 	const loading = ref(false)
 
 		const fetchOffers = async (id:string) => {
