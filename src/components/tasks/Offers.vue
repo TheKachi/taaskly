@@ -26,6 +26,7 @@
 	</div>
 </template>
 
+
 <script setup lang="ts">
 import { convertToCurrency } from '@/composables/utils'
 
